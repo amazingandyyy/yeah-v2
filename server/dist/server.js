@@ -32,9 +32,9 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var _routes = require('./routes');
+var _api = require('./api');
 
-var _routes2 = _interopRequireDefault(_routes);
+var _api2 = _interopRequireDefault(_api);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -65,7 +65,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 // Import routes
 
 // API starts from here
-app.get('/api', _routes2.default);
+app.use('/api', _api2.default);
 
 // Run React front-end files(start from index.html)
 if (process.env.NODE_ENV !== 'production') {
@@ -81,6 +81,10 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-app.listen(process.env.PORT || 3050, function () {
-  return console.log('Listening on PORT:3050');
+app.use(function (err, req, res, next) {
+  res.status(422).send({ errors: err.message });
+});
+
+app.listen(process.env.PORT || 8000, function () {
+  return console.log('Listening on PORT:8000');
 });

@@ -1,68 +1,51 @@
 'use strict';
 
-var bcrypt = require('bcrypt-nodejs');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var token = require('../services').token;
-var User = require('./model');
+var _bcryptNodejs = require('bcrypt-nodejs');
 
-module.exports = {
-    signup: function signup(req, res) {
+var _bcryptNodejs2 = _interopRequireDefault(_bcryptNodejs);
+
+var _services = require('../services');
+
+var _model = require('./model');
+
+var _model2 = _interopRequireDefault(_model);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    signup: function signup(req, res, next) {
         var name = req.body.name;
         var email = req.body.email;
         var password = req.body.password;
 
-        if (!email || !password) {
-            return res.status(422).send({ error: 'You must provide email and password.' });
+        if (!name || !email || !password) {
+            return next();
         }
-        User.findOne({
-            email: email
-        }, function (err, existingUser) {
-            if (err) {
-                return res.status(422).send(err);
-            }
-            if (existingUser) {
-                return res.status(422).send({ error: 'Email is in use' });
-            }
-            var user = new User({ name: name, email: email, password: password });
-
-            user.save(function (err, savedUser) {
-                if (err) {
-                    return res.status(500).send(err);
-                }
-
-                res.json({
-                    success: true,
-                    token: token.generateToken(savedUser)
-                });
-            });
-        });
+        _model2.default.create({ name: name, email: email, password: password }).then(function (savedUser) {
+            res.json({ success: true, token: (0, _services.generateToken)(savedUser) });
+        }).catch(next);
     },
 
-    signin: function signin(req, res) {
+    signin: function signin(req, res, next) {
         var email = req.body.email;
         var password = req.body.password;
         if (!email || !password) {
-            return res.status(422).send({ error: 'You must provide email and password.' });
+            return next();
         }
-        User.findOne({
-            email: email
-        }, function (err, existingUser) {
-            if (err || !existingUser) {
-                return res.status(401).send(err || {
-                    error: "User Not Found"
+        _model2.default.findOne({ email: email }).select('+password').then(function (existingUser) {
+            _bcryptNodejs2.default.compare(password, existingUser.password, function (err, good) {
+                if (err || !good) {
+                    return next();
+                }
+                res.send({
+                    success: true,
+                    token: (0, _services.generateToken)(existingUser)
                 });
-            }
-            if (existingUser) {
-                bcrypt.compare(password, existingUser.password, function (err, good) {
-                    if (err || !good) {
-                        return res.status(401).send(err || 'User not found');
-                    }
-                    res.send({
-                        token: token.generateToken(existingUser)
-                    });
-                });
-            }
-        }).select('+password');
+            });
+        }).catch(next);
     }
-
 };
