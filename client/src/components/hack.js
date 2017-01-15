@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
+import { Loader } from './widgets';
 
 class Hack extends Component {
   componentWillMount() {
@@ -36,9 +37,7 @@ class Hack extends Component {
         })
     }
     return (
-      <div style={{margin: 'auto'}}>
-        <img src="https://s3-us-west-1.amazonaws.com/athons/loading.svg" className="fa fa-spin" style={{animation: 'fa-spin 0.7s infinite linear'}}/>
-      </div>
+      <Loader />
     )
   }
   render() {
