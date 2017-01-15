@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 require('dotenv').config();
 
 var config = {
-    jwt_secret: process.env.JWT_SECRET,
+    jwt_secret: process.env.JWT_SECRET || 'JWT_SECRETjwt_secretJWT_SECRET',
     mongo_uri: process.env.MONGODB_URI
 };
 
