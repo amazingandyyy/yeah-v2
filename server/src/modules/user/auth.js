@@ -1,81 +1,44 @@
-const bcrypt = require('bcrypt-nodejs')
+import bcrypt from 'bcrypt-nodejs';
 
-const token = require('../services').token;
-const User = require('./model');
+import {generateToken} from '../services';
+import User from './model';
 
-module.exports = {
-    signup: function (req, res) {
+export default {
+    signup : (req, res, next) => {
         const name = req.body.name;
         const email = req.body.email;
         const password = req.body.password;
 
-        if (!email || !password) {
-            return res
-                .status(422)
-                .send({error: 'You must provide email and password.'})
+        if (!name || !email || !password) {
+            return next()
         }
         User
-            .findOne({
-                email: email
-            }, function (err, existingUser) {
-                if (err) {
-                    return res
-                        .status(422)
-                        .send(err)
-                }
-                if (existingUser) {
-                    return res
-                        .status(422)
-                        .send({error: 'Email is in use'});
-                }
-                const user = new User({name: name, email: email, password: password})
-
-                user.save(function (err, savedUser) {
-                    if (err) {
-                        return res.status(500).send(err);
-                    }
-
-                    res.json({
-                        success: true,
-                        token: token.generateToken(savedUser)
-                    })
-                })
+            .create({name, email, password})
+            .then(savedUser => {
+                res.json({success: true, token: generateToken(savedUser)})
             })
+            .catch(next);
     },
 
-    signin: function (req, res) {
+    signin : function (req, res, next) {
         const email = req.body.email;
         const password = req.body.password;
         if (!email || !password) {
-            return res
-                .status(422)
-                .send({error: 'You must provide email and password.'});
+            return next()
         }
         User
-            .findOne({
-                email: email
-            }, function (err, existingUser) {
-                if (err || !existingUser) {
-                    return res
-                        .status(401)
-                        .send(err || {
-                            error: "User Not Found"
+            .findOne({email: email})
+            .select('+password')
+            .then(existingUser => {
+                bcrypt
+                    .compare(password, existingUser.password, (err, good) => {
+                        if (err || !good) {return next()}
+                        res.send({
+                            success: true,
+                            token: generateToken(existingUser)
                         })
-                }
-                if (existingUser) {
-                    bcrypt
-                        .compare(password, existingUser.password, function (err, good) {
-                            if (err || !good) {
-                                return res
-                                    .status(401)
-                                    .send(err || 'User not found')
-                            }
-                            res.send({
-                                token: token.generateToken(existingUser)
-                            })
-                        })
-                }
-            }).select('+password')
+                    })
+            })
+            .catch(next)
     }
-    
 }

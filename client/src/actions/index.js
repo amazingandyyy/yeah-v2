@@ -1,6 +1,6 @@
 const axios = require('axios');
 import {browserHistory} from 'react-router';
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, TRY_CONNECT, FETCH_HACKATHON} from './types';
+import {TRY_CONNECT, FETCH_HACKATHON} from './types';
 const ROOT_URL = 'http://localhost:8000';
 
 axios.defaults.baseURL = ROOT_URL;
@@ -8,7 +8,6 @@ if (localStorage.getItem('token')) {
     axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
 }
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
 
 export function fetchInfo() {
     return function (dispatch) {

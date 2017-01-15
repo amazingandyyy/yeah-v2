@@ -16,7 +16,7 @@ const Schema = new mongoose.Schema({
   },
   email: {
     type: String,
-    unique: [true, 'Email is in use.'],
+    unique: true,
     lowercase: true
   },
   password: {
@@ -40,7 +40,13 @@ Schema
   .get(function () {
     return this.posts.length;
   });
-
+Schema.post('save', function(error, doc, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    next(new Error('email must be unique'));
+  } else {
+    next(error);
+  }
+});
 Schema.pre('save', function (next) {
   // get access to user model, then we can use user.email, user.password
   const user = this;

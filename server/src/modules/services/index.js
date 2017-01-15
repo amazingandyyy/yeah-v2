@@ -1,1 +1,1 @@
-module.exports = require('./token');
+export * from './token';

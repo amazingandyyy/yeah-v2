@@ -33,9 +33,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Import routes
-import routesSetting from './routes';
+import api from './api';
 // API starts from here
-app.get('/api', routesSetting);
+app.use('/api', api);
 
 // Run React front-end files(start from index.html)
 if (process.env.NODE_ENV !== 'production') {
@@ -51,4 +51,8 @@ if (process.env.NODE_ENV !== 'production') {
     })
 }
 
-app.listen(process.env.PORT || 3050, () => console.log('Listening on PORT:3050'));
+app.use((err, req, res, next) => {
+  res.status(422).send({ errors: err.message });
+});
+
+app.listen(process.env.PORT || 8000, () => console.log('Listening on PORT:8000'));
