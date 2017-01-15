@@ -7,7 +7,9 @@
     "start": "node server/server.js",
     "build": "NODE_ENV=production npm run clean && webpack -p",
     "clean": "rimraf ./client/dist",
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server",
+    "push": "git add . && git commit -m 'deploy to aws eb' ",
+    "deploy": "npm run build && npm run push && eb deploy"
   },
   "author": "amazingandyyy",
   "license": "ISC",
