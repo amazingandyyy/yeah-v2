@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './header';
 import Footer from './footer';
+import $ from 'jquery';
 
 export default class App extends Component {
   render() {
@@ -12,4 +13,9 @@ export default class App extends Component {
       </div>
     );
   }
+  componentDidMount() {
+        $('.logo-text').on('click', () => {
+            console.log('logo-text cliecked');
+        })
+    }
 }

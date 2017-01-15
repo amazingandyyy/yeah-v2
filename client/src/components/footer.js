@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         return(
             <div className="footer">
-                Copyright © 2017 Athons All rights reserved. built by <a target="_blank" href="http://amazingandyyy.github.io/">Amazingandyyy</a>
+                Copyright © 2017 <a target="_blank" href="http://amazingandyyy.github.io/">Amazingandyyy</a> All rights reserved
             </div>
         )
     }
