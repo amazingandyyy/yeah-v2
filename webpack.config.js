@@ -17,11 +17,11 @@ const VENDER_LIBS = [
 
 module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: './client/src/index.js',
     vendor: VENDER_LIBS
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'client/dist'),
     filename: '[name].[chunkhash].js'
   },
   module: {
@@ -59,7 +59,7 @@ module.exports = {
       .CommonsChunkPlugin({
         names: ['vendor', 'manifest']
       }),
-    new HtmlWebpackPlugin({template: 'src/index.html'}),
+    new HtmlWebpackPlugin({template: 'client/src/index.html'}),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),

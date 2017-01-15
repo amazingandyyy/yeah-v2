@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/server.js",
     "build": "NODE_ENV=production npm run clean && webpack -p",
-    "clean": "rimraf dist",
+    "clean": "rimraf ./client/dist",
     "serve": "webpack-dev-server"
   },
   "author": "amazingandyyy",
