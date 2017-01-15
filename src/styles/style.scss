@@ -1,0 +1,23 @@
+body {
+    padding-top: 0px;
+    background-color: rgba(0,0,0,0.03);
+}
+
+@media (min-width: 767px) { 
+    .center-block {
+        max-width: 500px;
+        margin: auto;
+    }
+ }
+
+@import './variable';
+@import './header';
+@import './home';
+@import './hack';
+@import './footer';
+
+.container {
+    max-width: 760px;
+    padding: 20px;
+    margin: auto;
+}

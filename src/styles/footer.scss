@@ -1,0 +1,22 @@
+// .footer {
+//     padding: 10px 10px;
+//     background: #00675A;
+//     color: #00deaf;
+//     text-align: center;
+//     a {
+//         color: #00deaf;
+//         border-bottom: 1px dotted #00deaf;
+//     }
+// }
+.footer {
+    padding: 10px 10px;
+    background: rgba($black, 0.8);
+    color: $white;
+    text-align: center;
+    font-size: 0.65em;
+    a {
+        color: inherit;
+        text-decoration: underline;
+        border-bottom: 1px dotted inherit;
+    }
+}

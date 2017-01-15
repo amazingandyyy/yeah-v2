@@ -1,0 +1,38 @@
+.jumbotron {
+    font-family: $sans;
+    background: #00DEAF;
+
+    .display-5 {
+        font-weight: 700;
+        line-height: 0.9em;
+        font-size:3em;
+    }
+
+    .lead {
+        font-size: 2em;
+        font-weight: 500;
+        span {
+            display: inline-block;
+
+            &:hover {
+                cursor: pointer;
+                border-bottom: 1px dotted black;
+            }
+        }
+    }
+
+    @media (min-width: 767px) { 
+    .display-5 {
+        font-weight: 900;
+        font-size: 6em;
+    }
+
+    .lead {
+        span {
+            display: inline-block;
+        }
+    }
+ }
+
+}
+
