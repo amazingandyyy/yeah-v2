@@ -9,7 +9,7 @@
     "clean": "rimraf ./client/dist",
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
-    "deploy": "npm run build && npm run push && eb deploy"
+    "deploy": "npm run build && npm run push && eb deploy && eb open"
   },
   "author": "amazingandyyy",
   "license": "ISC",
