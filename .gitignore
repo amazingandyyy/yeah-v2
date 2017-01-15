@@ -1,4 +1,7 @@
 .env
+npm_debug.log
+.DS_STORE
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

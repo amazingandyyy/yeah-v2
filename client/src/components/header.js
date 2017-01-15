@@ -28,7 +28,7 @@ class Header extends Component {
         return (
             <div className="header">
                 <div className="container">
-                    <div className="logo-text">ATHONS</div>
+                    <div className="logo-text">YEAH</div>
                     <div className="icon-genius"></div>
                 </div>
             </div>
