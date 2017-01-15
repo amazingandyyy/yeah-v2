@@ -1,5 +1,5 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
+import path from 'path';
 
 const app = express();
 
@@ -8,7 +8,7 @@ app.get('/api', (req, res) => res.send({message: 'api work!'}));
 if (process.env.NODE_ENV !== 'production') {
     const webpackMiddleware = require('webpack-dev-middleware');
     const webpack = require('webpack');
-    const webpackConfig = require('../webpack.config.js');
+    const webpackConfig = require('../../webpack.config.js');
 
     app.use(webpackMiddleware(webpack(webpackConfig)));
 } else {

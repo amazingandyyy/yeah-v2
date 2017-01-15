@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "build": "NODE_ENV=production npm run clean && webpack -p",
-    "clean": "rimraf ./client/dist",
+    "start": "node ./server/dist/server.js",
+    "dev": "babel-watch ./server/src/server.js",
+    "build-c": "NODE_ENV=production rimraf ./client/dist && webpack -p",
+    "build-s": "rimraf ./server/dist && babel ./server/src -d ./server/dist",
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
+    "build": "npm run build-c && npm run build-s",
     "deploy": "npm run build && npm run push && eb deploy && eb open"
   },
   "author": "amazingandyyy",
