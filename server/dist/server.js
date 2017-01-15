@@ -45,12 +45,12 @@ require('dotenv').config();
 
 
 // MongoDB Setup
-var MONGOURL = _config2.default.mongo_uri || process.env.MONGODB_URI;
+var MONGOURL = _config2.default.mongo_uri;
 if (!_config2.default.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
   _mongoose2.default.connect(MONGOURL, function (err) {
-    console.log(err || 'Connected to MongoDB: ' + MONGOURL);
+    console.log(err || 'Connected to MongoDB');
   });
   _mongoose2.default.Promise = global.Promise;
 }
