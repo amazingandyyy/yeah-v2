@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "build": "NODE_ENV=production npm run clean && webpack -p",
     "clean": "rimraf dist",
     "serve": "webpack-dev-server"
