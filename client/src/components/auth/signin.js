@@ -20,6 +20,7 @@ class Signin extends Component {
         // console.log('this.props;: ', this.props);
         const {handleSubmit} = this.props;
         return (
+            <div className="signin-component container">
             <div className="card card-block center-block">
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -51,6 +52,8 @@ class Signin extends Component {
                     <button type="submit" className="btn btn-primary">Sign in</button>
                 </form>
             </div>
+            </div>
+
         );
     }
 }

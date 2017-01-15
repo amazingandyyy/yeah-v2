@@ -13,11 +13,12 @@ body {
 @import './variable';
 @import './header';
 @import './home';
-@import './hack';
 @import './footer';
 
+@import './signin';
+
 .container {
-    max-width: 760px;
+    // max-width: 760px;
     padding: 20px;
     margin: auto;
 }

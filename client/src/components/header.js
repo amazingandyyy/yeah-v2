@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router';
 
-
 class Header extends Component {
     renderSignButton(){
         if (this.props.authenticated){
@@ -28,10 +27,13 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                <div className="container">
-                    <div className="logo-text">YEAH</div>
-                    <div className="icon-genius"></div>
-                </div>
+            <nav className="navbar  navbar-toggleable-xl navbar-light bg-faded">
+            <Link className="navbar-brand" to="/">Yeah</Link>
+            <div className="navbar-nav">
+                <Link className="nav-item nav-link" to="/signin">Sign in</Link>
+                <Link className="nav-item nav-link" to="/signup">Sign up</Link>
+            </div>
+            </nav>
             </div>
         )
     }
