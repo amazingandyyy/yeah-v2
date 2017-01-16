@@ -3,7 +3,7 @@ import { CREATE_VOLUNTEER_CHANCE, FETCH_ALL_VOLUNTEER_CHANCES } from './types';
 import { hashHistory } from 'react-router';
 
 function createVolunteerResource(resource) {
-    return function (dispatch) {
+    return (dispatch) => {
         axios
             .post(`/api/volunteer/createResource`, resource)
             .then(res => {
@@ -17,7 +17,7 @@ function createVolunteerResource(resource) {
 }
 
 function fetchAllVolunteerResources() {
-    return function (dispatch) {
+    return (dispatch) => {
         axios
             .get(`/api/volunteer/fetchAll`)
             .then(res => {
