@@ -28,7 +28,7 @@ class Header extends Component {
         return (
             <div className="header-component">
             <nav className="navbar  navbar-toggleable-xl navbar-light bg-faded">
-            <Link className="navbar-brand" to="/">Yo</Link>
+            <Link className="navbar-brand" to="/">YEAH</Link>
             <div className="navbar-nav">
                 <Link className="nav-item nav-link" to="/signin">Sign in</Link>
                 <Link className="nav-item nav-link" to="/signup">Sign up</Link>
