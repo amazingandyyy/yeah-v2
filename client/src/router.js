@@ -9,6 +9,8 @@ import Signout from './components/auth/signout'
 import Dashboard from './components/dashboard';
 import Start from './components/dashboard/start';
 import Setting from './components/dashboard/setting';
+import Explore from './components/dashboard/explore';
+import Admin from './components/dashboard/admin';
 
 import RequireAuth from './components/auth/require_auth';
 
@@ -25,7 +27,8 @@ const RouterComponent = () => {
                 <IndexRoute component= {Start} />
                 <Route path="/dashboard/start" component= {Start} />
                 <Route path="/dashboard/setting" component= {Setting} />
-                <Route path="/dashboard/setting" component= {Setting} />
+                <Route path="/dashboard/explore" component= {Explore} />
+                <Route path="/dashboard/admin" component= {Admin} />
             </Route>
         </Router>
     )

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-export default class Start extends Component {
+export default class Explore extends Component {
   render() {
     return (
       <div className="display-componet">
-          <div className="header">Start</div>
+          <div className="header">Explore</div>
           <div className="content">
           <div className="container">
-            Start
+            Explore
           </div>
           </div>
         </div>

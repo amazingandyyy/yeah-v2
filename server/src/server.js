@@ -11,14 +11,20 @@ import config from './config';
 import cors from 'cors';
 import path from 'path';
 
+let MONGOURL;
+
 // MongoDB Setup
-const MONGOURL = config.mongo_uri;
+if (process.env.NODE_ENV !== 'production') {
+  MONGOURL = config.mongo_local_uri;
+}else{
+  MONGOURL = config.mongo_uri;
+}
 if (!config.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
   mongoose
     .connect(MONGOURL, function(err) {
-      console.log(err || `Connected to MongoDB`);
+      console.log(err || `Connected to MongoDB ${MONGOURL.split(':')[1]}`);
     });
   mongoose.Promise = global.Promise;
 }

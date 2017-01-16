@@ -8,3 +8,4 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 export * from './auth';
 export * from './profile';
+export * from './admin';

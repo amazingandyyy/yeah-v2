@@ -5,8 +5,7 @@ import {
 export default (state={}, action) => {
     switch (action.type) {
         case FETCH_PROFILE:
-            console.log('hey', action.payload)
-            return { ...state, ...action.payload}
+            return { ...state, ...action.payload };
     }
     return state;
 }
