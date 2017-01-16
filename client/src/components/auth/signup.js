@@ -25,6 +25,7 @@ class Signup extends Component {
         // console.log('this.props;: ', this.props);
         const {handleSubmit, password} = this.props;
         return (
+            <div className="auth-component">
             <div className="card card-block center-block">
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -75,6 +76,7 @@ class Signup extends Component {
                     {this.renderAlert()}
                     <button type="submit" className="btn btn-primary">Sign Up</button>
                 </form>
+            </div>
             </div>
         );
     }

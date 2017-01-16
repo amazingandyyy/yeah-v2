@@ -5,7 +5,13 @@ import {
     TRY_CONNECT
 } from '../actions/types';
 
-export default function(state={}, action) {
+const INITIAL_STATE={
+    error: '',
+    authenticated: null,
+    status: null
+}
+
+export default function(state=INITIAL_STATE, action) {
     switch (action.type) {
         case AUTH_USER:
             return { ...state, error: '', authenticated: true}

@@ -26,7 +26,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <div className="header">
+            <div className="header-component">
             <nav className="navbar  navbar-toggleable-xl navbar-light bg-faded">
             <Link className="navbar-brand" to="/">Yeah</Link>
             <div className="navbar-nav">

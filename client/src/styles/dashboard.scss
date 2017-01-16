@@ -1,5 +1,39 @@
 .dashboard-component {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.01);
     font-family: $sans;
-    
+    .display-componet {
+        .header {
+            background: rgba($white, 0.975);
+            border-bottom: 1px solid $gray;
+            box-shadow: 0px -1px 5px -1px rgba($black, 0.1);
+            color: $black;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            left: 248px;
+            margin: auto;
+            text-align: center;
+            z-index: 99;
+            padding: 20px 20px;
+            text-align: left;
+            font-size: 1.2em;
+            height: 67px;
+        }
+        .content {
+            position: relative;
+            top: -1px;
+            right: 0px;
+            padding-left: 248px;
+            padding-top: 67px;
+            margin: auto;
+            min-height: 100vh;
+            overflow: hidden;
+
+            .container {
+                padding: 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+        }
+    }
 }

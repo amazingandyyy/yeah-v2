@@ -4,34 +4,28 @@ import { Icon } from '../widgets';
 
 const Drawer = () => {
     return (
-        <div className="drawer">
-          <Link to="/home">
+        <div className="drawer-component">
+          <Link to="/dashboard">
           <div className="item" id="header">
             <span className="icon"><Icon name="home" /></span>
             <span className="title">Dashboard</span>
           </div>
           </Link>
-          <Link to="/home">
+          <Link to="/dashboard/start">
           <div className="item">
             <span className="icon"><Icon name="home" /></span>
             <span className="title">Home</span>
           </div>
           </Link>
-          <Link to="/explore">
+          <Link to="/dashboard/explore">
           <div className="item">
             <span className="icon"><Icon name="catalog" /></span>
             <span className="title">Explore</span>
           </div>
           </Link>
-          <Link to="/resume">
-          <div className="item">
-            <span className="icon"><Icon name="catalog" /></span>
-            <span className="title">Resume</span>
-          </div>
-          </Link>
 
           <div className="bottom">
-          <Link to="/setting">
+          <Link to="/dashboard/setting">
             <div className="item">
               <span className="icon"><Icon name="setting" /></span>
               <span className="title">Settings</span>

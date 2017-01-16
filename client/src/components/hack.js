@@ -36,9 +36,7 @@ class Hack extends Component {
           )
         })
     }
-    return (
-      <Loader />
-    )
+    return <Loader />
   }
   render() {
     return (

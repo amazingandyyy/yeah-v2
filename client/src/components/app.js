@@ -8,7 +8,9 @@ export default class App extends Component {
     return (
       <div>
         <Header />
+          <div style={{paddingTop: '57px', paddingBottom: '50px'}}>
           {this.props.children}
+          </div>
         <Footer />
       </div>
     );

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
-const autopopulate = require('mongoose-autopopulate');
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt-nodejs';
+import autopopulate from 'mongoose-autopopulate';
 
 // Define the model
 const Schema = new mongoose.Schema({
@@ -92,4 +92,4 @@ Schema.statics.comparedPassword = function (candidatePassword, cb) {
     })
 }
 
-module.exports = mongoose.model('User', Schema);
+export default mongoose.model('User', Schema);

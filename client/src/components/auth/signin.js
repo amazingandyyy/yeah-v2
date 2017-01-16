@@ -20,7 +20,7 @@ class Signin extends Component {
         // console.log('this.props;: ', this.props);
         const {handleSubmit} = this.props;
         return (
-            <div className="signin-component container">
+            <div className="auth-component">
             <div className="card card-block center-block">
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}

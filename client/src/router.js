@@ -5,6 +5,7 @@ import Home from './components/home';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout'
+
 import Dashboard from './components/dashboard';
 import Start from './components/dashboard/start';
 import Setting from './components/dashboard/setting';
@@ -22,7 +23,9 @@ const RouterComponent = () => {
             </Route>
             <Route path="/dashboard" component= {RequireAuth(Dashboard)}>
                 <IndexRoute component= {Start} />
-                <Route path="/setting" component= {Setting} />
+                <Route path="/dashboard/start" component= {Start} />
+                <Route path="/dashboard/setting" component= {Setting} />
+                <Route path="/dashboard/setting" component= {Setting} />
             </Route>
         </Router>
     )
