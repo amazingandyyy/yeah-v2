@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 import App from './components/app';
 import Home from './components/home';
 import Signin from './components/auth/signin';
@@ -13,7 +13,7 @@ import RequireAuth from './components/auth/require_auth';
 
 const RouterComponent = () => {
     return (
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component= {App}>
                 <IndexRoute component= {Home} />
                 <Route path="/signin" component= {Signin} />

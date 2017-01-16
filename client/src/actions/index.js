@@ -1,5 +1,4 @@
 const axios = require('axios');
-import {browserHistory} from 'react-router';
 import {TRY_CONNECT, FETCH_HACKATHON} from './types';
 const ROOT_URL = 'http://localhost:8000';
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { AUTH_ERROR, AUTH_USER, UNAUTH_USER } from './types';
-import { browserHistory } from 'react-router';
+import { browserHistory, hashHistory } from 'react-router';
 
 function signUserIn({email, password}) {
     return function (dispatch) {
@@ -10,7 +10,7 @@ function signUserIn({email, password}) {
             .then(res => {
                 dispatch({type: AUTH_USER})
                 localStorage.setItem('token', res.data.token);
-                browserHistory.push('/dashboard')
+                hashHistory.push('/dashboard')
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             })
             .catch(error => {
@@ -29,7 +29,7 @@ function signUserUp(userObj) {
                 dispatch({type: AUTH_USER})
                 console.log('res/data: ', res.data)
                 localStorage.setItem('token', res.data.token);
-                browserHistory.push('/dashboard')
+                hashHistory.push('/dashboard')
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             })
             .catch(error => {

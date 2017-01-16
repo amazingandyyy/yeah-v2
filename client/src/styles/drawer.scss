@@ -1,0 +1,53 @@
+.drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #2E3D49;
+    height: 100vh;
+    min-height: 50vh;
+    min-width: 250px;
+    padding: 0px;
+    margin: 0px;
+
+    .item {
+        color: #afafaf;
+        cursor: pointer;
+        padding: 20px 20px;
+        line-height: 20px;
+        vertical-align: center;
+        &:hover{
+            cursor: pointer;
+            background: lighten(#2E3D49, 3%);
+            color: white;
+            .icon {
+                opacity: 1;
+            }
+        }
+        &#header {
+            text-align: left;
+            color: white;
+            background: #1C262F;            
+        }
+        .icon {
+            opacity: 0.6;
+        }
+
+        .title {
+            color: inherit;
+            position: relative;
+            left: 15px;
+            top: 2px;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        
+    }
+    .bottom{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+}
