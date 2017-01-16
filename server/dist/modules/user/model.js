@@ -1,11 +1,25 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-var autopopulate = require('mongoose-autopopulate');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
+var _bcryptNodejs = require('bcrypt-nodejs');
+
+var _bcryptNodejs2 = _interopRequireDefault(_bcryptNodejs);
+
+var _mongooseAutopopulate = require('mongoose-autopopulate');
+
+var _mongooseAutopopulate2 = _interopRequireDefault(_mongooseAutopopulate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Define the model
-var Schema = new mongoose.Schema({
+var Schema = new _mongoose2.default.Schema({
   name: {
     type: String,
     validate: {
@@ -35,7 +49,7 @@ var Schema = new mongoose.Schema({
   }
 });
 
-Schema.plugin(autopopulate);
+Schema.plugin(_mongooseAutopopulate2.default);
 
 Schema.virtual('postCount').get(function () {
   return this.posts.length;
@@ -51,12 +65,12 @@ Schema.pre('save', function (next) {
   // get access to user model, then we can use user.email, user.password
   var user = this;
 
-  bcrypt.genSalt(10, function (err, salt) {
+  _bcryptNodejs2.default.genSalt(10, function (err, salt) {
     if (err) {
       return next(err);
     }
 
-    bcrypt.hash(user.password, salt, null, function (err, hash) {
+    _bcryptNodejs2.default.hash(user.password, salt, null, function (err, hash) {
       if (err) {
         return next(err);
       }
@@ -67,7 +81,7 @@ Schema.pre('save', function (next) {
 });
 
 Schema.pre('remove', function (next) {
-  var Organization = mongoose.model('Organization');
+  var Organization = _mongoose2.default.model('Organization');
 
   Organization.remove({
     _id: {
@@ -79,7 +93,7 @@ Schema.pre('remove', function (next) {
 });
 
 Schema.statics.comparedPassword = function (candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function (err, good) {
+  _bcryptNodejs2.default.compare(candidatePassword, this.password, function (err, good) {
     if (err) {
       return cb(err);
     };
@@ -87,4 +101,4 @@ Schema.statics.comparedPassword = function (candidatePassword, cb) {
   });
 };
 
-module.exports = mongoose.model('User', Schema);
+exports.default = _mongoose2.default.model('User', Schema);

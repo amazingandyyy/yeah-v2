@@ -3,29 +3,34 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var User = require('./modules/user/model');
-var token = require('./modules/services/token').token;
+exports.loginRequired = undefined;
+
+var _model = require('./modules/user/model');
+
+var _model2 = _interopRequireDefault(_model);
+
+var _services = require('./modules/services');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var loginRequired = function loginRequired(req, res, next) {
+
     if (!req.header('Authorization')) {
         return res.status(401).send({ message: 'Please make sure your request has an Authorization header.' });
     }
     // Validate jwt
-    var try_token = req.header('Authorization').split(' ')[0];
-    token.verifyToken(try_token, function (err, payload) {
+    var token = req.header('Authorization').split(' ')[0];
+    (0, _services.verifyToken)(token, function (err, payload) {
         if (err) {
-            return res.status(401).send(err);
+            return next();
         }
-        User.findById(payload.sub).exec(function (err, user) {
-
-            if (err || !user) {
-                return res.status(404).send(err || {
-                    error: 'middleware User not found!!!'
-                });
+        _model2.default.findById(payload.sub).then(function (dbUser) {
+            if (err || !dbUser) {
+                return next();
             }
-            req.user = user;
+            req.user = dbUser;
             next();
-        });
+        }).catch(next);
     });
 };
 
