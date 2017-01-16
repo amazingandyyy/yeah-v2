@@ -7,7 +7,8 @@ require('dotenv').config();
 
 var config = {
     jwt_secret: process.env.JWT_SECRET || 'JWT_SECRETjwt_secretJWT_SECRET',
-    mongo_uri: process.env.MONGODB_URI
+    mongo_uri: process.env.MONGODB_URI,
+    mongo_local_uri: 'mongodb://localhost/yeah-v2-sendbox'
 };
 
 exports.default = config;

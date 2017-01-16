@@ -44,13 +44,19 @@ require('dotenv').config();
 // import packages
 
 
+var MONGOURL = void 0;
+
 // MongoDB Setup
-var MONGOURL = _config2.default.mongo_uri;
+if (process.env.NODE_ENV !== 'production') {
+  MONGOURL = _config2.default.mongo_local_uri;
+} else {
+  MONGOURL = _config2.default.mongo_uri;
+}
 if (!_config2.default.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
   _mongoose2.default.connect(MONGOURL, function (err) {
-    console.log(err || 'Connected to MongoDB');
+    console.log(err || 'Connected to MongoDB ' + MONGOURL.split(':')[1]);
   });
   _mongoose2.default.Promise = global.Promise;
 }
