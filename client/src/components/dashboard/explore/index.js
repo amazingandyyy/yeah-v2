@@ -9,6 +9,9 @@ export default class Explore extends Component {
           <div className="content">
           <div className="container">
             <Volunteer />
+            <Volunteer />
+            <Volunteer />
+            <Volunteer />
           </div>
           </div>
       </div>

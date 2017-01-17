@@ -7,7 +7,7 @@
             border-bottom: 1px solid $gray;
             box-shadow: 0px -1px 5px -1px rgba($black, 0.1);
             color: $black;
-            position: absolute;
+            position: fixed;
             top: 0px;
             right: 0px;
             left: 248px;
@@ -17,7 +17,7 @@
             padding: 20px 20px;
             text-align: left;
             font-size: 1.2em;
-            height: 67px;
+            height: 60px;
         }
         .content {
             position: relative;
@@ -28,26 +28,27 @@
             margin: auto;
             min-height: 100vh;
             overflow: hidden;
+            overflow-y: scroll;
 
             .container {
                 padding: 20px;
                 max-width: 960px;
                 margin: auto;
                 width: 100%;
+                padding-bottom: 50px;
             }
         }
 
         &.explore {
             .section {
-                padding: 30px 0px;
-
                 .title {
                     color: #2e3d49;
                     font-size: 0.8em;
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-weight: 600;
-                    margin-bottom: 0.6rem;
+                    margin-bottom: 0.4rem;
+                    margin-top: 0.7rem;
                 }
             }
 
