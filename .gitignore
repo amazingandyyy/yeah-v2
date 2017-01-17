@@ -2,11 +2,8 @@
 npm_debug.log
 npm-debug.log
 .DS_STORE
-<<<<<<< HEAD
-node_modules
-=======
 node_modules/
->>>>>>> origin/master
+dist/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
