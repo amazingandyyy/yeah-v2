@@ -7,12 +7,9 @@ export default class Explore extends Component {
       <div className="display-componet explore">
           <div className="header">Explore</div>
           <div className="content">
-          <div className="container">
             <Volunteer />
             <Volunteer />
             <Volunteer />
-            <Volunteer />
-          </div>
           </div>
       </div>
     );

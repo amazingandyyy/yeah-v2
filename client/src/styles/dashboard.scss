@@ -10,7 +10,7 @@
             position: fixed;
             top: 0px;
             right: 0px;
-            left: 248px;
+            left: 249px;
             margin: auto;
             text-align: center;
             z-index: 99;
@@ -23,11 +23,11 @@
             position: relative;
             top: -1px;
             right: 0px;
-            padding-left: 248px;
-            padding-top: 67px;
+            padding-left: 249px;
+            padding-top: 60px;
             margin: auto;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             overflow-y: scroll;
 
             .container {
@@ -41,27 +41,60 @@
 
         &.explore {
             .section {
+                 position: relative;
+                .h-scrollable {
+                    padding-left: 20px;
+                    border-right: 1px solid rgba($gray, 0);
+                    border-left: 1px solid rgba($gray, 0);
+                    height: 410px;
+                    overflow: auto;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                    -ms-overflow-style: -ms-autohiding-scrollbar;
+                    &:hover {
+                        border-right: 1px solid $gray;
+                        border-left: 1px solid $gray;
+                    }
+                }
                 .title {
                     color: #2e3d49;
                     font-size: 0.8em;
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-weight: 600;
-                    margin-bottom: 0.4rem;
-                    margin-top: 0.7rem;
+                    padding-top: 50px;
+                    padding-left: 35px
+                }
+                .blur {
+                    background: rgba(255,255,255,1);
+                    filter: blur(6px);
+                    width: 50px;
+                    z-index: 92;
+                    height: 420px;
+                    position: absolute;
+                    top: 15px;
+                    bottom: 0;
+
+                    &.left {
+                        left: -10px;
+                    }
+                    &.right {
+                        right: -30px;
+                    }
                 }
             }
 
             .resource.card {
+                white-space: normal;
                 cursor: pointer;
-                float: left;
                 height: 360px;
-                width: 28%;
+                width: 255px;
+                display: inline-block;
 
                 margin: 15px;
                 margin-top: 15px;
                 margin-bottom: 15px;
-                display: block;
+                // display: block;
                 min-width: 250px;
 
                 border: 0px solid rgba(0,0,0,0);

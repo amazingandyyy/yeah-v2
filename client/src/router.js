@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 import App from './components/app';
 import Home from './components/home';
@@ -20,20 +20,21 @@ import RequireAuth from './components/auth/require_auth';
 const RouterComponent = () => {
     return (
         <Router history={hashHistory}>
-            <Route path="/" component= {App}>
-                <IndexRoute component= {Home} />
-                <Route path="/signin" component= {Signin} />
-                <Route path="/signup" component= {Signup} />
-                <Route path="/signout" component= {Signout} />
+            <Route path="/" component={App}>
+                <IndexRoute component={Home}/>
+                <Route path="/signin" component={Signin} />
+                <Route path="/signup" component={Signup}/>
+                <Route path="/signout" component={Signout}/>
             </Route>
-            <Route path="/dashboard" component= {RequireAuth(Dashboard)}>
-                <IndexRoute component= {Start} />
-                <Route path="/dashboard/start" component= {Start} />
-                <Route path="/dashboard/setting" component= {Setting} />
-                <Route path="/dashboard/explore" component= {Explore} />
-                <Route path="/dashboard/admin" component= {Admin}>
-                    <Route path="/dashboard/admin/volunteer" component= {VolunteerAdmin} />
-                    <Route path="/dashboard/admin/cources" component= {CourcesAdmin} />
+            <Route path="/dashboard" component={RequireAuth(Dashboard)}>
+                <IndexRoute component={Start}/>
+                <Route path="/dashboard/start" component={Start}/>
+                <Route path="/dashboard/setting" component={Setting}/>
+                <Route path="/dashboard/explore" component={Explore}/>
+                <Route path="/dashboard/admin" component={Admin}>
+                    <IndexRoute component={VolunteerAdmin} />
+                    <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
+                    <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
                 </Route>
             </Route>
         </Router>
