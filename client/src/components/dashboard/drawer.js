@@ -6,7 +6,7 @@ class Drawer extends Component {
   renderAdmin() {
     if(true){
       return (
-        <Link to="/dashboard/admin">
+        <Link to="/dashboard/admin" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="setting"/></span>
             <span className="title">Admin</span>
@@ -19,20 +19,19 @@ class Drawer extends Component {
   }
   render() {
     return (
-      <div className="drawer-component">
+      <div className="drawer-component" activeClassName="active">
         <Link to="/dashboard">
           <div className="item" id="header">
-            <span className="icon"><Icon name="home"/></span>
             <span className="title">Dashboard</span>
           </div>
         </Link>
-        <Link to="/dashboard/start">
+        <Link to="/dashboard/start" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="home"/></span>
             <span className="title">Home</span>
           </div>
         </Link>
-        <Link to="/dashboard/explore">
+        <Link to="/dashboard/explore" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="catalog"/></span>
             <span className="title">Explore</span>
@@ -42,14 +41,14 @@ class Drawer extends Component {
 
         <div className="bottom">
         {this.renderAdmin()}
-          <Link to="/dashboard/setting">
+          <Link to="/dashboard/setting" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="setting"/></span>
               <span className="title">Settings</span>
             </div>
           </Link>
 
-          <Link to="/signout">
+          <Link to="/signout" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="logout"/></span>
               <span className="title">Logout</span>

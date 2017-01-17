@@ -3,6 +3,10 @@ body {
     background-color: rgba(0,0,0,0.03);
 }
 
+a:focus, a:active, a:hover {
+    text-decoration: none;
+}
+
 @media (min-width: 767px) { 
     .center-block {
         max-width: 500px;
