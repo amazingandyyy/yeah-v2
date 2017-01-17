@@ -14,7 +14,7 @@ import Explore from './components/dashboard/explore';
 import Admin from './components/dashboard/admin';
 import VolunteerAdmin from './components/dashboard/volunteerAdmin';
 import CourcesAdmin from './components/dashboard/courcesAdmin';
-
+import VolunteerDetail from './components/volunteer/details';
 import RequireAuth from './components/auth/require_auth';
 
 const RouterComponent = () => {
@@ -37,6 +37,7 @@ const RouterComponent = () => {
                     <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
                 </Route>
             </Route>
+            <Route path="/volunteer/:id" component={ VolunteerDetail } />
         </Router>
     )
 }

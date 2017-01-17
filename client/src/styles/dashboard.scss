@@ -43,11 +43,13 @@
             .section {
                  position: relative;
                 .h-scrollable {
+                    background: none;
                     padding-left: 20px;
                     border-right: 1px solid rgba($gray, 0);
                     border-left: 1px solid rgba($gray, 0);
-                    height: 410px;
-                    overflow: auto;
+                    height: 420px;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
                     white-space: nowrap;
                     -webkit-overflow-scrolling: touch;
                     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -85,16 +87,12 @@
             }
 
             .resource.card {
-                white-space: normal;
                 cursor: pointer;
                 height: 360px;
                 width: 255px;
                 display: inline-block;
 
-                margin: 15px;
-                margin-top: 15px;
-                margin-bottom: 15px;
-                // display: block;
+                margin: 0px 15px;
                 min-width: 250px;
 
                 border: 0px solid rgba(0,0,0,0);
@@ -139,6 +137,9 @@
                     }
                 }
                 .body {
+                    text-transform: capitalize;
+                    white-space: normal;
+                    word-wrap: break-word;
                     font-size: 1.5rem;
                     font-weight: 400;
                     padding: 24px 32px;
