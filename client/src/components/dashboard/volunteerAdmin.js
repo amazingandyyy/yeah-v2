@@ -3,14 +3,20 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import 'react-widgets/lib/less/react-widgets.less';
 import Multiselect from 'react-widgets/lib/Multiselect';
-
-
+import Moment from 'moment';
+import momentLocalizer from 'react-widgets/lib/localizers/moment';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
+
 
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
-        console.log('data: ', data);
-        this.props.createVolunteerResource(data);
+        // Getting data object
+    console.log('data: ', data);
+        //show the time 
+    console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
+    console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
+        // this.props.createVolunteerResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -23,8 +29,30 @@ class VolunteerAdmin extends Component{
         );
     }
 
+    renderDatePicker({input, ...rest}){
+
+        return(
+            <div>
+                <DateTimePicker time={false} {...rest} onChange={input.onChange} placeholder='Select Starting Date'/>
+            </div>    
+        );
+    }
+
+    renderTimePicker({input, ...rest}){
+
+        return(
+            <div>
+                <DateTimePicker calendar={false} {...rest} onChange={input.onChange} placeholder='Select Starting Time'/>
+            </div>    
+        );
+    }
+
     render(){
-        const tagList = ['Major','Library','IT'];
+        // Localize the time
+        momentLocalizer(Moment);
+
+        const tagList =['Animals','Computers','Children','Environment','Education','Homeless','Sports','Arts', 'Culture','Community','International'];
+        
         return (
             <form
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
@@ -53,10 +81,15 @@ class VolunteerAdmin extends Component{
                 </div>
                 <div>
                     <lable>When: </lable>
-                    <Field 
-                        type="text" 
+                    <Field  
+                        name="date" 
+                        component={this.renderDatePicker.bind(this)}
+                        className="form-control"
+                        required
+                    />
+                    <Field  
                         name="time" 
-                        component="input" 
+                        component={this.renderTimePicker.bind(this)}
                         className="form-control"
                         required
                     />
@@ -76,9 +109,9 @@ class VolunteerAdmin extends Component{
                 <div>
                     <lable>Tags:</lable>
                     <Field 
-                        name="tag"
+                        name="tags"
                         component={this.renderMultiselect.bind(this)}
-                        data={['Animals','Computers','Children','Environment','Education','Homeless','Sports']}
+                        data={tagList}
                     />
                 </div>
 
