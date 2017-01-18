@@ -10,11 +10,10 @@ import { reduxForm, Field } from 'redux-form';
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
         console.log('data: ', data);
-        this.props.createVolunteerResource(data);
+        // this.props.createVolunteerResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
-
         return (
             <Multiselect {...input}
                 onBlur={()=> input.onBlur()}
