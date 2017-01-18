@@ -11,8 +11,7 @@
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
     "build": "npm run build-c && npm run build-s",
-    "deploy": "npm run build && npm run push && eb deploy && eb open",
-    "postinstall": "npm i"
+    "deploy": "npm run build && npm run push && eb deploy && eb open"
   },
   "author": "amazingandyyy",
   "license": "ISC",
