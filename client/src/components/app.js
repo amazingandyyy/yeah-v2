@@ -16,8 +16,8 @@ export default class App extends Component {
     );
   }
   componentDidMount() {
-        $('.logo-text').on('click', () => {
-            console.log('logo-text cliecked');
-        })
-    }
+      $('.logo-text').on('click', () => {
+          console.log('logo-text cliecked');
+      })
+  }
 }

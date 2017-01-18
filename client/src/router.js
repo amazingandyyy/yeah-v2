@@ -16,6 +16,7 @@ import Admin from './components/dashboard/admin';
 import VolunteerAdmin from './components/dashboard/volunteerAdmin';
 import CourcesAdmin from './components/dashboard/courcesAdmin';
 import VolunteerDetail from './components/volunteer/details';
+import VolunteerDetailEdit from './components/volunteer/edit';
 import RequireAuth from './components/auth/require_auth';
 
 const RouterComponent = () => {
@@ -34,6 +35,7 @@ const RouterComponent = () => {
                 <Route path="/dashboard/explore" component={Explore}>
                     <IndexRoute component={ExploreBrowser} />
                     <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
+                    <Route path="/dashboard/explore/volunteer/:id/edit" component={ VolunteerDetailEdit } />
                 </Route>
                 <Route path="/dashboard/admin" component={Admin}>
                     <IndexRoute component={VolunteerAdmin} />

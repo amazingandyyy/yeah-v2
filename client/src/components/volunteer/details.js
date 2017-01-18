@@ -6,7 +6,8 @@ import { hashHistory } from 'react-router';
 
 class VolunteerDetails extends Component{
     componentWillMount() {
-        const Id = this.props.location.pathname.split('/').pop();
+        const pathname = this.props.location.pathname;
+        const Id = pathname.split('/').pop()
         this.props.fetchOneVolunteerChance(Id);
     }
     renderDetails(){
@@ -74,9 +75,17 @@ class VolunteerDetails extends Component{
     goBack(){
         hashHistory.goBack()
     }
+    goEdit() {
+        const uri = this.props.location.pathname;
+        const query = this.props.location.query;
+        hashHistory.push({pathname: `${uri}/edit`, query})
+    }
     render() {
         return(<span className="details-component">
-                <div className="header"><span className="backBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span></div>
+                <div className="header">
+                    <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
+                    <span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>
+                </div>
                 <div className="content">
                     {this.renderDetails()}
                 </div>
