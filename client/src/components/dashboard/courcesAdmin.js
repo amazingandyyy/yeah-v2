@@ -31,7 +31,7 @@ class CourcesAdmin extends Component{
 }
 
 CourcesAdmin = reduxForm({
-    form: 'createVolunteerResource'
+    form: 'createCourceResource'
 }, null, actions)(CourcesAdmin);
 
 export default connect(null, actions)(CourcesAdmin);
