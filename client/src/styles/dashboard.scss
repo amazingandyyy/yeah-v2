@@ -41,6 +41,9 @@
             min-height: 100vh;
             overflow-x: hidden;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+
 
             .container {
                 padding: 20px;
