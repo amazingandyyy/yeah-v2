@@ -1,6 +1,7 @@
 .h-scrollable {
     background: none;
-    padding-left: 20px;
+    padding-left: 30px;
+    padding-right: 50px;
     border-right: 1px solid rgba($gray, 0);
     border-left: 1px solid rgba($gray, 0);
     height: 420px;
@@ -16,5 +17,5 @@
     &.no-border:hover{
         border-right: 1px solid rgba($gray, 0);
         border-left: 1px solid rgba($gray, 0);
-    }
+    }   
 }

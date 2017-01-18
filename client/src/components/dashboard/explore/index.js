@@ -4,7 +4,7 @@ import { RouteTransition } from 'react-router-transition';
 
 export default class Explore extends Component {
   componentWillMount() {
-    console.log(<PageTransition></PageTransition>)
+    // console.log(<PageTransition></PageTransition>)
   }
   render() {
     return (

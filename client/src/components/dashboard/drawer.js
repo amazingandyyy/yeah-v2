@@ -19,7 +19,8 @@ class Drawer extends Component {
   }
   render() {
     return (
-      <div className="drawer-component" activeClassName="active">
+      <div className="drawer-component">
+      <span id="drawer-handle">=</span>
         <Link to="/dashboard">
           <div className="item" id="header">
             <span className="title">Dashboard</span>
@@ -55,7 +56,6 @@ class Drawer extends Component {
             </div>
           </Link>
         </div>
-
       </div>
     )
   }

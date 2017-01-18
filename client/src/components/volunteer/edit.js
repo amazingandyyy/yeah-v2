@@ -4,10 +4,10 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 
-class VolunteerDetails extends Component{
+class VolunteerEditDetails extends Component{
     componentWillMount() {
         const pathname = this.props.location.pathname;
-        const Id = pathname.split('/').pop()
+        const Id = pathname.split('/')[pathname.split('/').length-2]
         this.props.fetchOneVolunteerChance(Id);
     }
     renderDetails(){
@@ -75,16 +75,15 @@ class VolunteerDetails extends Component{
     goBack(){
         hashHistory.goBack()
     }
-    goEdit() {
-        const uri = this.props.location.pathname;
-        const query = this.props.location.query;
-        hashHistory.push({pathname: `${uri}/edit`, query})
+    goSave() {
+        
     }
     render() {
-        return(<span className="details-component">
+        return(<span className="details-component edit-mode">
                 <div className="header">
-                    <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
-                    <span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>
+                    <span className="mode-tag">editting</span>
+                    <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Cancel</span>
+                    <span className="rightBtn" onClick={this.goSave.bind(this)}>Save</span>
                 </div>
                 <div className="content">
                     {this.renderDetails()}
@@ -95,4 +94,4 @@ class VolunteerDetails extends Component{
 
 export default connect(({volunteer})=>{
     return {details: volunteer.event}
-}, actions)(VolunteerDetails);
+}, actions)(VolunteerEditDetails);
