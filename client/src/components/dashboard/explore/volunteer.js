@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import { Loader } from '../../widgets';
 import { Link } from 'react-router';
+import qs from 'querystring';
 
 class Volunteer extends Component {
     componentWillMount(){
@@ -11,13 +12,14 @@ class Volunteer extends Component {
     renderList() {
       if(this.props.events){
         return this.props.events.map(event => {
-        let colorSetting = colorSchema[Math.floor(Math.random()*colorLength)];
+        if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
+        if (!event.thumbnail){ event.thumbnail = 'https://d125fmws0bore1.cloudfront.net/assets/shared/nd-cards/nd101-2744c44bddc33488bfbf85faf92a6b7b1c57117db9cbe8f26c3cd14fdacd3474.jpg' };
           return (
-              <Link to={`/dashboard/explore/volunteer/${event._id}`} key={event._id}>
+              <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:event }}  key={event._id}>
               <div className="card resource">
-                <div className="image">
-                  <span style={{color: colorSetting}}>new!</span>
-                  <div className="overlay" style={{background:colorSetting}}></div>
+                <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
+                  <span style={{color: event.colorSetting}}>new!</span>
+                  <div className="overlay" style={{background: event.colorSetting}}></div>
                 </div>
                 <div className="body"><div className="card-title">{event.title}</div></div>
               </div>

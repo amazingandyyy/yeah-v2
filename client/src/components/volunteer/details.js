@@ -8,10 +8,11 @@ class VolunteerDetails extends Component{
     componentWillMount() {
         const Id = this.props.location.pathname.split('/').pop();
         this.props.fetchOneVolunteerChance(Id);
-        console.log(hashHistory)
     }
     renderDetails(){
         if(this.props.details){
+            let colorSetting = this.props.details.colorSetting || this.props.location.query.colorSetting;
+            let thumbnail = this.props.details.thumbnail || this.props.location.query.thumbnail;
             return(
                 <h1>
                     title: {this.props.details.title}
@@ -24,12 +25,12 @@ class VolunteerDetails extends Component{
         hashHistory.goBack()
     }
     render() {
-        return(
-            <div>
-            <button onClick={this.goBack}>go back</button>
-                {this.renderDetails()}
-            </div>
-        )
+        return(<span>
+                <div className="header"><span className="backBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span></div>
+                <div className="content">
+                    {this.renderDetails()}
+                </div>
+            </span>)
     }
 }
 

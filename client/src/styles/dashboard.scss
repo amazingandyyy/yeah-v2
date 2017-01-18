@@ -15,9 +15,21 @@
             text-align: center;
             z-index: 99;
             padding: 20px 20px;
-            text-align: left;
             font-size: 1.2em;
             height: 60px;
+            line-height: 23px;
+
+            .backBtn {
+                text-align: left;
+                float: left;
+                cursor: pointer;
+                i {
+                    margin-right: 6px;
+                }
+                &:active {
+                    opacity: 0.4;
+                }
+            }
         }
         .content {
             position: relative;
@@ -105,7 +117,6 @@
                     transition:  all 0.5s ease-out;
                 }
                 .image {
-                    background-image: url('https://d125fmws0bore1.cloudfront.net/assets/shared/nd-cards/nd101-2744c44bddc33488bfbf85faf92a6b7b1c57117db9cbe8f26c3cd14fdacd3474.jpg');
                     background-position: center;
                     height: 156px;
                     background-size: cover !important;
