@@ -13,9 +13,13 @@ class Volunteer extends Component {
       if(this.props.events){
         return this.props.events.map(event => {
         if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
-        if (!event.thumbnail){ event.thumbnail = 'https://d125fmws0bore1.cloudfront.net/assets/shared/nd-cards/nd101-2744c44bddc33488bfbf85faf92a6b7b1c57117db9cbe8f26c3cd14fdacd3474.jpg' };
+        if (!event.thumbnail){ event.thumbnail = 'http://bit.ly/2jvvHDd' };
+        let eventQuery = {
+          colorSetting: event.colorSetting,
+          thumbnail: event.thumbnail
+        }
           return (
-              <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:event }}  key={event._id}>
+              <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:eventQuery }}  key={event._id}>
               <div className="card resource">
                 <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
                   <span style={{color: event.colorSetting}}>new!</span>
@@ -34,7 +38,7 @@ class Volunteer extends Component {
         return (
             <div className="section">
               <div className="blur-h right"></div>
-              <div className="title">Volunteer Events</div>
+              <div className="title">Volunteer Program</div>
               <div className="h-scrollable">
                 {this.renderList()}
               </div>
