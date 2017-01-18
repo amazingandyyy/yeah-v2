@@ -44,19 +44,22 @@ require('dotenv').config();
 // import packages
 
 
-var MONGOURL = void 0;
+var MONGOURI = void 0;
+var MONGOLOG = void 0;
 
 // MongoDB Setup
 if (process.env.NODE_ENV !== 'production') {
-  MONGOURL = _config2.default.mongo_local_uri;
+  MONGOURI = _config2.default.mongo_local_uri;
+  MONGOLOG = _config2.default.mongo_local_uri;
 } else {
-  MONGOURL = _config2.default.mongo_uri;
+  MONGOURI = _config2.default.mongo_uri;
+  MONGOLOG = 'real mongoDB';
 }
 if (!_config2.default.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
-  _mongoose2.default.connect(MONGOURL, function (err) {
-    console.log(err || 'Connected to MongoDB ' + MONGOURL.split(':')[1]);
+  _mongoose2.default.connect(MONGOURI, function (err) {
+    console.log(err || 'DB Connected to ' + MONGOLOG);
   });
   _mongoose2.default.Promise = global.Promise;
 }
@@ -91,6 +94,6 @@ app.use(function (err, req, res, next) {
   res.status(422).send({ errors: err.message });
 });
 
-app.listen(process.env.PORT || 8000, function () {
-  return console.log('Listening on PORT:8000');
+app.listen(process.env.PORT || 8000, function (err) {
+  return console.log(err || 'Listening on ' + (process.env.PORT || 'PORT: 8000'));
 });
