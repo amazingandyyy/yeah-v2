@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDER_LIBS = [
   "faker",
@@ -14,7 +15,6 @@ const VENDER_LIBS = [
   "redux-form",
   "redux-thunk"
 ]
-
 module.exports = {
   entry: {
     bundle: './client/src/index.js',
@@ -24,17 +24,19 @@ module.exports = {
     path: path.join(__dirname, 'client/dist'),
     filename: '[name].[chunkhash].js'
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
         use: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      }, {
-        use: [
-          'style-loader', 'css-loader', 'sass-loader'
-        ],
-        test: /\.scss$/
+      }, { 
+        test: /\.scss$/, 
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loader: "css-loader!sass-loader",
+        })
       }, {
         test: /\.svg$/,
         use: 'react-svg-loader'
@@ -65,6 +67,7 @@ module.exports = {
     }),
     new webpack
       .optimize
-      .UglifyJsPlugin({sourceMap: true})
+      .UglifyJsPlugin({sourceMap: true}),
+    new ExtractTextPlugin('style.css')
   ]
 };
