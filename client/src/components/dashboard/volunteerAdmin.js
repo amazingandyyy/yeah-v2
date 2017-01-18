@@ -78,7 +78,7 @@ class VolunteerAdmin extends Component{
                     <Field 
                         name="tag"
                         component={this.renderMultiselect.bind(this)}
-                        data={['Animals','Computers','Children','Environment','Education','Homeless','sports']}
+                        data={['Animals','Computers','Children','Environment','Education','Homeless','Sports']}
                     />
                 </div>
 

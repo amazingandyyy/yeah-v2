@@ -37,11 +37,6 @@ module.exports = {
           fallbackLoader: "style-loader",
           loader: "css-loader!sass-loader",
         })
-      }, {
-        use: [
-          'style-loader', 'css-loader', 'sass-loader'
-        ],
-        test: /\.scss$/
       },
 
 // Old settings for .svg .woff .eot .ttf loaders
