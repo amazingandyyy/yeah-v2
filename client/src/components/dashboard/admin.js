@@ -17,8 +17,6 @@ class Admin extends Component {
                 <Link className="nav-link" to="/dashboard/admin/cources">Cources</Link>
               </li>
             </ul>
-            
-            
             { this.props.children }
           </div>
           </div>

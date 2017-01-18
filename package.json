@@ -11,8 +11,7 @@
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
     "build": "npm run build-c && npm run build-s",
-    "deploy": "npm run build && npm run push && eb deploy && eb open",
-    "postinstall": "npm i"
+    "deploy": "npm run build && npm run push && eb deploy && eb open"
   },
   "author": "amazingandyyy",
   "license": "ISC",
@@ -31,6 +30,7 @@
     "mongoose": "^4.7.6",
     "mongoose-autopopulate": "^0.5.0",
     "morgan": "^1.7.0",
+    "querystring": "^0.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-input-range": "^0.9.2",

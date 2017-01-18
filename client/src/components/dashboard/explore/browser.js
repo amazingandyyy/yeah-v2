@@ -3,14 +3,12 @@ import Volunteer from './volunteer';
 
 class TemplateComponent extends Component{
     render() {
-        return(
-            <div>
-                <Volunteer />
-                <Volunteer />
-                <Volunteer />
-                <Volunteer />
-            </div>
-        )
+        return(<span>
+                <div className="header">Explore</div>
+                <div className="content">
+                    <Volunteer />
+                </div>
+            </span>)
     }
 }
 

@@ -15,9 +15,21 @@
             text-align: center;
             z-index: 99;
             padding: 20px 20px;
-            text-align: left;
             font-size: 1.2em;
             height: 60px;
+            line-height: 23px;
+
+            .backBtn {
+                text-align: left;
+                float: left;
+                cursor: pointer;
+                i {
+                    margin-right: 6px;
+                }
+                &:active {
+                    opacity: 0.4;
+                }
+            }
         }
         .content {
             position: relative;
@@ -29,6 +41,9 @@
             min-height: 100vh;
             overflow-x: hidden;
             overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+
 
             .container {
                 padding: 20px;
@@ -38,26 +53,10 @@
                 padding-bottom: 50px;
             }
         }
-
+        
         &.explore {
             .section {
                  position: relative;
-                .h-scrollable {
-                    background: none;
-                    padding-left: 20px;
-                    border-right: 1px solid rgba($gray, 0);
-                    border-left: 1px solid rgba($gray, 0);
-                    height: 420px;
-                    overflow-x: scroll;
-                    overflow-y: hidden;
-                    white-space: nowrap;
-                    -webkit-overflow-scrolling: touch;
-                    -ms-overflow-style: -ms-autohiding-scrollbar;
-                    &:hover {
-                        border-right: 1px solid $gray;
-                        border-left: 1px solid $gray;
-                    }
-                }
                 .title {
                     color: #2e3d49;
                     font-size: 0.8em;
@@ -65,7 +64,8 @@
                     letter-spacing: 1px;
                     font-weight: 600;
                     padding-top: 50px;
-                    padding-left: 35px
+                    padding-left: 35px;
+                    margin-bottom: 15px;
                 }
                 .blur {
                     background: rgba(255,255,255,1);
@@ -99,13 +99,15 @@
                 background: white;
                 border-radius: 0.375rem;
                 box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-                transition: all 0.1s ease-in-out;
+                // transition: all 0.1s ease-in-out;
                 &:hover {
                     box-shadow: 10px 15px 30px rgba(0,0,0,0.1);    
-                    transition:  all 0.5s ease-out;
+                    // transition:  all 0.5s ease-out;
+                }
+                &:active{
+                    opacity: 0.7;
                 }
                 .image {
-                    background-image: url('https://d125fmws0bore1.cloudfront.net/assets/shared/nd-cards/nd101-2744c44bddc33488bfbf85faf92a6b7b1c57117db9cbe8f26c3cd14fdacd3474.jpg');
                     background-position: center;
                     height: 156px;
                     background-size: cover !important;
@@ -145,7 +147,6 @@
                     padding: 24px 32px;
                     height: 8.25rem;
                 }
-                
             }
         }
     }

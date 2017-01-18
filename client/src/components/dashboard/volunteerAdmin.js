@@ -9,8 +9,8 @@ import { reduxForm, Field } from 'redux-form';
 
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
-        console.log('data: ', data)
-    //   this.props.createVolunteerResource(data);
+        console.log('data: ', data);
+        this.props.createVolunteerResource(data);
     }
     render(){
         return (
