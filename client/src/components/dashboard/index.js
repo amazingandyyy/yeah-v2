@@ -15,7 +15,6 @@ export default class Dashboard extends Component {
     let width = $(window).width();
     
     function config(width){
-      console.log('heyyy')
       if($('.dashboard-component')){
         $('#drawer-handle').on('click', () => {
           $('.dashboard-component').toggleClass('drawer-closed')
