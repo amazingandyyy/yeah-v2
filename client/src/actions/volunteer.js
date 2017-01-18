@@ -9,7 +9,6 @@ function fetchAllVolunteerChances() {
         axios
             .get(`/api/volunteer/fetchAll`)
             .then(res => {
-                console.log('res')
                 dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
             })
             .catch(error => {

@@ -12,9 +12,8 @@ class Volunteer extends Component {
       if(this.props.events){
         return this.props.events.map(event => {
         let colorSetting = colorSchema[Math.floor(Math.random()*colorLength)];
-        console.log(colorSetting)
           return (
-              <Link to={'/volunteer/' + event._id} key={event._id}>
+              <Link to={`/dashboard/explore/volunteer/${event._id}`} key={event._id}>
               <div className="card resource">
                 <div className="image">
                   <span style={{color: colorSetting}}>new!</span>

@@ -11,20 +11,23 @@ import config from './config';
 import cors from 'cors';
 import path from 'path';
 
-let MONGOURL;
+let MONGOURI;
+let MONGOLOG;
 
 // MongoDB Setup
 if (process.env.NODE_ENV !== 'production') {
-  MONGOURL = config.mongo_local_uri;
+  MONGOURI = config.mongo_local_uri;
+  MONGOLOG= config.mongo_local_uri;
 }else{
-  MONGOURL = config.mongo_uri;
+  MONGOURI = config.mongo_uri;
+  MONGOLOG='real mongoDB';
 }
 if (!config.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
   mongoose
-    .connect(MONGOURL, function(err) {
-      console.log(err || `Connected to MongoDB ${MONGOURL.split(':')[1]}`);
+    .connect(MONGOURI, err => {
+      console.log(err || `DB Connected to ${MONGOLOG}`);
     });
   mongoose.Promise = global.Promise;
 }
@@ -59,4 +62,4 @@ app.use((err, req, res, next) => {
   res.status(422).send({ errors: err.message });
 });
 
-app.listen(process.env.PORT || 8000, () => console.log('Listening on PORT:8000'));
+app.listen(process.env.PORT || 8000, err => console.log(err || `Listening on ${process.env.PORT || 'PORT: 8000' }`));

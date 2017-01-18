@@ -10,6 +10,7 @@ import Dashboard from './components/dashboard';
 import Start from './components/dashboard/start';
 import Setting from './components/dashboard/setting';
 import Explore from './components/dashboard/explore';
+import ExploreBrowser from './components/dashboard/explore/browser';
 
 import Admin from './components/dashboard/admin';
 import VolunteerAdmin from './components/dashboard/volunteerAdmin';
@@ -30,7 +31,10 @@ const RouterComponent = () => {
                 <IndexRoute component={Start}/>
                 <Route path="/dashboard/start" component={Start}/>
                 <Route path="/dashboard/setting" component={Setting}/>
-                <Route path="/dashboard/explore" component={Explore}/>
+                <Route path="/dashboard/explore" component={Explore}>
+                    <IndexRoute component={ExploreBrowser} />
+                    <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
+                </Route>
                 <Route path="/dashboard/admin" component={Admin}>
                     <IndexRoute component={VolunteerAdmin} />
                     <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>

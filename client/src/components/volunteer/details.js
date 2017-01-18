@@ -6,7 +6,7 @@ import { hashHistory } from 'react-router';
 
 class VolunteerDetails extends Component{
     componentWillMount() {
-        const Id = this.props.location.pathname.split('/')[2];
+        const Id = this.props.location.pathname.split('/').pop();
         this.props.fetchOneVolunteerChance(Id);
         console.log(hashHistory)
     }
