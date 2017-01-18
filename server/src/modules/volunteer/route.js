@@ -9,5 +9,6 @@ router.post('/createResource', loginRequired, controller.createResource);
 
 // public request
 router.get('/fetchAll', controller.fetchAll);
+router.get('/fetchOne/:id', controller.fetchOne);
 
 module.exports = router;

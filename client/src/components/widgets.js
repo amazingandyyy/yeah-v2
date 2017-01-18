@@ -37,7 +37,7 @@ const Icon = ({name, color, style}) => {
         <div style={{...style, ...styleSetting}}>
             <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/catalog.svg" />
         </div>)
-  
+
     default:
       return 
         (<div></div>)

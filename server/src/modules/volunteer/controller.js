@@ -18,5 +18,12 @@ export default {
             res.json(data)
         })
         .catch(next)
+    },
+    fetchOne: function(req, res, next) {
+        Volunteer.findById(req.params.id)
+        .then(data => {
+            res.json(data)
+        })
+        .catch(next)
     }
 };

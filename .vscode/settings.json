@@ -1,0 +1,9 @@
+// Workspace settings
+{
+    // The following will hide the js and map files in the editor
+    "files.exclude": {
+        "**/dist": true,
+        "yarn.lock": true,
+        "npm-debug.log": true
+    }
+}

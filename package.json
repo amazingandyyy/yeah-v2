@@ -11,7 +11,8 @@
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
     "build": "npm run build-c && npm run build-s",
-    "deploy": "npm run build && npm run push && eb deploy && eb open"
+    "deploy": "npm run build && npm run push && eb deploy && eb open",
+    "postinstall": "npm i"
   },
   "author": "amazingandyyy",
   "license": "ISC",
@@ -35,6 +36,8 @@
     "react-input-range": "^0.9.2",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
+    "react-router-page-transition": "^2.1.2",
+    "react-router-transition": "^0.0.6",
     "redux": "^3.6.0",
     "redux-form": "^6.3.2",
     "redux-thunk": "^2.1.0"

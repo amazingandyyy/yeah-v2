@@ -24,5 +24,10 @@ exports.default = {
         _model2.default.find({}).then(function (data) {
             res.json(data);
         }).catch(next);
+    },
+    fetchOne: function fetchOne(req, res, next) {
+        _model2.default.findById(req.params.id).then(function (data) {
+            res.json(data);
+        }).catch(next);
     }
 };

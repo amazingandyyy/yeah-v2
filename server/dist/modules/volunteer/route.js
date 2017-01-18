@@ -19,5 +19,6 @@ router.post('/createResource', _middleware.loginRequired, _controller2.default.c
 
 // public request
 router.get('/fetchAll', _controller2.default.fetchAll);
+router.get('/fetchOne/:id', _controller2.default.fetchOne);
 
 module.exports = router;
