@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import 'react-widgets/lib/less/react-widgets.less';
+import DropdownList from 'react-widgets/lib/DropdownList';
+
 
 import { reduxForm, Field } from 'redux-form';
 

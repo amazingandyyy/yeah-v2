@@ -50,7 +50,27 @@ module.exports = {
       }, {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
+      },
+        // Config for react widgets from react-widgets document
+      { test: /\.css$/, 
+        loader: 'style-loader!css-loader'},
+      { test: /\.gif$/, 
+        loader: 'url-loader?mimetype=img/png'},
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+        loader: 'url-loader?mimetype=application/font-woff'},
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader?name=[name].[ext]"},
+        
+        // Config for Less
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'less-loader'
+        ]
       }
+
     ]
   },
   plugins: [
