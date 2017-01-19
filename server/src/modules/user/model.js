@@ -14,6 +14,9 @@ const Schema = new mongoose.Schema({
     },
     required: [true, 'Name is required.'],
   },
+  avatar: {
+    type: String
+  },
   email: {
     type: String,
     unique: true,

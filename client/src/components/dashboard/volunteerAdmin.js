@@ -24,7 +24,8 @@ class VolunteerAdmin extends Component{
             <Multiselect {...input}
                 onBlur={()=> input.onBlur()}
                 value={input.value || []}
-            {...rest}/>
+                {...rest}
+            />
         );
     }
 

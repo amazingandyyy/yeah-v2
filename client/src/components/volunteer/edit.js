@@ -84,6 +84,7 @@ class VolunteerEditDetails extends Component{
                     <span className="mode-tag">editting</span>
                     <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Cancel</span>
                     <span className="rightBtn" onClick={this.goSave.bind(this)}>Save</span>
+                    
                 </div>
                 <div className="content">
                     {this.renderDetails()}

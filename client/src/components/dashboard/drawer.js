@@ -20,7 +20,10 @@ class Drawer extends Component {
   render() {
     return (
       <div className="drawer-component">
-      <span id="drawer-handle">=</span>
+      <span id="drawer-handle">
+        <i className="fa fa-caret-right" aria-hidden="true"></i>
+        <i className="fa fa-caret-left" aria-hidden="true"></i>
+      </span>
         <Link to="/dashboard">
           <div className="item" id="header">
             <span className="title">Dashboard</span>
