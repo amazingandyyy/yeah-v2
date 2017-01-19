@@ -6,7 +6,7 @@ export default {
         const title = req.body.title;
         const resource = { createBy, ...req.body }
         Volunteer.create(resource)
-        .then(data => {
+        .then(() => {
             res.send()
         })
         .catch(next)
@@ -22,6 +22,14 @@ export default {
         Volunteer.findById(req.params.id)
         .then(data => {
             res.json(data)
+        })
+        .catch(next)
+    },
+    deleteOne: function(req, res, next) {
+        console.log('req.params.id: ', req.params.id);
+        Volunteer.findByIdAndRemove(req.params.id)
+        .then(() => {
+            res.send()
         })
         .catch(next)
     }

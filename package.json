@@ -16,6 +16,7 @@
   "author": "amazingandyyy",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.7.25",
     "axios": "^0.15.3",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.15.2",
@@ -23,6 +24,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "faker": "^3.1.0",
+    "fs": "^0.0.1-security",
     "jquery": "^3.1.1",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.2",
@@ -30,9 +32,11 @@
     "mongoose": "^4.7.6",
     "mongoose-autopopulate": "^0.5.0",
     "morgan": "^1.7.0",
+    "multer": "^1.1.0",
     "querystring": "^0.2.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "react-dropzone": "^3.9.0",
     "react-input-range": "^0.9.2",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",
@@ -42,6 +46,8 @@
     "redux": "^3.6.0",
     "redux-form": "^6.3.2",
     "redux-thunk": "^2.1.0",
+    "superagent": "^3.3.2",
+    "unirest": "^0.5.1",
     "url-loader": "^0.5.7"
   },
   "devDependencies": {

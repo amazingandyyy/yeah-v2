@@ -11,17 +11,10 @@ import config from './config';
 import cors from 'cors';
 import path from 'path';
 
-let MONGOURI;
-let MONGOLOG;
+let MONGOURI= config.mongo_uri;;
+let MONGOLOG= config.mongo_log;
 
 // MongoDB Setup
-if (process.env.NODE_ENV !== 'production') {
-  MONGOURI = config.mongo_local_uri;
-  MONGOLOG= config.mongo_local_uri;
-}else{
-  MONGOURI = config.mongo_uri;
-  MONGOLOG='real mongoDB';
-}
 if (!config.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
@@ -45,7 +38,7 @@ import api from './api';
 app.use('/api', api);
 
 // Run React front-end files(start from index.html)
-if (process.env.NODE_ENV !== 'production') {
+if (config.enviroment !== 'production') {
     const webpackMiddleware = require('webpack-dev-middleware');
     const webpack = require('webpack');
     const webpackConfig = require('../../webpack.config.js');
