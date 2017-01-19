@@ -11,11 +11,15 @@ import { reduxForm, Field } from 'redux-form';
 
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
+<<<<<<< HEAD
         // Getting data object
     console.log('data: ', data);
         //show the time 
     console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
     console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
+=======
+        console.log('data: ', data);
+>>>>>>> master
         // this.props.createVolunteerResource(data);
     }
 
@@ -24,8 +28,7 @@ class VolunteerAdmin extends Component{
             <Multiselect {...input}
                 onBlur={()=> input.onBlur()}
                 value={input.value || []}
-                {...rest}
-            />
+            {...rest}/>
         );
     }
 
