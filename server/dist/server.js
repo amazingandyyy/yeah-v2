@@ -44,17 +44,10 @@ require('dotenv').config();
 // import packages
 
 
-var MONGOURI = void 0;
-var MONGOLOG = void 0;
+var MONGOURI = _config2.default.mongo_uri;;
+var MONGOLOG = _config2.default.mongo_log;
 
 // MongoDB Setup
-if (process.env.NODE_ENV !== 'production') {
-  MONGOURI = _config2.default.mongo_local_uri;
-  MONGOLOG = _config2.default.mongo_local_uri;
-} else {
-  MONGOURI = _config2.default.mongo_uri;
-  MONGOLOG = 'real mongoDB';
-}
 if (!_config2.default.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
@@ -77,7 +70,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use('/api', _api2.default);
 
 // Run React front-end files(start from index.html)
-if (process.env.NODE_ENV !== 'production') {
+if (_config2.default.enviroment !== 'production') {
   var webpackMiddleware = require('webpack-dev-middleware');
   var webpack = require('webpack');
   var webpackConfig = require('../../webpack.config.js');

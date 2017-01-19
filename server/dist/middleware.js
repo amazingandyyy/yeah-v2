@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.loginRequired = undefined;
+exports.readFile = exports.loginRequired = undefined;
 
 var _model = require('./modules/user/model');
 
@@ -11,7 +11,15 @@ var _model2 = _interopRequireDefault(_model);
 
 var _services = require('./modules/services');
 
+var _multer = require('multer');
+
+var _multer2 = _interopRequireDefault(_multer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var upload = (0, _multer2.default)({
+    storage: _multer2.default.memoryStorage()
+});
 
 var loginRequired = function loginRequired(req, res, next) {
 
@@ -34,4 +42,11 @@ var loginRequired = function loginRequired(req, res, next) {
     });
 };
 
+var upload = (0, _multer2.default)({
+    storage: _multer2.default.memoryStorage()
+});
+
+var readFile = upload.single('asset');
+
 exports.loginRequired = loginRequired;
+exports.readFile = readFile;

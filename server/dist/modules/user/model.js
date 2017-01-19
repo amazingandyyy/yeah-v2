@@ -30,6 +30,9 @@ var Schema = new _mongoose2.default.Schema({
     },
     required: [true, 'Name is required.']
   },
+  avatar: {
+    type: String
+  },
   email: {
     type: String,
     unique: true,

@@ -8,7 +8,6 @@ export default (state={}, action) => {
         case FETCH_PROFILE:
             return { ...state, ...action.payload };
         case UPDATE_PROFILE:
-        console.log('heyyy')
             return { ...state, ...action.payload };
     }
     return state;
