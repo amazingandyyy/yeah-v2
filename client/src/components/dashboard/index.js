@@ -5,7 +5,7 @@ import $ from 'jquery';
 export default class Dashboard extends Component {
   render() {
     return (
-      <div className="dashboard-component drawer-opened">
+      <div className="dashboard-component">
         <Drawer />
         {this.props.children}
       </div>

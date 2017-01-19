@@ -9,8 +9,7 @@ import { reduxForm, Field } from 'redux-form';
 
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
-        console.log('data: ', data);
-        // this.props.createVolunteerResource(data);
+        this.props.createVolunteerResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -18,7 +17,8 @@ class VolunteerAdmin extends Component{
             <Multiselect {...input}
                 onBlur={()=> input.onBlur()}
                 value={input.value || []}
-            {...rest}/>
+                {...rest}
+            />
         );
     }
 
@@ -75,7 +75,7 @@ class VolunteerAdmin extends Component{
                 <div>
                     <lable>Tags:</lable>
                     <Field 
-                        name="tag"
+                        name="tags"
                         component={this.renderMultiselect.bind(this)}
                         data={['Animals','Computers','Children','Environment','Education','Homeless','Sports']}
                     />
