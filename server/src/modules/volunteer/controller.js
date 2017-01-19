@@ -4,8 +4,7 @@ export default {
     createResource: function(req, res, next) {
         const createBy = req.user._id;
         const title = req.body.title;
-        const resource = { createBy, title }
-        console.log('resource: ', resource)
+        const resource = { createBy, ...req.body }
         Volunteer.create(resource)
         .then(data => {
             res.send()
