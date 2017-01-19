@@ -2,10 +2,6 @@ import User from './modules/user/model';
 import { verifyToken } from './modules/services';
 import multer from 'multer';
 
-var upload = multer({
-    storage: multer.memoryStorage()
-});
-
 const loginRequired = (req, res, next) => {
     
     if (!req.header('Authorization')) {

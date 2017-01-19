@@ -29,5 +29,4 @@ if(enviroment == 'production'){
     }
 }
 
-
 export default config;

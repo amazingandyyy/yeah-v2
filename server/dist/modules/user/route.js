@@ -24,11 +24,6 @@ var _multer2 = _interopRequireDefault(_multer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var upload = (0, _multer2.default)({
-  storage: _multer2.default.memoryStorage(),
-  limits: { fileSize: 52428800 }
-});
-
 var router = _express2.default.Router();
 // public request
 router.post('/signup', _auth2.default.signup);
