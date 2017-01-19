@@ -4,16 +4,20 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDER_LIBS = [
-  "faker",
+  "jquery",
   "lodash",
+  "moment",
   "react",
   "react-dom",
+  "react-dropzone",
   "react-input-range",
   "react-redux",
   "react-router",
+  "react-widgets",
   "redux",
   "redux-form",
-  "redux-thunk"
+  "redux-thunk",
+  "superagent"
 ]
 module.exports = {
   entry: {
@@ -38,7 +42,6 @@ module.exports = {
           loader: "css-loader!sass-loader",
         })
       },
-        // New config for react widgets from react-widgets document
       { 
         test: /\.css$/, 
         loader: 'style-loader!css-loader'

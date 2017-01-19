@@ -70,7 +70,7 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use('/api', _api2.default);
 
 // Run React front-end files(start from index.html)
-if (_config2.default.enviroment !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   var webpackMiddleware = require('webpack-dev-middleware');
   var webpack = require('webpack');
   var webpackConfig = require('../../webpack.config.js');

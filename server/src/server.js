@@ -38,7 +38,7 @@ import api from './api';
 app.use('/api', api);
 
 // Run React front-end files(start from index.html)
-if (config.enviroment !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
     const webpackMiddleware = require('webpack-dev-middleware');
     const webpack = require('webpack');
     const webpackConfig = require('../../webpack.config.js');
