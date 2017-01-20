@@ -31,6 +31,7 @@ router.post('/signin', _auth2.default.signin);
 
 // authorization required
 router.use('/profile', _middleware.loginRequired);
+router.delete('/permanentlyDeleteThisAcount', _controller2.default.permanentlyDeleteThisAcount);
 
 router.get('/profile', _controller2.default.getProfile);
 router.post('/profile/avatar', _middleware.readFile, _controller2.default.uploadAvatar);

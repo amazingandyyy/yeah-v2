@@ -35,13 +35,10 @@ class Setting extends Component {
   render() {
     return (
       <div className="display-componet">
-        <div className="header">Setting</div>
+        <div className="header">Settings</div>
         <div className="content">
           <div className="container">
-            {this.renderProfile()}
-            <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-              <div>Try dropping some files here, or click to select files to upload.</div>
-            </Dropzone>
+            
           <div>
         </div>
         </div>
@@ -58,3 +55,7 @@ function mapStateToProps({profile}){
 }
 
 export default connect(mapStateToProps, actions)(Setting);
+
+// <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+//   <div>Try dropping some files here, or click to select files to upload.</div>
+// </Dropzone>

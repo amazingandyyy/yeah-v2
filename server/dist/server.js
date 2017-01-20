@@ -91,7 +91,8 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(function (err, req, res, next) {
-  res.status(422).send({ errors: err.message });
+  console.log('error: ', err.message);
+  return res.status(422).send({ errors: err.message });
 });
 
 app.listen(process.env.PORT || 8000, function (err) {
