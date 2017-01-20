@@ -4,8 +4,8 @@ const config = {
     jwt_secret: process.env.JWT_SECRET || 'JWT_SECRETjwt_secretJWT_SECRET',
     mongo_uri: process.env.MONGODB_URI,
     mongo_local_uri: 'mongodb://localhost/yeah-v2-sandbox',
-    aws_access_key_id: process.env.AWS_ACCESS_KEY_ID,
-    aws_secret_access_key: process.env.AWS_SECRET_ACCESS_KEY,
+    aws_access_key_id: 'process.env.AWS_ACCESS_KEY_ID',
+    aws_secret_access_key: 'process.env.AWS_SECRET_ACCESS_KEY',
     aws_s3_bucket: 'yeah-assets',
     aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com'
 }
