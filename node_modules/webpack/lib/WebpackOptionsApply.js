@@ -2,7 +2,6 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var assign = require("object-assign");
 var OptionsApply = require("./OptionsApply");
 
 var LoaderTargetPlugin = require("./LoaderTargetPlugin");
@@ -236,6 +235,9 @@ WebpackOptionsApply.prototype.process = function(options, compiler) {
 
 	compiler.apply(
 		new CompatibilityPlugin(),
+		new HarmonyModulesPlugin(options.module),
+		new AMDPlugin(options.module, options.amd || {}),
+		new CommonJsPlugin(options.module),
 		new LoaderPlugin(),
 		new NodeStuffPlugin(options.node),
 		new RequireJsStuffPlugin(),
@@ -245,9 +247,6 @@ WebpackOptionsApply.prototype.process = function(options, compiler) {
 		new RequireIncludePlugin(),
 		new RequireEnsurePlugin(),
 		new RequireContextPlugin(options.resolve.modules, options.resolve.extensions),
-		new AMDPlugin(options.module, options.amd || {}),
-		new CommonJsPlugin(options.module),
-		new HarmonyModulesPlugin(options.module),
 		new ImportPlugin(options.module),
 		new SystemPlugin(options.module)
 	);
@@ -280,14 +279,14 @@ WebpackOptionsApply.prototype.process = function(options, compiler) {
 
 	compiler.applyPlugins("after-plugins", compiler);
 	if(!compiler.inputFileSystem) throw new Error("No input filesystem provided");
-	compiler.resolvers.normal = ResolverFactory.createResolver(assign({
+	compiler.resolvers.normal = ResolverFactory.createResolver(Object.assign({
 		fileSystem: compiler.inputFileSystem
 	}, options.resolve));
-	compiler.resolvers.context = ResolverFactory.createResolver(assign({
+	compiler.resolvers.context = ResolverFactory.createResolver(Object.assign({
 		fileSystem: compiler.inputFileSystem,
 		resolveToContext: true
 	}, options.resolve));
-	compiler.resolvers.loader = ResolverFactory.createResolver(assign({
+	compiler.resolvers.loader = ResolverFactory.createResolver(Object.assign({
 		fileSystem: compiler.inputFileSystem
 	}, options.resolveLoader));
 	compiler.applyPlugins("after-resolvers", compiler);

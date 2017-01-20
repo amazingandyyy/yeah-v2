@@ -1,7 +1,15 @@
 import express from 'express';
 import controller from './controller';
 import auth from './auth';
-import { loginRequired } from '../../middleware';
+import { loginRequired, readFile } from '../../middleware';
+import multer from 'multer';
+
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: 52428800 },
+});
+
 
 const router = express.Router();
 // public request
@@ -9,6 +17,9 @@ router.post('/signup', auth.signup);
 router.post('/signin', auth.signin);
 
 // authorization required
-router.get('/profile',  loginRequired, controller.getProfile);
+router.use('/profile', loginRequired);
 
-module.exports = router;
+router.get('/profile', controller.getProfile);
+router.post('/profile/avatar', readFile, controller.uploadAvatar);
+
+export default router;

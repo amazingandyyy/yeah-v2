@@ -12,7 +12,7 @@ class VolunteerDetails extends Component{
     }
     renderDetails(){
         const { details } = this.props;
-        console.log('details: ', details)
+        console.log('details: ', details);
         if(details){
             let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
             let thumbnail = details.thumbnail || this.props.location.query.thumbnail;

@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { 
     FETCH_ALL_VOLUNTEER_CHANCES,
-    FETCH_ONE_VOLUNTEER_CHANCE
+    FETCH_ONE_VOLUNTEER_CHANCE,
+    DELETE_ONE_VOLUNTEER_CHANCE
  } from './types';
+import { hashHistory } from 'react-router';
 
 function fetchAllVolunteerChances() {
     return function (dispatch) {
@@ -30,7 +32,22 @@ function fetchOneVolunteerChance(id) {
     }
 }
 
+function deleteOneVolunteerChance(id) {
+    return function (dispatch) {
+        axios
+            .delete(`/api/volunteer/deleteOne/${id}`)
+            .then(res => {
+                hashHistory.push("/dashboard/explore")
+                dispatch({type: DELETE_ONE_VOLUNTEER_CHANCE, payload: directBack });
+            })
+            .catch(error => {
+                console.log(error.response.data);
+            });
+    }
+}
+
 export {
     fetchAllVolunteerChances,
-    fetchOneVolunteerChance
+    fetchOneVolunteerChance,
+    deleteOneVolunteerChance
     }

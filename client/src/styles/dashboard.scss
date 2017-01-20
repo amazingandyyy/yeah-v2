@@ -3,6 +3,7 @@
     font-family: $sans;
     .display-componet {
         .header {
+            user-select: none;
             transition: .2s all ease-in-out;
             background: rgba($white, 0.975);
             border-bottom: 1px solid $gray;

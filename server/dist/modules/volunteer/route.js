@@ -1,5 +1,9 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -20,5 +24,6 @@ router.post('/createResource', _middleware.loginRequired, _controller2.default.c
 // public request
 router.get('/fetchAll', _controller2.default.fetchAll);
 router.get('/fetchOne/:id', _controller2.default.fetchOne);
+router.delete('/deleteOne/:id', _controller2.default.deleteOne);
 
-module.exports = router;
+exports.default = router;

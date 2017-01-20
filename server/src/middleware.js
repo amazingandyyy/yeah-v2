@@ -1,5 +1,10 @@
 import User from './modules/user/model';
 import { verifyToken } from './modules/services';
+import multer from 'multer';
+
+var upload = multer({
+    storage: multer.memoryStorage()
+});
 
 const loginRequired = (req, res, next) => {
     
@@ -25,4 +30,11 @@ const loginRequired = (req, res, next) => {
     })
 };
 
-export { loginRequired };
+
+const upload = multer({
+  storage: multer.memoryStorage()
+});
+
+const readFile = upload.single('asset');
+
+export { loginRequired, readFile };

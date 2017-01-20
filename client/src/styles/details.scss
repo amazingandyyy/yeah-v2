@@ -70,7 +70,7 @@
                 }
                 .card.comment {
                     height: 360px;
-                    width: 350px;
+                    width: 320px;
                     display: inline-block;
                     margin: 0px 15px;
                     min-width: 250px;
@@ -128,6 +128,10 @@
     }
 
     &.edit-mode {
+        .delete-danger {
+            color: $red;
+            margin-right: 15px;
+        }
         
         span.mode-tag {
             transform: scale(0.9);

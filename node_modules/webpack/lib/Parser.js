@@ -317,7 +317,7 @@ Parser.prototype.initializeEvaluating = function() {
 					var expr = this.evaluateExpression(expressions[i - 1]);
 					if(!(expr.isString() || expr.isNumber())) continue;
 
-					prevExpr.setString(prevExpr.string + (expr.isString() ? expr.string : expr.number) + lastExpr.string)
+					prevExpr.setString(prevExpr.string + (expr.isString() ? expr.string : expr.number) + lastExpr.string);
 					prevExpr.setRange([prevExpr.range[0], lastExpr.range[1]]);
 					parts.pop();
 				}
@@ -326,15 +326,15 @@ Parser.prototype.initializeEvaluating = function() {
 		}
 
 		this.plugin("evaluate TemplateLiteral", function(node) {
-			var parts = getSimplifiedTemplateResult.call(this, 'cooked', node.quasis, node.expressions);
-			if(parts.length == 1) {
+			var parts = getSimplifiedTemplateResult.call(this, "cooked", node.quasis, node.expressions);
+			if(parts.length === 1) {
 				return parts[0].setRange(node.range);
 			}
 			return new BasicEvaluatedExpression().setTemplateString(parts).setRange(node.range);
 		});
 		this.plugin("evaluate TaggedTemplateExpression", function(node) {
-			if(this.evaluateExpression(node.tag).identifier !== 'String.raw') return;
-			var parts = getSimplifiedTemplateResult.call(this, 'raw', node.quasi.quasis, node.quasi.expressions);
+			if(this.evaluateExpression(node.tag).identifier !== "String.raw") return;
+			var parts = getSimplifiedTemplateResult.call(this, "raw", node.quasi.quasis, node.quasi.expressions);
 			return new BasicEvaluatedExpression().setTemplateString(parts).setRange(node.range);
 		});
 	}, this);
@@ -421,6 +421,8 @@ Parser.prototype.walkStatements = function walkStatements(statements) {
 Parser.prototype.isHoistedStatement = function isHoistedStatement(statement) {
 	switch(statement.type) {
 		case "ImportDeclaration":
+		case "ExportAllDeclaration":
+		case "ExportNamedDeclaration":
 			return true;
 	}
 	return false;
@@ -578,21 +580,21 @@ Parser.prototype.walkExportNamedDeclaration = function walkExportNamedDeclaratio
 				var pos = this.scope.definitions.length;
 				this.walkStatement(statement.declaration);
 				var newDefs = this.scope.definitions.slice(pos);
-				newDefs.reverse().forEach(function(def) {
-					this.applyPluginsBailResult("export specifier", statement, def, def);
+				newDefs.reverse().forEach(function(def, idx) {
+					this.applyPluginsBailResult("export specifier", statement, def, def, idx);
 				}, this);
 			}
 		}
 	}
 	if(statement.specifiers) {
-		statement.specifiers.forEach(function(specifier) {
+		statement.specifiers.forEach(function(specifier, idx) {
 			switch(specifier.type) {
 				case "ExportSpecifier":
 					var name = specifier.exported.name;
 					if(source)
-						this.applyPluginsBailResult("export import specifier", statement, source, specifier.local.name, name);
+						this.applyPluginsBailResult("export import specifier", statement, source, specifier.local.name, name, idx);
 					else
-						this.applyPluginsBailResult("export specifier", statement, specifier.local.name, name);
+						this.applyPluginsBailResult("export specifier", statement, specifier.local.name, name, idx);
 					break;
 			}
 		}, this);
@@ -621,7 +623,7 @@ Parser.prototype.walkExportDefaultDeclaration = function walkExportDefaultDeclar
 Parser.prototype.walkExportAllDeclaration = function walkExportAllDeclaration(statement) {
 	var source = statement.source.value;
 	this.applyPluginsBailResult("export import", statement, source);
-	this.applyPluginsBailResult("export import specifier", statement, source, null, null);
+	this.applyPluginsBailResult("export import specifier", statement, source, null, null, 0);
 };
 
 Parser.prototype.walkVariableDeclaration = function walkVariableDeclaration(statement) {
@@ -692,10 +694,10 @@ Parser.prototype.walkExpression = function walkExpression(expression) {
 };
 
 Parser.prototype.walkAwaitExpression = function walkAwaitExpression(expression) {
-	var argument = expression.argument
+	var argument = expression.argument;
 	if(this["walk" + argument.type])
 		return this["walk" + argument.type](argument);
-}
+};
 
 Parser.prototype.walkArrayExpression = function walkArrayExpression(expression) {
 	if(expression.elements)
@@ -959,7 +961,7 @@ Parser.prototype.inScope = function inScope(params, fn) {
 };
 
 Parser.prototype.enterPattern = function enterPattern(pattern, onIdent) {
-	if(pattern != null && this["enter" + pattern.type])
+	if(pattern && this["enter" + pattern.type])
 		return this["enter" + pattern.type](pattern, onIdent);
 };
 
@@ -1100,7 +1102,7 @@ var POSSIBLE_AST_OPTIONS = [{
 	plugins: {
 		dynamicImport: true
 	}
-}]
+}];
 
 Parser.prototype.parse = function parse(source, initialState) {
 	var ast, comments = [];

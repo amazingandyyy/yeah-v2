@@ -14,6 +14,7 @@ var HarmonyAcceptImportDependency = require("./HarmonyAcceptImportDependency");
 
 var NullFactory = require("../NullFactory");
 
+var HarmonyDetectionParserPlugin = require("./HarmonyDetectionParserPlugin");
 var HarmonyImportDependencyParserPlugin = require("./HarmonyImportDependencyParserPlugin");
 var HarmonyExportDependencyParserPlugin = require("./HarmonyExportDependencyParserPlugin");
 
@@ -57,6 +58,7 @@ HarmonyModulesPlugin.prototype.apply = function(compiler) {
 				return;
 
 			parser.apply(
+				new HarmonyDetectionParserPlugin(),
 				new HarmonyImportDependencyParserPlugin(),
 				new HarmonyExportDependencyParserPlugin()
 			);

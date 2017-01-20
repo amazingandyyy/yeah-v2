@@ -11,17 +11,10 @@ import config from './config';
 import cors from 'cors';
 import path from 'path';
 
-let MONGOURI;
-let MONGOLOG;
+let MONGOURI= config.mongo_uri;;
+let MONGOLOG= config.mongo_log;
 
 // MongoDB Setup
-if (process.env.NODE_ENV !== 'production') {
-  MONGOURI = config.mongo_local_uri;
-  MONGOLOG= config.mongo_local_uri;
-}else{
-  MONGOURI = config.mongo_uri;
-  MONGOLOG='real mongoDB';
-}
 if (!config.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {

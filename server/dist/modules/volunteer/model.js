@@ -20,11 +20,46 @@ var Schema = new _mongoose2.default.Schema({
     type: String,
     required: [true, 'Title is required']
   },
+  oranization: {
+    type: String
+  },
+  date: {
+    type: String
+  },
+  time: {
+    type: String
+  },
+  location: {
+    type: String
+  },
+  description: {
+    type: String
+  },
+  tags: [{
+    type: String
+  }],
   createBy: {
     type: _mongoose2.default.Schema.ObjectId,
     ref: 'User',
     autopopulate: true
   },
+  stories: [{
+    participant: {
+      type: _mongoose2.default.Schema.ObjectId,
+      ref: 'User',
+      autopopulate: true
+    },
+    body: {
+      type: String
+    },
+    createAt: {
+      type: Number,
+      default: Date.now()
+    },
+    photos: [{
+      type: String
+    }]
+  }],
   createAt: {
     type: Number,
     default: Date.now()

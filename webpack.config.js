@@ -4,16 +4,20 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDER_LIBS = [
-  "faker",
+  "jquery",
   "lodash",
+  "moment",
   "react",
   "react-dom",
+  "react-dropzone",
   "react-input-range",
   "react-redux",
   "react-router",
+  "react-widgets",
   "redux",
   "redux-form",
-  "redux-thunk"
+  "redux-thunk",
+  "superagent"
 ]
 module.exports = {
   entry: {
@@ -38,30 +42,6 @@ module.exports = {
           loader: "css-loader!sass-loader",
         })
       },
-
-// Old settings for .svg .woff .eot .ttf loaders
-
-      // }, {
-      //   test: /\.svg$/,
-      //   use: 'react-svg-loader'},
-      // }, {
-      //   test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-      //   loader: 'file'
-      // }, {
-      //   test: /\.(woff|woff2)$/,
-      //   loader: 'url?prefix=font/&limit=5000'
-      // }, {
-      //   test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-      //   loader: 'url?limit=10000&mimetype=application/octet-stream'
-      // }, {
-      //   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-      //   loader: 'url?limit=10000&mimetype=image/svg+xml'
-      // },
-
-
-        // New config for react widgets from react-widgets document
-
-
       { 
         test: /\.css$/, 
         loader: 'style-loader!css-loader'
@@ -92,11 +72,15 @@ module.exports = {
       }),
     new HtmlWebpackPlugin({template: 'client/src/index.html'}),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      "global.GENTLY": false
     }),
     new webpack
       .optimize
       .UglifyJsPlugin({sourceMap: true}),
-    new ExtractTextPlugin('style.css')
-  ]
+    new ExtractTextPlugin('style.css'),
+  ],
+  node: {
+    __dirname: true,
+  }
 };

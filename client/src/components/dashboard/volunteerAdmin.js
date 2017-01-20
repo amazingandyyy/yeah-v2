@@ -16,7 +16,7 @@ class VolunteerAdmin extends Component{
         //show the time 
     console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
     console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        // this.props.createVolunteerResource(data);
+    this.props.createVolunteerResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {

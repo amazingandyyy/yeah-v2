@@ -10,6 +10,9 @@ const Schema = new mongoose.Schema({
   oranization: {
     type: String
   },
+  date: {
+    type: String
+  },
   time: {
     type: String
   },

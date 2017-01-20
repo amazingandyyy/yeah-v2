@@ -76,15 +76,25 @@ class VolunteerEditDetails extends Component{
         hashHistory.goBack()
     }
     goSave() {
-        
+        const pathname = this.props.location.pathname;
+        const Id = pathname.split('/')[pathname.split('/').length-2]
+        hashHistory.goBack();
+        // this.props.saveOneVolunteerChance(Id, 'data');
+    }
+    goDelete() {
+        const pathname = this.props.location.pathname;
+        const Id = pathname.split('/')[pathname.split('/').length-2]
+        if(window.confirm(`Are you sure you want to delete this event? (It cannot be recovered)`)){
+            this.props.deleteOneVolunteerChance(Id);
+        }
     }
     render() {
         return(<span className="details-component edit-mode">
                 <div className="header">
                     <span className="mode-tag">editting</span>
                     <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Cancel</span>
-                    <span className="rightBtn" onClick={this.goSave.bind(this)}>Save</span>
-                    
+                    <span className="rightBtn save-success" onClick={this.goSave.bind(this)}>Save</span>
+                    <span className="rightBtn delete-danger" onClick={this.goDelete.bind(this)}>Delete</span>
                 </div>
                 <div className="content">
                     {this.renderDetails()}

@@ -5,6 +5,7 @@
 	Author Tobias Koppers @sokra
 */
 var path = require("path");
+
 // Local version replace global one
 try {
 	var localWebpack = require.resolve(path.join(process.cwd(), "node_modules", "webpack", "bin", "webpack.js"));
@@ -166,19 +167,24 @@ function processOptions(options) {
 	if(typeof options.then === "function") {
 		options.then(processOptions).catch(function(err) {
 			console.error(err.stack || err);
-			process.exit(); // eslint-disable-line
+			process.exit(1); // eslint-disable-line
 		});
 		return;
 	}
 
-	var firstOptions = Array.isArray(options) ? (options[0] || {}) : options;
+	var firstOptions = [].concat(options)[0];
+	var statsPresetToOptions = require("../lib/Stats.js").presetToOptions;
 
-	if(typeof options.stats === "boolean" || typeof options.stats === "string") {
-		var statsPresetToOptions = require("../lib/Stats.js").presetToOptions;
-		options.stats = statsPresetToOptions(options.stats);
+	var outputOptions = options.stats;
+	if(typeof outputOptions === "boolean" || typeof outputOptions === "string") {
+		outputOptions = statsPresetToOptions(outputOptions);
+	} else if(!outputOptions) {
+		outputOptions = {};
 	}
-
-	var outputOptions = Object.create(options.stats || firstOptions.stats || {});
+	outputOptions = Object.create(outputOptions);
+	if(Array.isArray(options) && !outputOptions.children) {
+		outputOptions.children = options.map(o => o.stats);
+	}
 	if(typeof outputOptions.context === "undefined")
 		outputOptions.context = firstOptions.context;
 
@@ -326,7 +332,6 @@ function processOptions(options) {
 			console.error(err.stack || err);
 			if(err.details) console.error(err.details);
 			process.exit(1); // eslint-disable-line
-			return;
 		}
 		if(outputOptions.json) {
 			process.stdout.write(JSON.stringify(stats.toJson(outputOptions), null, 2) + "\n");
@@ -340,17 +345,16 @@ function processOptions(options) {
 			});
 		}
 	}
-	if(options.watch) {
-		var primaryOptions = !Array.isArray(options) ? options : options[0];
-		var watchOptions = primaryOptions.watchOptions || primaryOptions.watch || {};
+	if(firstOptions.watch || options.watch) {
+		var watchOptions = firstOptions.watchOptions || firstOptions.watch || options.watch || {};
 		if(watchOptions.stdin) {
-			process.stdin.on('end', function() {
+			process.stdin.on("end", function() {
 				process.exit(0); // eslint-disable-line
 			});
 			process.stdin.resume();
 		}
 		compiler.watch(watchOptions, compilerCallback);
-		console.log('\nWebpack is watching the files…\n');
+		console.log("\nWebpack is watching the files…\n");
 	} else
 		compiler.run(compilerCallback);
 

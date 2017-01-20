@@ -10,5 +10,6 @@ router.post('/createResource', loginRequired, controller.createResource);
 // public request
 router.get('/fetchAll', controller.fetchAll);
 router.get('/fetchOne/:id', controller.fetchOne);
+router.delete('/deleteOne/:id', controller.deleteOne);
 
-module.exports = router;
+export default router;

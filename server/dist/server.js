@@ -44,17 +44,10 @@ require('dotenv').config();
 // import packages
 
 
-var MONGOURI = void 0;
-var MONGOLOG = void 0;
+var MONGOURI = _config2.default.mongo_uri;;
+var MONGOLOG = _config2.default.mongo_log;
 
 // MongoDB Setup
-if (process.env.NODE_ENV !== 'production') {
-  MONGOURI = _config2.default.mongo_local_uri;
-  MONGOLOG = _config2.default.mongo_local_uri;
-} else {
-  MONGOURI = _config2.default.mongo_uri;
-  MONGOLOG = 'real mongoDB';
-}
 if (!_config2.default.jwt_secret || !process.env.JWT_SECRET) {
   console.error('No jwt secret. MongoDB is not connected');
 } else {
