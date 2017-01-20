@@ -1,7 +1,16 @@
 import User from './model';
 import AWS from 'aws-sdk';
 import config from '../../config';
-import uuid from 'uuid';
+// import uuid from 'uuid';
+function uuid(){
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
 
 const s3 = new AWS.S3();
 AWS
@@ -14,6 +23,7 @@ const getProfile = (req, res, next) => {
       .status(404)
       .send('No user found')
   }
+  console.log('uuid: ', uuid())
   res.send(req.user);
 }
 
@@ -35,7 +45,7 @@ const uploadAvatar = (req, res, next) => {
     ext = '';
   }
 
-  const uuidKey = `user/${userId}/${uuid.v4()}${ext}`; // route and file name(unique)
+  const uuidKey = `user/${userId}/${uuid()}${ext}`; // route and file name(unique)
   const bucket = config.aws_s3_bucket;
   const url_base = config.aws_s3_url_base;
 

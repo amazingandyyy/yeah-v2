@@ -16,11 +16,18 @@ var _config = require('../../config');
 
 var _config2 = _interopRequireDefault(_config);
 
-var _uuid = require('uuid');
-
-var _uuid2 = _interopRequireDefault(_uuid);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import uuid from 'uuid';
+function uuid() {
+  var d = new Date().getTime();
+  var uuid = 'xxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c == 'x' ? r : r & 0x3 | 0x8).toString(16);
+  });
+  return uuid;
+}
 
 var s3 = new _awsSdk2.default.S3();
 _awsSdk2.default.config.update({ accessKeyId: _config2.default.aws_access_key_id, secretAccessKey: _config2.default.aws_secret_access_key });
@@ -29,6 +36,7 @@ var getProfile = function getProfile(req, res, next) {
   if (!req.user) {
     return res.status(404).send('No user found');
   }
+  console.log('uuid: ', uuid());
   res.send(req.user);
 };
 
@@ -48,7 +56,7 @@ var uploadAvatar = function uploadAvatar(req, res, next) {
     ext = '';
   }
 
-  var uuidKey = 'user/' + userId + '/' + _uuid2.default.v4() + ext; // route and file name(unique)
+  var uuidKey = 'user/' + userId + '/' + uuid() + ext; // route and file name(unique)
   var bucket = _config2.default.aws_s3_bucket;
   var url_base = _config2.default.aws_s3_url_base;
 
