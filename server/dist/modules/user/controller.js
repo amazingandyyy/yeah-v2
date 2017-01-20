@@ -48,7 +48,7 @@ exports.default = {
             ext = '';
         }
 
-        var uuidKey = 'user/' + userId + '/avatar' + ext;
+        var uuidKey = 'user/' + userId + '/' + _uuid2.default.v4() + ext; // route and file name(unique)
         var bucket = _config2.default.aws_s3_bucket;
         var url_base = _config2.default.aws_s3_url_base;
 
@@ -58,16 +58,18 @@ exports.default = {
             ACL: 'public-read-write',
             Body: file.buffer
         };
+        console.log(params);
 
         s3.putObject(params, function (err, result) {
             if (err) {
-                return next();
-            }
+                console.log(err);
+                return res.send({ error: err });
+            };
             var avatarUrl = url_base + '/' + bucket + '/' + uuidKey;
             _model2.default.findByIdAndUpdate(userId, { avatar: avatarUrl }).then(function () {
                 return _model2.default.findById(userId);
             }).then(function (user) {
-                return res.send(user);
+                res.send(user);
             }).catch(next);
         });
     }

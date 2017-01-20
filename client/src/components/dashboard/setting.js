@@ -10,7 +10,7 @@ class Setting extends Component {
     this.props.fetchProfile()
   }
   renderProfile(){
-    if(this.props.profile){
+    if(this.props.profile && this.props.profile.name){
       return (<div>
         <h2>Profile</h2>
         <h5>Name: {this.props.profile.name}</h5>
