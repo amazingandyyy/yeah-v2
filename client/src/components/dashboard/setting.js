@@ -51,6 +51,7 @@ class Setting extends Component {
   }
 }
 function mapStateToProps({profile}){
+  console.log('profile: ', profile)
   return {
     profile
   }

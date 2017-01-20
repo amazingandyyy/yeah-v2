@@ -33,7 +33,7 @@ export default {
             ext = '';
         }
 
-        const uuidKey = `user/${userId}/avatar${ext}`;
+        const uuidKey = `user/${userId}/${uuid.v4()}${ext}`; // route and file name(unique)
         const bucket = config.aws_s3_bucket;
         const url_base = config.aws_s3_url_base;
 
@@ -43,13 +43,19 @@ export default {
             ACL: 'public-read-write',
             Body: file.buffer
         }
+        console.log(params)
 
         s3.putObject(params, (err, result) => {
-            if (err) {return next()}
+            if (err) {
+                console.log(err) 
+                return res.send({error: err})
+            };
             let avatarUrl = `${url_base}/${bucket}/${uuidKey}`;
                 User.findByIdAndUpdate(userId, {avatar: avatarUrl})
                 .then(()=>User.findById(userId))
-                .then((user)=>res.send(user))
+                .then((user)=>{
+                    res.send(user)
+                })
                 .catch(next)
             });
         }

@@ -26,7 +26,6 @@ const loginRequired = (req, res, next) => {
     })
 };
 
-
 const upload = multer({
   storage: multer.memoryStorage()
 });
