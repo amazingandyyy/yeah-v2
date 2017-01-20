@@ -7,7 +7,7 @@ import Moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
-
+import GoogleMapSearch from './googleMapSearch';
 
 class VolunteerAdmin extends Component{
     handleFormSubmit(data) {
@@ -44,6 +44,12 @@ class VolunteerAdmin extends Component{
             <div>
                 <DateTimePicker calendar={false} {...rest} onChange={input.onChange} placeholder='Select Starting Time'/>
             </div>    
+        );
+    }
+
+    renderLocation({input, ...rest}){
+        return(
+        <GoogleMapSearch {...input} onChange={input.onChange} {...rest}/>
         );
     }
 
@@ -100,7 +106,7 @@ class VolunteerAdmin extends Component{
                     <Field 
                         type="text" 
                         name="location" 
-                        component="input" 
+                        component={this.renderLocation.bind(this)} 
                         className="form-control"
                         required
                     />
