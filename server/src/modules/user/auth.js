@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt-nodejs';
 
 import {generateToken} from '../services';
 import User from './model';
+import AdminController from '../admin/controller';
 
 const signup = (req, res, next) => {
     if (!req.body.email || !req.body.password) {
@@ -39,7 +40,12 @@ const signin = function (req, res, next) {
                 if (err || !good) {
                     return next()
                 }
-                res.send({success: true, token: generateToken(existingUser)})
+                AdminController.checkAdminById(existingUser._id).then(admin=>{
+                    if(admin){
+                        return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
+                    }
+                    res.send({success: true, token: generateToken(existingUser), isAdmin: false})
+                })
             })
         })
         .catch(next)

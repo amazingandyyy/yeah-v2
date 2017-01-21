@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_ERROR, AUTH_USER, UNAUTH_USER } from './types';
+import { AUTH_ERROR, AUTH_USER, UNAUTH_USER,AUTH_ADMIN  } from './types';
 import { browserHistory, hashHistory } from 'react-router';
 
 function signUserIn({email, password}) {
@@ -8,10 +8,16 @@ function signUserIn({email, password}) {
         axios
             .post(`/api/user/signin`, {email, password})
             .then(res => {
-                dispatch({type: AUTH_USER})
-                localStorage.setItem('token', res.data.token);
-                hashHistory.push('/dashboard')
+                if(res.data.isAdmin){
+                    dispatch({type: AUTH_ADMIN})
+                }else{
+                    dispatch({type: AUTH_USER})
+                }
+                hashHistory.push('/dashboard');
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                localStorage.setItem('isAdmin', res.data.isAdmin);
+                localStorage.setItem('token', res.data.token);
+                
             })
             .catch(error => {
                 console.log(error);
