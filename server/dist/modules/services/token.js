@@ -24,6 +24,7 @@ var generateToken = function generateToken(user) {
     return _jwtSimple2.default.encode(payload, _config2.default.jwt_secret);
 };
 var verifyToken = function verifyToken(token, cb) {
+    console.log('token: ', token);
     var decode = _jwtSimple2.default.decode(token, _config2.default.jwt_secret);
     if (!decode) {
         return cb({ error: 'Token is not verified.' });
