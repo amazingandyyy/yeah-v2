@@ -17,10 +17,6 @@ var _multer2 = _interopRequireDefault(_multer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var upload = (0, _multer2.default)({
-    storage: _multer2.default.memoryStorage()
-});
-
 var loginRequired = function loginRequired(req, res, next) {
 
     if (!req.header('Authorization')) {

@@ -1,10 +1,7 @@
 import User from './modules/user/model';
 import { verifyToken } from './modules/services';
 import multer from 'multer';
-
-var upload = multer({
-    storage: multer.memoryStorage()
-});
+import adminController from './modules/admin/controller';
 
 const loginRequired = (req, res, next) => {
     
@@ -30,11 +27,22 @@ const loginRequired = (req, res, next) => {
     })
 };
 
-
 const upload = multer({
   storage: multer.memoryStorage()
 });
 
 const readFile = upload.single('asset');
 
-export { loginRequired, readFile };
+const checkAdmin = (req, res, next) => {
+    const userId = req.user._id;
+    if(!userId) res.status(401).send('admin need to login');
+    adminController.checkAdminById(userId).then((user)=>{
+        if(!user){
+            return res.status(403).send({fail: 'you are not admin'})
+        }
+        next()
+    })
+    .catch(next);
+}
+
+export { loginRequired, readFile, checkAdmin };

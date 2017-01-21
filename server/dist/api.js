@@ -29,6 +29,12 @@ router.get('/', function (req, res) {
   res.send('You are connected to yeah-server-api');
 });
 
+// router.use('/', (req, res, next) => {
+//   if(!process.env.JWT_SECRET) {
+//     return res.send('no jwt_secret');
+//   }
+// })
+
 router.use('/user', _route2.default);
 router.use('/volunteer', _route4.default);
 

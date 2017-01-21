@@ -21,22 +21,41 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Define the model
 var Schema = new _mongoose2.default.Schema({
   name: {
-    type: String,
-    validate: {
-      validator: function validator(name) {
-        return name.length > 2;
+    first: {
+      type: String,
+      validate: {
+        validator: function validator(name) {
+          return name.length > 2;
+        },
+        message: 'Name must be longer than 2 characters.'
       },
-      message: 'Name must be longer than 2 characters.'
+      required: [true, 'first name is required.']
     },
-    required: [true, 'Name is required.']
+    last: {
+      type: String,
+      validate: {
+        validator: function validator(name) {
+          return name.length > 2;
+        },
+        message: 'Name must be longer than 2 characters.'
+      }
+    }
   },
   avatar: {
     type: String
   },
   email: {
-    type: String,
-    unique: true,
-    lowercase: true
+    data: {
+      type: String,
+      unique: true,
+      required: [true, 'Email is required.'],
+      lowercase: true
+    },
+    verified: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
   },
   password: {
     type: String,

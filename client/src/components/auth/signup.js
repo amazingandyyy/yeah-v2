@@ -16,7 +16,7 @@ class Signup extends Component {
     }
     handleFormSubmit(data) {
         if (data.password == data.password2) {
-            this.props.signUserUp({name: data.name, email: data.email, password: data.password});
+            this.props.signUserUp({name: {first: data.firstName, last: data.lastName}, email: data.email, password: data.password});
         }else{
             console.log('password does not matched');
         }
@@ -32,13 +32,23 @@ class Signup extends Component {
                     className="col-xs">
                     <h2>Sign Up</h2>
                     <div className="form-group">
-                        <label>Name:</label>
+                        <label>First name:</label>
                         <Field
-                            name="name"
+                            name="firstName"
                             type='text'
                             component="input"
                             className="form-control"
-                            placeholder="Name"
+                            placeholder="first name"
+                            required/>
+                    </div>
+                    <div className="form-group">
+                        <label>Last name:</label>
+                        <Field
+                            name="lastName"
+                            type='text'
+                            component="input"
+                            className="form-control"
+                            placeholder="last name"
                             required/>
                     </div>
                     <div className="form-group">

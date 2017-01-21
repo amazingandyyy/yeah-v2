@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
 import { Icon } from '../widgets';
+import { connect } from 'react-redux';
 
 class Drawer extends Component {
   renderAdmin() {
-    if(true){
+    if(this.props.isAdmin){
       return (
         <Link to="/dashboard/admin" activeClassName="active">
           <div className="item">
@@ -63,5 +64,10 @@ class Drawer extends Component {
     )
   }
 }
+function mapStateToProps({auth}){
+  return {
+    isAdmin: auth.isAdmin
+  }
+}
 
-export default Drawer;
+export default connect(mapStateToProps)(Drawer);

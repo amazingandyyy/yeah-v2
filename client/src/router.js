@@ -18,6 +18,7 @@ import CourcesAdmin from './components/dashboard/courcesAdmin';
 import VolunteerDetail from './components/volunteer/details';
 import VolunteerDetailEdit from './components/volunteer/edit';
 import RequireAuth from './components/auth/require_auth';
+import RequireAdmin from './components/auth/admin_require';
 
 const RouterComponent = () => {
     return (
@@ -35,9 +36,9 @@ const RouterComponent = () => {
                 <Route path="/dashboard/explore" component={Explore}>
                     <IndexRoute component={ExploreBrowser} />
                     <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
-                    <Route path="/dashboard/explore/volunteer/:id/edit" component={ VolunteerDetailEdit } />
+                    <Route path="/dashboard/explore/volunteer/:id/edit" component={ RequireAdmin(VolunteerDetailEdit) } />
                 </Route>
-                <Route path="/dashboard/admin" component={Admin}>
+                <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
                     <IndexRoute component={VolunteerAdmin} />
                     <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
                     <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>

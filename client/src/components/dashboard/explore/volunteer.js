@@ -11,25 +11,29 @@ class Volunteer extends Component {
     }
     renderList() {
       if(this.props.events){
-        return this.props.events.map(event => {
-        if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
-        if (!event.thumbnail){ event.thumbnail = 'http://bit.ly/2jvvHDd' };
-        let eventQuery = {
-          colorSetting: event.colorSetting,
-          thumbnail: event.thumbnail
-        }
-          return (
-              <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:eventQuery }}  key={event._id}>
-              <div className="card resource">
-                <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
-                  <span style={{color: event.colorSetting}}>new!</span>
-                  <div className="overlay" style={{background: event.colorSetting}}></div>
+        if(this.props.events.length > 1) {
+          return this.props.events.map(event => {
+            if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
+            if (!event.thumbnail){ event.thumbnail = 'http://bit.ly/2jvvHDd' };
+            let eventQuery = {
+              colorSetting: event.colorSetting,
+              thumbnail: event.thumbnail
+            }
+            return (
+                <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:eventQuery }}  key={event._id}>
+                <div className="card resource">
+                  <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
+                    <span style={{color: event.colorSetting}}>new!</span>
+                    <div className="overlay" style={{background: event.colorSetting}}></div>
+                  </div>
+                  <div className="body"><div className="card-title">{event.title}</div></div>
                 </div>
-                <div className="body"><div className="card-title">{event.title}</div></div>
-              </div>
-              </Link>
-          )
-        })
+                </Link>
+            )
+          })
+        }else{
+          return <p>no resources just yet</p>
+        }
       }else{
         return <Loader style={{ margin: 'auto', width: '30px', marginTop: '50px'}} />
       }

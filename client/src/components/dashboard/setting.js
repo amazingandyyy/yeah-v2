@@ -10,13 +10,14 @@ class Setting extends Component {
     this.props.fetchProfile()
   }
   renderProfile(){
-    if(this.props.profile){
+    const { name, email } = this.props.profile;
+    console.log(name);
+    if(name){
       return (<div>
         <h2>Profile</h2>
-        <h5>Name: {this.props.profile.name}</h5>
-        <h5>Email: {this.props.profile.email}</h5>
-        <h5>Joined At: {moment.unix(this.props.profile.createAt).format("MM/DD/YYYY")}</h5>
-          {this.renderAvatar()}
+        <p>name: {name.first} {name.last}</p>
+        <p>email: {email.data}</p>
+        {this.renderAvatar()}
       </div>)
     }else{
       return  <Loader />
@@ -35,13 +36,15 @@ class Setting extends Component {
   render() {
     return (
       <div className="display-componet">
-        <div className="header">Setting</div>
+        <div className="header">Settings</div>
         <div className="content">
           <div className="container">
             {this.renderProfile()}
-            <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-              <div>Try dropping some files here, or click to select files to upload.</div>
-            </Dropzone>
+            <div>
+              <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+                <div>Try dropping some files here, or click to select files to upload.</div>
+              </Dropzone>
+            </div>
           <div>
         </div>
         </div>
@@ -57,3 +60,7 @@ function mapStateToProps({profile}){
 }
 
 export default connect(mapStateToProps, actions)(Setting);
+
+// <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
+//   <div>Try dropping some files here, or click to select files to upload.</div>
+// </Dropzone>

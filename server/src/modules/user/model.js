@@ -5,26 +5,45 @@ import autopopulate from 'mongoose-autopopulate';
 // Define the model
 const Schema = new mongoose.Schema({
   name: {
-    type: String,
-    validate: {
-      validator: function (name) {
-        return name.length > 2;
+    first: {
+      type: String,
+      validate: {
+        validator: function (name) {
+          return name.length > 2;
+        },
+        message: 'Name must be longer than 2 characters.'
       },
-      message: 'Name must be longer than 2 characters.'
+      required: [true, 'first name is required.']
     },
-    required: [true, 'Name is required.'],
+    last: {
+      type: String,
+      validate: {
+        validator: function (name) {
+          return name.length > 2;
+        },
+        message: 'Name must be longer than 2 characters.'
+      }
+    }
   },
   avatar: {
     type: String
   },
   email: {
-    type: String,
-    unique: true,
-    lowercase: true
+    data: {
+      type: String,
+      unique: true,
+      required: [true, 'Email is required.'],
+      lowercase: true
+    },
+    verified: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
   },
   password: {
     type: String,
-    select: false,
+    select: false
   },
   createAt: {
     type: Number,
@@ -43,7 +62,7 @@ Schema
   .get(function () {
     return this.posts.length;
   });
-Schema.post('save', function(error, doc, next) {
+Schema.post('save', function (error, doc, next) {
   if (error.name === 'MongoError' && error.code === 11000) {
     next(new Error('email must be unique'));
   } else {

@@ -1,5 +1,5 @@
 .dashboard-component {
-    background: white;
+    background: #FAFBFC;
     font-family: $sans;
     .display-componet {
         .header {
@@ -7,7 +7,7 @@
             transition: .2s all ease-in-out;
             background: rgba($white, 0.975);
             border-bottom: 1px solid $gray;
-            box-shadow: 0px -1px 5px -1px rgba($black, 0.1);
+            box-shadow: 0px 0px 5px 0px rgba($black, 0.1);
             color: $black;
             position: fixed;
             top: 0px;
