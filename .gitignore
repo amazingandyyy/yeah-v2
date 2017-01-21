@@ -8,3 +8,4 @@ npm-debug.log
 !.elasticbeanstalk/*.global.yml
 saved
 node_modules
+dist
