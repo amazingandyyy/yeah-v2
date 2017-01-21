@@ -6,6 +6,6 @@ npm-debug.log
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-saved
-node_modules
-dist
+
+# node_modules
+# dist
