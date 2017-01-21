@@ -4,6 +4,6 @@
     "files.exclude": {
         "**/dist": false,
         "yarn.lock": true,
-        "npm-debug.log": true
+        "npm-debug.log": false
     }
 }

@@ -14,7 +14,7 @@
     "deploy": "npm run build && npm run push && eb deploy && eb open"
   },
   "author": "amazingandyyy",
-  "license": "ISC",
+  "license": "private",
   "dependencies": {
     "aws-sdk": "^2.7.27",
     "axios": "^0.15.3",
