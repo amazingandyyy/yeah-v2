@@ -1,0 +1,97 @@
+.drawer-component {
+    transition: .2s all ease-in-out;
+    z-index: 990;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #2E3D49;
+    height: 100vh;
+    min-height: 50vh;
+    min-width: 250px;
+    padding: 0px;
+    margin: 0px;
+    user-select: none;
+    .active {
+        .item {
+            background: lighten(#2E3D49, 3%);
+            color: white;
+            .icon {
+                opacity: 1;
+            }
+        }
+    }
+    .item {
+        color: #afafaf;
+        cursor: pointer;
+        padding: 20px 20px;
+        line-height: 20px;
+        vertical-align: center;
+        &:hover {
+            cursor: pointer;
+            color: white;
+            .icon {
+                opacity: 1;
+            }
+        }
+        &#header {
+            text-align: left;
+            color: white;
+            background: #1C262F;
+            font-weight: 100;
+            text-transform: uppercase;
+            font-size: 1.3em;
+            letter-spacing: 1px;        
+        }
+        .icon {
+            opacity: 0.6;
+        }
+
+        .title {
+            color: inherit;
+            position: relative;
+            left: 15px;
+            top: 2px;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        
+    }
+    .bottom{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+
+    #drawer-handle {
+        cursor: pointer;
+        background: #2E3D49;
+        color: white;
+        width: 20px;
+        right: -19px;
+        top: 100px;
+        height: 60px;
+        position: absolute;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-top: 20px;
+        padding-right: 5px;
+        text-align: right;
+        &:hover{
+            width: 30px;
+            right: -29px;
+        }
+        .fa-caret-right {
+            display: none;
+        }
+        .fa-caret-left {
+            display: inline;
+        }
+
+        &:active{
+            opacity: 0.6;
+        }
+    }
+}
