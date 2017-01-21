@@ -11,9 +11,9 @@
     "serve": "webpack-dev-server",
     "push": "git add . && git commit -m 'deploy to aws eb' ",
     "build": "npm run build-c && npm run build-s",
-    "mid-deploy": "npm run build && npm run push && eb deploy && eb open",
+    "deploy": "npm run push && eb deploy && eb open",
     "ssh": "ssh -i ~/Downloads/aws-es2.pem ec2-user@54.202.177.7",
-    "prestart": "yarn"
+    "prestart": "yarn && npm run build"
   },
   "author": "amazingandyyy",
   "license": "private",
