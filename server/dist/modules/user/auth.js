@@ -16,6 +16,10 @@ var _model = require('./model');
 
 var _model2 = _interopRequireDefault(_model);
 
+var _controller = require('../admin/controller');
+
+var _controller2 = _interopRequireDefault(_controller);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var signup = function signup(req, res, next) {
@@ -47,7 +51,12 @@ var signin = function signin(req, res, next) {
             if (err || !good) {
                 return next();
             }
-            res.send({ success: true, token: (0, _services.generateToken)(existingUser) });
+            _controller2.default.checkAdminById(existingUser._id).then(function (admin) {
+                if (admin) {
+                    return res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: true });
+                }
+                res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: false });
+            });
         });
     }).catch(next);
 };
