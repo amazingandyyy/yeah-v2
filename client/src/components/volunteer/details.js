@@ -81,11 +81,17 @@ class VolunteerDetails extends Component{
         const query = this.props.location.query;
         hashHistory.push({pathname: `${uri}/edit`, query})
     }
+    renderRightBtn() {
+        if(this.props.isAdmin){
+            return (<span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>)
+        }
+        return(<span className="rightBtn">Like</span>)
+    }
     render() {
         return(<span className="details-component">
                 <div className="header">
                     <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
-                    <span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>
+                    {this.renderRightBtn()}
                 </div>
                 <div className="content">
                     {this.renderDetails()}
@@ -94,6 +100,6 @@ class VolunteerDetails extends Component{
     }
 }
 
-export default connect(({volunteer})=>{
-    return {details: volunteer.event}
+export default connect(({volunteer, auth})=>{
+    return {details: volunteer.event, isAdmin: auth.isAdmin}
 }, actions)(VolunteerDetails);

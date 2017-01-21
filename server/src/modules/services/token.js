@@ -10,6 +10,7 @@ const generateToken = (user) => {
     return jwt.encode(payload, config.jwt_secret);
 }
 const verifyToken = (token, cb) => {
+    console.log('token: ', token)
     const decode = jwt.decode(token, config.jwt_secret)
     if (!decode) {
         return cb({error: 'Token is not verified.'})

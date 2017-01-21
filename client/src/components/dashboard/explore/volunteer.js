@@ -11,7 +11,7 @@ class Volunteer extends Component {
     }
     renderList() {
       if(this.props.events){
-        if(this.props.events.length > 1) {
+        if(this.props.events.length > 0) {
           return this.props.events.map(event => {
             if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
             if (!event.thumbnail){ event.thumbnail = 'http://bit.ly/2jvvHDd' };

@@ -1,5 +1,5 @@
 .drawer-component {
-    transition: .2s all ease-in-out;
+    transition: .1s all ease-in-out;
     z-index: 990;
     position: fixed;
     top: 0;
@@ -69,19 +69,24 @@
         cursor: pointer;
         background: #2E3D49;
         color: white;
-        width: 20px;
-        right: -19px;
-        top: 100px;
+        width: 30px;
+        right: -29px;
+        top: 150px;
         height: 60px;
         position: absolute;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         padding-top: 20px;
-        padding-right: 5px;
+        padding-right: 10px;
         text-align: right;
-        &:hover{
-            width: 30px;
-            right: -29px;
+        opacity: 0.4;
+        @media (min-width: 767px) {
+            top: 100px;
+            width: 20px;
+            right: -19px;
+            padding-top: 30px;
+            height: 80px;
+            padding-right: 5px;
         }
         .fa-caret-right {
             display: none;
@@ -91,7 +96,7 @@
         }
 
         &:active{
-            opacity: 0.6;
+            opacity: 1;
         }
     }
 }

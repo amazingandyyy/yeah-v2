@@ -17,7 +17,7 @@ function signUserIn({email, password}) {
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('token', res.data.token);
-                
+                location.reload();
             })
             .catch(error => {
                 console.log(error);
