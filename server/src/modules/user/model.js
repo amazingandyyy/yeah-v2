@@ -52,6 +52,10 @@ const Schema = new mongoose.Schema({
   timestamp: {
     type: Number,
     default: Date.now
+  },
+  facebook: {
+    userID: {type: String, unique: true},
+    accessToken: {type: String, unique: true}
   }
 });
 

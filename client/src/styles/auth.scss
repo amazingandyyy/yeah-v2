@@ -25,7 +25,7 @@ body {
     }
 
     .auth-card {
-        padding-top: 61px;
+        padding-top: 57px;
         box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
         max-width: 620px;
         border: 1px solid #dbe2e8;
@@ -41,7 +41,6 @@ body {
             left: 0;
             right: 0;
             display: flex;
-            background: #7d97ad;
 
             a.panel {
                 display: block;
@@ -49,7 +48,7 @@ body {
                 background: #fafbfc;
                 border-bottom: 1px solid #dbe2e8;
                 color: #7d97ad;
-                padding: 20px;
+                padding: 18px;
                 text-align: center;
                 letter-spacing: 1px;
                 font-size: 14px;
@@ -76,10 +75,26 @@ body {
         
         .formSection {
             background: white;
-            padding: 60px;
+            padding: 30px;
             padding-bottom: 80px;
+            @media (min-width: 767px) {
+                padding: 60px;
+            }
             form {
                 margin: 25px 0 40px;
+            }
+            .iForGet {
+                color: $light-blue;
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: 600;
+                a {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #2e3d49;
+                    }
+                }
             }
             .title {
                 font-size: 34px;
@@ -98,6 +113,97 @@ body {
                 margin: 20px auto;
                 text-align: center;
             }
+        }
+        .small-text {
+            color: rgba(#757c81, 0.6);
+            font-size: 14px;
+            font-weight: 100;
+            margin-bottom: 15px;
+        }
+        .auth-fb-wrapper {
+            position: relative;
+            margin: auto;
+            min-width: 207px;
+            max-width: 207px;
+            border: 1px solid #dbe2e8;
+            color: #757c81;
+            border-radius: 4px;
+            padding: 20px 25px;
+            height: 44px;
+            background: white;
+
+            &:hover{
+                .content {
+                    color: $light-blue;
+                }
+            }
+
+            &:active {
+                border: 1px solid darken(#dbe2e8, 10%);
+            }
+
+            .fb-icon{
+                width: 24px;
+                z-index: 92;
+                position: absolute;
+                top: 9px;
+                left: 30px;
+            }
+
+            .content {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 400;
+                font-size: 13px;
+                position: absolute;
+                top: 12.5px;
+                right: 30px;
+            }
+
+            .auth-fb-button {
+                border: none;
+                outline: none !important;
+                cursor: pointer;
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 80;
+                &:active {
+                    outline: none !important;
+                }
+            }
+        }
+    }
+}
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #dbe2e8;
+    border: none;
+    margin: 30px 0;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 500px) {
+// on the phone
+    body {
+        background: white !important;
+    }
+    .auth-component {
+        padding-top: 84px !important;
+        .auth-card {
+            height: 100vh !important;
         }
     }
 }

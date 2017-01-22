@@ -9,7 +9,9 @@ input, textarea, keygen, select, button {
     display: inline-block;
     text-align: start;
     margin: 0em 0em 0em 0em;
-    font: 11px BlinkMacSystemFont;
+    font: 11px $sans;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 .form-group {
     display: flex;
@@ -26,8 +28,6 @@ input, textarea, keygen, select, button {
         box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
         border-radius: 2px;
         color: #2e3d49;
-
-
         &:focus, &:active {
             outline: none;
             border-color: #02b3e4;
@@ -39,6 +39,8 @@ input, textarea, keygen, select, button {
 }
 .form-group input[type=email], .form-group input[type=password], .form-group input[type=text], .form-group textarea {
     width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 ::-webkit-input-placeholder {

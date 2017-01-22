@@ -13,12 +13,18 @@ a, a:visited, a:focus, a:active, a:hover {
     text-decoration: none;
 }
 
-@media (min-width: 767px) { 
+@media (min-width: 767px) {
     .center-block {
         max-width: 500px;
         margin: auto;
     }
- }
+}
+@media screen and (max-width: 500px) {
+// on the phone
+    .xs-hide {
+        display: none !important;
+    }
+}
 
 @import './variable';
 @import './header';

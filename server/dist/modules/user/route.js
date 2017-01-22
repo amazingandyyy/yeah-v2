@@ -27,7 +27,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 // public request
 router.post('/signup', _auth2.default.signup);
-router.post('/signin', _auth2.default.signin);
+router.post('/signup/fb', _auth2.default.signupWithFacebook);
+router.post('/signin/email', _auth2.default.signin);
+router.post('/signin/fb', _auth2.default.signinWithFacebook);
 
 // authorization required
 router.use('/profile', _middleware.loginRequired);

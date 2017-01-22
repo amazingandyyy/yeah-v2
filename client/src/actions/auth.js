@@ -6,7 +6,7 @@ function signUserIn({email, password}) {
     return function (dispatch) {
         // Submit email/password to server
         axios
-            .post(`/api/user/signin`, {email, password})
+            .post(`/api/user/signin/email`, {email, password})
             .then(res => {
                 if(res.data.isAdmin){
                     dispatch({type: AUTH_ADMIN})
@@ -23,6 +23,27 @@ function signUserIn({email, password}) {
                 console.log(error);
                 dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
             });
+    }
+}
+
+function signUserInWithFacebook(FbTreasure){
+    return function (dispatch) {
+        // Submit FbTreasure to server
+        axios
+            .post(`/api/user/signin/fb`, FbTreasure)
+            .then(res => {
+                console.log('res: ', res.data)
+                if(res.data.isAdmin){
+                    dispatch({type: AUTH_ADMIN})
+                }else{
+                    dispatch({type: AUTH_USER})
+                }
+                hashHistory.push('/dashboard');
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                localStorage.setItem('isAdmin', res.data.isAdmin);
+                localStorage.setItem('token', res.data.token);
+                location.reload();
+            })
     }
 }
 
@@ -45,6 +66,30 @@ function signUserUp(userObj) {
     }
 }
 
+function signUserUpWithFacebook(FbTreasure){
+    return function (dispatch) {
+        // Submit FbTreasure to server
+        axios
+            .post(`/api/user/signin/fb`, FbTreasure)
+            .then(res => {
+                if(res.data.isAdmin){
+                    dispatch({type: AUTH_ADMIN})
+                }else{
+                    dispatch({type: AUTH_USER})
+                }
+                hashHistory.push('/dashboard');
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                localStorage.setItem('isAdmin', res.data.isAdmin);
+                localStorage.setItem('token', res.data.token);
+                location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+                dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
+            });
+    }
+}
+
 function signUserOut() {
     return function (dispatch) {
         dispatch({type: UNAUTH_USER})
@@ -52,4 +97,10 @@ function signUserOut() {
     }
 }
 
-export {signUserIn, signUserUp, signUserOut};
+export {
+    signUserIn,
+    signUserUp,
+    signUserOut,
+    signUserInWithFacebook,
+    signUserUpWithFacebook
+};

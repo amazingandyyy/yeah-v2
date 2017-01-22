@@ -61,7 +61,57 @@ var signin = function signin(req, res, next) {
     }).catch(next);
 };
 
+var dealWithFB = function dealWithFB(req, res, next) {
+    var FBData = req.body;
+    var facebookUserId = FBData.userID;
+    var facebookToken = FBData.accessToken;
+    var facebookUserName = FBData.name.split(' ');
+    _model2.default.findOne({
+        'facebook.userID': {
+            '$in': facebookUserId
+        }
+    }, function (err, existingUser) {
+        if (err) {
+            next();
+        }
+        if (existingUser) {
+            _controller2.default.checkAdminById(existingUser._id).then(function (admin) {
+                if (admin) {
+                    return res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: true });
+                }
+                res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: false });
+            });
+        }
+        if (!existingUser) {
+            console.log('no user');
+            var userData = {
+                name: {
+                    first: facebookUserName[0],
+                    last: facebookUserName[1]
+                },
+                avatar: FBData.picture.data.url,
+                email: {
+                    data: FBData.email,
+                    verified: true
+                },
+                facebook: {
+                    userID: facebookUserId,
+                    accessToken: facebookToken
+                }
+            };
+            _model2.default.create(userData).then(function (savedUser) {
+                res.send({ success: true, token: (0, _services.generateToken)(savedUser), facebookSignUp: true });
+            }).catch(next);
+        }
+    });
+};
+
+var signupWithFacebook = dealWithFB;
+var signinWithFacebook = dealWithFB;
+
 exports.default = {
     signin: signin,
-    signup: signup
+    signup: signup,
+    signinWithFacebook: signinWithFacebook,
+    signupWithFacebook: signupWithFacebook
 };

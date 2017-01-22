@@ -3,6 +3,7 @@ import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
 import { Link } from 'react-router';
+import FacebookLogin from 'react-facebook-login';
 
 class Signup extends Component {
     renderAlert() {
@@ -82,6 +83,21 @@ class Signup extends Component {
                     {this.renderAlert()}
                     <button type="submit" className="btn btn-primary">Sign Up</button>
                 </form>
+                <div>
+                <hr />
+                <div className="small-text">or sign in with one of these services</div>
+                <div className="auth-fb-wrapper">
+                    <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/fb-login.svg" className="fb-icon" />
+                    <div className="content">Facebook</div>
+                    <FacebookLogin
+                        appId="237873150002610"
+                        autoLoad={false}
+                        fields="name,email,picture"
+                        cssClass="auth-fb-button"
+                        callback={this.props.signUserUpWithFacebook} 
+                    />
+                </div>
+                </div>
                 </div>
             </div>
         );

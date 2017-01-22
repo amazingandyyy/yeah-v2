@@ -3647,6 +3647,10 @@ react-dropzone:
   dependencies:
     attr-accept "^1.0.3"
 
+react-facebook-login:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/react-facebook-login/-/react-facebook-login-3.4.3.tgz#3b1b32c7c7aa222399b1635a204f71473edc4ab7"
+
 react-input-range@^0.9.2:
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/react-input-range/-/react-input-range-0.9.3.tgz#77f321b5eea1f0480bd88929aabbe5600588f265"

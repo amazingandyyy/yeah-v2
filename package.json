@@ -38,6 +38,7 @@
     "react-avatar-editor": "^7.1.0",
     "react-dom": "^15.4.1",
     "react-dropzone": "^3.9.1",
+    "react-facebook-login": "^3.4.3",
     "react-input-range": "^0.9.2",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.0",

@@ -17,9 +17,11 @@ export default class Dashboard extends Component {
     })
     function config(width) {
       if (width < 767) {
-        closeDrawer()
+        closeDrawer();
+        startListeningClick();
       } else {
-        openDrawer()
+        openDrawer();
+        removeListeningClick();
       }
     }
     config(width)
@@ -34,6 +36,14 @@ export default class Dashboard extends Component {
     }
     function closeDrawer() {
       $('.dashboard-component').addClass('drawer-closed');
+    }
+    function startListeningClick() {
+      $('.dashboard-component').find('.item').on('click', () => {
+        closeDrawer();
+      })
+    }
+    function removeListeningClick() {
+      $('.dashboard-component').find('.item').off('click');
     }
   }
 }
