@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 import * as actions from '../../actions';
+import { Link } from 'react-router';
 
 class Signup extends Component {
     renderAlert() {
@@ -25,68 +26,63 @@ class Signup extends Component {
         // console.log('this.props;: ', this.props);
         const {handleSubmit, password} = this.props;
         return (
-            <div className="auth-component">
-            <div className="card card-block center-block">
+            <div className="auth-card">
+            <div className="tab">
+                <Link className="panel left active" to="/auth/signup">Sign up</Link>
+                <Link className="panel right" to="/auth/signin">Sign in</Link>
+            </div>
+            <div className="formSection">
+                <div className="title">Create Your YEAH Account</div>
+                <div className="discriptionTxt">Your YEAH account is your portal to all things YEAH: your resources, resume, career training courses, volunteer resources, and more!</div>
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
                     className="col-xs">
-                    <h2>Sign Up</h2>
                     <div className="form-group">
-                        <label>First name:</label>
                         <Field
                             name="firstName"
                             type='text'
                             component="input"
-                            className="form-control"
-                            placeholder="first name"
+                            className="auth-input"
+                            placeholder="First Name*"
                             required/>
-                    </div>
-                    <div className="form-group">
-                        <label>Last name:</label>
                         <Field
                             name="lastName"
                             type='text'
                             component="input"
-                            className="form-control"
-                            placeholder="last name"
+                            className="auth-input"
+                            placeholder="Last Name*"
                             required/>
                     </div>
                     <div className="form-group">
-                        <label>Email:</label>
                         <Field
                             name="email"
                             type='email'
                             component="input"
-                            className="form-control"
-                            placeholder="sample@email.com"
+                            className="auth-input"
+                            placeholder="Email Address*"
                             required/>
                     </div>
                     <div className="form-group">
-                        <label>Password:</label>
                         <Field
                             type='password'
                             name="password"
                             component="input"
-                            className="form-control"
-                            placeholder="your password"
+                            className="auth-input"
+                            placeholder="Passwrod*"
                             required
                         />
-                    </div>
-                    
-                    <div className="form-group">
-                        <label>Comfirm Password:</label>
                         <Field
                             type='password'
                             name="password2"
                             component="input"
-                            className="form-control"
-                            placeholder="your password again"
+                            className="auth-input"
+                            placeholder="Confirmed Password*"
                             required/>
                     </div>
                     {this.renderAlert()}
                     <button type="submit" className="btn btn-primary">Sign Up</button>
                 </form>
-            </div>
+                </div>
             </div>
         );
     }

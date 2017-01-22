@@ -7,13 +7,13 @@ export default function(ComposedComponent) {
 
     componentWillMount() {
       if (!this.props.isAdmin) {
-        hashHistory.push('/signin');
+        hashHistory.push('/auth/signin');
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.isAdmin) {
-        hashHistory.push('/signin');
+        hashHistory.push('/auth/signin');
       }
     }
 

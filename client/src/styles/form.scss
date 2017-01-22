@@ -1,0 +1,102 @@
+input, textarea, keygen, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em 0em 0em 0em;
+    font: 11px BlinkMacSystemFont;
+}
+.form-group {
+    display: flex;
+    input+input {
+        margin-left: 20px;
+    }
+    .form-control, .auth-input {
+        height: 44px;
+        box-sizing: border-box;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 1px solid #dbe2e8;
+        font-size: 14px;
+        box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
+        border-radius: 2px;
+        color: #2e3d49;
+
+
+        &:focus, &:active {
+            outline: none;
+            border-color: #02b3e4;
+        }
+    }
+}
+.form-group+.form-group {
+    margin-top: 20px;
+}
+.form-group input[type=email], .form-group input[type=password], .form-group input[type=text], .form-group textarea {
+    width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: rgba(#7D97AD, 0.7);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: rgba(#7D97AD, 0.7);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(#7D97AD, 0.7);
+}
+
+:-ms-input-placeholder {  
+   color: rgba(#7D97AD, 0.7);
+}
+
+button.btn {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    font-family: $sans;
+    display: inline-block;
+    border: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    height: 44px;
+    padding: 0 25px;
+    min-width: 207px;
+    cursor: pointer;
+    &:active, &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+
+    &.btn-primary {
+        color: white;
+        background: $light-blue;
+        transition: 0s all;
+        &:hover{
+            background: lighten($light-blue, 3%);
+        }
+        &:active, &:focus{
+            outline: none;
+            background: lighten($light-blue, 3%);
+            box-shadow: none;
+        }
+
+    }
+}
+
+form {
+    button {
+        margin-top: 30px;
+    }
+}

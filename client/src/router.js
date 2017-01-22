@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 import App from './components/app';
 import Home from './components/home';
+
+import Auth from './components/auth';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout'
@@ -25,9 +27,12 @@ const RouterComponent = () => {
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Home}/>
-                <Route path="/signin" component={Signin} />
-                <Route path="/signup" component={Signup}/>
-                <Route path="/signout" component={Signout}/>
+            </Route>
+            <Route path="/auth" component={Auth}>
+                <IndexRoute component={Signin}/>
+                <Route path="/auth/signin" component={Signin} />
+                <Route path="/auth/signup" component={Signup}/>
+                <Route path="/auth/signout" component={Signout}/>
             </Route>
             <Route path="/dashboard" component={RequireAuth(Dashboard)}>
                 <IndexRoute component={Start}/>

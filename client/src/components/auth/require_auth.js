@@ -7,13 +7,13 @@ export default function(ComposedComponent) {
 
     componentWillMount() {
       if (!this.props.authenticated) {
-        hashHistory.push('/signin');
+        hashHistory.push('/auth/signin');
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
-        hashHistory.push('/signin');
+        hashHistory.push('/auth/signin');
       }
     }
 
