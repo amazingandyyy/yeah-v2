@@ -49,7 +49,21 @@ const RouterComponent = () => {
                     <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
                 </Route>
             </Route>
-            <Route path="/volunteer/:id" component={ VolunteerDetail } />
+            <Route path="/dashboard" component={RequireAuth(Dashboard)}>
+                <IndexRoute component={Start}/>
+                <Route path="/dashboard/start" component={Start}/>
+                <Route path="/dashboard/setting" component={Setting}/>
+                <Route path="/dashboard/explore" component={Explore}>
+                    <IndexRoute component={ExploreBrowser} />
+                    <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
+                    <Route path="/dashboard/explore/volunteer/:id/edit" component={ RequireAdmin(VolunteerDetailEdit) } />
+                </Route>
+                <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
+                    <IndexRoute component={VolunteerAdmin} />
+                    <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
+                    <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
+                </Route>
+            </Route>
         </Router>
     )
 }

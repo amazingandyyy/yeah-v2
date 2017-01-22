@@ -42,7 +42,6 @@ class Drawer extends Component {
             <span className="title">Explore</span>
           </div>
         </Link>
-        
 
         <div className="bottom">
         {this.renderAdmin()}
@@ -53,7 +52,7 @@ class Drawer extends Component {
             </div>
           </Link>
 
-          <Link to="/signout" activeClassName="active">
+          <Link to="/auth/signout" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="logout"/></span>
               <span className="title">Logout</span>
