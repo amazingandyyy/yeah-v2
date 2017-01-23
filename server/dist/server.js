@@ -36,6 +36,10 @@ var _api = require('./api');
 
 var _api2 = _interopRequireDefault(_api);
 
+var _bluebird = require('bluebird');
+
+var _bluebird2 = _interopRequireDefault(_bluebird);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var timeStamp = new Date().getTime();
@@ -58,7 +62,7 @@ if (_config.settingIsGood) {
     _mongoose2.default.connect(MONGOURI, function (err) {
       console.log(err || '->MongoDB Connected to ' + _config2.default.mongo_log + ' \n->Webpack is loading... ');
     });
-    _mongoose2.default.Promise = global.Promise;
+    _mongoose2.default.Promise = _bluebird2.default;
   }
 
   // Execute express and setting up the server
