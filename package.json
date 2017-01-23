@@ -20,6 +20,7 @@
     "aws-sdk": "^2.7.27",
     "axios": "^0.15.3",
     "bcrypt-nodejs": "^0.0.3",
+    "bluebird": "^3.4.7",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "dotenv": "^4.0.0",

@@ -14,6 +14,7 @@ import cors from 'cors';
 import path from 'path';
 // Import routes
 import api from './api';
+import bluePromise from 'bluebird';
 
 if (settingIsGood) {
   console.log(`\------------------------ start node server (${timeStamp}) ------------------------`);
@@ -25,7 +26,7 @@ if (settingIsGood) {
     mongoose.connect(MONGOURI, err => {
       console.log(err || `->MongoDB Connected to ${config.mongo_log} \n->Webpack is loading... `);
     });
-    mongoose.Promise = global.Promise;
+    mongoose.Promise = bluePromise;
   }
 
   // Execute express and setting up the server

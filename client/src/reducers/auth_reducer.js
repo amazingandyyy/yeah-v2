@@ -28,7 +28,6 @@ export default function(state=INITIAL_STATE, action) {
         case AUTH_ADMIN:
             return { ...state, error: '', authenticated: true, isAdmin: true}
         case UNAUTH_USER:
-            localStorage.clear();
             return { ...INITIAL_STATE }
         case AUTH_ERROR:
             return { ...state, error: action.payload, isAdmin: false }

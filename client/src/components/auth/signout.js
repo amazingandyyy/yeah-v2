@@ -6,9 +6,6 @@ class Signout extends Component {
     componentWillMount() {
         this.props.signUserOut()
     }
-    componentWillMount(){
-        this.props.authReset()
-    }
     render() {
         return (
             <div>

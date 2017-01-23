@@ -100,6 +100,8 @@ function signUserUp(userObj) {
 
 function signUserOut() {
     return function (dispatch) {
+        localStorage.removeItem('yeah_token');
+        localStorage.removeItem('isAdmin');
         dispatch({type: UNAUTH_USER})
     }
 }
@@ -109,6 +111,7 @@ function authReset(){
         dispatch({type: RESET})
     }
 }
+
 function verifyToken(token) {
     return function(dispatch){
         axios.post(`/api/user/helper/verifyToken/${token}`)
