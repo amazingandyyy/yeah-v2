@@ -18,7 +18,7 @@ const fetchProfile = () => {
 const uploadProfileAvatar = (files) => {
     return function (dispatch) {
         superagent.post('/api/user/profile/avatar')
-            .set('Authorization', localStorage.getItem('token'))
+            .set('Authorization', localStorage.getItem('yeah_token'))
             .attach('asset', files[0])
             .end((err, res) => {
                 if (err) return console.log(err);

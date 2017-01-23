@@ -24,7 +24,7 @@ function signUserIn({email, password}) {
                 }else{
                     dispatch({type: AUTH_USER})
                 }
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('token', res.data.token);
                 location.reload('/#/dashboard');
