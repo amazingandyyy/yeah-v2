@@ -39,7 +39,7 @@ if (settingIsGood) {
   app.use('/api', api);
 
   // Run React front-end files(start from index.html)
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV == 'production') {
     app.use(express.static('./client/dist'));
     app.get('*', (req, res) => {
       const indexPath = path.join(__dirname, '../../client/dist', 'index.html');
