@@ -11,7 +11,7 @@ class Setting extends Component {
   }
   renderProfile(){
     const { name, email } = this.props.profile;
-    console.log(name);
+    console.log(this.props.profile);
     if(name){
       return (<div>
         <h2>Profile</h2>
@@ -60,7 +60,3 @@ function mapStateToProps({profile}){
 }
 
 export default connect(mapStateToProps, actions)(Setting);
-
-// <Dropzone onDrop={this.onDrop.bind(this)} multiple={false}>
-//   <div>Try dropping some files here, or click to select files to upload.</div>
-// </Dropzone>

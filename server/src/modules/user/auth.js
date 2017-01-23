@@ -69,14 +69,19 @@ const signinWithFacebook = (req, res, next) => {
     }).then(existingUser => {
         if (existingUser) {
             console.log('has user with this fb id');
-            AdminController
+            if(!existingUser.avatar){
+                existingUser.avatar = FBData.picture.data.url;
+            }
+            existingUser.save().then(() => {
+                AdminController
                 .checkAdminById(existingUser._id)
                 .then(admin => {
                     if (admin) {
                         return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
                     }
-                    return res.send({success: true, token: generateToken(existingUser), isAdmin: false})
+                    res.send({success: true, token: generateToken(existingUser), isAdmin: false})
                 })
+            }).catch(next);
         }
         if (!existingUser) {
             console.log('no user with this fb id');
@@ -93,6 +98,9 @@ const signinWithFacebook = (req, res, next) => {
                     dbUser.facebook = {
                         userID: facebookUserId,
                         accessToken: facebookToken
+                    }
+                    if(!dbUser.avatar) {
+                        dbUser.avatar = FBData.picture.data.url
                     }
                     dbUser.save().then(()=>{
                         AdminController
@@ -123,12 +131,6 @@ const signinWithFacebook = (req, res, next) => {
                         }
                     };
                     return res.send({passwordNeed: true, userData});
-                    // User
-                    //     .create(userData)
-                    //     .then(savedUser => {
-                    //         res.send({success: true, token: generateToken(savedUser), facebookSignUp: true})
-                    //     })
-                    //     .catch(next);
                 }
                 })
                 .catch(next)
