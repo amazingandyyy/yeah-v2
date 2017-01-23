@@ -26,6 +26,9 @@ class Signup extends Component {
             console.log('password does not matched');
         }
     }
+    renderTitle(){
+        return (<span>Create Your YEAH Account</span>)
+    }
     render() {
         // console.log('this.props;: ', this.props);
         const {handleSubmit, password} = this.props;
@@ -36,7 +39,7 @@ class Signup extends Component {
                 <Link className="panel right" to="/auth/signin">Sign in</Link>
             </div>
             <div className="formSection">
-                <div className="title">Create Your YEAH Account</div>
+                <div className="title">{this.renderTitle()}</div>
                 <div className="discriptionTxt">Your YEAH account is your portal to all things YEAH: your resources, resume, career training courses, volunteer resources, and more!</div>
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -97,7 +100,7 @@ class Signup extends Component {
                         autoLoad={false}
                         fields="name,email,picture"
                         cssClass="auth-fb-button"
-                        callback={this.props.signUserUpWithFacebook} 
+                        callback={this.props.signUserInWithFacebook} 
                     />
                 </div>
                 </div>
@@ -117,9 +120,23 @@ function validate(formProps) {
 }
 
 function mapStateToProps({auth}) {
-    return {
-        errorMsg: auth.error
+    if(auth.userData) {
+        const { userData } = auth;
+        return {
+            errorMsg: auth.error,
+            userName: userData.name.first,
+            initialValues: {
+                firstName: userData.name.first,
+                lastName: userData.name.last,
+                email: userData.email.data
+            }
+        }
+    }else{
+        return {
+            errorMsg: auth.error
+        }
     }
+    
 }
 
 Signup = reduxForm({

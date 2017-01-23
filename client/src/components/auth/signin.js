@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Link } from 'react-router';
 import FacebookLogin from 'react-facebook-login';
-import { signUserInWithFacebook } from '../../actions/auth';
 
 class Signin extends Component {
     constructor(props) {
@@ -23,7 +22,7 @@ class Signin extends Component {
         }
     }
     handleFormSubmit(data) {
-        this.props.signUserIn(data)
+        this.props.signUserIn(data);
     }
     render() {
         // console.log('this.props;: ', this.props);
@@ -77,7 +76,7 @@ class Signin extends Component {
                         autoLoad={false}
                         fields="name,email,picture"
                         cssClass="auth-fb-button"
-                        callback={this.props.signUserUpWithFacebook} 
+                        callback={this.props.signUserInWithFacebook} 
                     />
                 </div>
                 </div>
@@ -86,7 +85,6 @@ class Signin extends Component {
         );
     }
 }
-
 function mapStateToProps({auth}) {
     return {
         errorMsg: auth.error
@@ -95,7 +93,7 @@ function mapStateToProps({auth}) {
 
 Signin = reduxForm({
     form: 'signin'
-}, null, actions)(Signin);
+})(Signin);
 Signin = connect(mapStateToProps, actions)(Signin);
 
 export default Signin;

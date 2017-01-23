@@ -19,3 +19,5 @@ export const EMAIL_SENT = 'email_sent';
 export const FAIL_TO_VERIFY_TOKEN = 'fail_to_verify_token';
 export const SUCCESS_TO_VERIFY_TOKEN = 'success_to_verify_token';
 export const SUCCEED_TO_RESET_PASSWORD = 'SUCCEED_TO_RESET_PASSWORD';
+
+export const SIGNUP_WITH_DATA = 'signup_with_data';

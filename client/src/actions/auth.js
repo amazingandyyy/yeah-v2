@@ -5,6 +5,7 @@ import {
     UNAUTH_USER,AUTH_ADMIN,
     EMAIL_NOT_FOUND,
     EMAIL_SENT,
+    SIGNUP_WITH_DATA,
     RESET,
     FAIL_TO_VERIFY_TOKEN,
     SUCCESS_TO_VERIFY_TOKEN,
@@ -42,18 +43,28 @@ function signUserInWithFacebook(FbTreasure){
         axios
             .post(`/api/user/signin/fb`, FbTreasure)
             .then(res => {
-                console.log('res: ', res.data)
-                if(res.data.isAdmin){
-                    dispatch({type: AUTH_ADMIN})
-                }else{
-                    dispatch({type: AUTH_USER})
+                if(res.data.passwordNeed){
+                    console.log('res: ', res.data)
+                    dispatch({type: SIGNUP_WITH_DATA, payload: res.data.userData})
+                    return hashHistory.push('/auth/signup');
                 }
-                hashHistory.push('/dashboard');
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-                localStorage.setItem('isAdmin', res.data.isAdmin);
-                localStorage.setItem('token', res.data.token);
-                location.reload();
+                if(!res.data.passwordNeed){
+                    if(res.data.isAdmin){
+                        dispatch({type: AUTH_ADMIN})
+                    }else{
+                        dispatch({type: AUTH_USER})
+                    }
+                    hashHistory.push('/dashboard');
+                    axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                    localStorage.setItem('isAdmin', res.data.isAdmin);
+                    localStorage.setItem('token', res.data.token);
+                    location.reload();
+                }
             })
+            .catch(error => {
+                console.log(error);
+                dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
+            });
     }
 }
 
@@ -86,30 +97,6 @@ function signUserUp(userObj) {
             .catch(error => {
                 console.log(error);
                 dispatch({type: AUTH_ERROR, payload: 'Failed to Sign up, please try again.'})
-            });
-    }
-}
-
-function signUserUpWithFacebook(FbTreasure){
-    return function (dispatch) {
-        // Submit FbTreasure to server
-        axios
-            .post(`/api/user/signin/fb`, FbTreasure)
-            .then(res => {
-                if(res.data.isAdmin){
-                    dispatch({type: AUTH_ADMIN})
-                }else{
-                    dispatch({type: AUTH_USER})
-                }
-                hashHistory.push('/dashboard');
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-                localStorage.setItem('isAdmin', res.data.isAdmin);
-                localStorage.setItem('token', res.data.token);
-                location.reload();
-            })
-            .catch(error => {
-                console.log(error);
-                dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
             });
     }
 }
@@ -157,7 +144,6 @@ export {
     signUserUp,
     signUserOut,
     signUserInWithFacebook,
-    signUserUpWithFacebook,
     sendEmailToResetPassword,
     authReset,
     verifyToken,

@@ -7,7 +7,6 @@ import multer from 'multer';
 const router = express.Router();
 // public request
 router.post('/signup', auth.signup);
-router.post('/signup/fb', auth.signupWithFacebook);
 router.post('/signin/email', auth.signin);
 router.post('/signin/fb', auth.signinWithFacebook);
 
