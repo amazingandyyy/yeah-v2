@@ -7,6 +7,10 @@ import Auth from './components/auth';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout'
+import SetPassword from './components/auth/setPassword';
+import ResetPassword from './components/auth/resetPassword';
+import IForget from './components/auth/iForget';
+import IForget2 from './components/auth/iForget2';
 
 import Dashboard from './components/dashboard';
 import Start from './components/dashboard/start';
@@ -19,8 +23,8 @@ import VolunteerAdmin from './components/dashboard/volunteerAdmin';
 import CourcesAdmin from './components/dashboard/courcesAdmin';
 import VolunteerDetail from './components/volunteer/details';
 import VolunteerDetailEdit from './components/volunteer/edit';
-import RequireAuth from './components/auth/require_auth';
-import RequireAdmin from './components/auth/admin_require';
+import RequireAuth from './components/auth/loginGuard';
+import RequireAdmin from './components/auth/adminGuard';
 
 const RouterComponent = () => {
     return (
@@ -32,7 +36,11 @@ const RouterComponent = () => {
                 <IndexRoute component={Signin}/>
                 <Route path="/auth/signin" component={Signin} />
                 <Route path="/auth/signup" component={Signup}/>
+                <Route path="/auth/signup/setpassword" component={SetPassword}/>
                 <Route path="/auth/signout" component={Signout}/>
+                <Route path="/auth/iforget" component={IForget}/>
+                <Route path="/auth/iforget2" component={IForget2}/>
+                <Route path="/auth/resetpassword/:token" component={ResetPassword}/>
             </Route>
             <Route path="/dashboard" component={RequireAuth(Dashboard)}>
                 <IndexRoute component={Start}/>

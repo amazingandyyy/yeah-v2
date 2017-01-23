@@ -1,3 +1,5 @@
+@import './variable';
+
 html{
     -webkit-text-size-adjust: none
 }
@@ -6,6 +8,7 @@ body {
     padding-top: 0px;
     background-color: rgba(0,0,0,0.03);
     box-sizing: border-box;
+    font-family: $sans;
 }
 
 a, a:visited, a:focus, a:active, a:hover {
@@ -26,7 +29,7 @@ a, a:visited, a:focus, a:active, a:hover {
     }
 }
 
-@import './variable';
+
 @import './header';
 @import './home';
 @import './footer';

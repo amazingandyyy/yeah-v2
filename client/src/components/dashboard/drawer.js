@@ -25,9 +25,9 @@ class Drawer extends Component {
         <i className="fa fa-caret-right" aria-hidden="true"></i>
         <i className="fa fa-caret-left" aria-hidden="true"></i>
       </span>
-        <Link to="/dashboard">
+        <Link to="/">
           <div className="item" id="header">
-            <span className="title">Dashboard</span>
+            <span className="title">YEAH</span>
           </div>
         </Link>
         <Link to="/dashboard/start" activeClassName="active">

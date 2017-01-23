@@ -2,14 +2,21 @@ import {
     AUTH_USER,
     UNAUTH_USER,
     AUTH_ERROR,
-    AUTH_ADMIN
+    AUTH_ADMIN,
+    EMAIL_NOT_FOUND,
+    EMAIL_SENT,
+    RESET,
+    SUCCESS_TO_VERIFY_TOKEN,
+    FAIL_TO_VERIFY_TOKEN,
+    SUCCEED_TO_RESET_PASSWORD
 } from '../actions/types';
 
-const INITIAL_STATE={
+const INITIAL_STATE = {
     error: '',
     authenticated: null,
     status: null,
-    isAdmin: null
+    isAdmin: null,
+    status: ''
 }
 
 export default function(state=INITIAL_STATE, action) {
@@ -22,6 +29,18 @@ export default function(state=INITIAL_STATE, action) {
             return { ...state, authenticated: false, isAdmin: false }
         case AUTH_ERROR:
             return { ...state, error: action.payload, isAdmin: false }
+        case EMAIL_NOT_FOUND:
+            return { ...state, error: action.payload }
+        case EMAIL_SENT:
+            return  { ...state, status: EMAIL_SENT}
+        case SUCCESS_TO_VERIFY_TOKEN:
+            return { ...state, status: SUCCESS_TO_VERIFY_TOKEN }
+        case FAIL_TO_VERIFY_TOKEN:
+            return { ...state, status: FAIL_TO_VERIFY_TOKEN }
+        case SUCCEED_TO_RESET_PASSWORD:
+            return { ...state, status: SUCCEED_TO_RESET_PASSWORD }
+        case RESET: 
+            return { ...INITIAL_STATE }
     }
     return state;
 }

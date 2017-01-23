@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { browserHistory, hashHistory } from 'react-router';
 
 export default function(ComposedComponent) {
-  class Authentication extends Component {
+  class LoginGuard extends Component {
 
     componentWillMount() {
-      if (!this.props.isAdmin) {
+      if (!this.props.authenticated) {
         hashHistory.push('/auth/signin');
       }
     }
 
     componentWillUpdate(nextProps) {
-      if (!nextProps.isAdmin) {
+      if (!nextProps.authenticated) {
         hashHistory.push('/auth/signin');
       }
     }
@@ -23,8 +23,8 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps({auth}) {
-    return { isAdmin: auth.isAdmin };
+    return { authenticated: auth.authenticated };
   }
 
-  return connect(mapStateToProps)(Authentication);
+  return connect(mapStateToProps)(LoginGuard);
 }

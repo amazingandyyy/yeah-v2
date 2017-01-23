@@ -15,8 +15,19 @@ input, textarea, keygen, select, button {
 }
 .form-group {
     display: flex;
+
+    @media (max-width: 500px) {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
     input+input {
         margin-left: 20px;
+        @media (max-width: 500px) {
+            margin-top: 20px;
+            margin-left: 0px;
+        }
     }
     .form-control, .auth-input {
         height: 44px;
@@ -44,19 +55,27 @@ input, textarea, keygen, select, button {
 }
 
 ::-webkit-input-placeholder {
-   color: rgba(#7D97AD, 0.7);
+   color: #7D97AD;
+   letter-spacing: 0.2px;
+   font-weight: 300;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: rgba(#7D97AD, 0.7);
+   color: #7D97AD;
+   letter-spacing: 0.2px;
+   font-weight: 300;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: rgba(#7D97AD, 0.7);
+   color: #7D97AD;
+   letter-spacing: 0.2px;
+   font-weight: 300;
 }
 
 :-ms-input-placeholder {  
-   color: rgba(#7D97AD, 0.7);
+   color: #7D97AD;
+   letter-spacing: 0.2px;
+   font-weight: 300;
 }
 
 button.btn {
@@ -102,3 +121,11 @@ form {
         margin-top: 30px;
     }
 }
+ @media (max-width: 500px) {
+     button.btn, div.auth-fb-wrapper {
+         min-width: 100% !important;
+         max-width: 100% !important;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ }

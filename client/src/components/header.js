@@ -30,8 +30,7 @@ class Header extends Component {
             <nav className="navbar  navbar-toggleable-xl navbar-light bg-faded">
             <Link className="navbar-brand" to="/">YEAH</Link>
             <div className="navbar-nav">
-                <Link className="nav-item nav-link" to="/auth/signin">Sign in</Link>
-                <Link className="nav-item nav-link" to="/auth/signup">Sign up</Link>
+                {this.renderSignButton()}
             </div>
             </nav>
             </div>

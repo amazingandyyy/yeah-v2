@@ -1,5 +1,15 @@
 import axios from 'axios';
-import { AUTH_ERROR, AUTH_USER, UNAUTH_USER,AUTH_ADMIN  } from './types';
+import { 
+    AUTH_ERROR,
+    AUTH_USER,
+    UNAUTH_USER,AUTH_ADMIN,
+    EMAIL_NOT_FOUND,
+    EMAIL_SENT,
+    RESET,
+    FAIL_TO_VERIFY_TOKEN,
+    SUCCESS_TO_VERIFY_TOKEN,
+    SUCCEED_TO_RESET_PASSWORD
+} from './types';
 import { browserHistory, hashHistory } from 'react-router';
 
 function signUserIn({email, password}) {
@@ -44,6 +54,20 @@ function signUserInWithFacebook(FbTreasure){
                 localStorage.setItem('token', res.data.token);
                 location.reload();
             })
+    }
+}
+
+function sendEmailToResetPassword(email){
+    return function(dispatch) {
+        axios
+            .post(`/api/user/helper/sendEmailToResetPassword/${email}`)
+            .then(res => {
+                console.log(res.data);
+                dispatch({type: EMAIL_SENT})
+            })
+            .catch(error => {
+                dispatch({type: EMAIL_NOT_FOUND, payload: 'No user is using this email.'})
+            });
     }
 }
 
@@ -97,10 +121,45 @@ function signUserOut() {
     }
 }
 
+function authReset(){
+    return function(dispatch) {
+        dispatch({type: RESET})
+    }
+}
+function verifyToken(token) {
+    return function(dispatch){
+        axios.post(`/api/user/helper/verifyToken/${token}`)
+        .then(res => {
+            dispatch({type: SUCCESS_TO_VERIFY_TOKEN})
+        })
+        .catch(error => {
+                console.log(error);
+                hashHistory.push('/auth/iforget2')
+            });
+    }
+}
+
+function resetPassword(data) {
+    return function(dispatch){
+        axios.post(`/api/user/helper/resetPassword/`, data)
+        .then(res => {
+            dispatch({ type: SUCCEED_TO_RESET_PASSWORD })
+        })
+        .catch(error => {
+                console.log(error);
+                hashHistory.push('/auth/iforget2')
+            });
+    }
+}
+
 export {
     signUserIn,
     signUserUp,
     signUserOut,
     signUserInWithFacebook,
-    signUserUpWithFacebook
+    signUserUpWithFacebook,
+    sendEmailToResetPassword,
+    authReset,
+    verifyToken,
+    resetPassword
 };

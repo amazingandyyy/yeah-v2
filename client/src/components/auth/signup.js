@@ -16,6 +16,9 @@ class Signup extends Component {
             )
         }
     }
+    componentWillMount(){
+        this.props.authReset()
+    }
     handleFormSubmit(data) {
         if (data.password == data.password2) {
             this.props.signUserUp({name: {first: data.firstName, last: data.lastName}, email: data.email, password: data.password});
@@ -114,7 +117,9 @@ function validate(formProps) {
 }
 
 function mapStateToProps({auth}) {
-    return {errorMsg: auth.error}
+    return {
+        errorMsg: auth.error
+    }
 }
 
 Signup = reduxForm({

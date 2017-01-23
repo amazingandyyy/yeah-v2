@@ -3,7 +3,6 @@ body {
 }
 
 .auth-component {
-    opacity: 0.95;
     padding-top: 50px;
     height: 100%;
     padding-top: 130px;
@@ -25,6 +24,7 @@ body {
     }
 
     .auth-card {
+        overflow: hidden;
         padding-top: 57px;
         box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
         max-width: 620px;
@@ -33,6 +33,10 @@ body {
         margin-left: auto;
         margin-right: auto;
         position: relative;
+
+        &.notab {
+            padding-top: 0px;
+        }
 
         .tab {
             vertical-align: baseline;
@@ -97,6 +101,7 @@ body {
                 }
             }
             .title {
+                text-transform: capitalize;
                 font-size: 34px;
                 line-height: 1.3;
                 color: #2e3d49;
@@ -112,6 +117,17 @@ body {
                 max-width: 460px;
                 margin: 20px auto;
                 text-align: center;
+            }
+        }
+        .single_icon {
+            img {
+                width: 80px;
+                // width:400px;
+                // opacity: 0.3;
+                // position: absolute;
+                // top: -100px;
+                // left: -50px;
+                margin-bottom: 30px;
             }
         }
         .small-text {

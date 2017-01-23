@@ -52,6 +52,7 @@ if (settingIsGood) {
   }
 
   app.use((err, req, res, next) => {
+    console.log(err.message)
     res
       .status(422)
       .send({errors: err.message});
