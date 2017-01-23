@@ -7,14 +7,14 @@ class Header extends Component {
     renderSignButton(){
         if (this.props.authenticated){
             return (
-                <li className="nav-item">
-                    <Link className="nav-link" to="/auth/signout">Signout</Link>
+                <li className="nav-item pull-right">
+                    <Link className="nav-link" to="/dashboard"><button className="btn btn-primary">Dashboard</button></Link>
                 </li>
             )
         }else{
             return (
                 [
-                    <li className="nav-item active" key="1">
+                    <li className="nav-item" key="1">
                         <Link to="/auth/signin" className="nav-link">Signin</Link>
                     </li>,
                     <li className="nav-item" key="2">

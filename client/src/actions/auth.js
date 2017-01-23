@@ -24,7 +24,6 @@ function signUserIn({email, password}) {
                 }else{
                     dispatch({type: AUTH_USER})
                 }
-                // hashHistory.push('/dashboard');
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('token', res.data.token);
@@ -54,11 +53,10 @@ function signUserInWithFacebook(FbTreasure){
                     }else{
                         dispatch({type: AUTH_USER})
                     }
-                    // hashHistory.push('/dashboard');
                     axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                     localStorage.setItem('isAdmin', res.data.isAdmin);
                     localStorage.setItem('token', res.data.token);
-                    location.reload('/#/dashboard');
+                    location.href = '/#/dashboard';
                 }
             })
             .catch(error => {
@@ -91,7 +89,7 @@ function signUserUp(userObj) {
                 dispatch({type: AUTH_USER})
                 console.log('res/data: ', res.data)
                 localStorage.setItem('token', res.data.token);
-                hashHistory.push('/dashboard')
+                location.href = '/#/dashboard';
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             })
             .catch(error => {
