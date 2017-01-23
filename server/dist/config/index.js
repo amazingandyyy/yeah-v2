@@ -26,6 +26,9 @@ if (!process.env.AWS_ACCESS_KEY_ID) {
 if (!process.env.AWS_SECRET_ACCESS_KEY) {
     exports.settingIsGood = settingIsGood = false;console.log('no process.env.AWS_SECRET_ACCESS_KEY');
 }
+if (!process.env.UNIQUE_SALT) {
+    exports.settingIsGood = settingIsGood = false;console.log('no process.env.UNIQUE_SALT');
+}
 
 var config = void 0;
 if (process.env.NODE_ENV == 'production') {
@@ -37,7 +40,10 @@ if (process.env.NODE_ENV == 'production') {
         aws_secret: process.env.AWS_SECRET_ACCESS_KEY,
         mongo_log: 'Real one',
         aws_s3_bucket: 'yeah-assets',
-        aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com'
+        aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com',
+        aws_ses_sender: 'amazingandyyy@gmail.com',
+        redirect_url_base: 'http://yeah-dev.us-west-2.elasticbeanstalk.com',
+        unique_salt: process.env.UNIQUE_SALT
     };
 } else {
     // development configuration
@@ -48,7 +54,10 @@ if (process.env.NODE_ENV == 'production') {
         aws_secret: process.env.AWS_SECRET_ACCESS_KEY,
         mongo_log: 'mongodb://localhost/yeah-v2-sandbox',
         aws_s3_bucket: 'yeah-assets-dev',
-        aws_s3_url_base: 'https://s3-us-west-2.amazonaws.com'
+        aws_s3_url_base: 'https://s3-us-west-2.amazonaws.com',
+        aws_ses_sender: 'amazingandyyy@gmail.com',
+        redirect_url_base: 'http://localhost:8000',
+        unique_salt: process.env.UNIQUE_SALT
     };
 }
 

@@ -31,6 +31,11 @@ router.post('/signup/fb', _auth2.default.signupWithFacebook);
 router.post('/signin/email', _auth2.default.signin);
 router.post('/signin/fb', _auth2.default.signinWithFacebook);
 
+router.post('/helper/sendEmailToResetPassword/:email', _auth2.default.sendEmailToResetPassword);
+router.post('/helper/verifyToken/:token', _auth2.default.verifyTokenCtrl);
+router.post('/helper/resetPassword', _auth2.default.resetPassword);
+// router.post('/helper/resetPassword', auth.sendEmailToResetPassword);
+
 // authorization required
 router.use('/profile', _middleware.loginRequired);
 router.delete('/permanentlyDeleteThisAcount', _controller2.default.permanentlyDeleteThisAcount);
