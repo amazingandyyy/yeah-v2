@@ -56,7 +56,6 @@ const signinWithFacebook = (req, res, next) => {
     const facebookUserId = FBData.userID;
     const facebookToken = FBData.accessToken;
     const facebookUserName = FBData.name.split(' ');
-    console.log('facebookUserId: ', facebookUserId);
     User.findOne({
         'facebook.userID': {
             '$in': facebookUserId

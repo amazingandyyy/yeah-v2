@@ -1,6 +1,4 @@
 .env
-npm_debug.log
-npm-debug.log
 .DS_STORE
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
