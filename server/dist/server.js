@@ -75,9 +75,7 @@ if (_config.settingIsGood) {
   if (process.env.NODE_ENV !== 'production') {
     app.use(_express2.default.static('./client/dist'));
     app.get('*', function (req, res) {
-      console.log(__dirname);
       var indexPath = _path2.default.join(__dirname, '../../client/dist', 'index.html');
-      console.log(indexPath);
       res.sendFile(indexPath);
     });
   } else {
