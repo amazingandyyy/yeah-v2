@@ -77,7 +77,7 @@ var signin = function signin(req, res, next) {
     }).catch(next);
 };
 
-var dealWithFB = function dealWithFB(req, res, next) {
+var signinWithFacebook = function signinWithFacebook(req, res, next) {
     var FBData = req.body;
     var facebookUserId = FBData.userID;
     var facebookToken = FBData.accessToken;
@@ -86,44 +86,70 @@ var dealWithFB = function dealWithFB(req, res, next) {
         'facebook.userID': {
             '$in': facebookUserId
         }
-    }, function (err, existingUser) {
-        if (err) {
-            next();
-        }
+    }).then(function (existingUser) {
         if (existingUser) {
-            _controller2.default.checkAdminById(existingUser._id).then(function (admin) {
-                if (admin) {
-                    return res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: true });
-                }
-                res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: false });
-            });
-        }
-        if (!existingUser) {
-            console.log('no user');
-            var userData = {
-                name: {
-                    first: facebookUserName[0],
-                    last: facebookUserName[1]
-                },
-                avatar: FBData.picture.data.url,
-                email: {
-                    data: FBData.email,
-                    verified: true
-                },
-                facebook: {
-                    userID: facebookUserId,
-                    accessToken: facebookToken
-                }
-            };
-            _model2.default.create(userData).then(function (savedUser) {
-                res.send({ success: true, token: (0, _services.generateToken)(savedUser), facebookSignUp: true });
+            console.log('has user with this fb id');
+            if (!existingUser.avatar) {
+                existingUser.avatar = FBData.picture.data.url;
+            }
+            existingUser.save().then(function () {
+                _controller2.default.checkAdminById(existingUser._id).then(function (admin) {
+                    if (admin) {
+                        return res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: true });
+                    }
+                    res.send({ success: true, token: (0, _services.generateToken)(existingUser), isAdmin: false });
+                });
             }).catch(next);
         }
-    });
+        if (!existingUser) {
+            console.log('no user with this fb id');
+            // find User by email
+            _model2.default.findOne({
+                'email.data': {
+                    '$in': FBData.email
+                }
+            }).then(function (dbUser) {
+                if (dbUser) {
+                    console.log('has user with this fb email');
+                    dbUser.facebook = {
+                        userID: facebookUserId,
+                        accessToken: facebookToken
+                    };
+                    if (!dbUser.avatar) {
+                        dbUser.avatar = FBData.picture.data.url;
+                    }
+                    dbUser.save().then(function () {
+                        _controller2.default.checkAdminById(dbUser._id).then(function (admin) {
+                            if (admin) {
+                                return res.send({ success: true, token: (0, _services.generateToken)(dbUser), isAdmin: true });
+                            }
+                            res.send({ success: true, token: (0, _services.generateToken)(dbUser), isAdmin: false });
+                        });
+                    }).catch(next);
+                }
+                if (!dbUser) {
+                    console.log('no user with this fb email then create a total new user');
+                    var userData = {
+                        name: {
+                            first: facebookUserName[0],
+                            last: facebookUserName[1]
+                        },
+                        avatar: FBData.picture.data.url,
+                        email: {
+                            data: FBData.email,
+                            verified: true
+                        },
+                        facebook: {
+                            userID: facebookUserId,
+                            accessToken: facebookToken
+                        }
+                    };
+                    return res.send({ passwordNeed: true, userData: userData });
+                }
+            }).catch(next);
+        }
+    }).catch(next);
 };
-
-var signupWithFacebook = dealWithFB;
-var signinWithFacebook = dealWithFB;
 
 var sendEmailToResetPassword = function sendEmailToResetPassword(req, res, next) {
     var userEmail = req.params.email;
@@ -219,7 +245,6 @@ exports.default = {
     signin: signin,
     signup: signup,
     signinWithFacebook: signinWithFacebook,
-    signupWithFacebook: signupWithFacebook,
     sendEmailToResetPassword: sendEmailToResetPassword,
     verifyTokenCtrl: verifyTokenCtrl,
     resetPassword: resetPassword

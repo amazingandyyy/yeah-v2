@@ -24,11 +24,11 @@ function signUserIn({email, password}) {
                 }else{
                     dispatch({type: AUTH_USER})
                 }
-                hashHistory.push('/dashboard');
+                // hashHistory.push('/dashboard');
                 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('token', res.data.token);
-                location.reload();
+                location.reload('/#/dashboard');
             })
             .catch(error => {
                 console.log(error);
@@ -54,11 +54,11 @@ function signUserInWithFacebook(FbTreasure){
                     }else{
                         dispatch({type: AUTH_USER})
                     }
-                    hashHistory.push('/dashboard');
+                    // hashHistory.push('/dashboard');
                     axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                     localStorage.setItem('isAdmin', res.data.isAdmin);
                     localStorage.setItem('token', res.data.token);
-                    location.reload();
+                    location.reload('/#/dashboard');
                 }
             })
             .catch(error => {
