@@ -12,16 +12,10 @@ const signup = (req, res, next) => {
     if (!req.body.email || !req.body.password) {
         return next()
     };
-    const userData = {
-        ...req.body,
-        email: {
-            data: req.body.email
-        }
-    };
     User
-        .create(userData)
+        .create(req.body)
         .then(savedUser => {
-            res.json({success: true, token: generateToken(savedUser)})
+            res.send({success: true, token: generateToken(savedUser)})
         })
         .catch(next);
 }

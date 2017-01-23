@@ -24,10 +24,10 @@ function signUserIn({email, password}) {
                 }else{
                     dispatch({type: AUTH_USER})
                 }
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
                 localStorage.setItem('isAdmin', res.data.isAdmin);
-                localStorage.setItem('token', res.data.token);
-                location.reload('/#/dashboard');
+                localStorage.setItem('yeah_token', res.data.token);
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                hashHistory.push('/dashboard');
             })
             .catch(error => {
                 console.log(error);
@@ -43,7 +43,6 @@ function signUserInWithFacebook(FbTreasure){
             .post(`/api/user/signin/fb`, FbTreasure)
             .then(res => {
                 if(res.data.passwordNeed){
-                    console.log('res: ', res.data)
                     dispatch({type: SIGNUP_WITH_DATA, payload: res.data.userData})
                     return hashHistory.push('/auth/signup');
                 }
@@ -53,10 +52,10 @@ function signUserInWithFacebook(FbTreasure){
                     }else{
                         dispatch({type: AUTH_USER})
                     }
-                    axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
                     localStorage.setItem('isAdmin', res.data.isAdmin);
-                    localStorage.setItem('token', res.data.token);
-                    location.href = '/#/dashboard';
+                    localStorage.setItem('yeah_token', res.data.token);
+                    axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                    hashHistory.push('/dashboard');
                 }
             })
             .catch(error => {
@@ -87,10 +86,10 @@ function signUserUp(userObj) {
             .post(`/api/user/signup`, userObj)
             .then(res => {
                 dispatch({type: AUTH_USER})
-                console.log('res/data: ', res.data)
-                localStorage.setItem('token', res.data.token);
-                location.href = '/#/dashboard';
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+                localStorage.setItem('isAdmin', res.data.isAdmin);
+                localStorage.setItem('yeah_token', res.data.token);
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                hashHistory.push('/dashboard');
             })
             .catch(error => {
                 console.log(error);
@@ -102,7 +101,6 @@ function signUserUp(userObj) {
 function signUserOut() {
     return function (dispatch) {
         dispatch({type: UNAUTH_USER})
-        localStorage.removeItem('token');
     }
 }
 

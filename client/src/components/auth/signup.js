@@ -21,13 +21,16 @@ class Signup extends Component {
     }
     handleFormSubmit(data) {
         if (data.password == data.password2) {
-            this.props.signUserUp({name: {first: data.firstName, last: data.lastName}, email: data.email, password: data.password});
+            const signUpData = {
+                name: {first: data.firstName, last: data.lastName},
+                email: {data: data.email}, 
+                password: data.password,
+                facebook: data.FBData
+            }
+            this.props.signUserUp(signUpData);
         }else{
             console.log('password does not matched');
         }
-    }
-    renderTitle(){
-        return (<span>Create Your YEAH Account</span>)
     }
     render() {
         // console.log('this.props;: ', this.props);
@@ -39,7 +42,7 @@ class Signup extends Component {
                 <Link className="panel right" to="/auth/signin">Sign in</Link>
             </div>
             <div className="formSection">
-                <div className="title">{this.renderTitle()}</div>
+                <div className="title">Create Your YEAH Account</div>
                 <div className="discriptionTxt">Your YEAH account is your portal to all things YEAH: your resources, resume, career training courses, volunteer resources, and more!</div>
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -124,12 +127,13 @@ function mapStateToProps({auth}) {
         const { userData } = auth;
         return {
             errorMsg: auth.error,
-            userName: userData.name.first,
             initialValues: {
                 firstName: userData.name.first,
                 lastName: userData.name.last,
-                email: userData.email.data
+                email: userData.email.data,
+                FBData: userData.facebook
             }
+            
         }
     }else{
         return {
