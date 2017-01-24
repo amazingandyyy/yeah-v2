@@ -23,14 +23,39 @@ input, textarea, keygen, select, button {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.form-wrapper {
+    margin-top: -5px;
+    label {
+        margin: 10px 0px 5px 0px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        user-select: none;
+    }
+}
 .form-group {
     display: flex;
 
+    label {
+        width: 23%;
+        margin: 10px 0px 5px 0px;
+    }
+    &.with-label {
+        flex-wrap: wrap;
+    }
     @media (max-width: 500px) {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
+
+        label {
+            width: 100%;
+            margin: 15px 0px 5px 0px;
+        }
     }
     input+input {
         margin-left: 20px;
@@ -39,8 +64,9 @@ input, textarea, keygen, select, button {
             margin-left: 0px;
         }
     }
-    .form-control, .auth-input {
+    .yeah-input  {
         height: 44px;
+        width: 100%;
         box-sizing: border-box;
         padding-left: 15px;
         padding-right: 15px;
@@ -58,10 +84,16 @@ input, textarea, keygen, select, button {
 .form-group+.form-group {
     margin-top: 20px;
 }
-.form-group input[type=email], .form-group input[type=password], .form-group input[type=text], .form-group textarea {
+.form-group, .form-group input[type=email], .form-group input[type=password], .form-group input[type=text], .form-group textarea {
     width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+.form-group textarea {
+    padding: 12px;
+
+    min-height: 150px;
 }
 
 ::-webkit-input-placeholder {
@@ -87,6 +119,15 @@ input, textarea, keygen, select, button {
    letter-spacing: 0.2px;
    font-weight: 300;
 }
+
+// input[type="date"]{
+//     padding-right: 0px !important;
+//     &::-webkit-calendar-picker-indicator{
+//         background: red;
+//         height: 100%;
+//         width: 50%;
+//     }
+// }
 
 button.btn {
     -webkit-font-smoothing: antialiased;

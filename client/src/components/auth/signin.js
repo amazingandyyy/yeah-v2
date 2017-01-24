@@ -44,7 +44,7 @@ class Signin extends Component {
                                 type= 'email'
                                 name="email"
                                 component="input"
-                                className="auth-input"
+                                className="yeah-input "
                                 placeholder="Email Address"
                                 required
                                 />
@@ -54,7 +54,7 @@ class Signin extends Component {
                                 type= 'password'
                                 name="password"
                                 component="input"
-                                className="auth-input"
+                                className="yeah-input "
                                 placeholder="Password"
                                 required
                                 />

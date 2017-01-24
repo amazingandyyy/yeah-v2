@@ -67,14 +67,14 @@ class Setting extends Component {
                     name="firstName"
                     type='text'
                     component="input"
-                    className="auth-input"
+                    className="yeah-input "
                     placeholder="First Name*"
                     required/>
                   <Field
                     name="lastName"
                     type='text'
                     component="input"
-                    className="auth-input"
+                    className="yeah-input "
                     placeholder="Last Name*"
                     required/>
                 </div>
@@ -83,7 +83,7 @@ class Setting extends Component {
                     name="email"
                     type='email'
                     component="input"
-                    className="auth-input"
+                    className="yeah-input "
                     placeholder="Email Address*"
                     disabled
                     required/>

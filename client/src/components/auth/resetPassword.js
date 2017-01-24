@@ -65,7 +65,7 @@ class ResetPassword extends Component {
                             type='password'
                             name="password"
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Passwrod*"
                             required
                         />
@@ -75,7 +75,7 @@ class ResetPassword extends Component {
                             type='password'
                             name="password2"
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Confirmed Password*"
                             required/>
                     </div>

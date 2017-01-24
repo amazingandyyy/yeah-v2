@@ -33,7 +33,7 @@ class IForget extends Component {
                                 type= 'email'
                                 name="email"
                                 component="input"
-                                className="auth-input"
+                                className="yeah-input "
                                 placeholder="email@email.com"
                                 required
                                 />

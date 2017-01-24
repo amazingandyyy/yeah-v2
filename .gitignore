@@ -4,6 +4,6 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-
+react-widget/
 # node_modules
 # dist

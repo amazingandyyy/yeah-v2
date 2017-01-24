@@ -8,6 +8,9 @@
         "design.sketch": true,
         ".babelrc": true,
         "node_modules": true,
-        "npm-debug.log": false
+        "npm-debug.log": false,
+        "**.less": false
     }
+,
+"vsicons.presets.angular": false
 }

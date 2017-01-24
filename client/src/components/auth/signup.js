@@ -51,14 +51,14 @@ class Signup extends Component {
                             name="firstName"
                             type='text'
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="First Name*"
                             required/>
                         <Field
                             name="lastName"
                             type='text'
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Last Name*"
                             required/>
                     </div>
@@ -67,7 +67,7 @@ class Signup extends Component {
                             name="email"
                             type='email'
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Email Address*"
                             required/>
                     </div>
@@ -76,7 +76,7 @@ class Signup extends Component {
                             type='password'
                             name="password"
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Passwrod*"
                             required
                         />
@@ -84,7 +84,7 @@ class Signup extends Component {
                             type='password'
                             name="password2"
                             component="input"
-                            className="auth-input"
+                            className="yeah-input "
                             placeholder="Confirmed Password*"
                             required/>
                     </div>

@@ -187,13 +187,16 @@
         }
     }
     .form-group {
-        input {
+        input, textarea {
             background: rgba(0,0,0,0.03);
             &:hover {
                 background: rgba(0,0,0,0.01);
             }
             &:active {
                 background: rgba(0,0,0,0);
+            }
+            &:focus {
+                background: white;
             }
         }
     }
@@ -215,6 +218,10 @@
                 -webkit-box-direction: normal;
                 -ms-flex-direction: column;
                 flex-direction: column;
+            }
+
+            .flex-item {
+                width: 100%;
             }
 
             .flex-item+.flex-item {
