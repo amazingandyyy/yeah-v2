@@ -10,22 +10,33 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 
 class VolunteerAdmin extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            tags: [ {id: 1, text: "Apples"} ],
+            suggestions: ["Banana", "Mango", "Pear", "Apricot"]
+        }
+    }
     handleFormSubmit(data) {
         // Getting data object
         console.log('data: ', data);
         //show the time 
-        console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
-        console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
+        // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
+        // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
         this.props.createVolunteerResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
         return (
-            <Multiselect {...input}
-                onBlur={()=> input.onBlur()}
-                value={input.value || []}
-                {...rest}
-            />
+            <span style={{width: '100%'}}>
+                <Multiselect 
+                    className="yeah-input"
+                    {...input}
+                    onBlur={()=> input.onBlur()}
+                    value={input.value || []}
+                    {...rest}
+                />
+            </span>
         );
     }
 
@@ -124,7 +135,8 @@ class VolunteerAdmin extends Component{
                     <div className="form-group">
                         <Field 
                             type="text"
-                            cols="40" rows="5"
+                            cols="40" 
+                            rows="8"
                             name="location" 
                             component="textarea" 
                             className="yeah-input"
