@@ -13,6 +13,16 @@ input, textarea, keygen, select, button {
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+.form-title {
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    color: #2e3d49;
+    font-weight: 600;
+}
+.form-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .form-group {
     display: flex;
 

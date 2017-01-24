@@ -82,6 +82,14 @@ var uploadAvatar = function uploadAvatar(req, res, next) {
   });
 };
 
+var uploadProfile = function uploadProfile(req, res, next) {
+  var userId = req.user._id;
+  var userData = req.body;
+  _model2.default.findByIdAndUpdate(userId, userData, { new: true }).then(function (user) {
+    res.send(user);
+  }).catch(next);
+};
+
 var permanentlyDeleteThisAcount = function permanentlyDeleteThisAcount(req, res, next) {
   var email = req.user.email;
   var password = req.body.password;
@@ -108,5 +116,6 @@ var permanentlyDeleteThisAcount = function permanentlyDeleteThisAcount(req, res,
 exports.default = {
   getProfile: getProfile,
   uploadAvatar: uploadAvatar,
+  uploadProfile: uploadProfile,
   permanentlyDeleteThisAcount: permanentlyDeleteThisAcount
 };

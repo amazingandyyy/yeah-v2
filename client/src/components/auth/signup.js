@@ -33,8 +33,7 @@ class Signup extends Component {
         }
     }
     render() {
-        // console.log('this.props;: ', this.props);
-        const {handleSubmit, password} = this.props;
+        const { handleSubmit } = this.props;
         return (
             <div className="auth-card">
             <div className="tab">
@@ -146,7 +145,7 @@ function mapStateToProps({auth}) {
 Signup = reduxForm({
     form: 'signup',
     validate
-}, null, actions)(Signup);
+})(Signup);
 Signup = connect(mapStateToProps, actions)(Signup);
 
 export default Signup;

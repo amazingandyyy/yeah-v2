@@ -21,5 +21,6 @@ router.delete('/permanentlyDeleteThisAcount', controller.permanentlyDeleteThisAc
 
 router.get('/profile', controller.getProfile);
 router.post('/profile/avatar', readFile, controller.uploadAvatar);
+router.post('/profile/info', controller.uploadProfile);
 
 export default router;

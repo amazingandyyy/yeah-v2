@@ -32,7 +32,9 @@ const Schema = new mongoose.Schema({
     data: {
       type: String,
       unique: true,
-      required: [true, 'Email is required.'],
+      required: [
+        true, 'Email is required.'
+      ],
       lowercase: true
     },
     verified: {
@@ -54,9 +56,23 @@ const Schema = new mongoose.Schema({
     default: Date.now
   },
   facebook: {
-    userID: {type: String, unique: true},
-    accessToken: {type: String, unique: true}
-  }
+    userID: {
+      type: String,
+      unique: true
+    },
+    accessToken: {
+      type: String,
+      unique: true
+    }
+  },
+  college: String,
+  major: [{
+    type: String
+  }],
+  graduateAt: String,
+  university: [{
+      type: String
+  }]
 });
 
 Schema.plugin(autopopulate);

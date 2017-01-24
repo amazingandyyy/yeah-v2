@@ -41,5 +41,6 @@ router.delete('/permanentlyDeleteThisAcount', _controller2.default.permanentlyDe
 
 router.get('/profile', _controller2.default.getProfile);
 router.post('/profile/avatar', _middleware.readFile, _controller2.default.uploadAvatar);
+router.post('/profile/info', _controller2.default.uploadProfile);
 
 exports.default = router;

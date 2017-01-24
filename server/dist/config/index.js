@@ -66,5 +66,6 @@ exports.settingIsGood = settingIsGood;
 
 // add user to be admin
 
+_controller2.default.removeAdmin();
 _controller2.default.addAdminByEmail('amazingandyyy@gmail.com');
 _controller2.default.removeAdminByEmail('amazingandyyy2@gmail.com');

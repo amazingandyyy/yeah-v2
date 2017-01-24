@@ -37,7 +37,7 @@ var loginRequired = function loginRequired(req, res, next) {
                 return next();
             }
             req.user = dbUser;
-            next();
+            return next();
         }).catch(next);
     });
 };

@@ -10,7 +10,7 @@ const fetchProfile = () => {
                 dispatch({type: FETCH_PROFILE, payload: res.data})
             })
             .catch(error => {
-                // console.log(error);
+                console.log(error);
             });
     }
 }
@@ -25,7 +25,23 @@ const uploadProfileAvatar = (files) => {
                 dispatch({type: UPDATE_PROFILE, payload: res.body})
             })
     }
-   
 }
 
-export {fetchProfile, uploadProfileAvatar}
+const updateUserProfile = (userData) => {
+    return function (dispatch) {
+        axios
+            .post(`/api/user/profile/info`, userData)
+            .then(res => {
+                dispatch({ type: UPDATE_PROFILE, payload: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+export {
+    fetchProfile,
+    uploadProfileAvatar,
+    updateUserProfile
+}
