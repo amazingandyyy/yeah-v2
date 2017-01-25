@@ -21,6 +21,7 @@ import ExploreBrowser from './components/dashboard/explore/browser';
 import Admin from './components/dashboard/admin';
 import VolunteerAdmin from './components/dashboard/volunteerAdmin';
 import CourseAdmin from './components/dashboard/courseAdmin';
+import IntershipAdmin from './components/dashboard/intershipAdmin';
 import VolunteerDetail from './components/volunteer/details';
 import VolunteerDetailEdit from './components/volunteer/edit';
 import RequireAuth from './components/auth/loginGuard';
@@ -55,6 +56,7 @@ const RouterComponent = () => {
                     <IndexRoute component={VolunteerAdmin} />
                     <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
                     <Route path="/dashboard/admin/course" component={CourseAdmin}/>
+                    <Route path="/dashboard/admin/intership" component={IntershipAdmin}/>
                 </Route>
             </Route>
         </Router>

@@ -165,6 +165,19 @@
         }
     }
 
+    .admin-component {
+        .nav-link {
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+            &.active {
+                opacity: 1;
+                font-weight: 600;
+            }
+        }
+    }
+
     &.drawer-closed {
         .drawer-component {
             left: -250px;
@@ -205,6 +218,9 @@
         background-color: #fff;
         border: solid 1px #dbe2e8;
         padding: 60px;
+        &.resource {
+            padding: 0px;
+        }
 
         @media (max-width: 500px) {
             padding: 30px;

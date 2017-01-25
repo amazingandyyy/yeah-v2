@@ -67,60 +67,64 @@ class VolunteerAdmin extends Component{
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
                 <fieldset className="form-group">
-                <div className="form-title-bg">Event Details</div>
+                <div className="form-title-bg">Create A Volunteer Program</div>
                 <div className="form-wrapper">
-                    <label>Title</label>
+                    <label>Title*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
                             name="title" 
                             component="input" 
                             className="yeah-input"
+                            placeholder="Event title"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Organization</label>
+                    <label>Organization*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
                             name="organization" 
                             component="input" 
                             className="yeah-input"
+                            placeholder="Event organization"
                             required
                         />
                     </div>
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Date</label>
+                    <label>Date*</label>
                     <div className="form-group">
                         <Field 
                             type="date" 
                             name="date" 
                             component="input" 
                             className="yeah-input"
+                            placeholder="Event date"
                             required
                         />
                     </div>
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Location</label>
+                    <label>Location*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
                             name="location" 
                             component="input" 
                             className="yeah-input"
+                            placeholder="Event location"
                             required
                         />
                     </div>
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Tags</label>
+                    <label>Tags*</label>
                     <div className="form-group">
                         <Field 
                             name="tags"
@@ -131,7 +135,7 @@ class VolunteerAdmin extends Component{
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Description</label>
+                    <label>Description*</label>
                     <div className="form-group">
                         <Field 
                             type="text"
@@ -141,13 +145,14 @@ class VolunteerAdmin extends Component{
                             component="textarea" 
                             className="yeah-input"
                             required
+                            placeholder="Event Details and discription..."
                         />
                     </div>
                 </div>
                 </fieldset>
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
+                    <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>
                 </div>
             </form>
             

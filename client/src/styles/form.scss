@@ -73,7 +73,8 @@ input, textarea, keygen, select, button {
         }
     }
     .yeah-input  {
-        height: 44px;
+        line-height: 44px;
+        min-height: 44px;
         width: 100%;
         box-sizing: border-box;
         padding-left: 15px;
@@ -99,7 +100,11 @@ input, textarea, keygen, select, button {
 }
 
 .form-group textarea {
+    text-align: justify;
     padding: 12px;
+    line-height: 1.6rem !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.6px;
 
     min-height: 200px;
 }
@@ -168,10 +173,22 @@ button.btn {
         }
         &:active, &:focus{
             outline: none;
-            background: lighten($light-blue, 3%);
+            background: lighten($light-blue, 5%);
             box-shadow: none;
         }
-
+    }
+    &.btn-default {
+        color: $black;
+        background: #C0C0C0;
+        transition: 0s all;
+        &:hover{
+            background: lighten(#C0C0C0, 3%);
+        }
+        &:active, &:focus{
+            outline: none;
+            background: lighten(#C0C0C0, 5%);
+            box-shadow: none;
+        }
     }
 }
 

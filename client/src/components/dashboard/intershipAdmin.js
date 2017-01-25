@@ -9,7 +9,7 @@ import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 
-class CourseAdmin extends Component{
+class IntershipAdmin extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -23,7 +23,7 @@ class CourseAdmin extends Component{
         //show the time 
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createVolunteerResource(data);
+        this.props.createIntershipResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -67,29 +67,29 @@ class CourseAdmin extends Component{
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
                 <fieldset className="form-group">
-                <div className="form-title-bg">Create A Training Program</div>
+                <div className="form-title-bg">Create A Intership Program</div>
                 <div className="form-wrapper">
-                    <label>Title*</label>
+                    <label>Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="title" 
+                            name="position" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Course title"
+                            placeholder="Intership position"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Instructor*</label>
+                    <label>Company*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="instructor" 
+                            name="company" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Course instructor"
+                            placeholder="Company Full Name"
                             required
                         />
                     </div>
@@ -103,7 +103,7 @@ class CourseAdmin extends Component{
                             name="date" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Course date"
+                            placeholder="Intership date"
                             required
                         />
                     </div>
@@ -117,7 +117,7 @@ class CourseAdmin extends Component{
                             name="location" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Course location"
+                            placeholder="Intership location"
                             required
                         />
                     </div>
@@ -141,18 +141,18 @@ class CourseAdmin extends Component{
                             type="text"
                             cols="40" 
                             rows="8"
-                            name="location" 
+                            name="description" 
                             component="textarea" 
                             className="yeah-input"
                             required
-                            placeholder="Course Details and discription..."
+                            placeholder="Intership Details and discription..."
                         />
                     </div>
                 </div>
                 </fieldset>
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
+                    <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>
                 </div>
             </form>
             
@@ -161,12 +161,12 @@ class CourseAdmin extends Component{
 }
 
 
-CourseAdmin = reduxForm({
-    form: 'createCourseResource',
+IntershipAdmin = reduxForm({
+    form: 'createIntershipResource',
     initialValues: {
         date: moment().add(1, 'day').format('YYYY-MM-DD')
     }
 
-}, null, actions)(CourseAdmin);
+}, null, actions)(IntershipAdmin);
 
-export default connect(null, actions)(CourseAdmin);
+export default connect(null, actions)(IntershipAdmin);
