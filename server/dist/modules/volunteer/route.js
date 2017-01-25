@@ -19,7 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 
 // authorization required
-router.post('/createResource', _middleware.loginRequired, _middleware.checkAdmin, _controller2.default.createResource);
+router.post('/create', _middleware.loginRequired, _middleware.checkAdmin, _controller2.default.createOne);
 
 // public request
 router.get('/fetchAll', _middleware.loginRequired, _controller2.default.fetchAll);

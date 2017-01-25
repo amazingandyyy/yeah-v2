@@ -5,7 +5,7 @@ import { loginRequired, checkAdmin } from '../../middleware';
 const router = express.Router();
 
 // authorization required
-router.post('/createResource', loginRequired, checkAdmin, controller.createResource);
+router.post('/create', loginRequired, checkAdmin, controller.createOne);
 
 // public request
 router.get('/fetchAll', loginRequired, controller.fetchAll);

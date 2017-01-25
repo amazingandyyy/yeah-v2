@@ -12,3 +12,5 @@ export * from './admin';
 
 // Fetch Resources
 export * from './volunteer';
+export * from './intership';
+export * from './course';

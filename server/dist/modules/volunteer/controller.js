@@ -13,11 +13,11 @@ var _model2 = _interopRequireDefault(_model);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    createResource: function createResource(req, res, next) {
+    createOne: function createOne(req, res, next) {
         var createBy = req.user._id;
         var title = req.body.title;
-        var resource = _extends({ createBy: createBy }, req.body);
-        _model2.default.create(resource).then(function () {
+        var data = _extends({ createBy: createBy }, req.body);
+        _model2.default.create(data).then(function () {
             res.send();
         }).catch(next);
     },

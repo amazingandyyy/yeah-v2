@@ -20,10 +20,10 @@ class CourseAdmin extends Component{
     handleFormSubmit(data) {
         // Getting data object
         console.log('data: ', data);
-        //show the time 
+        //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createVolunteerResource(data);
+        this.props.createCourseResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -141,7 +141,7 @@ class CourseAdmin extends Component{
                             type="text"
                             cols="40" 
                             rows="8"
-                            name="location" 
+                            name="description" 
                             component="textarea" 
                             className="yeah-input"
                             required

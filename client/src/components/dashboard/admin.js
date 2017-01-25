@@ -3,7 +3,6 @@ import { Link, hashHistory } from 'react-router';
 
 class Admin extends Component {
   componentWillMount() {
-    hashHistory.push('/dashboard/admin/volunteer')
   }
   
   render() {

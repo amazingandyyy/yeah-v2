@@ -1,11 +1,11 @@
 import Volunteer from './model';
 
 export default {
-    createResource: function(req, res, next) {
+    createOne: function(req, res, next) {
         const createBy = req.user._id;
         const title = req.body.title;
-        const resource = { createBy, ...req.body }
-        Volunteer.create(resource)
+        const data = { createBy, ...req.body }
+        Volunteer.create(data)
         .then(() => {
             res.send()
         })

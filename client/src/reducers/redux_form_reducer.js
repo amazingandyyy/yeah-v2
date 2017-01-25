@@ -6,6 +6,18 @@ const formReducer = form.plugin({
             return undefined
         }
         return state;
+    },
+    createIntershipResource: (state, action) => {
+        if (action.type === 'SUCCESS') {
+            return undefined
+        }
+        return state;
+    },
+    createCourseResource: (state, action) => {
+        if (action.type === 'SUCCESS') {
+            return undefined
+        }
+        return state;
     }
 })
 
