@@ -20,7 +20,7 @@ import ExploreBrowser from './components/dashboard/explore/browser';
 
 import Admin from './components/dashboard/admin';
 import VolunteerAdmin from './components/dashboard/volunteerAdmin';
-import CourcesAdmin from './components/dashboard/courcesAdmin';
+import CourseAdmin from './components/dashboard/courseAdmin';
 import VolunteerDetail from './components/volunteer/details';
 import VolunteerDetailEdit from './components/volunteer/edit';
 import RequireAuth from './components/auth/loginGuard';
@@ -54,22 +54,7 @@ const RouterComponent = () => {
                 <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
                     <IndexRoute component={VolunteerAdmin} />
                     <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
-                    <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
-                </Route>
-            </Route>
-            <Route path="/dashboard" component={RequireAuth(Dashboard)}>
-                <IndexRoute component={Start}/>
-                <Route path="/dashboard/start" component={Start}/>
-                <Route path="/dashboard/setting" component={Setting}/>
-                <Route path="/dashboard/explore" component={Explore}>
-                    <IndexRoute component={ExploreBrowser} />
-                    <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
-                    <Route path="/dashboard/explore/volunteer/:id/edit" component={ RequireAdmin(VolunteerDetailEdit) } />
-                </Route>
-                <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
-                    <IndexRoute component={VolunteerAdmin} />
-                    <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
-                    <Route path="/dashboard/admin/cources" component={CourcesAdmin}/>
+                    <Route path="/dashboard/admin/course" component={CourseAdmin}/>
                 </Route>
             </Route>
         </Router>

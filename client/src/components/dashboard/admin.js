@@ -14,10 +14,12 @@ class Admin extends Component {
                 <Link className="nav-link" to="/dashboard/admin/volunteer">Volunteer</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/dashboard/admin/cources">Cources</Link>
+                <Link className="nav-link" to="/dashboard/admin/course">Cources</Link>
               </li>
             </ul>
-            { this.props.children }
+            <div className="card">
+              { this.props.children }
+            </div>
           </div>
           </div>
         </div>

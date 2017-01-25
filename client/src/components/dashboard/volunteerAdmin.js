@@ -61,15 +61,15 @@ class VolunteerAdmin extends Component{
         momentLocalizer(moment);
 
         const tagList =['Animals','Computers','Children','Environment','Education','Homeless','Sports','Arts', 'Culture','Community','International'];
-        
+        const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
             <form
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
                 <fieldset className="form-group">
-                <h3>Volunteer Event Details:</h3>
+                <div className="form-title-bg">Event Details</div>
                 <div className="form-wrapper">
-                    <label>Event Title</label>
+                    <label>Title</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -94,7 +94,7 @@ class VolunteerAdmin extends Component{
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Event Date</label>
+                    <label>Date</label>
                     <div className="form-group">
                         <Field 
                             type="date" 
@@ -145,8 +145,10 @@ class VolunteerAdmin extends Component{
                     </div>
                 </div>
                 </fieldset>
-                <button type="submit" className="btn btn-primary">Create</button>
-            
+                <div className="flex-container btn-container">
+                    <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
+                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
+                </div>
             </form>
             
         )
