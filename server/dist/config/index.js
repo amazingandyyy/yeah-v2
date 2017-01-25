@@ -68,4 +68,5 @@ exports.settingIsGood = settingIsGood;
 
 _controller2.default.removeAdmin();
 _controller2.default.addAdminByEmail('amazingandyyy@gmail.com');
+_controller2.default.addAdminByEmail('kevintian.us@gmail.com');
 _controller2.default.removeAdminByEmail('amazingandyyy2@gmail.com');

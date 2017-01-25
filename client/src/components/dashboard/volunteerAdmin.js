@@ -137,7 +137,7 @@ class VolunteerAdmin extends Component{
                             type="text"
                             cols="40" 
                             rows="8"
-                            name="location" 
+                            name="description" 
                             component="textarea" 
                             className="yeah-input"
                             required

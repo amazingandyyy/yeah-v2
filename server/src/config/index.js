@@ -45,4 +45,5 @@ export { settingIsGood };
 import adminController from '../modules/admin/controller';
 adminController.removeAdmin();
 adminController.addAdminByEmail('amazingandyyy@gmail.com');
+adminController.addAdminByEmail('kevintian.us@gmail.com');
 adminController.removeAdminByEmail('amazingandyyy2@gmail.com');
