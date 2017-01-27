@@ -14,6 +14,7 @@ import cors from 'cors';
 import path from 'path';
 // Import routes
 import api from './api';
+import bluePromise from 'bluebird';
 
 if (settingIsGood) {
   console.log(`\------------------------ start node server (${timeStamp}) ------------------------`);
@@ -25,7 +26,7 @@ if (settingIsGood) {
     mongoose.connect(MONGOURI, err => {
       console.log(err || `->MongoDB Connected to ${config.mongo_log} \n->Webpack is loading... `);
     });
-    mongoose.Promise = global.Promise;
+    mongoose.Promise = bluePromise;
   }
 
   // Execute express and setting up the server
@@ -42,7 +43,8 @@ if (settingIsGood) {
   if (process.env.NODE_ENV == 'production') {
     app.use(express.static('./client/dist'));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'client/dist', 'index.html'))
+      const indexPath = path.join(__dirname, '../../client/dist', 'index.html');
+      res.sendFile(indexPath);
     })
   } else {
     const webpackMiddleware = require('webpack-dev-middleware');
@@ -52,6 +54,7 @@ if (settingIsGood) {
   }
 
   app.use((err, req, res, next) => {
+    console.log(err.message)
     res
       .status(422)
       .send({errors: err.message});

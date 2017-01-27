@@ -44,6 +44,7 @@
                 }
             }
         }
+        
         .content {
             transition: .2s all ease-in-out;
             position: relative;
@@ -77,9 +78,12 @@
                     text-transform: uppercase;
                     letter-spacing: 1px;
                     font-weight: 600;
-                    padding-top: 50px;
+                    padding-top: 10px;
                     padding-left: 35px;
                     margin-bottom: 15px;
+                    &.first {
+                        padding-top: 60px;
+                    }
                 }
                 .blur {
                     background: rgba(255,255,255,1);
@@ -165,6 +169,19 @@
         }
     }
 
+    .admin-component {
+        .nav-link {
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+            &.active {
+                opacity: 1;
+                font-weight: 600;
+            }
+        }
+    }
+
     &.drawer-closed {
         .drawer-component {
             left: -250px;
@@ -186,4 +203,68 @@
             padding-left: 0px;
         }
     }
+    .form-group {
+        .yeah-input  {
+            background: rgba(0,0,0,0.03);
+            &:hover {
+                background: rgba(0,0,0,0.01);
+            }
+            &:active {
+                background: rgba(0,0,0,0);
+            }
+            &:focus {
+                background: white;
+            }
+            &:disabled {
+                opacity: 0.8;
+                &:hover {
+                    background: rgba(0,0,0,0.03);
+                }
+            }
+        }
+    }
+    .card {
+        border-radius: 0px;
+        background-color: #fff;
+        border: solid 1px #dbe2e8;
+        padding: 60px;
+        &.resource {
+            padding: 0px;
+        }
+
+        @media (max-width: 500px) {
+            padding: 30px;
+        }
+        
+        .flex-container {
+            display: flex;
+
+            @media (max-width: 850px) {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            .flex-item {
+                width: 100%;
+            }
+
+            .flex-item+.flex-item {
+                margin-left: 20px;
+                @media (max-width: 850px) {
+                    margin-top: 20px;
+                    margin-left: 0px;
+                }
+            }
+
+            &.btn-container {
+                float: right;
+                @media (max-width: 850px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
+

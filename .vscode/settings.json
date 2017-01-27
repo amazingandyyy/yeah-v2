@@ -1,0 +1,16 @@
+// Workspace settings
+{
+    // The following will hide the js and map files in the editor
+    "files.exclude": {
+        "**/dist": true,
+        "yarn.lock": true,
+        ".elasticbeanstalk": true,
+        "design.sketch": true,
+        ".babelrc": true,
+        "node_modules": true,
+        "npm-debug.log": false,
+        "**.less": false
+    }
+,
+"vsicons.presets.angular": false
+}

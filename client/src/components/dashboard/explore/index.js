@@ -15,8 +15,8 @@ export default class Explore extends Component {
   }
 }
 // <RouteTransition
-//               pathname={this.props.location.pathname}
-//               atEnter={{ opacity: 0, transition: 0.01 }}
-//               atLeave={{ opacity: 0, transition: 0.01 }}
-//               atActive={{ opacity: 1, transition: 0.01 }}
-//             >
+//   pathname={this.props.location.pathname}
+//   atEnter={{ opacity: 0, transition: 0.01 }}
+//   atLeave={{ opacity: 0, transition: 0.01 }}
+//   atActive={{ opacity: 1, transition: 0.01 }}
+// >

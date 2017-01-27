@@ -11,7 +11,7 @@ import './styles/style.scss';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers)
-const token = localStorage.getItem('token');
+const token = localStorage.getItem('yeah_token');
 const isAdmin = localStorage.getItem('isAdmin');
 
 // <Route path="/secret" component= {RequireAuth(Secret)} />

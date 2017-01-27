@@ -11,7 +11,7 @@ class Volunteer extends Component {
     }
     renderList() {
       if(this.props.events){
-        if(this.props.events.length > 1) {
+        if(this.props.events.length > 0) {
           return this.props.events.map(event => {
             if (!event.colorSetting){ event.colorSetting = colorSchema[Math.floor(Math.random()*colorLength)] };
             if (!event.thumbnail){ event.thumbnail = 'http://bit.ly/2jvvHDd' };
@@ -42,7 +42,7 @@ class Volunteer extends Component {
         return (
             <div className="section">
               <div className="blur-h right"></div>
-              <div className="title">Volunteer Program</div>
+              <div className="title first">Volunteer Program</div>
               <div className="h-scrollable">
                 {this.renderList()}
               </div>
@@ -53,7 +53,7 @@ class Volunteer extends Component {
     }
 }
 
-const colorSchema = [ 'rgb(2,179,228)', 'rgb(2,204,186)', 'rgb(169,81,237)' ]
+const colorSchema = [ 'rgb(2,179,228)', 'rgb(2,204,186)', 'rgb(169,81,237)', 'rgb(20,109,218)', 'rgb(50,210,166)', 'rgb(189,100,217)' ]
 const colorLength = colorSchema.length;
 function mapStateToProps({ volunteer }){
   return {

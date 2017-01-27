@@ -8,10 +8,15 @@
     left: 0px;
     margin: auto;
     text-align: center;
-    z-index: 99;
+    z-index: 1099;
 
     .container {
         padding: 10px;
+    }
+
+    .navbar-nav {
+        display: block;
+        width: 100%;
     }
 
     .logo-text {
@@ -22,5 +27,30 @@
         display: inline-block;
         padding: 0px;
         position: relative;
+    }
+
+    .nav-link {
+        button.btn-primary {
+            color: #fff;
+            background-color: #02b3e4;
+            border: 0.125rem solid transparent;
+            letter-spacing: 0;
+            font-size: 1rem;
+            text-transform: capitalize;
+            margin-left: 1rem;
+            line-height: 1.9375rem;
+            width: 7.75rem;
+            box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15) !important;
+        }
+    }
+
+    .nav-item{
+        width: auto;
+        float: left;
+
+        &.pull-right {
+            width: auto;
+            float: right;
+        }
     }
 }

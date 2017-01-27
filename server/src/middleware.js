@@ -21,7 +21,7 @@ const loginRequired = (req, res, next) => {
             .then(dbUser => {
                 if (err || !dbUser) { return next() }
                 req.user = dbUser;
-                next();
+                return next();
             })
             .catch(next)
     })

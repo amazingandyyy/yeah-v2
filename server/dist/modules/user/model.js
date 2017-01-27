@@ -68,7 +68,25 @@ var Schema = new _mongoose2.default.Schema({
   timestamp: {
     type: Number,
     default: Date.now
-  }
+  },
+  facebook: {
+    userID: {
+      type: String,
+      unique: true
+    },
+    accessToken: {
+      type: String,
+      unique: true
+    }
+  },
+  college: String,
+  major: [{
+    type: String
+  }],
+  graduateAt: String,
+  university: [{
+    type: String
+  }]
 });
 
 Schema.plugin(_mongooseAutopopulate2.default);

@@ -1,3 +1,225 @@
+body {
+    background: #F4F4EF;
+}
+
 .auth-component {
-    padding-top: 50px;
+    height: 100%;
+    padding-top: 130px;
+    padding-bottom: 80px;
+    font-family: $sans;
+
+    .header {
+        background: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px;
+        text-align: center;
+        display: block;
+        .logo {
+            margin: auto;
+        }
+    }
+
+    .auth-card {
+        overflow: hidden;
+        padding-top: 57px;
+        box-shadow: 2px 2px 3px 0 hsla(205,5%,48%,.12);
+        max-width: 620px;
+        border: 1px solid #dbe2e8;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+
+        &.notab {
+            padding-top: 0px;
+        }
+
+        .tab {
+            vertical-align: baseline;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+
+            a.panel {
+                display: block;
+                text-transform: uppercase;
+                background: #fafbfc;
+                border-bottom: 1px solid #dbe2e8;
+                color: #7d97ad;
+                padding: 18px;
+                text-align: center;
+                letter-spacing: 1px;
+                font-size: 14px;
+                cursor: pointer;
+                font-weight: 400;
+                flex: auto;
+                -webkit-box-flex: 1;
+
+                &.active {
+                    font-weight: 600;
+                    color: #2e3d49;
+                    background: white;
+                    border-bottom: 1px solid white;
+
+                    &.right {
+                        border-left: 1px solid #dbe2e8;
+                    }
+                    &.left {
+                        border-right: 1px solid #dbe2e8;
+                    }
+                }
+            }
+        }
+        
+        .formSection {
+            background: white;
+            padding: 30px;
+            padding-bottom: 80px;
+            @media (min-width: 767px) {
+                padding: 60px;
+            }
+            form {
+                margin: 25px 0 40px;
+            }
+            .iForGet {
+                color: $light-blue;
+                margin-top: 15px;
+                font-size: 14px;
+                font-weight: 600;
+                a {
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #2e3d49;
+                    }
+                }
+            }
+            .title {
+                text-transform: capitalize;
+                font-size: 34px;
+                line-height: 1.3;
+                color: #2e3d49;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            .discriptionTxt {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.6;
+                color: #525c65;
+                max-width: 460px;
+                margin: 20px auto;
+                text-align: center;
+            }
+        }
+        .single_icon {
+            img {
+                width: 80px;
+                // width:400px;
+                // opacity: 0.3;
+                // position: absolute;
+                // top: -100px;
+                // left: -50px;
+                margin-bottom: 30px;
+            }
+        }
+        .small-text {
+            color: rgba(#757c81, 0.6);
+            font-size: 14px;
+            font-weight: 100;
+            margin-bottom: 15px;
+        }
+        .auth-fb-wrapper {
+            position: relative;
+            margin: auto;
+            min-width: 207px;
+            max-width: 207px;
+            border: 1px solid #dbe2e8;
+            color: #757c81;
+            border-radius: 4px;
+            padding: 20px 25px;
+            height: 44px;
+            background: white;
+
+            &:hover{
+                .content {
+                    color: $light-blue;
+                }
+            }
+
+            &:active {
+                border: 1px solid darken(#dbe2e8, 10%);
+            }
+
+            .fb-icon{
+                width: 24px;
+                z-index: 92;
+                position: absolute;
+                top: 9px;
+                left: 30px;
+            }
+
+            .content {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 400;
+                font-size: 13px;
+                position: absolute;
+                top: 12.5px;
+                right: 30px;
+            }
+
+            .auth-fb-button {
+                border: none;
+                outline: none !important;
+                cursor: pointer;
+                position: absolute;
+                top:0;
+                left:0;
+                right:0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 80;
+                &:active {
+                    outline: none !important;
+                }
+            }
+        }
+    }
+}
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #dbe2e8;
+    border: none;
+    margin: 30px 0;
+    display: block;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 500px) {
+// on the phone
+    body {
+        background: white !important;
+    }
+    .auth-component {
+        padding-top: 84px !important;
+        .auth-card {
+            height: 100vh !important;
+        }
+    }
 }

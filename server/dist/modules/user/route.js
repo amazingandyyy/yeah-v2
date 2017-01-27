@@ -27,7 +27,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = _express2.default.Router();
 // public request
 router.post('/signup', _auth2.default.signup);
-router.post('/signin', _auth2.default.signin);
+router.post('/signin/email', _auth2.default.signin);
+router.post('/signin/fb', _auth2.default.signinWithFacebook);
+
+router.post('/helper/sendEmailToResetPassword/:email', _auth2.default.sendEmailToResetPassword);
+router.post('/helper/verifyToken/:token', _auth2.default.verifyTokenCtrl);
+router.post('/helper/resetPassword', _auth2.default.resetPassword);
+// router.post('/helper/resetPassword', auth.sendEmailToResetPassword);
 
 // authorization required
 router.use('/profile', _middleware.loginRequired);
@@ -35,5 +41,6 @@ router.delete('/permanentlyDeleteThisAcount', _controller2.default.permanentlyDe
 
 router.get('/profile', _controller2.default.getProfile);
 router.post('/profile/avatar', _middleware.readFile, _controller2.default.uploadAvatar);
+router.post('/profile/info', _controller2.default.uploadProfile);
 
 exports.default = router;

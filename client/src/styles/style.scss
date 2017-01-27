@@ -1,6 +1,14 @@
+@import './variable';
+
+html{
+    -webkit-text-size-adjust: none
+}
+
 body {
     padding-top: 0px;
     background-color: rgba(0,0,0,0.03);
+    box-sizing: border-box;
+    font-family: $sans;
 }
 
 a, a:visited, a:focus, a:active, a:hover {
@@ -8,14 +16,20 @@ a, a:visited, a:focus, a:active, a:hover {
     text-decoration: none;
 }
 
-@media (min-width: 767px) { 
+@media (min-width: 767px) {
     .center-block {
         max-width: 500px;
         margin: auto;
     }
- }
+}
+@media screen and (max-width: 500px) {
+// on the phone
+    .xs-hide {
+        display: none !important;
+    }
+}
 
-@import './variable';
+
 @import './header';
 @import './home';
 @import './footer';
@@ -25,6 +39,7 @@ a, a:visited, a:focus, a:active, a:hover {
 @import './drawer';
 @import './details';
 @import './h-scrollable';
+@import './form';
 
 .container {
     // max-width: 760px;

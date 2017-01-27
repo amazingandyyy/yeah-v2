@@ -7,7 +7,13 @@ import multer from 'multer';
 const router = express.Router();
 // public request
 router.post('/signup', auth.signup);
-router.post('/signin', auth.signin);
+router.post('/signin/email', auth.signin);
+router.post('/signin/fb', auth.signinWithFacebook);
+
+router.post('/helper/sendEmailToResetPassword/:email', auth.sendEmailToResetPassword);
+router.post('/helper/verifyToken/:token', auth.verifyTokenCtrl);
+router.post('/helper/resetPassword', auth.resetPassword);
+// router.post('/helper/resetPassword', auth.sendEmailToResetPassword);
 
 // authorization required
 router.use('/profile', loginRequired);
@@ -15,5 +21,6 @@ router.delete('/permanentlyDeleteThisAcount', controller.permanentlyDeleteThisAc
 
 router.get('/profile', controller.getProfile);
 router.post('/profile/avatar', readFile, controller.uploadAvatar);
+router.post('/profile/info', controller.uploadProfile);
 
 export default router;

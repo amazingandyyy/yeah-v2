@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Drawer from './drawer';
 import $ from 'jquery';
 
@@ -6,29 +6,22 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div className="dashboard-component">
-        <Drawer />
-        {this.props.children}
+        <Drawer/> {this.props.children}
       </div>
     );
   }
   componentDidMount() {
     let width = $(window).width();
-    
-    function config(width){
-      if($('.dashboard-component')){
-        $('#drawer-handle').on('click', () => {
-          $('.dashboard-component').toggleClass('drawer-closed')
-        })
-
-        if(width < 700){
-          // on the small screen
-          closeDrawer()
-          $('.drawer-component').find('.item').on('click', () => {
-            if($(window).width() < 700){closeDrawer()}
-          })
-        }else{
-          openDrawer()
-        }
+    $('#drawer-handle').on('click', () => {
+      $('.dashboard-component').toggleClass('drawer-closed')
+    })
+    function config(width) {
+      if (width < 767) {
+        closeDrawer();
+        startListeningClick();
+      } else {
+        openDrawer();
+        removeListeningClick();
       }
     }
     config(width)
@@ -38,11 +31,19 @@ export default class Dashboard extends Component {
       config(width)
     })
 
-    function openDrawer(){
+    function openDrawer() {
       $('.dashboard-component').removeClass('drawer-closed');
     }
-    function closeDrawer(){
+    function closeDrawer() {
       $('.dashboard-component').addClass('drawer-closed');
+    }
+    function startListeningClick() {
+      $('.dashboard-component').find('.item').on('click', () => {
+        closeDrawer();
+      })
+    }
+    function removeListeningClick() {
+      $('.dashboard-component').find('.item').off('click');
     }
   }
 }

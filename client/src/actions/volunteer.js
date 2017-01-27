@@ -9,7 +9,7 @@ import { hashHistory } from 'react-router';
 function fetchAllVolunteerChances() {
     return function (dispatch) {
         axios
-            .get(`/api/volunteer/fetchAll`)
+            .get(`/api/resource/volunteer/fetchAll`)
             .then(res => {
                 dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
             })
@@ -22,7 +22,7 @@ function fetchAllVolunteerChances() {
 function fetchOneVolunteerChance(id) {
     return function (dispatch) {
         axios
-            .get(`/api/volunteer/fetchOne/${id}`)
+            .get(`/api/resource/volunteer/fetchOne/${id}`)
             .then(res => {
                 dispatch({type: FETCH_ONE_VOLUNTEER_CHANCE, payload: res.data})
             })
@@ -35,7 +35,7 @@ function fetchOneVolunteerChance(id) {
 function deleteOneVolunteerChance(id) {
     return function (dispatch) {
         axios
-            .delete(`/api/volunteer/deleteOne/${id}`)
+            .delete(`/api/resource/volunteer/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")
                 dispatch({type: DELETE_ONE_VOLUNTEER_CHANCE, payload: directBack });
@@ -50,4 +50,4 @@ export {
     fetchAllVolunteerChances,
     fetchOneVolunteerChance,
     deleteOneVolunteerChance
-    }
+}

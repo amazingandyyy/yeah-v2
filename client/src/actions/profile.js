@@ -10,7 +10,7 @@ const fetchProfile = () => {
                 dispatch({type: FETCH_PROFILE, payload: res.data})
             })
             .catch(error => {
-                // console.log(error);
+                console.log(error);
             });
     }
 }
@@ -18,14 +18,30 @@ const fetchProfile = () => {
 const uploadProfileAvatar = (files) => {
     return function (dispatch) {
         superagent.post('/api/user/profile/avatar')
-            .set('Authorization', localStorage.getItem('token'))
+            .set('Authorization', localStorage.getItem('yeah_token'))
             .attach('asset', files[0])
             .end((err, res) => {
                 if (err) return console.log(err);
                 dispatch({type: UPDATE_PROFILE, payload: res.body})
             })
     }
-   
 }
 
-export {fetchProfile, uploadProfileAvatar}
+const updateUserProfile = (userData) => {
+    return function (dispatch) {
+        axios
+            .post(`/api/user/profile/info`, userData)
+            .then(res => {
+                dispatch({ type: UPDATE_PROFILE, payload: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+export {
+    fetchProfile,
+    uploadProfileAvatar,
+    updateUserProfile
+}

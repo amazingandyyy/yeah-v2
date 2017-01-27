@@ -73,6 +73,16 @@ const uploadAvatar = (req, res, next) => {
   });
 }
 
+const uploadProfile = (req, res, next) => {
+  const userId = req.user._id;
+  const userData = req.body;
+  User.findByIdAndUpdate(userId, userData, {new: true})
+  .then(user => {
+    res.send(user)
+  })
+  .catch(next)
+}
+
 const permanentlyDeleteThisAcount = (req, res, next) => {
   const email = req.user.email;
   const { password } = req.body;
@@ -102,5 +112,6 @@ const permanentlyDeleteThisAcount = (req, res, next) => {
 export default {
   getProfile,
   uploadAvatar,
+  uploadProfile,
   permanentlyDeleteThisAcount
 };

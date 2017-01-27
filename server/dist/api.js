@@ -20,6 +20,10 @@ var _route3 = require('./modules/volunteer/route');
 
 var _route4 = _interopRequireDefault(_route3);
 
+var _resource = require('./resource.route');
+
+var _resource2 = _interopRequireDefault(_resource);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
@@ -29,13 +33,7 @@ router.get('/', function (req, res) {
   res.send('You are connected to yeah-server-api');
 });
 
-// router.use('/', (req, res, next) => {
-//   if(!process.env.JWT_SECRET) {
-//     return res.send('no jwt_secret');
-//   }
-// })
-
 router.use('/user', _route2.default);
-router.use('/volunteer', _route4.default);
+router.use('/resource', _resource2.default);
 
 exports.default = router;

@@ -25,9 +25,9 @@ class Drawer extends Component {
         <i className="fa fa-caret-right" aria-hidden="true"></i>
         <i className="fa fa-caret-left" aria-hidden="true"></i>
       </span>
-        <Link to="/dashboard">
+        <Link to="/">
           <div className="item" id="header">
-            <span className="title">Dashboard</span>
+            <span className="title">YEAH</span>
           </div>
         </Link>
         <Link to="/dashboard/start" activeClassName="active">
@@ -42,7 +42,12 @@ class Drawer extends Component {
             <span className="title">Explore</span>
           </div>
         </Link>
-        
+        <Link to="/dashboard/assist" activeClassName="active">
+          <div className="item">
+            <span className="icon"><Icon name="catalog"/></span>
+            <span className="title">Assist</span>
+          </div>
+        </Link>
 
         <div className="bottom">
         {this.renderAdmin()}
@@ -53,7 +58,7 @@ class Drawer extends Component {
             </div>
           </Link>
 
-          <Link to="/signout" activeClassName="active">
+          <Link to="/auth/signout" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="logout"/></span>
               <span className="title">Logout</span>

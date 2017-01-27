@@ -36,6 +36,10 @@ var _api = require('./api');
 
 var _api2 = _interopRequireDefault(_api);
 
+var _bluebird = require('bluebird');
+
+var _bluebird2 = _interopRequireDefault(_bluebird);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var timeStamp = new Date().getTime();
@@ -58,7 +62,7 @@ if (_config.settingIsGood) {
     _mongoose2.default.connect(MONGOURI, function (err) {
       console.log(err || '->MongoDB Connected to ' + _config2.default.mongo_log + ' \n->Webpack is loading... ');
     });
-    _mongoose2.default.Promise = global.Promise;
+    _mongoose2.default.Promise = _bluebird2.default;
   }
 
   // Execute express and setting up the server
@@ -75,7 +79,8 @@ if (_config.settingIsGood) {
   if (process.env.NODE_ENV == 'production') {
     app.use(_express2.default.static('./client/dist'));
     app.get('*', function (req, res) {
-      res.sendFile(_path2.default.join(__dirname, 'client/dist', 'index.html'));
+      var indexPath = _path2.default.join(__dirname, '../../client/dist', 'index.html');
+      res.sendFile(indexPath);
     });
   } else {
     var webpackMiddleware = require('webpack-dev-middleware');
@@ -85,6 +90,7 @@ if (_config.settingIsGood) {
   }
 
   app.use(function (err, req, res, next) {
+    console.log(err.message);
     res.status(422).send({ errors: err.message });
   });
 
