@@ -215,6 +215,12 @@
             &:focus {
                 background: white;
             }
+            &:disabled {
+                opacity: 0.8;
+                &:hover {
+                    background: rgba(0,0,0,0.03);
+                }
+            }
         }
     }
     .card {

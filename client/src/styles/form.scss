@@ -46,6 +46,7 @@ input, textarea, keygen, select, button {
 }
 .form-group {
     display: flex;
+    position: relative;
 
     label {
         width: 23%;
@@ -73,6 +74,7 @@ input, textarea, keygen, select, button {
         }
     }
     .yeah-input  {
+        z-index: 30px !important;
         line-height: 44px;
         min-height: 44px;
         width: 100%;
@@ -84,9 +86,19 @@ input, textarea, keygen, select, button {
         box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
         border-radius: 2px;
         color: #2e3d49;
+        cursor: text;
         &:focus, &:active {
             outline: none;
             border-color: #02b3e4;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            &:focus, &:active {
+                outline: none;
+                user-select: none;
+                border-color: #dbe2e8;
+            }
         }
     }
 }

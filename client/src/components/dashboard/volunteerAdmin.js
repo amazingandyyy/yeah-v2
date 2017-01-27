@@ -5,9 +5,11 @@ import * as actions from '../../actions';
 import '../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
+
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
+import DropdownList from 'react-widgets/lib/DropdownList';
 
 class VolunteerAdmin extends Component{
     constructor(props){
@@ -16,6 +18,9 @@ class VolunteerAdmin extends Component{
             tags: [ {id: 1, text: "Apples"} ],
             suggestions: ["Banana", "Mango", "Pear", "Apricot"]
         }
+    }
+    componentWillMount(){
+        this.props.getCollegesList();
     }
     handleFormSubmit(data) {
         // Getting data object
@@ -53,6 +58,22 @@ class VolunteerAdmin extends Component{
             <span className="flex-item">
                 <DateTimePicker calendar={false} {...rest} onChange={input.onChange} placeholder='Select Starting Time'/>
             </span>    
+        );
+    }
+
+    renderCollegeInput ({input, ...rest}) {
+        let collegeList = _.map(this.props.colleges, 'name');
+        return (
+            <span style={{width: '100%'}}>
+                <DropdownList
+                placeholder="Your College"
+                    className="yeah-input"
+                    data={collegeList}
+                    textField='name'
+                    caseSensitive={false}
+                    filter='contains'
+                />
+            </span>
         );
     }
 
@@ -135,6 +156,17 @@ class VolunteerAdmin extends Component{
                 </div>
 
                 <div className="form-wrapper">
+                    <label>College*</label>
+                    <div className="form-group">
+                        <Field 
+                            name="college"
+                            component={this.renderCollegeInput.bind(this)}
+                            data={tagList}
+                        />
+                    </div>
+                </div>
+
+                <div className="form-wrapper">
                     <label>Description*</label>
                     <div className="form-group">
                         <Field 
@@ -150,12 +182,12 @@ class VolunteerAdmin extends Component{
                     </div>
                 </div>
                 </fieldset>
+                
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
                     <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>
                 </div>
-            </form>
-            
+            </form>   
         )
     }
 }
@@ -166,10 +198,13 @@ VolunteerAdmin = reduxForm({
     initialValues: {
         date: moment().add(1, 'day').format('YYYY-MM-DD')
     }
+})(VolunteerAdmin);
 
-}, null, actions)(VolunteerAdmin);
+function mapStateToProps({assist}){
+    return {colleges: assist.colleges}
+}
 
-export default connect(null, actions)(VolunteerAdmin);
+export default connect(mapStateToProps, actions)(VolunteerAdmin);
 
 // <lable>When: </lable>
 // <Field

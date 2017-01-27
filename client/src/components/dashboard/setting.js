@@ -6,10 +6,12 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import moment from 'moment';
 import Dropzone from 'react-dropzone';
+import DropdownList from 'react-widgets/lib/DropdownList';
 
 class Setting extends Component {
   componentWillMount() {
     this.props.fetchProfile();
+    this.props.getCollegesList();
   }
   renderProfile() {
     const {name, email} = this.props.profile;
@@ -40,6 +42,23 @@ class Setting extends Component {
   onDrop(files) {
     this.props.uploadProfileAvatar(files);
   }
+
+  renderCollegeInput ({input, ...rest}) {
+      let collegeList = _.map(this.props.colleges, 'name');
+      return (
+          <span style={{width: '100%'}}>
+              <DropdownList
+                  placeholder="Your Current Attented College"
+                  className="yeah-input"
+                  data={collegeList}
+                  textField='name'
+                  caseSensitive={false}
+                  filter='contains'
+              />
+          </span>
+      );
+  }
+
   handleFormSubmit(data) {
     const userData = {
       name: {
@@ -88,6 +107,16 @@ class Setting extends Component {
                     disabled
                     required/>
                 </div>
+                <div className="form-wrapper">
+                    <label>College*</label>
+                    <div className="form-group">
+                        <Field 
+                            name="college"
+                            placeholder="Your College*"
+                            component={this.renderCollegeInput.bind(this)}
+                        />
+                    </div>
+                </div>
                 </div>
                 <div className="flex-container btn-container">
                   <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
@@ -102,7 +131,8 @@ class Setting extends Component {
     );
   }
 }
-function mapStateToProps({profile}) {
+
+function mapStateToProps({profile, assist}) {
   if (profile.name) {
     return {
       profile,
@@ -110,10 +140,14 @@ function mapStateToProps({profile}) {
         firstName: profile.name.first,
         lastName: profile.name.last,
         email: profile.email.data
-      }
+      },
+      colleges: assist.colleges
     }
   } else {
-    return {profile}
+    return {
+      profile,
+      colleges: assist.colleges
+    }
   }
 }
 

@@ -30,6 +30,7 @@ import CourseDetailEdit from './components/course/edit';
 import IntershipAdmin from './components/dashboard/intershipAdmin';
 import IntershipDetail from './components/intership/details';
 import IntershipDetailEdit from './components/intership/edit';
+import Assist from './components/dashboard/assist/test';
 
 import RequireAuth from './components/auth/loginGuard';
 import RequireAdmin from './components/auth/adminGuard';
@@ -53,6 +54,7 @@ const RouterComponent = () => {
             <Route path="/dashboard" component={RequireAuth(Dashboard)}>
                 <IndexRoute component={Start}/>
                 <Route path="/dashboard/start" component={Start}/>
+                <Route path="/dashboard/assist" component={Assist}/>
                 <Route path="/dashboard/setting" component={Setting}/>
                 <Route path="/dashboard/explore" component={Explore}>
                     <IndexRoute component={ExploreBrowser} />

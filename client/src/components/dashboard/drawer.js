@@ -42,6 +42,12 @@ class Drawer extends Component {
             <span className="title">Explore</span>
           </div>
         </Link>
+        <Link to="/dashboard/assist" activeClassName="active">
+          <div className="item">
+            <span className="icon"><Icon name="catalog"/></span>
+            <span className="title">Assist</span>
+          </div>
+        </Link>
 
         <div className="bottom">
         {this.renderAdmin()}
