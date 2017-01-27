@@ -86,14 +86,14 @@ class Setting extends Component {
                     name="firstName"
                     type='text'
                     component="input"
-                    className="yeah-input "
+                    className="yeah-input"
                     placeholder="First Name*"
                     required/>
                   <Field
                     name="lastName"
                     type='text'
                     component="input"
-                    className="yeah-input "
+                    className="yeah-input"
                     placeholder="Last Name*"
                     required/>
                 </div>
@@ -107,16 +107,18 @@ class Setting extends Component {
                     disabled
                     required/>
                 </div>
+                <hr />
                 <div className="form-wrapper">
-                    <label>College*</label>
-                    <div className="form-group">
-                        <Field 
-                            name="college"
-                            placeholder="Your College*"
-                            component={this.renderCollegeInput.bind(this)}
-                        />
-                    </div>
+                  <label>College*</label>
+                  <div className="form-group">
+                      <Field 
+                          name="college"
+                          placeholder="Your College*"
+                          component={this.renderCollegeInput.bind(this)}
+                      />
+                  </div>
                 </div>
+                
                 </div>
                 <div className="flex-container btn-container">
                   <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
