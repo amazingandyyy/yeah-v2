@@ -13,30 +13,23 @@ class AssistComponent extends Component{
         this.props.getCollegesList();
     }
     
-    renderCollegeInput ({input, ...rest}) {
-        let collegeList = _.map(this.props.colleges, 'name');
-        return (
-            <span style={{width: '100%'}}>
-                <DropdownList
-                placeholder="Your College"
-                    className="yeah-input"
-                    data={collegeList}
-                    textField='name'
-                    caseSensitive={false}
-                    filter='contains'
-                />
-            </span>
-        );
+    renderCollegeInput() {
+        // let collegeList = _.map(this.props.colleges, 'name');
+        console.log('colleges:', this.props.colleges);
+        if(this.props.colleges){
+            return (
+                <div className="form-group">
+                    <label>From</label>
+                    <select className="yeah-input">
+                        {this.props.colleges.map(college=>{
+                            return <option value={college.code}>{college.name}</option>
+                        })}
+                    </select>
+                </div>
+                
+            );
+        }
     }
-// <Multiselect
-//     className="yeah-input"
-//     {...input}
-//     onBlur={()=> input.onBlur()}
-//     value={input.value || []}
-//     {...rest}
-// data={collegeList}
-// />
-
     handleFormSubmit(data) {
         console.log('data: ', data);
     }
@@ -54,16 +47,8 @@ class AssistComponent extends Component{
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
                     className="col-xs">
-
-                    <div className="form-wrapper">
-                    <label>Colleges</label>
-                    <div className="form-group">
-                        <Field 
-                            name="tags"
-                            component={this.renderCollegeInput.bind(this)}
-                        />
-                    </div>
-                    </div>
+                    {this.renderCollegeInput()}
+                    {this.renderCollegeInput()}
                     
                 </form>
                 </span>
