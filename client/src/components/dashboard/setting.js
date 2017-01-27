@@ -118,7 +118,6 @@ class Setting extends Component {
                       />
                   </div>
                 </div>
-                
                 </div>
                 <div className="flex-container btn-container">
                   <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>

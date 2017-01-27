@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
+import '../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
@@ -65,7 +66,6 @@ class IntershipAdmin extends Component{
             <form
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
-                <fieldset className="form-group">
                 <div className="form-title-bg">Create A Intership Program</div>
                 <div className="form-wrapper">
                     <label>Position*</label>
@@ -148,7 +148,6 @@ class IntershipAdmin extends Component{
                         />
                     </div>
                 </div>
-                </fieldset>
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
                     <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
+import '../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 
@@ -9,7 +10,8 @@ import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
-import GoogleMapSearch from './googleMapSearch';
+import GoogleMapSearch from '../widgets/googleMapSearch';
+import $ from 'jquery';
 
 
 class VolunteerAdmin extends Component{
@@ -25,11 +27,21 @@ class VolunteerAdmin extends Component{
     }
     handleFormSubmit(data) {
         // Getting data object
-        console.log('data: ', data);
+        const location = $('.geosuggest__input.yeah-input').val()
+        const result = {
+            ...data,
+            location
+        }
+        console.log('result: ', result);
+
         //show the time 
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createVolunteerResource(data);
+        // this.props.createVolunteerResource(data);
+    }
+
+    cancelForm(){
+        $('.geosuggest__input.yeah-input').val('')
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -67,7 +79,7 @@ class VolunteerAdmin extends Component{
         return (
             <span style={{width: '100%'}}>
                 <DropdownList
-                placeholder="Your College"
+                    placeholder="Your College"
                     className="yeah-input"
                     data={collegeList}
                     textField='name'
@@ -80,7 +92,7 @@ class VolunteerAdmin extends Component{
 
     renderLocation({input, ...rest}){
         return(
-        <GoogleMapSearch {...input} onChange={input.onChange} {...rest}/>
+            <GoogleMapSearch {...input} {...rest} />
         );
     }
 
@@ -94,7 +106,6 @@ class VolunteerAdmin extends Component{
             <form
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
-                <fieldset className="form-group">
                 <div className="form-title-bg">Create A Volunteer Program</div>
                 <div className="form-wrapper">
                     <label>Title*</label>
@@ -105,7 +116,7 @@ class VolunteerAdmin extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Event title"
-                            required
+                            required={false}
                         />
                     </div>
                 </div>
@@ -118,7 +129,7 @@ class VolunteerAdmin extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Event organization"
-                            required
+                            required={false}
                         />
                     </div>
                 </div>
@@ -132,7 +143,7 @@ class VolunteerAdmin extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Event date"
-                            required
+                            required={false}
                         />
                     </div>
                 </div>
@@ -143,10 +154,9 @@ class VolunteerAdmin extends Component{
                         <Field 
                             type="type" 
                             name="location" 
-                            component={this.renderLocation.bind(this)} 
-                            className="yeah-input"
+                            component={GoogleMapSearch}
                             placeholder="Event location"
-                            required
+                            required={false}
                         />
                     </div>
                 </div>
@@ -183,16 +193,14 @@ class VolunteerAdmin extends Component{
                             name="description" 
                             component="textarea" 
                             className="yeah-input"
-                            required
+                            required={false}
                             placeholder="Event Details and discription..."
                         />
                     </div>
                 </div>
-                </fieldset>
-                
                 <div className="flex-container btn-container">
-                    <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                    <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>
+                    <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset && this.cancelForm.bind(this)}>Cancel</button>
+                    <button type="submit" className="flex-item btn btn-primary">Create</button>
                 </div>
             </form>   
         )
@@ -218,11 +226,11 @@ export default connect(mapStateToProps, actions)(VolunteerAdmin);
 //     name="date" 
 //     component={this.renderDatePicker.bind(this)}
 //     className="yeah-input"
-//     required
+//     required={false}
 // />
 // <Field  
 //     name="time" 
 //     component={this.renderTimePicker.bind(this)}
 //     className="yeah-input"
-//     required
+//     required={false}
 // />

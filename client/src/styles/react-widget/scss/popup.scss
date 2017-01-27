@@ -1,0 +1,56 @@
+
+.rw-popup {
+  position: absolute;
+  background: #F8F9FA;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid;
+  border-color: #02b3e4;
+  border-top: 0px;
+  font-size: 14px;
+  box-shadow: 0 2px 2px 0 rgba(46,60,73,.05);
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  overflow:         auto;
+  color: #2e3d49;
+
+  // the offsets allows for drop shadow to not be clipped by the container
+  margin-bottom:    10px;
+  left:             10px;
+  right:            10px;
+
+  .rw-dropup > & {
+    margin-bottom: 0;
+    margin-top:    10px;
+    @include border-top-radius($border-radius-sm);
+    @include border-bottom-radius(0);
+    @include box-shadow(0 0 6px rgba(0,0,0,0.2));
+  }
+}
+
+.rw-popup-container {
+  position: absolute;
+  top: 100%;
+  margin-top: -2px;
+  z-index: $popup-zindex;
+  // offset for drop shadow on rw-popup
+  left:  -10px - $input-border-width;
+  right: -10px - $input-border-width;
+
+  .rw-widget.rw-state-focus & {
+    z-index: $popup-zindex + 10;
+  }
+
+  &.rw-dropup {
+    top:    auto;
+    bottom: 100%;
+  }
+
+  &.rw-calendar-popup {
+    right: auto;
+    width: 18em; //15em; ?
+  }
+}
