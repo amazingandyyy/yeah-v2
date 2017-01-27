@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
-import '../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';

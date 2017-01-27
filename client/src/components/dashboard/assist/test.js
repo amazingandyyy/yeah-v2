@@ -6,7 +6,6 @@ import _ from 'lodash';
 import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import Multiselect from 'react-widgets/lib/Multiselect';
-import '../../../styles/react-widget/scss/react-widgets.scss';
 
 class AssistComponent extends Component{
     componentWillMount() {

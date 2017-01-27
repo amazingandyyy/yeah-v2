@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
-import '../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 
@@ -10,6 +9,8 @@ import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
+import GoogleMapSearch from './googleMapSearch';
+
 
 class VolunteerAdmin extends Component{
     constructor(props){
@@ -77,6 +78,12 @@ class VolunteerAdmin extends Component{
         );
     }
 
+    renderLocation({input, ...rest}){
+        return(
+        <GoogleMapSearch {...input} onChange={input.onChange} {...rest}/>
+        );
+    }
+
     render(){
         // Localize the time
         momentLocalizer(moment);
@@ -136,7 +143,7 @@ class VolunteerAdmin extends Component{
                         <Field 
                             type="type" 
                             name="location" 
-                            component="input" 
+                            component={this.renderLocation.bind(this)} 
                             className="yeah-input"
                             placeholder="Event location"
                             required
