@@ -17,15 +17,16 @@ class AssistComponent extends Component{
         console.log('colleges:', this.props.colleges);
         if(this.props.colleges){
             return (
+                <div className="form-wrapper">
+                <label>From</label>
                 <div className="form-group">
-                    <label>From</label>
                     <select className="yeah-input">
                         {this.props.colleges.map(college=>{
                             return <option value={college.code}>{college.name}</option>
                         })}
                     </select>
                 </div>
-                
+                </div>
             );
         }
     }
@@ -41,17 +42,21 @@ class AssistComponent extends Component{
                 <div className="header">Assist</div>
                 <div className="content">
                 <div className="container">
-                    
-                <span>
-                <form
-                    onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
-                    className="col-xs">
-                    {this.renderCollegeInput()}
-                    {this.renderCollegeInput()}
-                    
+                <div className="card">
+                <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                    <div className="flex-container">
+                        <span className="flex-item">
+                            {this.renderCollegeInput()}
+                        </span>
+                        <span className="flex-item">
+                            {this.renderCollegeInput()}
+                        </span>
+                    </div>
                 </form>
+                <span>
                 </span>
 
+                </div>
                 </div>
                 </div>
             </div>
