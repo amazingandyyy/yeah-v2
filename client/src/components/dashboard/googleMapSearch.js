@@ -16,7 +16,7 @@ class GoogleMapSearch extends Component {
     //   When the user select the option, onSuggestSelect will pass an object, in side the object there is label, which is the Name of the location.
     // We pass this lable in the updateVale function, 
   updateValue(value){
-      this.setState({term:value});
+    //   this.setState({term:value});
     //   Call the onChange function from redux-form 
     // It will notify redux-form that the value was changed
       this.props.onChange(value);
@@ -29,7 +29,7 @@ class GoogleMapSearch extends Component {
             <div>
                  <Geosuggest inputClassName={className} placeholder="Enter Activity Location" 
                                 onSuggestSelect={(suggest)=>{this.updateValue(suggest.label);}} 
-                                onChange={(v)=>{this.updateValue(v)}} value={this.state.term} />            
+                                onChange={(v)=>{this.updateValue(v)}} />            
             </div>
             
         );
