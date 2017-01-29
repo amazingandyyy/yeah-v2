@@ -1,5 +1,9 @@
 import axios from 'axios';
-import { ASSIST_GET_COLLEGES } from './types';
+import { ASSIST_GET_COLLEGES,
+         ASSIST_GET_UNIVERSITIES,
+         ASSIST_GET_MAJORS,
+         ASSIST_RESET_MAJORS
+} from './types';
 import superagent from 'superagent';
 
 const getCollegesList = () => {
@@ -16,6 +20,37 @@ const getCollegesList = () => {
     }
 }
 
+const getUniversityList = () => {
+    return function (dispatch) {
+        axios
+            .get(`/api/assist/universities`)
+            .then(res => {
+                // console.log('colleges: ', res.data.list)
+                dispatch({type: ASSIST_GET_UNIVERSITIES, payload: res.data.list})
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+const getMajorList = (from, to) => {
+    return function (dispatch) {
+        dispatch({type: ASSIST_RESET_MAJORS})
+            axios
+                .get(`/api/assist/${to}/majors`)
+                .then(res => {
+                    console.log(res.data.list);
+                    dispatch({type: ASSIST_GET_MAJORS, payload: res.data.list})
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+    }
+}
+
 export {
-    getCollegesList
+    getCollegesList,
+    getUniversityList,
+    getMajorList
 }
