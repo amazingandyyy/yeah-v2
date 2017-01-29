@@ -49,6 +49,7 @@
     "react-geosuggest": "^2.1.0",
     "react-input-range": "^0.9.2",
     "react-redux": "^4.4.6",
+    "react-render-html": "^0.1.6",
     "react-router": "^3.0.0",
     "react-router-page-transition": "^2.1.2",
     "react-router-transition": "^0.0.6",

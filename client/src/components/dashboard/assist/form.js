@@ -7,16 +7,19 @@ import { reduxForm, Field } from 'redux-form';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import $ from 'jquery';
+import renderHTML from 'react-render-html';
+
 
 class AssistForm extends Component{
     constructor(props){
         super(props)
         this.state = {
-            loadingMajor: false
+            loadedMajor: false,
+            loadedAgreement: false
         }
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps)
+        // console.log(nextProps)
     }
     componentWillMount() {
         this.props.getCollegesList();
@@ -51,7 +54,7 @@ class AssistForm extends Component{
         const to = $('select[name="university"]').val();
         if(from && to){
             this.setState({
-                loadingMajor: true
+                loadedMajor: true
             })
             this.props.getMajorList(from, to);
         }
@@ -86,15 +89,16 @@ class AssistForm extends Component{
         const major = $('select[name="major"]').val();
         if(from && to && major){
             this.setState({
-                loadingMajor: true
-            })
-            this.props.getMajorList(from, to);
+                loadedAgreement: true
+            });
+            this.props.getTransferRequirement(from, to, major);
         }
     }
 
     renderMajorOptions() {
         if(this.props.majors){
             return (
+                <span>
                 <div className="form-wrapper">
                     <label>Major in</label>
                     <div className="form-group">
@@ -111,12 +115,41 @@ class AssistForm extends Component{
                     </select>
                     </div>
                 </div>
+                    <hr />
+                    {this.renderTransferRequirement()}
+                </span>
             )
-        } else if (this.state.loadingMajor && !this.props.major){
+        } else if (this.state.loadedMajor && !this.props.major){
             return (
                 <div style={{textAlign: 'center', marginTop: '40px'}}>
+                    <Loader style={{marginBottom: '40px', size:'50'}} />
                     <div>Sync data with assist.org</div>
-                    <Loader style={{marginTop: '40px', size:'50'}} />
+                </div>
+                )
+        } else {
+            return <span></span>
+        }
+    }
+
+    renderTransferRequirement() {
+        if(this.props.agreement){
+            return (
+                <div className="form-wrapper">
+                    <label>Agreement</label>
+                    <div className="form-group">
+                    <div>
+                        {renderHTML(`<pre style="font-size: 100%;">
+                        ${this.props.agreement}
+                        </pre>`)}
+                    </div>
+                    </div>
+                </div>
+            )
+        } else if (this.state.loadedAgreement && !this.props.major){
+            return (
+                <div style={{textAlign: 'center', marginTop: '40px'}}>
+                    <Loader style={{marginBottom: '50px', size:'100'}} />
+                    <div>Sync data with assist.org</div>
                 </div>
                 )
         } else {
@@ -136,7 +169,9 @@ class AssistForm extends Component{
                         {this.renderUniversityOptions()}
                     </span>
                 </div>
-                {this.renderMajorOptions()}
+                <span>
+                    {this.renderMajorOptions()}
+                </span>
             </form>            
         )
         }else{
@@ -151,11 +186,7 @@ class AssistForm extends Component{
 }
 
 function mapStateToProps({assist}){
-    return {
-        colleges: assist.colleges,
-        universities: assist.universities,
-        majors: assist.majors
-    }
+    return { ...assist }
 }
 
 AssistForm = reduxForm({form: 'assistForm'})(AssistForm);
