@@ -10,6 +10,19 @@ class VolunteerDetails extends Component{
         const Id = pathname.split('/').pop()
         this.props.fetchOneVolunteerChance(Id);
     }
+
+    renderTags(){
+        const { details } = this.props;
+        let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
+        return details.tags.map(
+            tag => {
+                return (
+                    <span className="tag" style={{background: colorSetting}}>
+                        #{tag}
+                    </span>
+                );
+        })}
+
     renderDetails(){
         const { details } = this.props;
         console.log('details: ', details);
@@ -24,14 +37,15 @@ class VolunteerDetails extends Component{
                         <div className="title-xs" style={{color: colorSetting}}>Volunteer Program</div>
                         <div className="title-xl">{details.title}</div>
                         <div className="section">
-                            <div className="title">Time & Date</div>
-                            <div className="time" style={{color: colorSetting}}>
-                            </div>
+                            {this.renderTags()}
                         </div>
                         <div className="section">
-                            <div className="title">Locations & Address</div>
-                            <div className="time" style={{color: colorSetting}}>
-                            </div>
+                            <div className="title" style={{color: colorSetting}}>Time & Date</div>
+                            <div className="time">{details.date}</div>
+                        </div>
+                        <div className="section">
+                            <div className="title" style={{color: colorSetting}}>Locations & Address</div>
+                            <div className="location">{details.location}</div>
                         </div>
                         <div className="section">
                             <div className="title" style={{color: colorSetting}}>description</div>
