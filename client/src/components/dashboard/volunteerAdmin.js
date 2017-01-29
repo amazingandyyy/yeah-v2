@@ -89,13 +89,7 @@ class VolunteerAdmin extends Component{
             </span>
         );
     }
-
-    renderLocation({input, ...rest}){
-        return(
-            <GoogleMapSearch {...input} {...rest} />
-        );
-    }
-
+    
     render(){
         // Localize the time
         momentLocalizer(moment);

@@ -11,6 +11,7 @@ import toSchoolList from './api/toSchoolList';
 
 // public request
 router.get('/:schoolCode/majors', (req, res, next)=> {
+    console.log('req.params.schoolCode: ',req.params.schoolCode)
     toSchoolMajorList(req.params.schoolCode).then((result)=>{
         res.send({numbers: result.data, list: result.data, period: result.period})
     }).catch(next)
