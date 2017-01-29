@@ -3,11 +3,12 @@ import request from 'request';
 import qs from 'querystring';
 
 const transferAgreement = (from, to, major) => {
-    return new Promise((resolve, rej) => {
+    return new Promise((resolve, reject) => {
         const momentStarting = new Date()
         const query = {
             aay: '16-17',
-            dora: encodeURIComponent(major),
+            // dora: encodeURIComponent(major),
+            dora: major,
             oia: to,
             ay: '16-17',
             event: 19,
@@ -38,7 +39,11 @@ const transferAgreement = (from, to, major) => {
         // }
         const requestURI = `http://web2.assist.org/cgi-bin/REPORT_2/Rep2.pl?${qs.stringify(query)}`
         // console.log(requestURI==='http://web2.assist.org/cgi-bin/REPORT_2/Rep2.pl?aay=16-17&dora=ANTHRO&oia=UCB&ay=16-17&event=19&ria=UCB&agreement=aa&sia=DIABLO&ia=DIABLO&dir=1&sidebar=false&rinst=left&mver=2&kind=5&dt=2')
+        // console.log('requestURI: ', requestURI)
+        // console.log('http://web2.assist.org/cgi-bin/REPORT_2/Rep2.pl?aay=16-17&dora=BUS%20ADM&oia=UCB&ay=16-17&event=19&ria=UCB&agreement=aa&sia=DIABLO&ia=DIABLO&dir=1&&sidebar=false&rinst=left&mver=2&kind=5&dt=2')
+        // console.log(requestURI==='http://web2.assist.org/cgi-bin/REPORT_2/Rep2.pl?aay=16-17&dora=BUS%20ADM&oia=UCB&ay=16-17&event=19&ria=UCB&agreement=aa&sia=DIABLO&ia=DIABLO&dir=1&sidebar=false&rinst=left&mver=2&kind=5&dt=2')
         request(requestURI, (err, res, html) => {
+            if(err || !html){return reject()}
             let $ = cheerio.load(html);
             let agreementBody = '';
             if($('pre')){

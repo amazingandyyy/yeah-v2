@@ -122,7 +122,7 @@ class AssistForm extends Component{
         } else if (this.state.loadedMajor && !this.props.major){
             return (
                 <div style={{textAlign: 'center', marginTop: '40px'}}>
-                    <Loader style={{marginBottom: '40px', size:'50'}} />
+                    <Loader style={{marginBottom: '40px'}}  size='30' />
                     <div>Sync data with assist.org</div>
                 </div>
                 )
@@ -148,7 +148,7 @@ class AssistForm extends Component{
         } else if (this.state.loadedAgreement && !this.props.major){
             return (
                 <div style={{textAlign: 'center', marginTop: '40px'}}>
-                    <Loader style={{marginBottom: '50px', size:'100'}} />
+                    <Loader style={{marginBottom: '30px'}} size='40' />
                     <div>Sync data with assist.org</div>
                 </div>
                 )
@@ -177,8 +177,8 @@ class AssistForm extends Component{
         }else{
             return (
                 <span style={{textAlign: 'center'}}>
+                    <Loader style={{marginBottom: '40px'}} size='30' />
                     <div>Sync data with assist.org</div>
-                    <Loader style={{marginTop: '40px', size:'50'}} />
                 </span>
             )
         }

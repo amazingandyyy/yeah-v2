@@ -32,7 +32,6 @@ router.get('/universities', (req, res, next)=> {
 router.get('/agreement/:from/:to/:major', (req, res, next)=> {
     const {from, to, major } = req.params;
     transferAgreement(from, to, major).then((result)=>{
-        console.log(result.agreementBody)
         res.send({...result})
     }).catch(next)
 });
