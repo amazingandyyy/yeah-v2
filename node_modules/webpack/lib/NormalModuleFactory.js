@@ -3,7 +3,6 @@
 	Author Tobias Koppers @sokra
 */
 var async = require("async");
-var objectAssign = require('object-assign');
 var Tapable = require("tapable");
 var NormalModule = require("./NormalModule");
 var RawModule = require("./RawModule");
@@ -37,7 +36,7 @@ function identToLoaderRequest(resultString) {
 	} else {
 		return {
 			loader: resultString
-		}
+		};
 	}
 }
 
@@ -134,7 +133,7 @@ function NormalModuleFactory(context, resolvers, options) {
 						if(typeof item.options === "string" && /^\?/.test(item.options)) {
 							item.options = _this.ruleSet.findOptionsByIdent(item.options.substr(1));
 						}
-					})
+					});
 				} catch(e) {
 					return callback(e);
 				}
@@ -265,13 +264,13 @@ NormalModuleFactory.prototype.resolveRequestArray = function resolveRequestArray
 			var optionsOnly = item.options ? {
 				options: item.options
 			} : undefined;
-			return callback(null, objectAssign({}, item, identToLoaderRequest(result), optionsOnly));
+			return callback(null, Object.assign({}, item, identToLoaderRequest(result), optionsOnly));
 		});
 	}, callback);
 };
 
 NormalModuleFactory.prototype.getParser = function getParser(parserOptions) {
-	var ident = "null"
+	var ident = "null";
 	if(parserOptions) {
 		if(parserOptions.ident)
 			ident = parserOptions.ident;

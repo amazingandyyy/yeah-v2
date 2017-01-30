@@ -27,6 +27,31 @@ var describeDestroy = function describeDestroy(reducer, expect, _ref) {
         }
       });
     });
+
+    it('should destroy form state for multiple forms', function () {
+      var state = reducer(fromJS({
+        foo: {
+          values: {
+            myField: 'fooInitialValue'
+          },
+          active: 'myFooField'
+        },
+        bar: {
+          values: {
+            myField: 'barInitialValue'
+          },
+          active: 'myBarField'
+        },
+        otherThing: {
+          touchThis: false
+        }
+      }), (0, _actions.destroy)('foo', 'bar'));
+      expect(state).toEqualMap({
+        otherThing: {
+          touchThis: false
+        }
+      });
+    });
   };
 };
 

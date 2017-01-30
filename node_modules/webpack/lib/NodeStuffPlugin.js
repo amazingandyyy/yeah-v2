@@ -2,12 +2,10 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var objectAssign = require('object-assign');
 var path = require("path");
-var ModuleParserHelpers = require("./ModuleParserHelpers");
+var ParserHelpers = require("./ParserHelpers");
 var ConstDependency = require("./dependencies/ConstDependency");
 var BasicEvaluatedExpression = require("./BasicEvaluatedExpression");
-var UnsupportedFeatureWarning = require("./UnsupportedFeatureWarning");
 
 var NullFactory = require("./NullFactory");
 
@@ -28,11 +26,7 @@ NodeStuffPlugin.prototype.apply = function(compiler) {
 
 			var localOptions = options;
 			if(parserOptions.node)
-				localOptions = objectAssign({}, localOptions, parserOptions.node);
-
-			function ignore() {
-				return true;
-			}
+				localOptions = Object.assign({}, localOptions, parserOptions.node);
 
 			function setConstant(expressionName, value) {
 				parser.plugin("expression " + expressionName, function() {
@@ -84,14 +78,10 @@ NodeStuffPlugin.prototype.apply = function(compiler) {
 				this.state.current.addDependency(dep);
 				return true;
 			});
-			parser.plugin("expression require.extensions", function(expr) {
-				var dep = new ConstDependency("(void 0)", expr.range);
-				dep.loc = expr.loc;
-				this.state.current.addDependency(dep);
-				if(!this.state.module) return;
-				this.state.module.warnings.push(new UnsupportedFeatureWarning(this.state.module, "require.extensions is not supported by webpack. Use a loader instead."));
-				return true;
-			});
+			parser.plugin(
+				"expression require.extensions",
+				ParserHelpers.expressionIsUnsupported("require.extensions is not supported by webpack. Use a loader instead.")
+			);
 			parser.plugin("expression module.loaded", function(expr) {
 				var dep = new ConstDependency("module.l", expr.range);
 				dep.loc = expr.loc;
@@ -104,19 +94,26 @@ NodeStuffPlugin.prototype.apply = function(compiler) {
 				this.state.current.addDependency(dep);
 				return true;
 			});
-			parser.plugin("expression module.exports", ignore);
+			parser.plugin("expression module.exports", function() {
+				var module = this.state.module;
+				var isHarmony = module.meta && module.meta.harmonyModule;
+				if(!isHarmony)
+					return true;
+			});
 			parser.plugin("evaluate Identifier module.hot", function(expr) {
 				return new BasicEvaluatedExpression().setBoolean(false).setRange(expr.range);
 			});
 			parser.plugin("expression module", function() {
-				var moduleJsPath = path.join(__dirname, "..", "buildin", "module.js");
-				if(this.state.module.context) {
+				var module = this.state.module;
+				var isHarmony = module.meta && module.meta.harmonyModule;
+				var moduleJsPath = path.join(__dirname, "..", "buildin", isHarmony ? "harmony-module.js" : "module.js");
+				if(module.context) {
 					moduleJsPath = path.relative(this.state.module.context, moduleJsPath);
 					if(!/^[A-Z]:/i.test(moduleJsPath)) {
 						moduleJsPath = "./" + moduleJsPath.replace(/\\/g, "/");
 					}
 				}
-				return ModuleParserHelpers.addParsedVariable(this, "module", "require(" + JSON.stringify(moduleJsPath) + ")(module)");
+				return ParserHelpers.addParsedVariableToModule(this, "module", "require(" + JSON.stringify(moduleJsPath) + ")(module)");
 			});
 		});
 	});

@@ -45,7 +45,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
           stopSubmit(error);
           setSubmitFailed.apply(undefined, _toConsumableArray(fields));
           if (onSubmitFail) {
-            onSubmitFail(error, dispatch, submitError);
+            onSubmitFail(error, dispatch, submitError, props);
           }
           if (error || onSubmitFail) {
             // if you've provided an onSubmitFail callback, don't re-throw the error
@@ -60,7 +60,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
             stopSubmit();
             setSubmitSucceeded();
             if (onSubmitSuccess) {
-              onSubmitSuccess(submitResult, dispatch);
+              onSubmitSuccess(submitResult, dispatch, props);
             }
             return submitResult;
           }, function (submitError) {
@@ -68,7 +68,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
             stopSubmit(error);
             setSubmitFailed.apply(undefined, _toConsumableArray(fields));
             if (onSubmitFail) {
-              onSubmitFail(error, dispatch, submitError);
+              onSubmitFail(error, dispatch, submitError, props);
             }
             if (error || onSubmitFail) {
               // if you've provided an onSubmitFail callback, don't re-throw the error
@@ -80,7 +80,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
         } else {
           setSubmitSucceeded();
           if (onSubmitSuccess) {
-            onSubmitSuccess(result, dispatch);
+            onSubmitSuccess(result, dispatch, props);
           }
         }
         return result;
@@ -97,7 +97,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
           }).catch(function (asyncErrors) {
             setSubmitFailed.apply(undefined, _toConsumableArray(fields));
             if (onSubmitFail) {
-              onSubmitFail(asyncErrors, dispatch, null);
+              onSubmitFail(asyncErrors, dispatch, null, props);
             }
             return Promise.reject(asyncErrors);
           })
@@ -113,7 +113,7 @@ var handleSubmit = function handleSubmit(submit, props, valid, asyncValidate, fi
   } else {
     setSubmitFailed.apply(undefined, _toConsumableArray(fields));
     if (onSubmitFail) {
-      onSubmitFail(syncErrors, dispatch, null);
+      onSubmitFail(syncErrors, dispatch, null, props);
     }
     return syncErrors;
   }

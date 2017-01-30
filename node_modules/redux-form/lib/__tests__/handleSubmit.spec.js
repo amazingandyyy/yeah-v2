@@ -145,6 +145,7 @@ describe('handleSubmit', function () {
       (0, _expect2.default)(onSubmitFail.calls[0].arguments[0]).toEqual(values);
       (0, _expect2.default)(onSubmitFail.calls[0].arguments[1]).toEqual(dispatch);
       (0, _expect2.default)(onSubmitFail.calls[0].arguments[2]).toBe(null);
+      (0, _expect2.default)(onSubmitFail.calls[0].arguments[3]).toEqual(props);
       (0, _expect2.default)(touch).toHaveBeenCalled().toHaveBeenCalledWith('foo', 'baz');
       (0, _expect2.default)(setSubmitSucceeded).toNotHaveBeenCalled();
       (0, _expect2.default)(setSubmitFailed).toHaveBeenCalled().toHaveBeenCalledWith('foo', 'baz');

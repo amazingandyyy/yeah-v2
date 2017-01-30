@@ -2,24 +2,29 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var NullDependency = require("./NullDependency");
+"use strict";
+const NullDependency = require("./NullDependency");
 
-function HarmonyCompatiblilityDependency(originModule) {
-	NullDependency.call(this);
-	this.originModule = originModule;
+class HarmonyCompatiblilityDependency extends NullDependency {
+	constructor(originModule) {
+		super();
+		this.originModule = originModule;
+	}
+
+	get type() {
+		return "harmony export header";
+	}
 }
-module.exports = HarmonyCompatiblilityDependency;
 
-HarmonyCompatiblilityDependency.prototype = Object.create(NullDependency.prototype);
-HarmonyCompatiblilityDependency.prototype.constructor = HarmonyCompatiblilityDependency;
-HarmonyCompatiblilityDependency.prototype.type = "harmony export header";
-
-HarmonyCompatiblilityDependency.Template = function HarmonyExportDependencyTemplate() {};
-
-HarmonyCompatiblilityDependency.Template.prototype.apply = function(dep, source) {
-	var usedExports = dep.originModule.usedExports;
-	if(usedExports && !Array.isArray(usedExports)) {
-		var content = "Object.defineProperty(exports, \"__esModule\", { value: true });\n";
-		source.insert(-1, content);
+HarmonyCompatiblilityDependency.Template = class HarmonyExportDependencyTemplate {
+	apply(dep, source) {
+		const usedExports = dep.originModule.usedExports;
+		if(usedExports && !Array.isArray(usedExports)) {
+			const exportName = dep.originModule.exportsArgument || "exports";
+			const content = `Object.defineProperty(${exportName}, \"__esModule\", { value: true });\n`;
+			source.insert(-1, content);
+		}
 	}
 };
+
+module.exports = HarmonyCompatiblilityDependency;
