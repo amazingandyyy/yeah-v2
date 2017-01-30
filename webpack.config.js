@@ -45,16 +45,16 @@ module.exports = {
       { 
         test: /\.css$/, 
         loader: 'style-loader!css-loader'
-      },{ 
-        test: /\.gif$/, 
-        loader: 'url-loader?mimetype=img/png'
-      },{ 
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-        loader: 'url-loader?mimetype=application/font-woff'
-      },{ 
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "file-loader?name=[name].[ext]"
-      },{
+      },
+      {
+        test: /\.(png|gif|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000?',
+      },
+      { 
+        test: /\.(woff2?|ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file-loader?emitFile=false',
+      },
+      {
         test: /\.less$/,
         use: [
           'style-loader',
