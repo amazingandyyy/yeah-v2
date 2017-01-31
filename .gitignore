@@ -4,5 +4,5 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
-# node_modules
-# dist
+node_modules
+dist

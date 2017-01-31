@@ -11,5 +11,5 @@ RUN npm install
 # Bundle web/app source
 COPY . /web/app/
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+EXPOSE 8000
+CMD [ "npm", "run", "start" ]
