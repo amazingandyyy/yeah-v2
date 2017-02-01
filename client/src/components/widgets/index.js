@@ -1,6 +1,6 @@
 import React from 'react';
 const Loader = (props) => {
-  let loaderStyle = {margin: 'auto', width: '20px', animation: 'fa-spin 0.6s infinite linear'}
+  let loaderStyle = {margin: 'auto', width: '20px', animation: 'fa-spin 0.5s infinite linear'}
   if(props.style){
     loaderStyle = {...loaderStyle, ...props.style }
   }
