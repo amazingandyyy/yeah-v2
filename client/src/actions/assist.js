@@ -2,7 +2,9 @@ import axios from 'axios';
 import { ASSIST_GET_COLLEGES,
          ASSIST_GET_UNIVERSITIES,
          ASSIST_GET_MAJORS,
-         ASSIST_RESET_MAJORS
+         ASSIST_RESET_MAJORS,
+         ASSIST_GET_AGREEMENT,
+         ASSIST_RESET_AGREEMENT
 } from './types';
 import superagent from 'superagent';
 
@@ -49,8 +51,23 @@ const getMajorList = (from, to) => {
     }
 }
 
+const getTransferRequirement = (from, to, major) => {
+    return function (dispatch) {
+        dispatch({type: ASSIST_RESET_AGREEMENT})
+            axios
+                .get(`/api/assist/agreement/${from}/${to}/${major}`)
+                .then(res => {
+                    dispatch({type: ASSIST_GET_AGREEMENT, payload: res.data.agreementBody})
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+    }
+}
+
 export {
     getCollegesList,
     getUniversityList,
-    getMajorList
+    getMajorList,
+    getTransferRequirement
 }

@@ -2,7 +2,9 @@ import {
     ASSIST_GET_COLLEGES,
     ASSIST_GET_UNIVERSITIES,
     ASSIST_GET_MAJORS,
-    ASSIST_RESET_MAJORS
+    ASSIST_RESET_MAJORS,
+    ASSIST_GET_AGREEMENT,
+    ASSIST_RESET_AGREEMENT
 } from '../actions/types';
 
 const INITIAL_STATE ={
@@ -21,6 +23,10 @@ export default (state=INITIAL_STATE, action) => {
             return { ...state, majors: action.payload }
         case ASSIST_RESET_MAJORS:
             return { ...state, majors: null}
+        case ASSIST_RESET_AGREEMENT:
+            return { ...state, agreement: null}
+        case ASSIST_GET_AGREEMENT:
+            return { ...state, agreement: action.payload}
     }
     return state;
 }
