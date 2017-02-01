@@ -8,7 +8,7 @@ import qs from 'querystring';
 import toSchoolMajorList from './api/toSchoolMajorList';
 import fromSchoolList from './api/fromSchoolList';
 import toSchoolList from './api/toSchoolList';
-
+import transferAgreement from './api/transferAgreement';
 // public request
 router.get('/:schoolCode/majors', (req, res, next)=> {
     console.log('req.params.schoolCode: ',req.params.schoolCode)
@@ -26,6 +26,13 @@ router.get('/colleges', (req, res, next)=> {
 router.get('/universities', (req, res, next)=> {
     toSchoolList().then((result)=>{
         res.send({numbers: result.data.length, list: result.data, period: result.period})
+    }).catch(next)
+});
+
+router.get('/agreement/:from/:to/:major', (req, res, next)=> {
+    const {from, to, major } = req.params;
+    transferAgreement(from, to, major).then((result)=>{
+        res.send({...result})
     }).catch(next)
 });
 

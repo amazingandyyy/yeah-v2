@@ -27,10 +27,10 @@ class VolunteerAdmin extends Component{
     }
     handleFormSubmit(data) {
         // Getting data object
-        const location = $('.geosuggest__input.yeah-input').val()
+        // const location = $('.geosuggest__input.yeah-input').val()
         const result = {
             ...data,
-            location
+            // location
         }
         console.log('result: ', result);
 

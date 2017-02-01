@@ -24,6 +24,10 @@ var _resource = require('./resource.route');
 
 var _resource2 = _interopRequireDefault(_resource);
 
+var _route5 = require('./modules/assist/route');
+
+var _route6 = _interopRequireDefault(_route5);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
@@ -35,5 +39,6 @@ router.get('/', function (req, res) {
 
 router.use('/user', _route2.default);
 router.use('/resource', _resource2.default);
+router.use('/assist', _route6.default);
 
 exports.default = router;
