@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn
+  /usr/local/bin/node /usr/local/bin/yarn add react-google-maps@beta
 
 PATH: 
   /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -5082,5 +5082,5 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/Users/David/Documents/web/yeah/yeah/node_modules/send/node_modules/mime'
+  Error: EACCES: permission denied, unlink '/Users/David/Documents/web/yeah/yeah/node_modules/.bin/babel-watch'
       at Error (native)
