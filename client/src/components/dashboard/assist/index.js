@@ -12,7 +12,6 @@ const AssistComponent = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

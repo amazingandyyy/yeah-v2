@@ -1,6 +1,7 @@
 .dashboard-component {
     background: #FAFBFC;
     font-family: $sans;
+
     .display-componet {
         .header {
             user-select: none;
@@ -274,3 +275,10 @@
     }
 }
 
+
+.tab-toolbar-container {
+    display: none !important;
+    opacity: 0;
+    user-select: none;
+    visibility: hidden !important;
+}

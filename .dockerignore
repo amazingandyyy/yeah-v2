@@ -1,8 +1,10 @@
-.env
 .DS_STORE
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
 node_modules
-dist
+npm-debug.log
+src/
+.vscode/
