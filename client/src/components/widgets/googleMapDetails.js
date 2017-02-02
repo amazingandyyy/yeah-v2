@@ -1,4 +1,3 @@
-/* global google */
 import {
   default as React,
   Component,
@@ -10,9 +9,7 @@ import {
   Marker
 } from "react-google-maps";
 
-/*
- * Sample From: https://developers.google.com/maps/documentation/javascript/examples/map-simple
- */
+
 const SimpleMapExampleGoogleMap = withGoogleMap(props => (
   <GoogleMap
     defaultZoom={12}
@@ -21,9 +18,7 @@ const SimpleMapExampleGoogleMap = withGoogleMap(props => (
   </GoogleMap>
 ));
 
-/*
- * Add <script src="https://maps.googleapis.com/maps/api/js"></script> to your HTML to provide google.maps reference
- */
+
 export default class GoogleMapDetails extends Component {
 
     constructor(props){
@@ -32,10 +27,21 @@ export default class GoogleMapDetails extends Component {
         this.state = {
             geocoding : this.props.geocoding
         };
-        console.log('state:', this.state);
+    }
+
+    componentWillReceiveProps(nextProps){
+      console.log('next props: ',nextProps.geocoding,'this.state',this.state.geocoding);
+      if(nextProps.geocoding !== this.state.geocoding)
+        {
+              this.setState({
+                geocoding : nextProps.geocoding
+              });
+        }
+      
     }
 
     
+
   render() {
     return (
       <SimpleMapExampleGoogleMap
@@ -46,10 +52,6 @@ export default class GoogleMapDetails extends Component {
           <div style={{ height: `300px` }} />
         }
         geocoding = {this.state.geocoding}
-        markers={{
-                position: this.state.geocoding,
-                key: `Taiwan`,
-                defaultAnimation: 2}}
       />
     );
   }

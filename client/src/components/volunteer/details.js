@@ -105,7 +105,9 @@ class VolunteerDetails extends Component{
         return <Loader />
     }
     goBack(){
-        hashHistory.goBack()
+        // Clear the volunteer data everytime user click the 'BACK' Button
+        this.props.deleteOneVolunteerGoback();
+        hashHistory.goBack();
     }
     goEdit() {
         const uri = this.props.location.pathname;
@@ -121,7 +123,7 @@ class VolunteerDetails extends Component{
     render() {
         return(<span className="details-component">
                 <div className="header">
-                    <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
+                    <span className="leftBtn" onClick={this.goBack.bind(this)}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
                     {this.renderRightBtn()}
                 </div>
                 <div className="content">

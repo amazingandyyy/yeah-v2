@@ -2,7 +2,8 @@ import {
     CREATE_VOLUNTEER_CHANCE,
     FETCH_ONE_VOLUNTEER_CHANCE,
     FETCH_ALL_VOLUNTEER_CHANCES,
-    DELETE_ALL_VOLUNTEER_CHANCES
+    DELETE_ALL_VOLUNTEER_CHANCES,
+    DELETE_ONE_VOLUNTEER_GOBACK
 } from '../actions/types';
 
 export default (state={}, action) => {
@@ -15,6 +16,8 @@ export default (state={}, action) => {
             return { ...state, events: action.payload }
         case DELETE_ALL_VOLUNTEER_CHANCES:
             return { ...state, delete_success: true }
+        case DELETE_ONE_VOLUNTEER_GOBACK:
+            return { ...state, event: action.payload }    
     }
     return state;
 }
