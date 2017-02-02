@@ -24,13 +24,6 @@ class VolunteerDetails extends Component{
                 );
         })}
 
-    renderMap({geocoding}){
-        console.log(geocoding);
-
-        return <div>
-            
-        </div>
-    }
 
     renderDetails(){
         const { details } = this.props;
