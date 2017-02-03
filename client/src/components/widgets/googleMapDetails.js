@@ -30,7 +30,6 @@ export default class GoogleMapDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-      console.log('next props: ',nextProps.geocoding,'this.state',this.state.geocoding);
       if(nextProps.geocoding !== this.state.geocoding)
         {
               this.setState({
@@ -46,7 +45,7 @@ export default class GoogleMapDetails extends Component {
     return (
       <SimpleMapExampleGoogleMap
         containerElement={
-          <div style={{ height: `300px;` }} />
+          <div style={{ height: `300px` }} />
         }
         mapElement={
           <div style={{ height: `300px` }} />

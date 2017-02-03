@@ -18,7 +18,7 @@ class VolunteerDetails extends Component{
         return details.tags.map(
             tag => {
                 return (
-                    <span className="tag" style={{background: colorSetting}}>
+                    <span className="tag" style={{background: colorSetting}} key={tag}>
                         #{tag}
                     </span>
                 );

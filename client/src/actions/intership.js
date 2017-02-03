@@ -2,7 +2,8 @@ import axios from 'axios';
 import { 
     FETCH_ALL_INTERSHIP_CHANCES,
     FETCH_ONE_INTERSHIP_CHANCE,
-    DELETE_ONE_INTERSHIP_CHANCE
+    DELETE_ONE_INTERSHIP_CHANCE,
+    DELETE_ONE_INTERSHIP_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
 
@@ -46,8 +47,16 @@ function deleteOneIntershipChance(id) {
     }
 }
 
+function deleteOneIntershipGoback(){
+    return function (dispatch) {
+        console.log('clearing the data');
+        dispatch( { type: DELETE_ONE_INTERSHIP_GOBACK } );
+    }
+}
+
 export {
     fetchAllIntershipChances,
     fetchOneIntershipChance,
-    deleteOneIntershipChance
+    deleteOneIntershipChance,
+    deleteOneIntershipGoback
 }
