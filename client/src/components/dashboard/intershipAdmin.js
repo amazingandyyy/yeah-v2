@@ -8,6 +8,8 @@ import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
+import GoogleMapSearch from '../widgets/googleMapSearch';
+
 
 class IntershipAdmin extends Component{
     constructor(props){
@@ -114,8 +116,7 @@ class IntershipAdmin extends Component{
                         <Field 
                             type="type" 
                             name="location" 
-                            component="input" 
-                            className="yeah-input"
+                            component={GoogleMapSearch} 
                             placeholder="Intership location"
                             required
                         />
