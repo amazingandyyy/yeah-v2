@@ -13,16 +13,20 @@ export const CREATE_VOLUNTEER_CHANCE = 'create_volunteer_chance';
 export const FETCH_ALL_VOLUNTEER_CHANCES = 'fetch_all_volunteer_chances';
 export const FETCH_ONE_VOLUNTEER_CHANCE = 'fetch_one_volunteer_chance';
 export const DELETE_ONE_VOLUNTEER_CHANCE = 'delete_one_volunteer_chance';
+export const DELETE_ONE_VOLUNTEER_GOBACK ='delete_one_volunteer_goback';
 
 export const CREATE_COURSE_CHANCE = 'CREATE_COURSE_CHANCE';
 export const FETCH_ALL_COURSE_CHANCES = 'FETCH_ALL_COURSE_CHANCES';
 export const FETCH_ONE_COURSE_CHANCE = 'FETCH_ONE_COURSE_CHANCE';
 export const DELETE_ONE_COURSE_CHANCE = 'DELETE_ONE_COURSE_CHANCE';
+export const DELETE_ONE_COURSE_GOBACK ='delete_one_course_goback';
+
 
 export const CREATE_INTERSHIP_CHANCE = 'CREATE_INTERSHIP_CHANCE';
 export const FETCH_ALL_INTERSHIP_CHANCES = 'FETCH_ALL_INTERSHIP_CHANCES';
 export const FETCH_ONE_INTERSHIP_CHANCE = 'FETCH_ONE_INTERSHIP_CHANCE';
 export const DELETE_ONE_INTERSHIP_CHANCE = 'DELETE_ONE_INTERSHIP_CHANCE';
+export const DELETE_ONE_INTERSHIP_GOBACK = 'DELETE_ONE_COURSE_GOBACK';
 
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const EMAIL_NOT_FOUND = 'EMAIL_NOT_FOUND';

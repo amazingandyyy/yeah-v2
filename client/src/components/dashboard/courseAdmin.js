@@ -8,6 +8,8 @@ import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
+import GoogleMapSearch from '../widgets/googleMapSearch';
+
 
 class CourseAdmin extends Component{
     constructor(props){
@@ -60,7 +62,7 @@ class CourseAdmin extends Component{
         // Localize the time
         momentLocalizer(moment);
 
-        const tagList =['Animals','Computers','Children','Environment','Education','Homeless','Sports','Arts', 'Culture','Community','International'];
+        const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math'];
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
             <form
@@ -114,8 +116,7 @@ class CourseAdmin extends Component{
                         <Field 
                             type="type" 
                             name="location" 
-                            component="input" 
-                            className="yeah-input"
+                            component={GoogleMapSearch} 
                             placeholder="Course location"
                             required
                         />

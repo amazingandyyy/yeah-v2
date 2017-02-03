@@ -124,13 +124,60 @@
                     padding-left: 0px;
                     padding-top: 30px;
                 }
-                .discription {
+                .tag{
+                    margin-right: 10px;
+                    color: #ffffff;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    line-height: 1.2rem;
+                    border-radius: 1.2rem;   
+                    padding:5px 8px 5px 8px;   
+                    letter-spacing: 0.1rem;                                  
+                    
+                }
+                .location{
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                    line-height: 1.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .time{
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                                    
+                }
+                .description {
                     p {
-                        font-size: 1.4rem;
+                        font-size: 1.2rem;
                     }
                 }
 
             }
+
+            .organizor-bio{
+                margin:auto;
+                max-width: 600px;
+                overflow: hidden;
+                border-top: 1px solid #d2d6df;
+                border-bottom: 1px solid #d2d6df;
+                text-align: center;
+                padding: 15px 30px;
+                .photo{
+                    max-width: 200px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                h2{
+                    font-weight: 600;
+                    font-size: 2rem;
+                }
+                p{
+                    font-size: 2rem;
+                    font-weight: 300;
+                }
+            }
+
         }
     }
 

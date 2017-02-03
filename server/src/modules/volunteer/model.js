@@ -17,7 +17,7 @@ const Schema = new mongoose.Schema({
     type: String
   },
   location: {
-    type: String
+    type: Object
   },
   description: {
     type: String

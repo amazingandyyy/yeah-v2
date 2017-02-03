@@ -27,17 +27,17 @@ class VolunteerAdmin extends Component{
     }
     handleFormSubmit(data) {
         // Getting data object
-        const location = $('.geosuggest__input.yeah-input').val()
+        // const location = $('.geosuggest__input.yeah-input').val()
         const result = {
             ...data,
-            location
+            // location
         }
         console.log('result: ', result);
 
         //show the time 
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        // this.props.createVolunteerResource(data);
+        this.props.createVolunteerResource(data);
     }
 
     cancelForm(){
