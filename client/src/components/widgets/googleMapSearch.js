@@ -19,7 +19,7 @@ class GoogleMapSearch extends Component {
         console.log('value: ', value)
         // Call the onChange function from redux-form 
         // It will notify redux-form that the value was changed
-        // this.props.onChange(value);
+        this.props.input.onChange(value);
         this.setState({term: value})
     }
     
@@ -32,7 +32,7 @@ class GoogleMapSearch extends Component {
                     inputClassName='yeah-input'
                     {...this.props}
                     placeholder="Enter Activity Location" 
-                    onSuggestSelect={(suggest)=>{this.updateValue(suggest.label);}}
+                    onSuggestSelect={(suggest)=>{this.updateValue(suggest);}}
                 />            
             </span>
             
