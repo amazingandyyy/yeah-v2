@@ -22,22 +22,27 @@ class AssistForm extends Component{
         // console.log(nextProps)
     }
     componentWillMount() {
+        this.props.resetAssist();
         this.props.getCollegesList();
         this.props.getUniversityList();
+        this.props.fetchProfile();
     }
     
     renderCollegeOptions() {
         if(this.props.colleges){
             return (
                 <div className="form-wrapper">
-                <label>From</label>
+                <label>Transfer From</label>
                 <div className="form-group">
                     <select
                         name="college"
                         className="yeah-input"
                         onChange={() => this.goToGetMajorList()}>
-                        <option value='' selected='selected'>--- Choose an Institution ---</option>
+                        <option value=''>--- Choose an Institution ---</option>
                         {this.props.colleges.map(school=>{
+                            if(school.code === this.props.profile.college.code){
+                                return <option selected key={school.name} value={school.code}>{school.name}</option>    
+                            }
                             return <option key={school.name} value={school.code}>{school.name}</option>
                         })}
                     </select>
@@ -70,7 +75,7 @@ class AssistForm extends Component{
                         className="yeah-input"
                         name="university"
                         onChange={() => this.goToGetMajorList()}>
-                        <option value='' selected='selected'>--- Choose an Institution ---</option>
+                        <option value=''>--- Choose an Institution ---</option>
                         {this.props.universities.map(school=>{
                             return <option key={school.name} value={school.code}>{school.name}</option>
                         })}
@@ -115,7 +120,6 @@ class AssistForm extends Component{
                     </select>
                     </div>
                 </div>
-                    <hr />
                     {this.renderTransferRequirement()}
                 </span>
             )
@@ -135,6 +139,7 @@ class AssistForm extends Component{
         if(this.props.agreement){
             return (
                 <div className="form-wrapper">
+                <hr />
                     <label>Agreement</label>
                     <div className="form-group">
                     <div>
@@ -148,6 +153,7 @@ class AssistForm extends Component{
         } else if (this.state.loadedAgreement && !this.props.major){
             return (
                 <div style={{textAlign: 'center', marginTop: '40px'}}>
+                <hr />
                     <Loader style={{marginBottom: '30px'}} size='40' />
                     <div>Sync data with assist.org</div>
                 </div>
@@ -185,8 +191,8 @@ class AssistForm extends Component{
     }
 }
 
-function mapStateToProps({assist}){
-    return { ...assist }
+function mapStateToProps({profile, assist}){
+    return { ...assist, profile }
 }
 
 AssistForm = reduxForm({form: 'assistForm'})(AssistForm);
