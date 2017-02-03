@@ -15,6 +15,9 @@ const SimpleMapExampleGoogleMap = withGoogleMap(props => (
     defaultZoom={12}
     defaultCenter={props.geocoding}
   >
+  <Marker
+        {...props.markers}
+  />
   </GoogleMap>
 ));
 
@@ -25,7 +28,11 @@ export default class GoogleMapDetails extends Component {
         super(props);
 
         this.state = {
-            geocoding : this.props.geocoding
+            geocoding : this.props.geocoding,
+            marker: {
+              position: this.props.geocoding,
+              defaultAnimation: 2,
+            }
         };
     }
 
@@ -51,6 +58,7 @@ export default class GoogleMapDetails extends Component {
           <div style={{ height: `300px` }} />
         }
         geocoding = {this.state.geocoding}
+        markers={this.state.marker}
       />
     );
   }
