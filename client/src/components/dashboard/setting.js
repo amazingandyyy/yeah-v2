@@ -9,20 +9,19 @@ import Dropzone from 'react-dropzone';
 import DropdownList from 'react-widgets/lib/DropdownList';
 
 class Setting extends Component {
+// constructor() {
+//   super();
+//   this.state= { lastName: ""}
+// }
   componentWillMount() {
     this.props.fetchProfile();
     this.props.getCollegesList();
   }
   renderProfile() {
-    const {name, email} = this.props.profile;
     console.log(this.props.profile);
     if (name) {
       return (
         <div>
-          <h2>Profile</h2>
-          <p>name: {name.first}
-            {name.last}</p>
-          <p>email: {email.data}</p>
           {this.renderAvatar()}
         </div>
       )
@@ -48,6 +47,7 @@ class Setting extends Component {
       return (
           <span style={{width: '100%'}}>
               <DropdownList
+                  {...input}
                   placeholder="Your Current Attented College"
                   className="yeah-input"
                   data={collegeList}
@@ -60,12 +60,15 @@ class Setting extends Component {
   }
 
   handleFormSubmit(data) {
+    let college = _.find(this.props.colleges, {name: data.college});
     const userData = {
       name: {
         first: data.firstName,
         last: data.lastName
-      }
+      },
+      college
     }
+
     this.props.updateUserProfile(userData)
   }
   render() {
@@ -109,7 +112,7 @@ class Setting extends Component {
                 </div>
                 <hr />
                 <div className="form-wrapper">
-                  <label>College*</label>
+                  <label>Current College*</label>
                   <div className="form-group">
                       <Field 
                           name="college"
@@ -140,7 +143,8 @@ function mapStateToProps({profile, assist}) {
       initialValues: {
         firstName: profile.name.first,
         lastName: profile.name.last,
-        email: profile.email.data
+        email: profile.email.data,
+        college: profile.college.name
       },
       colleges: assist.colleges
     }
