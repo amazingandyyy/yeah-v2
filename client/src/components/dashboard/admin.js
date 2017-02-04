@@ -19,7 +19,7 @@ class Admin extends Component {
                 <Link className="nav-link" activeClassName="active" to="/dashboard/admin/course">Courses</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/intership">Intership</Link>
+                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/internship">Internship</Link>
               </li>
             </ul>
             <div className="card">

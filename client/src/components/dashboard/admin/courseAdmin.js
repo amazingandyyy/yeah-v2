@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
+import * as actions from '../../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
-import '../../styles/react-widget/scss/react-widgets.scss';
+import '../../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
-import GoogleMapSearch from '../widgets/googleMapSearch';
+import GoogleMapSearch from '../../widgets/googleMapSearch';
 
 
-class IntershipAdmin extends Component{
+class CourseAdmin extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -22,10 +22,10 @@ class IntershipAdmin extends Component{
     handleFormSubmit(data) {
         // Getting data object
         console.log('data: ', data);
-        //show the time 
+        //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createIntershipResource(data);
+        this.props.createCourseResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -62,35 +62,35 @@ class IntershipAdmin extends Component{
         // Localize the time
         momentLocalizer(moment);
 
-        const tagList =['Animals','Computers','Children','Environment','Education','Homeless','Sports','Arts', 'Culture','Community','International'];
+        const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math'];
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
             <form
                 onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
             >
-                <div className="form-title-bg">Create A Intership Program</div>
+                <div className="form-title-bg">Create A Training Program</div>
                 <div className="form-wrapper">
-                    <label>Position*</label>
+                    <label>Title*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="position" 
+                            name="title" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Intership position"
+                            placeholder="Course title"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Company*</label>
+                    <label>Instructor*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="company" 
+                            name="instructor" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Company Full Name"
+                            placeholder="Course instructor"
                             required
                         />
                     </div>
@@ -104,7 +104,7 @@ class IntershipAdmin extends Component{
                             name="date" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Intership date"
+                            placeholder="Course date"
                             required
                         />
                     </div>
@@ -117,7 +117,7 @@ class IntershipAdmin extends Component{
                             type="type" 
                             name="location" 
                             component={GoogleMapSearch} 
-                            placeholder="Intership location"
+                            placeholder="Course location"
                             required
                         />
                     </div>
@@ -145,13 +145,13 @@ class IntershipAdmin extends Component{
                             component="textarea" 
                             className="yeah-input"
                             required
-                            placeholder="Intership Details and discription..."
+                            placeholder="Course Details and discription..."
                         />
                     </div>
                 </div>
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                    <button type="submit" disabled={ submitting || !dirty } className="flex-item btn btn-primary">Create</button>
+                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
                 </div>
             </form>
             
@@ -160,12 +160,12 @@ class IntershipAdmin extends Component{
 }
 
 
-IntershipAdmin = reduxForm({
-    form: 'createIntershipResource',
+CourseAdmin = reduxForm({
+    form: 'createCourseResource',
     initialValues: {
         date: moment().add(1, 'day').format('YYYY-MM-DD')
     }
 
-}, null, actions)(IntershipAdmin);
+}, null, actions)(CourseAdmin);
 
-export default connect(null, actions)(IntershipAdmin);
+export default connect(null, actions)(CourseAdmin);

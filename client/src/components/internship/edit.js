@@ -4,11 +4,11 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 
-class IntershipEditDetails extends Component{
+class InternshipEditDetails extends Component{
     componentWillMount() {
         const pathname = this.props.location.pathname;
         const Id = pathname.split('/')[pathname.split('/').length-2]
-        this.props.fetchOneIntershipChance(Id);
+        this.props.fetchOneInternshipChance(Id);
     }
     renderDetails(){
         const { details } = this.props;
@@ -20,7 +20,7 @@ class IntershipEditDetails extends Component{
                 <div className="context" style={{backgroundImage: `url(${thumbnail})`}}>
                     <div className="overlay" style={{background: colorSetting}}></div>
                     <div className="section-card">
-                        <div className="title-xs" style={{color: colorSetting}}>Intership Program</div>
+                        <div className="title-xs" style={{color: colorSetting}}>Internship Program</div>
                         <div className="title-xl">{details.title}</div>
                         <div className="section">
                             <div className="title">Time & Date</div>
@@ -79,13 +79,13 @@ class IntershipEditDetails extends Component{
         const pathname = this.props.location.pathname;
         const Id = pathname.split('/')[pathname.split('/').length-2]
         hashHistory.goBack();
-        // this.props.saveOneIntershipChance(Id, 'data');
+        // this.props.saveOneInternshipChance(Id, 'data');
     }
     goDelete() {
         const pathname = this.props.location.pathname;
         const Id = pathname.split('/')[pathname.split('/').length-2]
         if(window.confirm(`Are you sure you want to delete this event? (It cannot be recovered)`)){
-            this.props.deleteOneIntershipChance(Id);
+            this.props.deleteOneInternshipChance(Id);
         }
     }
     render() {
@@ -105,4 +105,4 @@ class IntershipEditDetails extends Component{
 
 export default connect(({volunteer})=>{
     return {details: volunteer.event}
-}, actions)(IntershipEditDetails);
+}, actions)(InternshipEditDetails);

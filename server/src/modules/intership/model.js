@@ -55,4 +55,4 @@ const Schema = new mongoose.Schema({
 
 Schema.plugin(autopopulate);
 
-export default mongoose.model('Intership', Schema);
+export default mongoose.model('Internship', Schema);

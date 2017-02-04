@@ -7,7 +7,7 @@ const formReducer = form.plugin({
         }
         return state;
     },
-    createIntershipResource: (state, action) => {
+    createInternshipResource: (state, action) => {
         if (action.type === 'SUCCESS') {
             return undefined
         }

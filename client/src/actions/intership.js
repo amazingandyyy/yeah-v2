@@ -1,18 +1,18 @@
 import axios from 'axios';
 import { 
-    FETCH_ALL_INTERSHIP_CHANCES,
-    FETCH_ONE_INTERSHIP_CHANCE,
-    DELETE_ONE_INTERSHIP_CHANCE,
-    DELETE_ONE_INTERSHIP_GOBACK
+    FETCH_ALL_INternship_CHANCES,
+    FETCH_ONE_INternship_CHANCE,
+    DELETE_ONE_INternship_CHANCE,
+    DELETE_ONE_INternship_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
 
-function fetchAllIntershipChances() {
+function fetchAllInternshipChances() {
     return function (dispatch) {
         axios
-            .get(`/api/resource/intership/fetchAll`)
+            .get(`/api/resource/internship/fetchAll`)
             .then(res => {
-                dispatch({type: FETCH_ALL_INTERSHIP_CHANCES, payload: res.data})
+                dispatch({type: FETCH_ALL_INternship_CHANCES, payload: res.data})
             })
             .catch(error => {
                 console.log(error.response.data);
@@ -20,12 +20,12 @@ function fetchAllIntershipChances() {
     }
 }
 
-function fetchOneIntershipChance(id) {
+function fetchOneInternshipChance(id) {
     return function (dispatch) {
         axios
-            .get(`/api/resource/intership/fetchOne/${id}`)
+            .get(`/api/resource/internship/fetchOne/${id}`)
             .then(res => {
-                dispatch({type: FETCH_ONE_INTERSHIP_CHANCE, payload: res.data})
+                dispatch({type: FETCH_ONE_INternship_CHANCE, payload: res.data})
             })
             .catch(error => {
                 console.log(error.response.data);
@@ -33,13 +33,13 @@ function fetchOneIntershipChance(id) {
     }
 }
 
-function deleteOneIntershipChance(id) {
+function deleteOneInternshipChance(id) {
     return function (dispatch) {
         axios
-            .delete(`/api/resource/intership/deleteOne/${id}`)
+            .delete(`/api/resource/internship/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")
-                dispatch({type: DELETE_ONE_INTERSHIP_CHANCE, payload: directBack });
+                dispatch({type: DELETE_ONE_INternship_CHANCE, payload: directBack });
             })
             .catch(error => {
                 console.log(error.response.data);
@@ -47,16 +47,16 @@ function deleteOneIntershipChance(id) {
     }
 }
 
-function deleteOneIntershipGoback(){
+function deleteOneInternshipGoback(){
     return function (dispatch) {
         console.log('clearing the data');
-        dispatch( { type: DELETE_ONE_INTERSHIP_GOBACK } );
+        dispatch( { type: DELETE_ONE_INternship_GOBACK } );
     }
 }
 
 export {
-    fetchAllIntershipChances,
-    fetchOneIntershipChance,
-    deleteOneIntershipChance,
-    deleteOneIntershipGoback
+    fetchAllInternshipChances,
+    fetchOneInternshipChance,
+    deleteOneInternshipChance,
+    deleteOneInternshipGoback
 }

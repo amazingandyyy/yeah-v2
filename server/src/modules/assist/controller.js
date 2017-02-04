@@ -3,7 +3,7 @@ export default {
         const createBy = req.user._id;
         const title = req.body.title;
         const data = { createBy, ...req.body }
-        Intership.create(data)
+        Internship.create(data)
         .then(() => {
             res.send()
         })
