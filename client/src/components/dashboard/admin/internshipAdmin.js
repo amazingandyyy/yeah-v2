@@ -10,7 +10,6 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import GoogleMapSearch from '../../widgets/googleMapSearch';
 
-
 class InternshipAdmin extends Component{
     constructor(props){
         super(props)

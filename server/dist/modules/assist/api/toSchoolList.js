@@ -19,9 +19,12 @@ var _querystring2 = _interopRequireDefault(_querystring);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var toSchoolList = function toSchoolList() {
-    return new Promise(function (resolve, rej) {
+    return new Promise(function (resolve, reject) {
         var momentStarting = new Date();
         (0, _request2.default)('http://web2.assist.org/web-assist/articulationAgreement.do?inst1=none&inst2=none&ia=CRAFTON&ay=16-17&oia=UCB&dir=1', function (err, res, html) {
+            if (err || !res || !html) {
+                reject();
+            }
             var $ = _cheerio2.default.load(html);
             var toSchoolList = [];
             var toSchoolOneData = void 0;

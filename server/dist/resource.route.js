@@ -16,7 +16,7 @@ var _route = require('./modules/volunteer/route');
 
 var _route2 = _interopRequireDefault(_route);
 
-var _route3 = require('./modules/intership/route');
+var _route3 = require('./modules/internship/route');
 
 var _route4 = _interopRequireDefault(_route3);
 
@@ -30,7 +30,7 @@ var router = _express2.default.Router();
 
 
 router.use('/volunteer', _route2.default);
-router.use('/intership', _route4.default);
+router.use('/internship', _route4.default);
 router.use('/course', _route6.default);
 
 exports.default = router;

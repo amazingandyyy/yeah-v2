@@ -79,7 +79,13 @@ var Schema = new _mongoose2.default.Schema({
       unique: true
     }
   },
-  college: String,
+  college: {
+    name: {
+      type: String,
+      default: null
+    },
+    code: String
+  },
   major: [{
     type: String
   }],
