@@ -2,7 +2,7 @@ import axios from 'axios';
 import { 
     CREATE_VOLUNTEER_CHANCE,
     FETCH_ALL_VOLUNTEER_CHANCES,
-    CREATE_INternship_CHANCE,
+    CREATE_INTERNSHIP_CHANCE,
     CREATE_COURSE_CHANCE
 } from './types';
 import { hashHistory } from 'react-router';
@@ -26,7 +26,7 @@ function createInternshipResource(data) {
         axios
             .post(`/api/resource/internship/create`, data)
             .then(res => {
-                dispatch({ type: CREATE_INternship_CHANCE })
+                dispatch({ type: CREATE_INTERNSHIP_CHANCE })
                 dispatch({ type: 'SUCCESS' });
             })
             .catch(error => {

@@ -16,10 +16,7 @@ class CourseEditDetails extends Component{
             let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
             let thumbnail = details.thumbnail || this.props.location.query.thumbnail;
             return(
-                <span>
-                <div className="context" style={{backgroundImage: `url(${thumbnail})`}}>
-                    <div className="overlay" style={{background: colorSetting}}></div>
-                    <div className="section-card">
+                <div className="details-component">
                         <div className="title-xs" style={{color: colorSetting}}>Course Program</div>
                         <div className="title-xl">{details.title}</div>
                         <div className="section">
@@ -65,9 +62,6 @@ class CourseEditDetails extends Component{
                         </div>
                         </div>
                     </div>
-                </div>
-                <div style={{clear:'both'}}></div>
-                </span>
             )
         }
         return <Loader />
@@ -89,7 +83,7 @@ class CourseEditDetails extends Component{
         }
     }
     render() {
-        return(<span className="details-component edit-mode">
+        return(<span>
                 <div className="header">
                     <span className="mode-tag">editting</span>
                     <span className="leftBtn" onClick={this.goBack}><i className="fa fa-chevron-left" aria-hidden="true"></i>Cancel</span>

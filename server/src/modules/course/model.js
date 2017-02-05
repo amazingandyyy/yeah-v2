@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import autopopulate from 'mongoose-autopopulate';
+import PointSchema from '../schemas/point';
 
 // Define the model
 const Schema = new mongoose.Schema({
@@ -19,6 +20,7 @@ const Schema = new mongoose.Schema({
   location: {
     type: Object
   },
+  geometry: PointSchema,
   description: {
     type: String
   },
@@ -27,14 +29,12 @@ const Schema = new mongoose.Schema({
   }],
   createBy: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User',
-    autopopulate: true
+    ref: 'User'
   },
   stories: [{
     participant: {
       type: mongoose.Schema.ObjectId,
-      ref: 'User',
-      autopopulate: true
+      ref: 'User'
     },
     body: {
       type: String
@@ -52,7 +52,5 @@ const Schema = new mongoose.Schema({
     default: Date.now()
   }
 });
-
-Schema.plugin(autopopulate);
 
 export default mongoose.model('Course', Schema);

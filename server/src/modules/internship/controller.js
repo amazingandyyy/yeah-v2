@@ -4,7 +4,25 @@ export default {
     createOne: function(req, res, next) {
         const createBy = req.user._id;
         const title = req.body.title;
-        const data = { createBy, ...req.body }
+        let data;
+        if(req.body.location){
+            const coordinates = [
+                req.body.location.location.lng,
+                req.body.location.location.lat    
+            ]
+            data = { 
+                createBy, 
+                ...req.body,
+                geometry: {
+                    coordinates
+                }
+            }
+        }else{
+            data = { 
+                createBy, 
+                ...req.body
+            }
+        }
         Internship.create(data)
         .then(() => {
             res.send()

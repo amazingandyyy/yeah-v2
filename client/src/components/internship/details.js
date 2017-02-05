@@ -5,7 +5,6 @@ import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 
-
 class InternshipDetails extends Component{
     componentWillMount() {
         const pathname = this.props.location.pathname;
@@ -15,14 +14,16 @@ class InternshipDetails extends Component{
     renderTags(){
         const { details } = this.props;
         let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
-        return details.tags.map(
-            tag => {
-                return (
-                    <span className="tag" style={{background: colorSetting}} key={tag}>
-                        #{tag}
-                    </span>
-                );
-        })}
+        if(details){
+            return details.tags.map(
+                tag => {
+                    return (
+                        <span className="tag" style={{background: colorSetting}} key={tag}>
+                            #{tag}
+                        </span>
+                    );
+            })}
+        }
     renderDetails(){
         const { details } = this.props;
         console.log('details: ', details);
@@ -30,10 +31,7 @@ class InternshipDetails extends Component{
             let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
             let thumbnail = details.thumbnail || this.props.location.query.thumbnail;
             return(
-                <span>
-                <div className="context" style={{backgroundImage: `url(${thumbnail})`}}>
-                    <div className="overlay" style={{background: colorSetting}}></div>
-                    <div className="section-card">
+                    <div className="details-component">
                         <div className="title-xs" style={{color: colorSetting}}>Internship Program</div>
                         <div className="title-xl">{details.position}</div>
                         <div className="section">
@@ -90,9 +88,6 @@ class InternshipDetails extends Component{
                         </div>
                         </div>
                     </div>
-                </div>
-                <div style={{clear:'both'}}></div>
-                </span>
             )
         }
         return <Loader />
@@ -113,7 +108,7 @@ class InternshipDetails extends Component{
         return(<span className="rightBtn">Like</span>)
     }
     render() {
-        return(<span className="details-component">
+        return(<span>
                 <div className="header">
                     <span className="leftBtn" onClick={this.goBack.bind(this)}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
                     {this.renderRightBtn()}

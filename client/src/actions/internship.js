@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { 
-    FETCH_ALL_INternship_CHANCES,
-    FETCH_ONE_INternship_CHANCE,
-    DELETE_ONE_INternship_CHANCE,
-    DELETE_ONE_INternship_GOBACK
+    FETCH_ALL_INTERNSHIP_CHANCES,
+    FETCH_ONE_INTERNSHIP_CHANCE,
+    DELETE_ONE_INTERNSHIP_CHANCE,
+    DELETE_ONE_INTERNSHIP_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
 
@@ -12,10 +12,10 @@ function fetchAllInternshipChances() {
         axios
             .get(`/api/resource/internship/fetchAll`)
             .then(res => {
-                dispatch({type: FETCH_ALL_INternship_CHANCES, payload: res.data})
+                dispatch({type: FETCH_ALL_INTERNSHIP_CHANCES, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -25,10 +25,10 @@ function fetchOneInternshipChance(id) {
         axios
             .get(`/api/resource/internship/fetchOne/${id}`)
             .then(res => {
-                dispatch({type: FETCH_ONE_INternship_CHANCE, payload: res.data})
+                dispatch({type: FETCH_ONE_INTERNSHIP_CHANCE, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -39,10 +39,10 @@ function deleteOneInternshipChance(id) {
             .delete(`/api/resource/internship/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")
-                dispatch({type: DELETE_ONE_INternship_CHANCE, payload: directBack });
+                dispatch({type: DELETE_ONE_INTERNSHIP_CHANCE, payload: directBack });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -50,7 +50,7 @@ function deleteOneInternshipChance(id) {
 function deleteOneInternshipGoback(){
     return function (dispatch) {
         console.log('clearing the data');
-        dispatch( { type: DELETE_ONE_INternship_GOBACK } );
+        dispatch( { type: DELETE_ONE_INTERNSHIP_GOBACK } );
     }
 }
 

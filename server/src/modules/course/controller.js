@@ -4,9 +4,27 @@ export default {
     createOne: function(req, res, next) {
         const createBy = req.user._id;
         const title = req.body.title;
-        const data = { createBy, ...req.body }
+        let data;
+        if(req.body.location){
+            const coordinates = [
+                req.body.location.location.lng,
+                req.body.location.location.lat    
+            ]
+            data = { 
+                createBy, 
+                ...req.body,
+                geometry: {
+                    coordinates
+                }
+            }
+        }else{
+            data = { 
+                createBy, 
+                ...req.body
+            }
+        }
         Course.create(data)
-        .then(() => {
+        .then((d) => {
             res.send()
         })
         .catch(next)
@@ -21,6 +39,7 @@ export default {
     fetchOne: function(req, res, next) {
         Course.findById(req.params.id)
         .then(data => {
+            console.log(data)
             res.send(data)
         })
         .catch(next)
