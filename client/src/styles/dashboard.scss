@@ -184,27 +184,6 @@
         }
     }
 
-    &.drawer-closed {
-        .drawer-component {
-            left: -250px;
-
-            #drawer-handle{
-                .fa-caret-left {
-                    display: none !important;
-                }
-                .fa-caret-right {
-                    display: inline !important;
-                }
-            }
-        }
-        
-        .header{
-            left: 0px;
-        }
-        .content {
-            padding-left: 0px;
-        }
-    }
     .form-group {
         .yeah-input  {
             background: rgba(0,0,0,0.03);

@@ -5,24 +5,11 @@ import { Link } from 'react-router';
 
 class Header extends Component {
     renderSignButton(){
-        if (this.props.authenticated){
-            return (
-                <li className="nav-item pull-right">
-                    <Link className="nav-link" to="/dashboard"><button className="btn btn-primary">Dashboard</button></Link>
-                </li>
-            )
-        }else{
-            return (
-                [
-                    <li className="nav-item" key="1">
-                        <Link to="/auth/signin" className="nav-link">Signin</Link>
-                    </li>,
-                    <li className="nav-item" key="2">
-                        <Link to="/auth/signup" className="nav-link">SignUp</Link>
-                    </li>
-                ]
-            )
-        }
+        return (
+            <li className="nav-item pull-right">
+                <Link className="nav-link" to="/dashboard"><button className="btn btn-primary">Dashboard</button></Link>
+            </li>
+        )
     }
     render() {
         return (

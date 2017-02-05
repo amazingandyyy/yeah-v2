@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import autopopulate from 'mongoose-autopopulate';
+import PointSchema from '../schemas/point';
 
 // Define the model
 const Schema = new mongoose.Schema({
@@ -19,6 +20,7 @@ const Schema = new mongoose.Schema({
   location: {
     type: Object
   },
+  geometry: PointSchema,
   description: {
     type: String
   },
