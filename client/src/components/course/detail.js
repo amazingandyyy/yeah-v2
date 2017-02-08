@@ -4,13 +4,8 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
-<<<<<<< HEAD:client/src/components/course/detail.js
 import {Link} from 'react-router';
 class Detail extends Component{
-=======
-
-class CourseDetails extends Component{
->>>>>>> origin/david:client/src/components/course/details.js
     componentWillMount() {
         if(this.props.props){
             this.props = this.props.props;
@@ -19,7 +14,6 @@ class CourseDetails extends Component{
         const Id = pathname.split('/').pop();
         this.props.fetchOneCourseChance(Id);
     }
-<<<<<<< HEAD:client/src/components/course/detail.js
     renderTags(){
         const { details } = this.props;
         let colorSetting =  details.colorSetting || 'rgb(2, 204, 186)'
@@ -33,22 +27,6 @@ class CourseDetails extends Component{
                     );
             })}
         }
-=======
-
-    renderTags(){
-        const { details } = this.props;
-        let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
-        return details.tags.map(
-            tag => {
-                return (
-                    <span className="tag" style={{background: colorSetting}} key={tag}>
-                        #{tag}
-                    </span>
-                );
-        })}
-
-
->>>>>>> origin/david:client/src/components/course/details.js
     renderDetails(){
         const { details } = this.props;
         console.log('details: ', details);
@@ -118,40 +96,12 @@ class CourseDetails extends Component{
         }
         return <Loader />
     }
-<<<<<<< HEAD:client/src/components/course/detail.js
     render() {
         return(
             <div className="content">
                 {this.renderDetails()}
             </div>
         )
-=======
-    goBack(){
-        this.props.deleteOneCourseGoback();
-        hashHistory.goBack()
-    }
-    goEdit() {
-        const uri = this.props.location.pathname;
-        const query = this.props.location.query;
-        hashHistory.push({pathname: `${uri}/edit`, query})
-    }
-    renderRightBtn() {
-        if(this.props.isAdmin){
-            return (<span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>)
-        }
-        return(<span className="rightBtn">Like</span>)
-    }
-    render() {
-        return(<span className="details-component">
-                <div className="header">
-                    <span className="leftBtn" onClick={this.goBack.bind(this)}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
-                    {this.renderRightBtn()}
-                </div>
-                <div className="content">
-                    {this.renderDetails()}
-                </div>
-            </span>)
->>>>>>> origin/david:client/src/components/course/details.js
     }
 }
 

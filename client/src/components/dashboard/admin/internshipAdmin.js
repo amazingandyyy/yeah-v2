@@ -8,12 +8,7 @@ import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
-<<<<<<< HEAD:client/src/components/dashboard/admin/internshipAdmin.js
 import GoogleMapSearch from '../../widgets/googleMapSearch';
-=======
-import GoogleMapSearch from '../widgets/googleMapSearch';
-
->>>>>>> origin/david:client/src/components/dashboard/intershipAdmin.js
 
 class InternshipAdmin extends Component{
     constructor(props){
@@ -121,11 +116,7 @@ class InternshipAdmin extends Component{
                             type="type" 
                             name="location" 
                             component={GoogleMapSearch} 
-<<<<<<< HEAD:client/src/components/dashboard/admin/internshipAdmin.js
                             placeholder="Internship location"
-=======
-                            placeholder="Intership location"
->>>>>>> origin/david:client/src/components/dashboard/intershipAdmin.js
                             required
                         />
                     </div>

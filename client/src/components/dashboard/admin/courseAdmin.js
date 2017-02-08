@@ -8,11 +8,7 @@ import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
-<<<<<<< HEAD:client/src/components/dashboard/admin/courseAdmin.js
 import GoogleMapSearch from '../../widgets/googleMapSearch';
-=======
-import GoogleMapSearch from '../widgets/googleMapSearch';
->>>>>>> origin/david:client/src/components/dashboard/courseAdmin.js
 
 
 class CourseAdmin extends Component{
