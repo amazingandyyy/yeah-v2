@@ -7,8 +7,13 @@
 6 silly lifecycle yeah-v2@2.0.3~predev: no script for predev, continuing
 7 info lifecycle yeah-v2@2.0.3~dev: yeah-v2@2.0.3
 8 verbose lifecycle yeah-v2@2.0.3~dev: unsafe-perm in lifecycle true
+<<<<<<< HEAD
 9 verbose lifecycle yeah-v2@2.0.3~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/David/Documents/web/yeah/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 10 verbose lifecycle yeah-v2@2.0.3~dev: CWD: /Users/David/Documents/web/yeah
+=======
+9 verbose lifecycle yeah-v2@2.0.3~dev: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/David/Documents/web/yeah/yeah/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+10 verbose lifecycle yeah-v2@2.0.3~dev: CWD: /Users/David/Documents/web/yeah/yeah
+>>>>>>> origin/david
 11 silly lifecycle yeah-v2@2.0.3~dev: Args: [ '-c', 'babel-watch ./server/src/server.js' ]
 12 silly lifecycle yeah-v2@2.0.3~dev: Returned: code: 1  signal: null
 13 info lifecycle yeah-v2@2.0.3~dev: Failed to exec dev script
@@ -23,8 +28,13 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid yeah-v2@2.0.3
+<<<<<<< HEAD
 16 verbose cwd /Users/David/Documents/web/yeah
 17 error Darwin 16.4.0
+=======
+16 verbose cwd /Users/David/Documents/web/yeah/yeah
+17 error Darwin 16.3.0
+>>>>>>> origin/david
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
 19 error node v6.9.1
 20 error npm  v3.10.8
