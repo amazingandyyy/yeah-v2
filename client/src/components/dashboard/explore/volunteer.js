@@ -20,7 +20,7 @@ class Volunteer extends Component {
               thumbnail: event.thumbnail
             }
             return (
-                <Link to={ {pathname: `/dashboard/explore/volunteer/${event._id}`, query:eventQuery }}  key={event._id}>
+                <Link to={ {pathname: `/volunteer/${event._id}` }}  key={event._id}>
                 <div className="card resource">
                   <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
                     <span style={{color: event.colorSetting}}>new!</span>

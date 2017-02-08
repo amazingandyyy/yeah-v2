@@ -4,6 +4,7 @@
 
     .display-component {
         padding-left: 249px;
+        transition: .2s all ease-in-out;
         .header {
             user-select: none;
             transition: .2s all ease-in-out;
@@ -48,7 +49,6 @@
         }
         
         .content {
-            transition: .2s all ease-in-out;
             position: relative;
             padding-left: 0px;
             padding-top: 60px;

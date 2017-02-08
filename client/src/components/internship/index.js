@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
-import GoogleMapDetails from '../widgets/googleMapDetails';
+
 import Detial from './detail';
 
 class InternshipDetails extends Component{
@@ -33,6 +33,6 @@ class InternshipDetails extends Component{
     }
 }
 
-export default connect(({internship, auth})=>{
-    return {isAdmin: auth.isAdmin}
+export default connect(({ internship, auth })=>{
+    return { isAdmin: auth.isAdmin }
 }, actions)(InternshipDetails);
