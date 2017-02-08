@@ -11,7 +11,7 @@ exports.default = {
         var createBy = req.user._id;
         var title = req.body.title;
         var data = _extends({ createBy: createBy }, req.body);
-        Intership.create(data).then(function () {
+        Internship.create(data).then(function () {
             res.send();
         }).catch(next);
     }

@@ -65,7 +65,13 @@ const Schema = new mongoose.Schema({
       unique: true
     }
   },
-  college: String,
+  college: {
+    name: {
+      type: String,
+      default: null
+    },
+    code: String
+  },
   major: [{
     type: String
   }],

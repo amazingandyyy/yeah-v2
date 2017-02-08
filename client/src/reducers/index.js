@@ -3,7 +3,7 @@ import form from './redux_form_reducer.js'
 import auth from './auth_reducer';
 import profile from './profile_reducer';
 import volunteer from './volunteer_reducer';
-import intership from './intership_reducer';
+import internship from './INTERNSHIP_reducer';
 import course from './course_reducer';
 import assist from './assist_reducer';
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   auth,
   profile,
   volunteer,
-  intership,
+  internship,
   course,
   assist
 });

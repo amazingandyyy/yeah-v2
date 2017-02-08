@@ -2,7 +2,8 @@ import axios from 'axios';
 import { 
     FETCH_ALL_COURSE_CHANCES,
     FETCH_ONE_COURSE_CHANCE,
-    DELETE_ONE_COURSE_CHANCE
+    DELETE_ONE_COURSE_CHANCE,
+    DELETE_ONE_COURSE_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
 
@@ -14,7 +15,7 @@ function fetchAllCourseChances() {
                 dispatch({type: FETCH_ALL_COURSE_CHANCES, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -27,7 +28,7 @@ function fetchOneCourseChance(id) {
                 dispatch({type: FETCH_ONE_COURSE_CHANCE, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -41,13 +42,22 @@ function deleteOneCourseChance(id) {
                 dispatch({type: DELETE_ONE_COURSE_CHANCE, payload: directBack });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
+    }
+}
+
+function deleteOneCourseGoback(){
+
+    return function (dispatch) {
+        console.log('clearing the data');
+        dispatch( { type: DELETE_ONE_COURSE_GOBACK } );
     }
 }
 
 export {
     fetchAllCourseChances,
     fetchOneCourseChance,
-    deleteOneCourseChance
+    deleteOneCourseChance,
+    deleteOneCourseGoback
 }

@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
   componentDidMount() {
     let width = $(window).width();
     $('#drawer-handle').on('click', () => {
-      $('.dashboard-component').toggleClass('drawer-closed')
+      $('body').toggleClass('drawer-closed')
     })
     function config(width) {
       if (width < 767) {
@@ -32,18 +32,18 @@ export default class Dashboard extends Component {
     })
 
     function openDrawer() {
-      $('.dashboard-component').removeClass('drawer-closed');
+      $('body').removeClass('drawer-closed');
     }
     function closeDrawer() {
-      $('.dashboard-component').addClass('drawer-closed');
+      $('body').addClass('drawer-closed');
     }
     function startListeningClick() {
-      $('.dashboard-component').find('.item').on('click', () => {
+      $('body').find('.item').on('click', () => {
         closeDrawer();
       })
     }
     function removeListeningClick() {
-      $('.dashboard-component').find('.item').off('click');
+      $('body').find('.item').off('click');
     }
   }
 }

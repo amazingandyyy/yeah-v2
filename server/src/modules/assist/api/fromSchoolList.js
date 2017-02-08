@@ -3,10 +3,11 @@ import request from 'request';
 import qs from 'querystring';
 
 const fromSchoolList = () => {
-    return new Promise((resolve, rej) => {
+    return new Promise((resolve, reject) => {
         const momentStarting = new Date()
         request('http://web2.assist.org/web-assist/articulationAgreement.do?inst1=none&inst2=none&ia=CRAFTON&ay=16-17&oia=UCB&dir=1',
         (err, res, html) => {
+            if(err|| !res || !html){ reject() };
             let $ = cheerio.load(html);
             let fromSchoolList = [];
             let fromSchoolOneData;

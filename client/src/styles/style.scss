@@ -9,6 +9,30 @@ body {
     background-color: rgba(0,0,0,0.03);
     box-sizing: border-box;
     font-family: $sans;
+
+    &.drawer-closed {
+        .drawer-component {
+            left: -250px;
+
+            #drawer-handle{
+                .fa-caret-left {
+                    display: none !important;
+                }
+                .fa-caret-right {
+                    display: inline !important;
+                }
+            }
+        }
+        
+        .dashboard-component {
+            .header{
+                left: 0px;
+            }
+            .display-component {
+                padding-left: 0px;
+            }
+        }
+    }
 }
 
 a, a:visited, a:focus, a:active, a:hover {

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { 
     CREATE_VOLUNTEER_CHANCE,
     FETCH_ALL_VOLUNTEER_CHANCES,
-    CREATE_INTERSHIP_CHANCE,
+    CREATE_INTERNSHIP_CHANCE,
     CREATE_COURSE_CHANCE
 } from './types';
 import { hashHistory } from 'react-router';
@@ -21,12 +21,12 @@ function createVolunteerResource(data) {
     }
 }
 
-function createIntershipResource(data) {
+function createInternshipResource(data) {
     return (dispatch) => {
         axios
-            .post(`/api/resource/intership/create`, data)
+            .post(`/api/resource/internship/create`, data)
             .then(res => {
-                dispatch({ type: CREATE_INTERSHIP_CHANCE })
+                dispatch({ type: CREATE_INTERNSHIP_CHANCE })
                 dispatch({ type: 'SUCCESS' });
             })
             .catch(error => {
@@ -51,6 +51,6 @@ function createCourseResource(data) {
 
 export { 
     createVolunteerResource,
-    createIntershipResource,
+    createInternshipResource,
     createCourseResource
 }

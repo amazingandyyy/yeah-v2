@@ -2,7 +2,8 @@ import axios from 'axios';
 import { 
     FETCH_ALL_VOLUNTEER_CHANCES,
     FETCH_ONE_VOLUNTEER_CHANCE,
-    DELETE_ONE_VOLUNTEER_CHANCE
+    DELETE_ONE_VOLUNTEER_CHANCE,
+    DELETE_ONE_VOLUNTEER_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
 
@@ -46,8 +47,17 @@ function deleteOneVolunteerChance(id) {
     }
 }
 
+function deleteOneVolunteerGoback(){
+
+    return function (dispatch) {
+        console.log('clearing the data');
+        dispatch( { type: DELETE_ONE_VOLUNTEER_GOBACK } );
+    }
+}
+
 export {
     fetchAllVolunteerChances,
     fetchOneVolunteerChance,
-    deleteOneVolunteerChance
+    deleteOneVolunteerChance,
+    deleteOneVolunteerGoback
 }

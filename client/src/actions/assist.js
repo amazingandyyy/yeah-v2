@@ -65,9 +65,16 @@ const getTransferRequirement = (from, to, major) => {
     }
 }
 
+const resetAssist = () => {
+    return function (dispatch) {
+        dispatch({type: ASSIST_RESET_AGREEMENT})
+    }
+}
+
 export {
     getCollegesList,
     getUniversityList,
     getMajorList,
-    getTransferRequirement
+    getTransferRequirement,
+    resetAssist
 }

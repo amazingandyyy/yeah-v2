@@ -7,7 +7,7 @@ class Admin extends Component {
   
   render() {
     return (
-      <div className="display-componet admin-component">
+      <div className="display-component admin-component">
           <div className="header">Admin</div>
           <div className="content">
           <div className="container">
@@ -19,7 +19,7 @@ class Admin extends Component {
                 <Link className="nav-link" activeClassName="active" to="/dashboard/admin/course">Courses</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/intership">Intership</Link>
+                <Link className="nav-link" activeClassName="active" to="/dashboard/admin/internship">Internship</Link>
               </li>
             </ul>
             <div className="card">

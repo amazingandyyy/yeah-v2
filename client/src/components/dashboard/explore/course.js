@@ -20,7 +20,7 @@ class Course extends Component {
               thumbnail: event.thumbnail
             }
             return (
-                <Link to={ {pathname: `/dashboard/explore/course/${event._id}`, query:eventQuery }}  key={event._id}>
+                <Link to={ {pathname: `/course/${event._id}` }}  key={event._id}>
                 <div className="card resource">
                   <div className="image" style={{backgroundImage: `url(${event.thumbnail})`}}>
                     <span style={{color: event.colorSetting}}>new!</span>
@@ -47,7 +47,6 @@ class Course extends Component {
                 {this.renderList()}
               </div>
               <div style={{clear:'both'}}></div>
-
             </div>
         )
     }

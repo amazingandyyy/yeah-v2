@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Volunteer from './volunteer';
 import Course from './course';
-import Intership from './intership'
+import Internship from './internship'
 class TemplateComponent extends Component{
     render() {
         return(<span>
@@ -9,7 +9,7 @@ class TemplateComponent extends Component{
                 <div className="content">
                     <Volunteer />
                     <Course />
-                    <Intership />
+                    <Internship />
                 </div>
             </span>)
     }

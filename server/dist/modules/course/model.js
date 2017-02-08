@@ -30,7 +30,7 @@ var Schema = new _mongoose2.default.Schema({
     type: String
   },
   location: {
-    type: String
+    type: Object
   },
   description: {
     type: String

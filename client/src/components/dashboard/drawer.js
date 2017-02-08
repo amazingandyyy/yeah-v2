@@ -48,6 +48,12 @@ class Drawer extends Component {
             <span className="title">Assist</span>
           </div>
         </Link>
+        <Link to="/dashboard/ucinfo" onClick={()=>{location.reload()}} activeClassName="active">
+          <div className="item">
+            <span className="icon"><Icon name="catalog"/></span>
+            <span className="title">UC Stats</span>
+          </div>
+        </Link>
 
         <div className="bottom">
         {this.renderAdmin()}

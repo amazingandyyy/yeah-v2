@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import autopopulate from 'mongoose-autopopulate';
+import PointSchema from '../schemas/point';
 
 // Define the model
 const Schema = new mongoose.Schema({
@@ -17,8 +17,9 @@ const Schema = new mongoose.Schema({
     type: String
   },
   location: {
-    type: String
+    type: Object
   },
+  geometry: PointSchema,
   description: {
     type: String
   },
@@ -53,6 +54,5 @@ const Schema = new mongoose.Schema({
   }
 });
 
-Schema.plugin(autopopulate);
 
 export default mongoose.model('Volunteer', Schema);
