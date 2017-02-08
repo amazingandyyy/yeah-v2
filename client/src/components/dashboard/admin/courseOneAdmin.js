@@ -10,8 +10,15 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import GoogleMapSearch from '../../widgets/googleMapSearch';
 
-
 class CourseAdmin extends Component{
+    componentWillMount(){
+        const pathname = this.props.location.pathname;
+        const Id = pathname.split('/').pop();
+        if(Id){
+            console.log("Id", Id)
+            // this.props.fetchOneCourseChance(Id);
+        }
+    }
     constructor(props){
         super(props)
         this.state = {
@@ -25,7 +32,7 @@ class CourseAdmin extends Component{
         //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createCourseResource(data);
+        // this.props.createCourseResource(data);
     }
 
     renderMultiselect ({input, ...rest}) {
@@ -159,9 +166,29 @@ class CourseAdmin extends Component{
     }
 }
 
+function mapStateToProps({course}) {
+    if(course.details) {
+        const { details } = course;
+        return {
+            initialValues: {
+                // firstName: userData.name.first,
+                // lastName: userData.name.last,
+                // email: userData.email.data,
+                // FBData: userData.facebook
+            }
+            
+        }
+    }else{
+        return {
+           initialValues: {
+                date: moment().add(1, 'day').format('YYYY-MM-DD')
+            }
+        }
+    }
+}
 
 CourseAdmin = reduxForm({
     form: 'createCourseResource'
 })(CourseAdmin);
 
-export default connect(null, actions)(CourseAdmin);
+export default connect(mapStateToProps, actions)(CourseAdmin);

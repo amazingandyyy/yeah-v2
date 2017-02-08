@@ -139,7 +139,6 @@ function mapStateToProps({auth}) {
             errorMsg: auth.error
         }
     }
-    
 }
 
 Signup = reduxForm({

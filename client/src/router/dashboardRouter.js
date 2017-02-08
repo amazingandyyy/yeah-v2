@@ -13,6 +13,7 @@ import VolunteerDetail from '../components/volunteer';
 import VolunteerDetailEdit from '../components/volunteer/edit';
 
 import CourseAdmin from '../components/dashboard/admin/courseAdmin';
+import CourseOneAdmin from '../components/dashboard/admin/courseOneAdmin';
 import CourseDetail from '../components/course';
 import CourseDetailEdit from '../components/course/edit';
 
@@ -35,16 +36,14 @@ const DashboardRouter = (
             <Route path="/dashboard/explore" component={Explore}>
                 <IndexRoute component={ExploreBrowser} />
                 <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
-                <Route path="/dashboard/explore/volunteer/:id/edit" component={ RequireAdmin(VolunteerDetailEdit) } />
                 <Route path="/dashboard/explore/internship/:id" component={ InternshipDetail } />
-                <Route path="/dashboard/explore/internship/:id/edit" component={ RequireAdmin(InternshipDetailEdit) } />
                 <Route path="/dashboard/explore/course/:id" component={ CourseDetail } />
-                <Route path="/dashboard/explore/course/:id/edit" component={ RequireAdmin(CourseDetailEdit) } />
             </Route>
             <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
                 <IndexRoute />
                 <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
                 <Route path="/dashboard/admin/course" component={CourseAdmin}/>
+                <Route path="/dashboard/admin/course/:id" component={CourseOneAdmin}/>
                 <Route path="/dashboard/admin/internship" component={InternshipAdmin}/>
             </Route>
         </Route>
