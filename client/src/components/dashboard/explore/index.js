@@ -8,7 +8,7 @@ export default class Explore extends Component {
   }
   render() {
     return (
-      <div className="display-componet explore">
+      <div className="display-component explore">
           {this.props.children}
       </div>
     );

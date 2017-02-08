@@ -2,7 +2,8 @@
     background: #FAFBFC;
     font-family: $sans;
 
-    .display-componet {
+    .display-component {
+        padding-left: 249px;
         .header {
             user-select: none;
             transition: .2s all ease-in-out;
@@ -49,7 +50,7 @@
         .content {
             transition: .2s all ease-in-out;
             position: relative;
-            padding-left: 249px;
+            padding-left: 0px;
             padding-top: 60px;
             margin: auto;
             min-height: 100vh;

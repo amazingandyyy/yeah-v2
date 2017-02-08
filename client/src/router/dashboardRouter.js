@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
-import Dashboard from './components/dashboard';
 
-import Dashboard from './components/dashboard';
-import Start from './components/dashboard/start';
-import Setting from './components/dashboard/setting';
-import Explore from './components/dashboard/explore';
-import ExploreBrowser from './components/dashboard/explore/browser';
+import Dashboard from '../components/dashboard';
+import Start from '../components/dashboard/start';
+import Setting from '../components/dashboard/setting';
+import Explore from '../components/dashboard/explore';
+import ExploreBrowser from '../components/dashboard/explore/browser';
 
-import Admin from './components/dashboard/admin';
-import VolunteerAdmin from './components/dashboard/admin/volunteerAdmin';
-import VolunteerDetail from './components/volunteer/details';
-import VolunteerDetailEdit from './components/volunteer/edit';
+import Admin from '../components/dashboard/admin';
+import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
+import VolunteerDetail from '../components/volunteer';
+import VolunteerDetailEdit from '../components/volunteer/edit';
 
-import CourseAdmin from './components/dashboard/admin/courseAdmin';
-import CourseDetail from './components/course/details';
-import CourseDetailEdit from './components/course/edit';
+import CourseAdmin from '../components/dashboard/admin/courseAdmin';
+import CourseDetail from '../components/course';
+import CourseDetailEdit from '../components/course/edit';
 
-import InternshipAdmin from './components/dashboard/admin/internshipAdmin';
-import InternshipDetail from './components/internship';
-import InternshipDetailEdit from './components/internship/edit';
-import Assist from './components/dashboard/assist';
-import UCInfomation from './components/dashboard/ucinfo';
+import InternshipAdmin from '../components/dashboard/admin/internshipAdmin';
+import InternshipDetail from '../components/internship';
+import InternshipDetailEdit from '../components/internship/edit';
+import Assist from '../components/dashboard/assist';
+import UCInfomation from '../components/dashboard/ucinfo';
 
-import RequireAuth from './components/auth/loginGuard';
-import RequireAdmin from './components/auth/adminGuard';
+import RequireAuth from '../components/auth/loginGuard';
+import RequireAdmin from '../components/auth/adminGuard';
 
-const DashboardRouter = () => {
-    return (
+const DashboardRouter = (
         <Route path="/dashboard" component={RequireAuth(Dashboard)}>
             <IndexRoute component={Start}/>
             <Route path="/dashboard/start" component={Start}/>
@@ -51,6 +49,5 @@ const DashboardRouter = () => {
             </Route>
         </Route>
     )
-}
 
 export default DashboardRouter;

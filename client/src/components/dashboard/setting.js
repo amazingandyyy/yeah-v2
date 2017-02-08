@@ -74,7 +74,7 @@ class Setting extends Component {
   render() {
     const {handleSubmit, submitting, reset, dirty} = this.props;
     return (
-      <div className="display-componet">
+      <div className="display-component">
         <div className="header">Settings</div>
         <div className="content">
           <div className="container">

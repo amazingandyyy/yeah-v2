@@ -5,7 +5,7 @@ import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 
-class Content extends Component{
+class Detail extends Component{
     componentWillMount() {
         if(this.props.props){
             this.props = this.props.props;
@@ -96,7 +96,7 @@ class Content extends Component{
     }
     render() {
         return(
-            <div className="content">
+            <div className="Detail">
                 {this.renderDetails()}
             </div>
         )
@@ -105,4 +105,4 @@ class Content extends Component{
 
 export default connect(({internship, auth})=>{
     return {details: internship.event, isAdmin: auth.isAdmin}
-}, actions)(Content);
+}, actions)(Detail);

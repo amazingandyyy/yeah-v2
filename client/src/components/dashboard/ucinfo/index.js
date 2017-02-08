@@ -4,7 +4,7 @@ import $ from 'jquery';
 class UCInfomation extends Component{
     render(){
         return (
-        <div className="display-componet">
+        <div className="display-component">
             <div className="header">UC Stats</div>
             <div className="content" style={{background: 'white'}}>
                 <div className="container" style={{paddingTop: '80px'}}>

@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
 
-import Auth from './components/auth';
-import Signin from './components/auth/signin';
-import Signup from './components/auth/signup';
-import Signout from './components/auth/signout'
-import SetPassword from './components/auth/setPassword';
-import ResetPassword from './components/auth/resetPassword';
-import IForget from './components/auth/iForget';
-import IForget2 from './components/auth/iForget2';
+import Auth from '../components/auth';
+import Signin from '../components/auth/signin';
+import Signup from '../components/auth/signup';
+import Signout from '../components/auth/signout'
+import SetPassword from '../components/auth/setPassword';
+import ResetPassword from '../components/auth/resetPassword';
+import IForget from '../components/auth/iForget';
+import IForget2 from '../components/auth/iForget2';
 
-import RequireAuth from './components/auth/loginGuard';
-import RequireAdmin from './components/auth/adminGuard';
+import RequireAuth from '../components/auth/loginGuard';
+import RequireAdmin from '../components/auth/adminGuard';
 
-const AuthRouter = () => {
-    return (
+const AuthRouter = (
         <Route path="/auth" component={Auth}>
             <IndexRoute component={Signin}/>
             <Route path="/auth/signin" component={Signin} />
@@ -26,6 +25,5 @@ const AuthRouter = () => {
             <Route path="/auth/resetpassword/:token" component={ResetPassword}/>
         </Route>
     )
-}
 
 export default AuthRouter;

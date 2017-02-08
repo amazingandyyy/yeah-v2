@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
-import Content from './content';
+import Detial from './detail';
 
 class InternshipDetails extends Component{
     goBack(){
@@ -28,7 +28,7 @@ class InternshipDetails extends Component{
                     <span className="leftBtn" onClick={this.goBack.bind(this)}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
                     {this.renderRightBtn()}
                 </div>
-                <Content props={this.props}/>
+                <Detial props={this.props}/>
             </span>)
     }
 }
