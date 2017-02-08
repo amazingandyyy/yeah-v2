@@ -5,15 +5,18 @@ import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 
-class InternshipDetails extends Component{
+class Content extends Component{
     componentWillMount() {
+        if(this.props.props){
+            this.props = this.props.props;
+        }
         const pathname = this.props.location.pathname;
-        const Id = pathname.split('/').pop()
+        const Id = pathname.split('/').pop();
         this.props.fetchOneInternshipChance(Id);
     }
     renderTags(){
         const { details } = this.props;
-        let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
+        let colorSetting =  details.colorSetting || 'rgb(2, 204, 186)'
         if(details){
             return details.tags.map(
                 tag => {
@@ -28,8 +31,7 @@ class InternshipDetails extends Component{
         const { details } = this.props;
         console.log('details: ', details);
         if(details){
-            let colorSetting = details.colorSetting || this.props.location.query.colorSetting;
-            let thumbnail = details.thumbnail || this.props.location.query.thumbnail;
+        let colorSetting =  details.colorSetting || 'rgb(2, 204, 186)';
             return(
                     <div className="details-component">
                         <div className="title-xs" style={{color: colorSetting}}>Internship Program</div>
@@ -92,34 +94,15 @@ class InternshipDetails extends Component{
         }
         return <Loader />
     }
-    goBack(){
-        this.props.deleteOneInternshipGoback();
-        hashHistory.goBack()
-    }
-    goEdit() {
-        const uri = this.props.location.pathname;
-        const query = this.props.location.query;
-        hashHistory.push({pathname: `${uri}/edit`, query})
-    }
-    renderRightBtn() {
-        if(this.props.isAdmin){
-            return (<span className="rightBtn" onClick={this.goEdit.bind(this)}>Edit</span>)
-        }
-        return(<span className="rightBtn">Like</span>)
-    }
     render() {
-        return(<span>
-                <div className="header">
-                    <span className="leftBtn" onClick={this.goBack.bind(this)}><i className="fa fa-chevron-left" aria-hidden="true"></i>Back</span>
-                    {this.renderRightBtn()}
-                </div>
-                <div className="content">
-                    {this.renderDetails()}
-                </div>
-            </span>)
+        return(
+            <div className="content">
+                {this.renderDetails()}
+            </div>
+        )
     }
 }
 
 export default connect(({internship, auth})=>{
     return {details: internship.event, isAdmin: auth.isAdmin}
-}, actions)(InternshipDetails);
+}, actions)(Content);
