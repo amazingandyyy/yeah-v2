@@ -14,7 +14,7 @@
     "push": "git add . && git commit -m 'deploy to aws eb' ",
     "build": "npm run build-c && npm run build-s",
     "deploy": "npm run build && npm run push && eb deploy && eb open",
-    "deploy-client": "",
+    "deploy-client": "git add client/dist && git commit -m 'Deploy to gh-pages' ",
     "ssh": "ssh -i ~/Downloads/aws-es2.pem ec2-user@54.202.177.7"
   },
   "repository": "https://github.com/amazingandyyy/yeah-v2",
