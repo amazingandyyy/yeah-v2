@@ -20,7 +20,8 @@ if (process.env.NODE_ENV == 'production') {
         aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com',
         aws_ses_sender: 'amazingandyyy@gmail.com',
         redirect_url_base: 'http://yeah-dev.us-west-2.elasticbeanstalk.com',
-        unique_salt: process.env.UNIQUE_SALT
+        unique_salt: process.env.UNIQUE_SALT,
+        PORT: process.env.PORT
     }
 } else {
     // development configuration
@@ -34,7 +35,8 @@ if (process.env.NODE_ENV == 'production') {
         aws_s3_url_base: 'https://s3-us-west-2.amazonaws.com',
         aws_ses_sender: 'amazingandyyy@gmail.com',
         redirect_url_base: 'http://localhost:8000',
-        unique_salt: 'process.env.UNIQUE_SALT'
+        unique_salt: 'process.env.UNIQUE_SALT',
+        PORT: process.env.PORT || 3000
     }
 }
 

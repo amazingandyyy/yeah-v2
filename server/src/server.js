@@ -46,12 +46,13 @@ if (settingIsGood) {
   //     const indexPath = path.join(__dirname, '../../client/dist', 'index.html');
   //     res.sendFile(indexPath);
   //   })
-  // } else {
-  //   const webpackMiddleware = require('webpack-dev-middleware');
-  //   const webpack = require('webpack');
-  //   const webpackConfig = require('../../webpack.config.js');
-  //   app.use(webpackMiddleware(webpack(webpackConfig)));
   // }
+  if (process.env.NODE_ENV !== 'production') {
+    const webpackMiddleware = require('webpack-dev-middleware');
+    const webpack = require('webpack');
+    const webpackConfig = require('../../webpack.config.js');
+    app.use(webpackMiddleware(webpack(webpackConfig)));
+  }
 
   app.use((err, req, res, next) => {
     console.log(err.message)
@@ -60,7 +61,7 @@ if (settingIsGood) {
       .send({errors: err.message});
   });
 
-  app.listen(process.env.PORT || 3000, err => console.log(err || `->Listening on ${process.env.PORT || 'PORT: 3000'}`));
+  app.listen(config.PORT, err => console.log(err || `->Listening on ${config.PORT}`));
 } else {
     console.log(`\------------------------ complete config setting to start the server ------------------------`);
 }
