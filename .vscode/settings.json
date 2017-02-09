@@ -2,7 +2,7 @@
 {
     // The following will hide the js and map files in the editor
     "files.exclude": {
-        "**/dist": true,
+        "**/dist": false,
         "yarn.lock": true,
         ".elasticbeanstalk": true,
         "design.sketch": true,

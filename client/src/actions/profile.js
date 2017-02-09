@@ -1,10 +1,10 @@
-import axios from 'axios';
+import request from './request';
 import { FETCH_PROFILE, UPDATE_PROFILE } from './types';
 import superagent from 'superagent';
 
 const fetchProfile = () => {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/user/profile`)
             .then(res => {
                 dispatch({type: FETCH_PROFILE, payload: res.data})
@@ -29,7 +29,7 @@ const uploadProfileAvatar = (files) => {
 
 const updateUserProfile = (userData) => {
     return function (dispatch) {
-        axios
+        request
             .post(`/api/user/profile/info`, userData)
             .then(res => {
                 dispatch({ type: UPDATE_PROFILE, payload: res.data })
