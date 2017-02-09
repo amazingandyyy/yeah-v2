@@ -7,7 +7,6 @@
     "start": "NODE_ENV=production node ./server/dist/server.js",
     "dev": "babel-watch ./server/src/server.js",
     "dev-prod": "NODE_ENV=production babel-watch ./server/src/server.js",
-    "yo": "babel-watch ./server/src/modules/assist/route",
     "build-c": "NODE_ENV=production rimraf ./client/dist && webpack -p",
     "build-s": "rimraf ./server/dist && babel ./server/src -d ./server/dist",
     "serve": "webpack-dev-server",

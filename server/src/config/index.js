@@ -36,7 +36,7 @@ if (process.env.NODE_ENV == 'production') {
         aws_ses_sender: 'amazingandyyy@gmail.com',
         redirect_url_base: 'http://localhost:8000',
         unique_salt: 'process.env.UNIQUE_SALT',
-        PORT: process.env.PORT || 3000
+        PORT: process.env.PORT || 8000
     }
 }
 
