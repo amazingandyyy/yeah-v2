@@ -84,6 +84,6 @@ module.exports = {
     __dirname: true,
   },
   devServer: {
-    port: 8000
+    port: 8008
   }
 };

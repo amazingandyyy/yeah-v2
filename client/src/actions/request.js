@@ -3,7 +3,8 @@ const token = localStorage.getItem('yeah_token');
 import config from '../config';
 
 let request = axios.create({
-  baseURL: config.base_url || 'http://localhost:8000'
+  baseURL: config.base_url || 'http://localhost:8000',
+  "Access-Control-Allow-Origin": "*"
 });
 
 if (token) {
