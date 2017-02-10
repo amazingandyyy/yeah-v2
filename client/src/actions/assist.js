@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from './request';
 import { ASSIST_GET_COLLEGES,
          ASSIST_GET_UNIVERSITIES,
          ASSIST_GET_MAJORS,
@@ -10,7 +10,7 @@ import superagent from 'superagent';
 
 const getCollegesList = () => {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/assist/colleges`)
             .then(res => {
                 // console.log('colleges: ', res.data.list)
@@ -24,7 +24,7 @@ const getCollegesList = () => {
 
 const getUniversityList = () => {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/assist/universities`)
             .then(res => {
                 // console.log('colleges: ', res.data.list)
@@ -39,7 +39,7 @@ const getUniversityList = () => {
 const getMajorList = (from, to) => {
     return function (dispatch) {
         dispatch({type: ASSIST_RESET_MAJORS})
-            axios
+            request
                 .get(`/api/assist/${to}/majors`)
                 .then(res => {
                     console.log(res.data.list);
@@ -54,7 +54,7 @@ const getMajorList = (from, to) => {
 const getTransferRequirement = (from, to, major) => {
     return function (dispatch) {
         dispatch({type: ASSIST_RESET_AGREEMENT})
-            axios
+            request
                 .get(`/api/assist/agreement/${from}/${to}/${major}`)
                 .then(res => {
                     dispatch({type: ASSIST_GET_AGREEMENT, payload: res.data.agreementBody})

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from './request';
 import { 
     FETCH_ALL_COURSE_CHANCES,
     FETCH_ONE_COURSE_CHANCE,
@@ -9,7 +9,7 @@ import { hashHistory } from 'react-router';
 
 function fetchAllCourseChances() {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/resource/course/fetchAll`)
             .then(res => {
                 dispatch({type: FETCH_ALL_COURSE_CHANCES, payload: res.data})
@@ -22,7 +22,7 @@ function fetchAllCourseChances() {
 
 function fetchOneCourseChance(id) {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/resource/course/fetchOne/${id}`)
             .then(res => {
                 dispatch({type: FETCH_ONE_COURSE_CHANCE, payload: res.data})
@@ -35,7 +35,7 @@ function fetchOneCourseChance(id) {
 
 function deleteOneCourseChance(id) {
     return function (dispatch) {
-        axios
+        request
             .delete(`/api/resource/course/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")

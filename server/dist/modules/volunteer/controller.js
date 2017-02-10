@@ -16,8 +16,23 @@ exports.default = {
     createOne: function createOne(req, res, next) {
         var createBy = req.user._id;
         var title = req.body.title;
-        var data = _extends({ createBy: createBy }, req.body);
-        _model2.default.create(data).then(function () {
+        var data = void 0;
+        if (req.body.location) {
+            var coordinates = [req.body.location.location.lng, req.body.location.location.lat];
+            data = _extends({
+                createBy: createBy
+            }, req.body, {
+                geometry: {
+                    coordinates: coordinates
+                }
+            });
+        } else {
+            data = _extends({
+                createBy: createBy
+            }, req.body);
+        }
+
+        _model2.default.create(data).then(function (d) {
             res.send();
         }).catch(next);
     },

@@ -82,5 +82,8 @@ module.exports = {
   ],
   node: {
     __dirname: true,
+  },
+  devServer: {
+    port: 8000
   }
 };
