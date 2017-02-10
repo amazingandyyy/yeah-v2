@@ -20,11 +20,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Define the model
 var Schema = new _mongoose2.default.Schema({
-  title: {
+  position: {
     type: String,
     required: [true, 'Title is required']
   },
-  instructor: {
+  company: {
     type: String
   },
   date: {
@@ -45,12 +45,14 @@ var Schema = new _mongoose2.default.Schema({
   }],
   createBy: {
     type: _mongoose2.default.Schema.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    autopopulate: true
   },
   stories: [{
     participant: {
       type: _mongoose2.default.Schema.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      autopopulate: true
     },
     body: {
       type: String
@@ -69,4 +71,6 @@ var Schema = new _mongoose2.default.Schema({
   }
 });
 
-exports.default = _mongoose2.default.model('Course', Schema);
+Schema.plugin(_mongooseAutopopulate2.default);
+
+exports.default = _mongoose2.default.model('Internship', Schema);

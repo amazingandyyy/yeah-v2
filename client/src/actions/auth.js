@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from './request';
 import { 
     AUTH_ERROR,
     AUTH_USER,
@@ -16,7 +16,7 @@ import { browserHistory, hashHistory } from 'react-router';
 function signUserIn({email, password}) {
     return function (dispatch) {
         // Submit email/password to server
-        axios
+        request
             .post(`/api/user/signin/email`, {email, password})
             .then(res => {
                 if(res.data.isAdmin){
@@ -26,7 +26,7 @@ function signUserIn({email, password}) {
                 }
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('yeah_token', res.data.token);
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
                 hashHistory.push('/dashboard');
             })
             .catch(error => {
@@ -39,7 +39,7 @@ function signUserIn({email, password}) {
 function signUserInWithFacebook(FbTreasure){
     return function (dispatch) {
         // Submit FbTreasure to server
-        axios
+        request
             .post(`/api/user/signin/fb`, FbTreasure)
             .then(res => {
                 if(res.data.passwordNeed){
@@ -54,7 +54,7 @@ function signUserInWithFacebook(FbTreasure){
                     }
                     localStorage.setItem('isAdmin', res.data.isAdmin);
                     localStorage.setItem('yeah_token', res.data.token);
-                    axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                    request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
                     hashHistory.push('/dashboard');
                 }
             })
@@ -67,7 +67,7 @@ function signUserInWithFacebook(FbTreasure){
 
 function sendEmailToResetPassword(email){
     return function(dispatch) {
-        axios
+        request
             .post(`/api/user/helper/sendEmailToResetPassword/${email}`)
             .then(res => {
                 console.log(res.data);
@@ -82,13 +82,13 @@ function sendEmailToResetPassword(email){
 function signUserUp(userObj) {
     return function (dispatch) {
         // Submit name/email/password to server
-        axios
+        request
             .post(`/api/user/signup`, userObj)
             .then(res => {
                 dispatch({type: AUTH_USER})
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('yeah_token', res.data.token);
-                axios.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
+                request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
                 hashHistory.push('/dashboard');
             })
             .catch(error => {
@@ -114,7 +114,7 @@ function authReset(){
 
 function verifyToken(token) {
     return function(dispatch){
-        axios.post(`/api/user/helper/verifyToken/${token}`)
+        request.post(`/api/user/helper/verifyToken/${token}`)
         .then(res => {
             dispatch({type: SUCCESS_TO_VERIFY_TOKEN})
         })
@@ -127,7 +127,7 @@ function verifyToken(token) {
 
 function resetPassword(data) {
     return function(dispatch){
-        axios.post(`/api/user/helper/resetPassword/`, data)
+        request.post(`/api/user/helper/resetPassword/`, data)
         .then(res => {
             dispatch({ type: SUCCEED_TO_RESET_PASSWORD })
         })

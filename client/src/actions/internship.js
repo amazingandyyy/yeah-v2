@@ -1,4 +1,4 @@
-import axios from 'axios';
+import request from './request';
 import { 
     FETCH_ALL_INTERNSHIP_CHANCES,
     FETCH_ONE_INTERNSHIP_CHANCE,
@@ -9,7 +9,7 @@ import { hashHistory } from 'react-router';
 
 function fetchAllInternshipChances() {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/resource/internship/fetchAll`)
             .then(res => {
                 dispatch({type: FETCH_ALL_INTERNSHIP_CHANCES, payload: res.data})
@@ -22,7 +22,7 @@ function fetchAllInternshipChances() {
 
 function fetchOneInternshipChance(id) {
     return function (dispatch) {
-        axios
+        request
             .get(`/api/resource/internship/fetchOne/${id}`)
             .then(res => {
                 dispatch({type: FETCH_ONE_INTERNSHIP_CHANCE, payload: res.data})
@@ -35,7 +35,7 @@ function fetchOneInternshipChance(id) {
 
 function deleteOneInternshipChance(id) {
     return function (dispatch) {
-        axios
+        request
             .delete(`/api/resource/internship/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")

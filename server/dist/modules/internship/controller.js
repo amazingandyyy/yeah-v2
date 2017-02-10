@@ -31,7 +31,7 @@ exports.default = {
                 createBy: createBy
             }, req.body);
         }
-        _model2.default.create(data).then(function (d) {
+        _model2.default.create(data).then(function () {
             res.send();
         }).catch(next);
     },
@@ -42,7 +42,6 @@ exports.default = {
     },
     fetchOne: function fetchOne(req, res, next) {
         _model2.default.findById(req.params.id).then(function (data) {
-            console.log(data);
             res.send(data);
         }).catch(next);
     },
