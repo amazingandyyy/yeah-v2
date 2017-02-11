@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Router, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
-import HomeRouter from './homeRouter';
-import AuthRouter from './authRouter';
-import DashboardRouter from './dashboardRouter';
-import TreasureRouter from './treasureRouter';
+import HomeRoute from './homeRoute';
+import AuthRoute from './authRoute';
+import DashboardRoute from './dashboardRoute';
+import CourseRoute from './courseRoute';
+import InternshipRoute from './internshipRoute';
+import VolunteerRoute from './volunteerRoute';
 
 import App from '../components/app';
 import Home from '../components/home';
@@ -12,13 +14,13 @@ import Home from '../components/home';
 import Dashboard from '../components/dashboard';
 import Start from '../components/dashboard/start';
 
-const RouterComponent = [
-    HomeRouter,
-    DashboardRouter
+const RouteComponent = [
+    HomeRoute,
+    AuthRoute,
+    DashboardRoute,
+    CourseRoute,
+    InternshipRoute,
+    VolunteerRoute
 ]
 
-export default RouterComponent;
-
-// { AuthRouter }
-// { DashboardRouter }
-// { TreasureRouter }
+export default RouteComponent;

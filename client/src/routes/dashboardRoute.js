@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-router';
 
-import Dashboard from '../components/dashboard';
+// import Dashboard from '../components/dashboard';
 import Start from '../components/dashboard/start';
 import Setting from '../components/dashboard/setting';
 import Explore from '../components/dashboard/explore';
 import ExploreBrowser from '../components/dashboard/explore/browser';
 
-import Admin from '../components/dashboard/admin';
+// import Admin from '../components/dashboard/admin';
 import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
 import VolunteerDetail from '../components/volunteer';
 import VolunteerDetailEdit from '../components/volunteer/edit';
@@ -23,15 +23,17 @@ import InternshipDetailEdit from '../components/internship/edit';
 import Assist from '../components/dashboard/assist';
 import UCInfomation from '../components/dashboard/ucinfo';
 
-import RequireAuth from '../components/auth/loginGuard';
+import loginGuard from '../components/auth/loginGuard';
 import RequireAdmin from '../components/auth/adminGuard';
 
-const DashboardRouter = {
+const DashboardRoute = {
   path: '/dashboard',
   getComponent(location, cb) {
     System
       .import ('../components/dashboard')
-      .then(module => cb(null, module.default))
+      .then(module => {
+        return loginGuard(module.default, cb);
+      })
   },
   indexRoute: {
     component: Start
@@ -84,10 +86,10 @@ const DashboardRouter = {
   ]
 }
 
-export default DashboardRouter;
+export default DashboardRoute;
 
 
-// const DashboardRouter = (
+// const DashboardRoute = (
 //     <Route path="/dashboard" component={RequireAuth(Dashboard)}>
 //         <IndexRoute component={Start}/>
 //         <Route path="/dashboard/start" component={Start}/>
