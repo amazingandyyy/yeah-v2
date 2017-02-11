@@ -9,7 +9,7 @@
     "dev-prod": "NODE_ENV=production babel-watch ./server/src/server.js",
     "build-c": "NODE_ENV=production rimraf ./client/dist && webpack -p",
     "build-s": "rimraf ./server/dist && babel ./server/src -d ./server/dist",
-    "serve": "webpack-dev-server",
+    "serve": "NODE_ENV=production webpack-dev-server",
     "push": "git add . && git commit -m 'deploy' ",
     "build": "npm run build-c && npm run build-s",
     "deploy": "npm run build && npm run push && eb deploy && eb open",

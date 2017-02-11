@@ -8,7 +8,6 @@ export default class App extends Component {
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <h1>Home</h1>
-            
           </div>
         </div>
       </div>

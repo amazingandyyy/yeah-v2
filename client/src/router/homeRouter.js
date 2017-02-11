@@ -10,5 +10,13 @@ const HomeRouter = (
         </Route>
     )
 
+//     const HomeRouter = () => {
+//     return (
+//         <Route path="/" component={App}>
+//             <IndexRoute component={Home}/>
+//         </Route>
+//     )
+// }
+
 export default HomeRouter;
 
