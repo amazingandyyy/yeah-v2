@@ -8,12 +8,6 @@ import CourseRoute from './courseRoute';
 import InternshipRoute from './internshipRoute';
 import VolunteerRoute from './volunteerRoute';
 
-import App from '../components/app';
-import Home from '../components/home';
-
-import Dashboard from '../components/dashboard';
-import Start from '../components/dashboard/start';
-
 const RouteComponent = [
     HomeRoute,
     AuthRoute,
