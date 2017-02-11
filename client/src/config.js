@@ -1,4 +1,4 @@
-import production_config from '../production/config';
+import production_config from './config/production/config';
 
 // const NODE_ENV = 'production';
 const NODE_ENV = 'devlopment';

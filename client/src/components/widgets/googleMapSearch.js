@@ -9,14 +9,16 @@ class GoogleMapSearch extends Component {
         this.state = {term: ''};
     }
     
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({term: nextProps.value}); // update state when props change
-    // }
+  
 
     //   When the user select the option, onSuggestSelect will pass an object, in side the object there is label, which is the Name of the location.
     // We pass this lable in the updateVale function, 
+    // componentWillReceiveProps(nextProps){
+    //     this.setState({term: nextProps.value});
+    // }
+   
     updateValue(value){
-        console.log('value: ', value)
+        console.log('value update: ', value)
         // Call the onChange function from redux-form 
         // It will notify redux-form that the value was changed
         this.props.input.onChange(value);
