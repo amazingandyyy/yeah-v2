@@ -16,8 +16,7 @@ import RequireAdmin from '../components/auth/adminGuard';
 const AuthRoute = {
     path: '/auth',
     getComponent(location, cb) {
-        System
-        .import ('../components/auth')
+        System.import ('../components/auth')
         .then(module => cb(null, module.default))
     },
     indexRoute: {
@@ -45,8 +44,7 @@ const AuthRoute = {
         },{
             path: '/auth/resetpassword/:token',
             getComponent(location, cb) {
-                System
-                .import ('../components/auth/resetPassword')
+                System.import ('../components/auth/resetPassword')
                 .then(module => cb(null, module.default))
             }
         }

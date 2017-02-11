@@ -29,8 +29,7 @@ import RequireAdmin from '../components/auth/adminGuard';
 const DashboardRoute = {
   path: '/dashboard',
   getComponent(location, cb) {
-    System
-      .import ('../components/dashboard')
+    System.import ('../components/dashboard')
       .then(module => {
         return loginGuard(module.default, cb);
       })
@@ -60,8 +59,7 @@ const DashboardRoute = {
     }, {
       path: '/dashboard/admin',
       getComponent(location, cb) {
-        System
-          .import ('../components/dashboard/admin')
+        System.import ('../components/dashboard/admin')
           .then(module => cb(null, module.default))
       },
       indexRoute: {

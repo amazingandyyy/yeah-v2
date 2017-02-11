@@ -7,8 +7,7 @@ const InternshipRoute = {
         {
             path: '/internship/:id',
             getComponent(location, cb) {
-                System
-                .import ('../components/internship/detail')
+                System.import ('../components/internship/detail')
                 .then(module => cb(null, module.default))
             }
         }

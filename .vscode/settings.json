@@ -2,14 +2,19 @@
 {
     // The following will hide the js and map files in the editor
     "files.exclude": {
-        "**/dist": false,
+        "**/dist/": true,
         "yarn.lock": true,
         ".elasticbeanstalk": true,
         "design.sketch": true,
         ".babelrc": true,
-        "node_modules": false,
+        "node_modules": true,
         "npm-debug.log": false,
-        "**.less": false
+        "**/dist/**.js.map": true,
+        ".dockerignore": true,
+        "app.yml": true,
+        "Dockerfile": true,
+        "yarn-error.log": true,
+        ".env": false
     }
 ,
 "vsicons.presets.angular": false

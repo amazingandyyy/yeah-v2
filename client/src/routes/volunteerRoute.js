@@ -7,8 +7,7 @@ const VolunteerRoute = {
         {
             path: '/volunteer/:id',
             getComponent(location, cb) {
-                System
-                .import ('../components/volunteer/detail')
+                System.import ('../components/volunteer/detail')
                 .then(module => cb(null, module.default))
             }
         }
