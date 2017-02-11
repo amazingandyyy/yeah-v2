@@ -20,6 +20,9 @@ const VENDER_LIBS = [
   "superagent",
   "axios"
 ]
+
+const ifProd = plugin =>  process.env.NODE_ENV ? plugin : undefined;
+
 module.exports = {
   entry: {
     bundle: './client/src/index.js',
@@ -76,9 +79,9 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       "global.GENTLY": false
     }),
-    new webpack
+    ifProd(new webpack
       .optimize
-      .UglifyJsPlugin({sourceMap: true}),
+      .UglifyJsPlugin({sourceMap: true})),
     new ExtractTextPlugin('style.css'),
   ],
   node: {

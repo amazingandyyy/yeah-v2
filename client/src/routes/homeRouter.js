@@ -4,19 +4,18 @@ import { Route, IndexRoute } from 'react-router';
 import App from '../components/app';
 import Home from '../components/home';
 
-const HomeRouter = (
-        <Route path="/" component={App}>
-            <IndexRoute component={Home}/>
-        </Route>
-    )
+const HomeRouter = {
+    path: '/',
+    component: App,
+    indexRoute: { component: Home }
+}
 
-//     const HomeRouter = () => {
-//     return (
+// const HomeRouter = (
 //         <Route path="/" component={App}>
 //             <IndexRoute component={Home}/>
 //         </Route>
 //     )
-// }
+
 
 export default HomeRouter;
 
