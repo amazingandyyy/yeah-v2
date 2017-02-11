@@ -17,7 +17,8 @@ const VENDER_LIBS = [
   "redux",
   "redux-form",
   "redux-thunk",
-  "superagent"
+  "superagent",
+  "axios"
 ]
 module.exports = {
   entry: {
