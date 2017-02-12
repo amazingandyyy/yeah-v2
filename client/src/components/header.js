@@ -9,22 +9,22 @@ class Header extends Component {
         return (
             <div className={`${classNames}`}>
             <Link key='1' to="/">
-                <div>Application</div>
+                <div>欧耶孵化器</div>
             </Link>
             <Link key='2' to="/">
-                <div>Annual Program</div>
+                <div>申请冲刺</div>
             </Link>
             <Link key='3' to="/">
-                <div>Blog/News</div>
-            </Link>
-            <Link key='5' to="/">
-                <div>Cases</div>
+                <div>资源宝库</div>
             </Link>
             <Link key='4' to="/">
-                <div>About</div>
+                <div>成功案例</div>
+            </Link>
+            <Link key='5' to="/">
+                <div>关于我们</div>
             </Link>
             <Link key='6' to="/dashboard">
-                <span className="enter-button">Dashboard</span>
+                <span className="enter-button">进入专属系统</span>
             </Link>
             </div>
         )
@@ -36,7 +36,7 @@ class Header extends Component {
                 <div className="nav-container">
                 <div className="left-nav">
                     <Link to="/">
-                        <div className="logo">YEAH</div>
+                        <div className="logo">欧耶教育</div>
                     </Link>
                 </div>
                 {this.renderLinks("right-nav hidden-md-down")}
@@ -44,6 +44,7 @@ class Header extends Component {
                     <span className="enter-button collapse-button">
                         <i className="fa fa-bars"></i>
                         <i className="fa fa-times"></i>
+                        &nbsp;&nbsp;目录
                     </span>
                 {this.renderLinks("fullscreen-nav")}
                 </div>
@@ -55,13 +56,17 @@ class Header extends Component {
       componentDidMount() {
             const $d = $(document);
             $d.scroll(function() {
-                console.log($d.scrollTop())
                 $('nav').toggleClass('white', $d.scrollTop() >= 100);
             });
 
             $('.collapse-button').on('click', ()=>{
                 $('.collapse-button').toggleClass('collapsed');
-                $('.right-nav.hidden-lg-up').toggleClass('collapsed')
+                $('.right-nav.hidden-lg-up').toggleClass('collapsed');
+            })
+
+            $('.fullscreen-nav').on('click', ()=>{
+                $('.collapse-button').removeClass('collapsed');
+                $('.right-nav.hidden-lg-up').removeClass('collapsed');
             })
       }
 }

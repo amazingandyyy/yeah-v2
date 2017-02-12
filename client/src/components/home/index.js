@@ -8,6 +8,7 @@ export default class Home extends Component {
       <div className="yeah-home">
         <Header />
         <div className="bg"></div>
+        <video src="../../video/intro_video.mp4" muted autoPlay="autoplay" loop></video>
       </div>
     );
   }
