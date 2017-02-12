@@ -1,9 +1,29 @@
-.jumbotron {
-    
+.yeah-home{
+    .bg{
+        transition: all .5s ease-out;
+        transform: skewY(-12deg) translateY(-250px);
+        z-index: -2;
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        margin: 0 auto;
+        min-height: 1000px;
+        background-image: linear-gradient(160deg,#03CCBA,#AA7FCD 100%);
+        width: 100%;
+        transition: transform 375ms cubic-bezier(.18,.89,.32,1.28);
+    }
+}
 
-    @media (min-width: 767px) { 
-    
- }
 
+@media (min-width: 900px) { 
+    .yeah-home{
+        .bg{
+            transition: all .5s ease-out;
+            transform: skewY(-15deg) translateY(-279px);
+            min-height: 800px;
+        }
+    }
 }
 
