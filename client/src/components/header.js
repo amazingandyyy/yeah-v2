@@ -40,7 +40,7 @@ class Header extends Component {
       componentDidMount() {
           const $d = $(document);
         $d.scroll(function() {
-            console.log($d.scrollTop())
+            // console.log($d.scrollTop())
             $('nav').toggleClass('white', $d.scrollTop() >= 300);
         });
       }

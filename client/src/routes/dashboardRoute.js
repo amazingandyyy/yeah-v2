@@ -9,6 +9,7 @@ import ExploreBrowser from '../components/dashboard/explore/browser';
 
 // import Admin from '../components/dashboard/admin';
 import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
+import VolunteerOneAdmin from '../components/dashboard/admin/volunteerOneAdmin';
 import VolunteerDetail from '../components/volunteer';
 import VolunteerDetailEdit from '../components/volunteer/edit';
 
@@ -70,6 +71,9 @@ const DashboardRoute = {
           path: '/dashboard/admin/volunteer',
           component: VolunteerAdmin
         }, {
+          path: '/dashboard/admin/volunteer/:id',
+          component: VolunteerOneAdmin
+        },{
           path: '/dashboard/admin/course',
           component: CourseAdmin
         }, {

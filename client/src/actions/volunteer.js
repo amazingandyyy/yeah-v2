@@ -55,9 +55,17 @@ function deleteOneVolunteerGoback(){
     }
 }
 
+function resetOneVolunteerChance(id,data){
+    return function(dispatch){
+            dispatch( { type: DELETE_ONE_VOLUNTEER_GOBACK } );
+    }
+}
+
+
 export {
     fetchAllVolunteerChances,
     fetchOneVolunteerChance,
     deleteOneVolunteerChance,
-    deleteOneVolunteerGoback
+    deleteOneVolunteerGoback,
+    resetOneVolunteerChance
 }

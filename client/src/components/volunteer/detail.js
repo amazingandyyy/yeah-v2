@@ -4,6 +4,7 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
+import {Link} from 'react-router';
 
 class Detail extends Component{
     componentWillMount() {
@@ -12,6 +13,7 @@ class Detail extends Component{
         }
         const pathname = this.props.location.pathname;
         const Id = pathname.split('/').pop();
+        this.props.resetOneVolunteerChance();
         this.props.fetchOneVolunteerChance(Id);
     }
     renderTags(){
@@ -45,6 +47,7 @@ class Detail extends Component{
         let colorSetting =  details.colorSetting || 'rgb(2, 204, 186)';
             return(
                 <div className="details-component">
+                <Link to={`/dashboard/admin/volunteer/${details._id}`}><button className="btn">Edit</button></Link>
                         <div className="title-xs" style={{color: colorSetting}}>Volunteer Program</div>
                         <div className="title-xl">{details.title}</div>
                         <div className="section">
@@ -62,7 +65,13 @@ class Detail extends Component{
                             </div>
                         </div>
                         <div className="section">
-                            <div className="title" style={{color: colorSetting}}>description</div>
+                            <div className="title" style={{color: colorSetting}}>College</div>
+                            <div className="description">
+                                <p>{details.college}</p>
+                            </div>
+                        </div>
+                        <div className="section">
+                            <div className="title" style={{color: colorSetting}}>Cescription</div>
                             <div className="description">
                                 <p>{details.description}</p>
                             </div>
@@ -75,7 +84,7 @@ class Detail extends Component{
                         </div>
                         <div className="organizor-bio">
                             <img src={'http://bit.ly/2gKAQqy'} alt="LOGO" className="photo"/>
-                            <h2>American Red Cross</h2>
+                            <h2>{details.organization}</h2>
                             <p>Organizor of: {details.title}</p>
                         </div>
                         <div className="full-section">
