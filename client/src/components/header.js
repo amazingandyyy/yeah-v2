@@ -33,7 +33,7 @@ class Header extends Component {
         return (
             <div className="header-component">
             <nav>
-                <div className="nav-container">
+                <div className="yeah-container">
                 <div className="left-nav">
                     <Link to="/">
                         <div className="logo">欧耶教育</div>
@@ -56,7 +56,7 @@ class Header extends Component {
       componentDidMount() {
             const $d = $(document);
             $d.scroll(function() {
-                $('nav').toggleClass('white', $d.scrollTop() >= 100);
+                $('nav').toggleClass('white', $d.scrollTop() >= 30);
             });
 
             $('.collapse-button').on('click', ()=>{

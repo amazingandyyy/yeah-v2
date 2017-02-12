@@ -34,6 +34,20 @@ body {
             }
         }
     }
+    .flex-box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    div.yeah-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        width: 90%;
+        max-width: 1200px;
+    }
 }
 
 a, a:visited, a:focus, a:active, a:hover {
