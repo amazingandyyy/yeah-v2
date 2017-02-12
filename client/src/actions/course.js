@@ -55,9 +55,30 @@ function deleteOneCourseGoback(){
     }
 }
 
+function updateOneCourse(id,data){
+    return function(dispatch){
+        request
+            .post(`/api/resource/course/updateOne/${id}`, data)
+            .then(res => {
+                hashHistory.push(`/course/${id}`)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+
+function resetOneCourseChance(id,data){
+    return function(dispatch){
+            dispatch( { type: DELETE_ONE_COURSE_GOBACK } );
+    }
+}
 export {
     fetchAllCourseChances,
     fetchOneCourseChance,
     deleteOneCourseChance,
-    deleteOneCourseGoback
+    deleteOneCourseGoback,
+    updateOneCourse,
+    resetOneCourseChance
 }

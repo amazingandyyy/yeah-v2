@@ -6,17 +6,24 @@ class GoogleMapSearch extends Component {
     constructor (props) {
         super(props);
 
-        this.state = {term: ''};
+        this.state = {term: '', init: ''};
     }
-    
-    // componentWillReceiveProps(nextProps) {
-    //     this.setState({term: nextProps.value}); // update state when props change
-    // }
 
     //   When the user select the option, onSuggestSelect will pass an object, in side the object there is label, which is the Name of the location.
     // We pass this lable in the updateVale function, 
+    // componentWillReceiveProps(nextProps){
+    //     this.setState({term: nextProps.value});
+    // }
+
+    componentWillMount(){
+         this.setState({init:this.props.input.value});
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log('next',this.nextProps)
+    }
+   
     updateValue(value){
-        console.log('value: ', value)
+        // console.log('value update: ', value)
         // Call the onChange function from redux-form 
         // It will notify redux-form that the value was changed
         this.props.input.onChange(value);
@@ -33,6 +40,7 @@ class GoogleMapSearch extends Component {
                     {...this.props}
                     placeholder="Enter Activity Location" 
                     onSuggestSelect={(suggest)=>{this.updateValue(suggest);}}
+                    initialValue={this.state.init}
                 />            
             </span>
             
