@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import production_config from './config/production/config';
+=======
+import production_config from '../production/config';
+>>>>>>> refs/remotes/origin/master
 
 // const NODE_ENV = 'production';
 const NODE_ENV = 'devlopment';
