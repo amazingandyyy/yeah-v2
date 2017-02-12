@@ -12,6 +12,7 @@ class Detail extends Component{
         }
         const pathname = this.props.location.pathname;
         const Id = pathname.split('/').pop();
+        this.props.resetOneCourseChance();
         this.props.fetchOneCourseChance(Id);
     }
     renderTags(){
@@ -27,6 +28,19 @@ class Detail extends Component{
                     );
             })}
         }
+
+         renderMap(){
+                const { details } = this.props;
+                
+                if(details){
+                    console.log('detail.location',details.location);
+                    return <GoogleMapDetails geocoding={details.location.location} />
+                }
+                else{
+                    return <Loader />
+                }            
+      } 
+
     renderDetails(){
         const { details } = this.props;
         console.log('details: ', details);
@@ -50,7 +64,7 @@ class Detail extends Component{
                             <div className="title">Locations & Address</div>
                             <div className="location">{details.location.label}</div>
                             <div className="map">
-                                <GoogleMapDetails geocoding={details.location.location}/>
+                               { this.renderMap() }
                             </div>
                         </div>
                         <div className="section">

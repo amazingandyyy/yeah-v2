@@ -9,11 +9,11 @@
     "dev-prod": "NODE_ENV=production babel-watch ./server/src/server.js",
     "build-c": "NODE_ENV=production rimraf ./client/dist && webpack -p",
     "build-s": "rimraf ./server/dist && babel ./server/src -d ./server/dist",
-    "serve": "webpack-dev-server",
+    "serve": "NODE_ENV=production webpack-dev-server",
     "push": "git add . && git commit -m 'deploy' ",
     "build": "npm run build-c && npm run build-s",
     "deploy": "npm run build && npm run push && eb deploy && eb open",
-    "deploy-client": "cp -v ./client/src/config/production/config.js ./client/src/ && npm run build-c && mv -v ./client/dist/* ../yeah-pages/ && rimraf ./client/dist && cp -v ./client/src/config/dev/config.js ./client/src/ && cd ../yeah-pages && git add . && git commit -m 'deploy' && cd ../yeah-v2 ",
+    "deploy-client": "cp -v ./client/src/config/production/config.js ./client/src/ && npm run build-c && rimraf ../yeah-pages/* && mv -v ./client/dist/* ../yeah-pages/ && rimraf ./client/dist && cp -v ./client/src/config/dev/config.js ./client/src/ && cd ../yeah-pages && git add . && git commit -m 'deploy' && cd ../yeah-v2 ",
     "ssh": "ssh -i ~/Downloads/aws-es2.pem ec2-user@54.202.177.7"
   },
   "repository": "https://github.com/amazingandyyy/yeah-v2",

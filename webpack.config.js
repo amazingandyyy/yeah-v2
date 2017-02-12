@@ -17,8 +17,12 @@ const VENDER_LIBS = [
   "redux",
   "redux-form",
   "redux-thunk",
-  "superagent"
+  "superagent",
+  "axios"
 ]
+
+const ifProd = plugin =>  process.env.NODE_ENV ? plugin : null;
+
 module.exports = {
   entry: {
     bundle: './client/src/index.js',
@@ -65,9 +69,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack
-      .optimize
-      .CommonsChunkPlugin({
+    new webpack.optimize.CommonsChunkPlugin({
         names: ['vendor', 'manifest']
       }),
     new HtmlWebpackPlugin({template: 'client/src/index.html'}),
@@ -75,15 +77,13 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       "global.GENTLY": false
     }),
-    new webpack
-      .optimize
-      .UglifyJsPlugin({sourceMap: true}),
+    new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
     new ExtractTextPlugin('style.css'),
   ],
   node: {
     __dirname: true,
   },
   devServer: {
-    port: 8000
+    port: 8008
   }
 };

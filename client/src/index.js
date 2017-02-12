@@ -6,7 +6,8 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 import { AUTH_USER, AUTH_ADMIN } from './actions/types';
-import Router from './router';
+import { Router, hashHistory } from 'react-router';
+import RouteComponent from './routes';
 import './styles/style.scss';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -24,6 +25,7 @@ if (token && isAdmin=='true') {
 }
 ReactDOM.render(
   <Provider store={store}>
-    <Router />
+    <Router history={ hashHistory } routes={RouteComponent}>
+    </Router>
   </Provider>
   , document.getElementById('app'));
