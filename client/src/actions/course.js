@@ -68,10 +68,17 @@ function updateOneCourse(id,data){
     }
 }
 
+
+function resetOneCourseChance(id,data){
+    return function(dispatch){
+            dispatch( { type: DELETE_ONE_COURSE_GOBACK } );
+    }
+}
 export {
     fetchAllCourseChances,
     fetchOneCourseChance,
     deleteOneCourseChance,
     deleteOneCourseGoback,
-    updateOneCourse
+    updateOneCourse,
+    resetOneCourseChance
 }
