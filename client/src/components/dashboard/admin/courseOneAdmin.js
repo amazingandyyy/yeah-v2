@@ -10,7 +10,9 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import GoogleMapSearch from '../../widgets/googleMapSearch';
 import { Loader } from '../../widgets';
+import { hashHistory } from 'react-router';
 import $ from 'jquery';
+import axios from 'axios';
 
 
 class CourseAdmin extends Component{
@@ -29,9 +31,16 @@ class CourseAdmin extends Component{
             suggestions: ["Banana", "Mango", "Pear", "Apricot"]
         }
     }
-    handleFormSubmit(data) {
+    handleFormSubmit( data) {
         // Getting data object
-        console.log('data: ', data);
+    const oldLocation = this.props.details.location;
+    const newLocation = data.location;
+    if(oldLocation.label === newLocation) {
+        // locations not changed, replase data.location with oldLocation
+        delete data['location'];
+    }
+    
+        this.props.updateOneCourse(this.props.details._id,data);
         //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
@@ -84,6 +93,7 @@ class CourseAdmin extends Component{
         if(details)
             {
                 momentLocalizer(moment);
+
                 return (
                 <form
                     onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
@@ -134,6 +144,7 @@ class CourseAdmin extends Component{
                         <label>Location*</label>
                         <div className="form-group">
                             <Field 
+                                value={this.props.locationInfo}
                                 type="type" 
                                 name="location" 
                                 component={GoogleMapSearch} 
@@ -171,7 +182,7 @@ class CourseAdmin extends Component{
                     </div>
                     <div className="flex-container btn-container">
                         <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                        <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
+                        <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Update</button>
                     </div>
                 </form>
                 
@@ -204,26 +215,27 @@ function mapStateToProps({course}) {
     // }
 
     if (course.event){
-        console.log(course.event.location.label);
+        console.log('content',course.event.location.label);
 
     return {
             details: course.event,
             initialValues: {
-                date: moment().add(1, 'day').format('YYYY-MM-DD'),
+                date: course.event.date,
                 title: course.event.title,
                 description: course.event.description,
                 instructor: course.event.instructor,
-                // location:course.event.location.label,
+                location:course.event.location.label,
                 tags:course.event.tags
 
-            }
+            },
+            locationInfo: course.event.location.label,
     }
 }   
 else{
         return {
-           initialValues: {
-                date: moment().add(1, 'day').format('YYYY-MM-DD')
-            }
+        //    initialValues: {
+        //         date: moment().add(1, 'day').format('YYYY-MM-DD')
+        //     }
         }
     }
 
@@ -231,7 +243,7 @@ else{
 }
 
 CourseAdmin = reduxForm({
-    form: 'createCourseResource'
+    form: 'updateCourseResource'
 })(CourseAdmin);
 
 export default connect(mapStateToProps, actions)(CourseAdmin);
