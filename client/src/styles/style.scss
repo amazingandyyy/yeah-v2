@@ -7,7 +7,7 @@ html{
 
 body {
     padding-top: 0px;
-    background-color: rgba(0,0,0,0.03);
+    background-color: white;
     box-sizing: border-box;
     font-family: $sans;
 
@@ -68,7 +68,6 @@ a, a:visited, a:focus, a:active, a:hover {
     }
 }
 
-
 @import './header';
 @import './home';
 @import './footer';
@@ -79,6 +78,7 @@ a, a:visited, a:focus, a:active, a:hover {
 @import './details';
 @import './h-scrollable';
 @import './form';
+@import './react-carousel/index';
 
 .container {
     // max-width: 760px;
