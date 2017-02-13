@@ -37,6 +37,7 @@ class VolunteerAdmin extends Component{
         //show the time 
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
+
         this.props.createVolunteerResource(data);
     }
 
@@ -85,6 +86,7 @@ class VolunteerAdmin extends Component{
                     textField='name'
                     caseSensitive={false}
                     filter='contains'
+                    {...input}
                 />
             </span>
         );

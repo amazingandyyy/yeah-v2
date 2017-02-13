@@ -55,9 +55,31 @@ function deleteOneVolunteerGoback(){
     }
 }
 
+function resetOneVolunteerChance(id,data){
+    return function(dispatch){
+            dispatch( { type: DELETE_ONE_VOLUNTEER_GOBACK } );
+    }
+}
+
+function updateOneVolunteer(id,data){
+    return function(dispatch){
+        request
+            .post(`/api/resource/volunteer/updateOne/${id}`, data)
+            .then(res => {
+                hashHistory.push(`/volunteer/${id}`)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
+
 export {
     fetchAllVolunteerChances,
     fetchOneVolunteerChance,
     deleteOneVolunteerChance,
-    deleteOneVolunteerGoback
+    deleteOneVolunteerGoback,
+    resetOneVolunteerChance,
+    updateOneVolunteer
 }

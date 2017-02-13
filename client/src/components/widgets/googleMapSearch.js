@@ -18,10 +18,7 @@ class GoogleMapSearch extends Component {
     componentWillMount(){
          this.setState({init:this.props.input.value});
     }
-    componentWillReceiveProps(nextProps) {
-        console.log('next',this.nextProps)
-    }
-   
+    
     updateValue(value){
         // console.log('value update: ', value)
         // Call the onChange function from redux-form 

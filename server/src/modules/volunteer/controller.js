@@ -51,5 +51,12 @@ export default {
             res.send()
         })
         .catch(next)
+    },
+    updateOne: function(req, res, next){
+        Volunteer.findByIdAndUpdate(req.params.id, req.body)
+        .then(() => {
+            res.send();
+        })
+        .catch(next);
     }
 };

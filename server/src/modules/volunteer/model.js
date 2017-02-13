@@ -7,7 +7,7 @@ const Schema = new mongoose.Schema({
     type: String, 
     required: [true, 'Title is required']
   },
-  oranization: {
+  organization: {
     type: String
   },
   date: {
@@ -26,6 +26,9 @@ const Schema = new mongoose.Schema({
   tags: [{
     type: String
   }],
+  college: {
+    type: String
+  },
   createBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
