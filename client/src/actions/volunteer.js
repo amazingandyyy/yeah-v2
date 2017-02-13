@@ -61,11 +61,25 @@ function resetOneVolunteerChance(id,data){
     }
 }
 
+function updateOneVolunteer(id,data){
+    return function(dispatch){
+        request
+            .post(`/api/resource/volunteer/updateOne/${id}`, data)
+            .then(res => {
+                hashHistory.push(`/volunteer/${id}`)
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+}
+
 
 export {
     fetchAllVolunteerChances,
     fetchOneVolunteerChance,
     deleteOneVolunteerChance,
     deleteOneVolunteerGoback,
-    resetOneVolunteerChance
+    resetOneVolunteerChance,
+    updateOneVolunteer
 }

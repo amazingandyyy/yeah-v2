@@ -42,13 +42,11 @@ class VolunteerOneAdmin extends Component{
             delete data['location'];
         }
         
-        console.log('update data', data);
-
         //show the time 
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-
-        // this.props.updateVolunteerResource(data);
+        const id = this.props.details._id;
+        this.props.updateOneVolunteer(id,data);
     }
 
     cancelForm(){
@@ -109,7 +107,6 @@ class VolunteerOneAdmin extends Component{
         const tagList =['Animals','Computers','Children','Environment','Education','Homeless','Sports','Arts', 'Culture','Community','International'];
         const { handleSubmit, dirty, submitting, reset } = this.props;
         const { details } = this.props;
-                console.log('details: ', details);
 
         if(details)
         {      

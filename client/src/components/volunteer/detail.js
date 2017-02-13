@@ -33,7 +33,6 @@ class Detail extends Component{
         const { details } = this.props;
         
         if(details){
-            console.log('detail.location',details.location);
             return <GoogleMapDetails geocoding={details.location.location} />
         }
         else{

@@ -81,7 +81,6 @@ class CourseAdmin extends Component{
     render(){
         // Localize the time
         const { details } = this.props;
-        console.log('details: ', details);
 
         momentLocalizer(moment);
 
