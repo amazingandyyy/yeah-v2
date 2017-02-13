@@ -53,7 +53,7 @@ class VolunteerOneAdmin extends Component{
         $('.geosuggest__input.yeah-input').val('')
     }
 
-    renderMultiselect ({input, ...rest}) {
+    renderMultiselect ({input, data}) {
         return (
             <span style={{width: '100%'}}>
                 <Multiselect 
@@ -61,7 +61,7 @@ class VolunteerOneAdmin extends Component{
                     {...input}
                     onBlur={()=> input.onBlur()}
                     value={input.value || []}
-                    {...rest}
+                    data={data}
                 />
             </span>
         );

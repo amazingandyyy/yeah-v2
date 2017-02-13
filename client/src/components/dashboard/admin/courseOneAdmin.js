@@ -45,7 +45,7 @@ class CourseAdmin extends Component{
         // this.props.createCourseResource(data);
     }
 
-    renderMultiselect ({input, ...rest}) {
+    renderMultiselect ({input, data}) {
         return (
             <span style={{width: '100%'}}>
                 <Multiselect 
@@ -53,7 +53,7 @@ class CourseAdmin extends Component{
                     {...input}
                     onBlur={()=> input.onBlur()}
                     value={input.value || []}
-                    {...rest}
+                    data={data}
                 />
             </span>
         );

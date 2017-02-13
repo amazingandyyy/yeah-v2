@@ -27,7 +27,7 @@ class InternshipAdmin extends Component{
         this.props.createInternshipResource(data);
     }
 
-    renderMultiselect ({input, ...rest}) {
+    renderMultiselect ({input, data}) {
         return (
             <span style={{width: '100%'}}>
                 <Multiselect 
@@ -35,7 +35,7 @@ class InternshipAdmin extends Component{
                     {...input}
                     onBlur={()=> input.onBlur()}
                     value={input.value || []}
-                    {...rest}
+                    data={data}
                 />
             </span>
         );
