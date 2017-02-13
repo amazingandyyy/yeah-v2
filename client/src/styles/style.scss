@@ -1,12 +1,13 @@
 @import './variable';
 
 html{
-    -webkit-text-size-adjust: none
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
 }
 
 body {
     padding-top: 0px;
-    background-color: rgba(0,0,0,0.03);
+    background-color: white;
     box-sizing: border-box;
     font-family: $sans;
 
@@ -33,6 +34,20 @@ body {
             }
         }
     }
+    .flex-box{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    div.yeah-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        width: 90%;
+        max-width: 1200px;
+    }
 }
 
 a, a:visited, a:focus, a:active, a:hover {
@@ -53,7 +68,6 @@ a, a:visited, a:focus, a:active, a:hover {
     }
 }
 
-
 @import './header';
 @import './home';
 @import './footer';
@@ -64,6 +78,7 @@ a, a:visited, a:focus, a:active, a:hover {
 @import './details';
 @import './h-scrollable';
 @import './form';
+@import './react-carousel/index';
 
 .container {
     // max-width: 760px;

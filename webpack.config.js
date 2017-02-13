@@ -65,6 +65,10 @@ module.exports = {
           { loader: 'css-loader', options: { importLoaders: 1 } },
           'less-loader'
         ]
+      },
+      {
+        test: /\.mp4$/,
+        loader: 'url?limit=10000&mimetype=video/mp4'
       }
     ]
   },

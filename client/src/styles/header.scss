@@ -1,48 +1,39 @@
 .header-component {
+    user-select: none;
     nav{
-        .container {
-            padding: 0px;
-        }
-        
         width: 100%;
         position: fixed;
         top: 0px;
         right: 0px;
         left: 0px;
         margin: 0px 0px;
-        padding: 10px 15px;
+        padding: 10px 0px;
         display: flex;
         flex-direction: row;
         align-items: center;
         height: 80px;
+        z-index: 1000;
 
         div {
-            padding: 0px 20px;
+            padding: 0px 0px;
             display: inline-block;
-            color: rgba(white, 0.9);
-            font-weight: 300;
+            color: white;
+            font-weight: 400;
             font-size: 0.875rem;
             text-transform: capitalize;
-            letter-spacing: 0.6px;
+            letter-spacing: 0px;
             text-align: center;            
-
-            &:first-child {
-                padding-left: 0px;
-            }
-
-            &:last-child {
-                padding-right: 0px;
-            }
 
             &:hover{
                 color: rgba(white, 0.8);
             }
         }
 
-        div.enter-button {
-            padding: 7px 18px;
+        span.enter-button {
+            cursor: pointer;
+            padding: 8.5px 18px;
             background: $light-blue;
-            border-radius: 0.25rem;
+            border-radius: 0.22rem;
             box-shadow: 8px 10px 20px 0px rgba(46,61,73,0.15);
             transition: .3s all ease-in-out;
             color: white !important;
@@ -52,7 +43,27 @@
                 background: #02b7e9;
                 transition: .3s all ease-in-out;
             }
+
+            &.collapse-button{
+                z-index: 100;
+                .fa-times{
+                    display: none;
+                }
+                .fa-bars{
+                    display: inline;
+                }
+                &.collapsed{
+                    .fa-bars{
+                        display: none;
+                    }
+                    .fa-times{
+                        font-size: 105%;
+                        display: inline;
+                    }
+                }
+            }
         }
+
         .left-nav {
             float: left;
             display: flex;
@@ -72,10 +83,58 @@
             float: right;
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             width: 60%;
             background: none;
+
+            &.hidden-lg-up {
+                justify-content: flex-end;
+                .fullscreen-nav {
+                    background: rgba(255,255,255, 0.975);
+                    z-index: 99;
+                    height: 0vh;
+                    width: 100%;
+                    position: fixed;
+                    top: 0px;
+                    right: 0px;
+                    left: 0px;
+                    bottom: 0px;
+                    transition: 0.2s all ease;
+                    div, .enter-button{
+                        display: none;
+                    }
+                }
+                &.collapsed{
+                    .fullscreen-nav {
+                        transition: 0.2s all ease;
+                        height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        
+                        div, .enter-button{
+                            user-select: none;
+                            color: #525c65;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            display: block;
+                            margin-top: 30px;
+                            width: 250px;
+                            padding: 7px 18px;
+                        }
+                        div:hover, div:active {
+                            background: rgba(0,0,0,0.03);
+                            cursor: pointer;
+                            padding: 7px 18px;
+                            border-radius: 0.25rem;
+                            transition: .1s all ease-in-out;
+                        }
+                    }
+                }
+            }
+
         }
 
         &.white{
@@ -86,5 +145,17 @@
                 color: #525c65;
             }
         }
+    }
+}
+
+@media (max-width: 870px) {
+    .sm-hidden {
+        display: none;
+    }
+    .sm-show {
+        display: inline-block;
+    }
+    div.logo{
+        margin-left: 0px !important;
     }
 }
