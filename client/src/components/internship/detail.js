@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 
 class Detail extends Component{
     componentWillMount() {
+        this.props.resetOneInternship();
         if(this.props.props){
             this.props = this.props.props;
         }
@@ -28,6 +29,16 @@ class Detail extends Component{
                     );
             })}
         }
+    renderMap(){
+        const { details } = this.props;
+        
+        if(details){
+            return <GoogleMapDetails geocoding={details.location.location} />
+        }
+        else{
+            return <Loader />
+        }
+    }   
     renderDetails(){
         const { details } = this.props;
         console.log('details: ', details);
@@ -51,7 +62,7 @@ class Detail extends Component{
                             <div className="title">Locations & Address</div>
                             <div className="location">{details.location.label}</div>
                             <div className="map">
-                                <GoogleMapDetails geocoding={details.location.location}/>
+                                { this.renderMap() }
                             </div>
                         </div>
                         <div className="section">
