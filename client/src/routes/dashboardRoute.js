@@ -19,6 +19,7 @@ import CourseDetail from '../components/course';
 import CourseDetailEdit from '../components/course/edit';
 
 import InternshipAdmin from '../components/dashboard/admin/internshipAdmin';
+import InternshipOneAdmin from '../components/dashboard/admin/internshipOneAdmin';
 import InternshipDetail from '../components/internship';
 import InternshipDetailEdit from '../components/internship/edit';
 import Assist from '../components/dashboard/assist';
@@ -82,6 +83,10 @@ const DashboardRoute = {
         }, {
           path: '/dashboard/admin/internship',
           component: InternshipAdmin
+        },
+        {
+          path: '/dashboard/admin/internship/:id',
+          component: InternshipOneAdmin
         }
       ]
     }

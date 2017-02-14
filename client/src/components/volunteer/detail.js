@@ -23,7 +23,7 @@ class Detail extends Component{
             return details.tags.map(
                 tag => {
                     return (
-                        <span className="tag" style={{background: colorSetting}} key={tag}>
+                        <span className="tag" style={{borderColor: colorSetting}} key={tag}>
                             #{tag}
                         </span>
                     );
