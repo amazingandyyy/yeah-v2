@@ -4,6 +4,7 @@ import * as actions from '../../actions';
 import { Loader } from '../widgets';
 import { hashHistory } from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
+import { Link } from 'react-router';
 
 class Detail extends Component{
     componentWillMount() {
@@ -34,6 +35,7 @@ class Detail extends Component{
         let colorSetting =  details.colorSetting || 'rgb(2, 204, 186)';
             return(
                     <div className="details-component">
+                     <Link to={`/dashboard/admin/internship/${details._id}`}><button className="btn">Edit</button></Link>
                         <div className="title-xs" style={{color: colorSetting}}>Internship Program</div>
                         <div className="title-xl">{details.position}</div>
                         <div className="section">

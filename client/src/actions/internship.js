@@ -54,9 +54,23 @@ function deleteOneInternshipGoback(){
     }
 }
 
+function updateOneInternshipChance(id,data){
+    return function(dispatch){
+        request
+            .post(`/api/resource/internship/updateOne/${id}`,data)
+            .then(() => {
+                hashHistory.push("/internship/${id}")
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+}
+
 export {
     fetchAllInternshipChances,
     fetchOneInternshipChance,
     deleteOneInternshipChance,
-    deleteOneInternshipGoback
+    deleteOneInternshipGoback,
+    updateOneInternshipChance
 }
