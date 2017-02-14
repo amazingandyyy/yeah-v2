@@ -1,7 +1,6 @@
 .yeah-home{
     .bg{
-        transition: all .5s ease-out;
-        transform: skewY(-12deg) translateY(-250px);
+        transition: all .5s ease;
         z-index: -2;
         pointer-events: none;
         position: absolute;
@@ -9,10 +8,26 @@
         top: 0;
         right: 0;
         margin: 0 auto;
-        min-height: 1000px;
-        background-image: linear-gradient(160deg,#03CCBA,#AA7FCD 100%);
+        background: linear-gradient(150deg,#03CCBA,#AA7FCD);
         width: 100%;
-        transition: transform 375ms cubic-bezier(.18,.89,.32,1.28);
+        transform: skewY(-10deg) translateY(-200px);
+        height: 100%;
+        @media (min-width: 600px) {
+            transform: skewY(-10deg) translateY(-200px);
+            height: 120%;
+        }
+        @media (min-width: 930px) {
+            transform: skewY(-10deg) translateY(-200px);
+            height: 95%;
+        }
+        @media (min-width: 1200px) {
+            transform: skewY(-13deg) translateY(-200px);
+            height: 65%;
+        }
+        @media (min-width: 1500px) {
+            transform: skewY(-10deg) translateY(-400px);
+            height: 90%;
+        }
     }
 
     .intro-component {
@@ -32,7 +47,7 @@
                 background: white;
                 border-radius: 0.375rem;
                 width: 100%;
-                height: 10rem;
+                height: 10.1rem;
                 margin: 20px 0px;
                 box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.37);
                 transition: .5s all ease;
@@ -50,6 +65,12 @@
                     }
                 }
 
+                @media (max-width: 1270px){
+                    @media (min-width: 1200px){
+                        height: 9.3rem;
+                    }
+                }
+
                 @media (max-width: 1199px) {
                     @media (min-width: 930px) {
                         display: inline-block;
@@ -64,16 +85,31 @@
             }
         }
     }
-}
+    .statistics-component {
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        .slide-container{
+            padding: 10px 10px;
+            font-size: 1.4rem;
+        }
+    }
 
-
-@media (min-width: 870px) { 
-    .yeah-home{
-        .bg{
-            transition: all .5s ease-out;
-            transform: skewY(-15deg) translateY(-279px);
-            min-height: 800px;
+    .section {
+        text-align: center;
+        .title-label{
+            background: white;
+            color: $light-blue;
+            box-shadow: 4px 8px 30px 5px rgba(46,61,73,0.15);
+            border-radius: 0.325rem;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1.3px;
+            display: inline-block;
+            margin: auto;
+            padding: 6px 30px;
+            line-height: 25px;
         }
     }
 }
-
