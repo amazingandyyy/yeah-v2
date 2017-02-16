@@ -4,6 +4,8 @@ import Introduction from './introduction';
 import Statistics from './statistics';
 import Space from './space';
 import LProgram from './longProgram';
+import SProgram from './shortProgram';
+import Stories from './stories';
 
 export default class Home extends Component {
   render() {
@@ -12,8 +14,12 @@ export default class Home extends Component {
         <Header />
         <div className="bg"></div>
         <Introduction />
-        <Space height="80"/>
+        <Space height="50"/>
+        <hr />
         <LProgram />
+        <hr />
+        <SProgram />
+        <Stories />
         <Space height="500"/>
       </div>
     );

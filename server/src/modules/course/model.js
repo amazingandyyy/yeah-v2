@@ -17,9 +17,7 @@ const Schema = new mongoose.Schema({
   time: {
     type: String
   },
-  location: {
-    type: Object
-  },
+  location: Object,
   geometry: PointSchema,
   description: {
     type: String

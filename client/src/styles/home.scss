@@ -98,18 +98,96 @@
 
     .section {
         text-align: center;
+        padding: 20px 0px;
+        margin: 80px 0px;
         .title-label{
             background: white;
-            color: $light-blue;
             box-shadow: 4px 8px 30px 5px rgba(46,61,73,0.15);
             border-radius: 0.325rem;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 400;
             letter-spacing: 1.3px;
             display: inline-block;
             margin: auto;
-            padding: 6px 30px;
+            padding: 8px 30px;
             line-height: 25px;
         }
+        .description {
+            padding-top: 30px;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0px;
+        }
+        .action-button {
+            cursor: pointer;
+            padding-top: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        &.comment {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            .title {
+                font-size: 1.4rem;
+            }
+        }
+        .h-scrollable {
+            height: auto;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            cursor: pointer;
+            align-items: center;
+
+            &::-webkit-scrollbar {
+                height: 7px;
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: rgba(46,61,73,0.1);
+                border-radius: 10px;
+                margin-left: 30px;
+                margin-right: 30px;
+                margin-bottom: 50px;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: $light-blue;
+                height: 10px !important;
+            }
+            .card.comment {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: 500px;
+                width: 400px;
+                display: inline-block;
+                margin: 0px 15px;
+                min-width: 250px;
+                border: 0px solid rgba(0,0,0,0);
+                background: white;
+                border-radius: 0.175rem;
+                box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+                transition: all 0.1s ease-in-out;
+                position: relative;
+                text-align: left;
+                padding: 15px 15px;
+                
+                &:hover {
+                    box-shadow: 10px 15px 30px rgba(0,0,0,0.1);    
+                    transition:  all 0.5s ease-out;
+                }
+                
+                .body {
+                    text-transform: capitalize;
+                    white-space: normal;
+                    word-wrap: break-word;
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                    padding: 24px 32px;
+                    height: 8.25rem;
+                }
+            }
+        }
+        
     }
 }
