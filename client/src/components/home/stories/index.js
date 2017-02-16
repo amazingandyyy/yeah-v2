@@ -10,7 +10,7 @@ export default class SProgram extends Component {
             return (
                 <div className="card comment" key={student.name}>
                     <div className="body">
-                        <img src={student.photo} width={80}/>
+                        <img className="photo" src={student.photo} width={80}/>
                         <div className="name">{student.name}</div>
                         <div className="service">{student.service}</div>
                         <div className="major">{student.major}</div>

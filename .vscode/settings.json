@@ -14,7 +14,8 @@
         "app.yml": true,
         "Dockerfile": true,
         "yarn-error.log": true,
-        ".env": false
+        ".env": false,
+        ".DS_STORE": true
     }
 ,
 "vsicons.presets.angular": false
