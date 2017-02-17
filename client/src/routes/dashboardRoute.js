@@ -13,7 +13,7 @@ import VolunteerOneAdmin from '../components/dashboard/admin/volunteerOneAdmin';
 import VolunteerDetail from '../components/volunteer';
 import VolunteerDetailEdit from '../components/volunteer/edit';
 
-import CourseAdmin from '../components/dashboard/admin/courseAdmin';
+import CourseAdmin from '../components/dashboard/admin/course/courseAdmin';
 import CourseOneAdmin from '../components/dashboard/admin/courseOneAdmin';
 import CourseDetail from '../components/course';
 import CourseDetailEdit from '../components/course/edit';

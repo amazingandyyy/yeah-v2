@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../actions';
+import * as actions from '../../../../actions';
 // import 'react-widgets/lib/scss/react-widgets.scss';
-import '../../../styles/react-widget/scss/react-widgets.scss';
+import '../../../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
 import momentLocalizer from 'react-widgets/lib/localizers/moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
-import GoogleMapSearch from '../../widgets/googleMapSearch';
+import GoogleMapSearch from '../../../widgets/googleMapSearch';
 
 
-class CourseAdmin extends Component{
+class CourseAdminSecondPage extends Component{
     constructor(props){
-        super(props)
+        super(props);
+
         this.state = {
             tags: [ {id: 1, text: "Apples"} ],
             suggestions: ["Banana", "Mango", "Pear", "Apricot"]
         }
-    }
+    } 
+
     handleFormSubmit(data) {
         // Getting data object
         console.log('data: ', data);
         //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createCourseResource(data);
+        // this.props.createCourseResource(data);
     }
 
     renderMultiselect ({input, data}) {
@@ -65,10 +67,11 @@ class CourseAdmin extends Component{
         const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math'];
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
-            <form
-                onSubmit={this.props.handleSubmit(this.handleFormSubmit.bind(this))}
-            >
+
+            <form onSubmit = {this.props.handleSubmit(this.handleFormSubmit.bind(this))}>
                 <div className="form-title-bg">Create A Training Program</div>
+                <div className="form-subtitle-bg">About The Course</div>
+                
                 <div className="form-wrapper">
                     <label>Title*</label>
                     <div className="form-group">
@@ -151,17 +154,19 @@ class CourseAdmin extends Component{
                 </div>
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
-                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
-                </div>
+                    <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Next</button>
+                </div>                
             </form>
-            
-        )
+
+        );
     }
 }
 
 
-CourseAdmin = reduxForm({
-    form: 'createCourseResource'
-})(CourseAdmin);
+CourseAdminSecondPage = reduxForm({
+    form: 'createCourseResource',
+    destroyOnUnmount: false,
+    forceUnregisterOnUnmount: true,
+})(CourseAdminSecondPage);
 
-export default connect(null, actions)(CourseAdmin);
+export default connect(null, actions)(CourseAdminSecondPage);
