@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 
-export default class LProgram extends Component {
+export default class SProgram extends Component {
   render() {
     return (
       <div className="section longProgram">
         <div className="container-fluid" style={{maxWidth: '1000px'}}>
         <div className="row">
         <div className="col-sm-12">
-          <div className="title-label" style={{color: '#02b3e4'}}>旗舰孵化器项目</div>
+          <div className="title-label" style={{color: '#FF5483'}}>限额加速器计划</div>
           <div className="description">
-            欧耶首创，两年服务
+            2017 全新企划
             <br/>
-            全面提升学经历，最大化成功率
+            限量名额，品质保证
             <br/>
-            我们愿意与你从头开始； 陪伴，是最长情的告白
+            三对一导师精英模式，转学成功率+650%
             <br/>            
-            <span className="action-button" style={{color: '#02b3e4'}}>加入孵化器 ></span>
+            <span className="action-button" style={{color: '#FF5483'}}>申请加速器 ></span>
           </div>
           <div className="col-sm-12">
           </div>
@@ -23,6 +23,6 @@ export default class LProgram extends Component {
         </div>
         </div>
       </div>
-    );a
+    );
   }
 }

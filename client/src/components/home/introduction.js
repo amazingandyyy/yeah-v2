@@ -18,13 +18,30 @@ export default class Introduction extends Component {
           </div>
           <div className="col-md-12 col-xl-4">
             <div className="headline-card">
-              Consulting/ Case Study 比赛集训课程
+              <div className="header" style={{backgroundColor: `rgb(2,179,228)`}}>
+                <div>2/26</div>
+              </div>
+              <div className="body">
+                Consulting/ Case Study 比赛集训课程
+              </div>
             </div>
+
             <div className="headline-card">
+            <div className="header" style={{backgroundColor: `rgb(2,204,186)`}}>
+                <div>3/4</div>
+              </div>
+              <div className="body">
               Career Workshop 公益讲座
+              </div>
             </div>
+
             <div className="headline-card">
-              Web Design 课程
+              <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
+                <div>3/26</div>
+              </div>
+              <div className="body">
+                Web Design 课程
+              </div>
             </div>
           </div>
         </div>
