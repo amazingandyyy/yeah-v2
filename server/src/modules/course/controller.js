@@ -48,14 +48,38 @@ export default {
         console.log('req.params.id: ', req.params.id);
         Course.findByIdAndRemove(req.params.id)
         .then(() => {
-            res.send()
+            res.send();
         })
         .catch(next)
     },
     updateOne: function(req, res, next){
         Course.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {
-            res.send()
+            res.send();
+        })
+        .catch(next);
+    },
+    signupOneForOneCourse: function(req, res, next){
+        Course.findById(req.params.id, req.body)
+        .then((course) => {
+            const userId = req.params.userId;
+            course.participants.push({userId})
+            return course.save()
+        })
+        .then(() => {
+            res.send();
+        })
+        .catch(next);
+    },
+    checkinOneforOneCourse: function(req, res, next){
+        Course.findOneAndUpdate(req.params.id, req.body)
+        .then((course) => {
+            const userId = req.params.userId;
+            course.participants.push(userId);
+            return course.save();
+        })
+        .then(() => {
+            res.send();
         })
         .catch(next);
     }
