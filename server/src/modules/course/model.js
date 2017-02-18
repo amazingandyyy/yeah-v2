@@ -10,21 +10,21 @@ const Schema = new mongoose.Schema({
   // },
   // instructor: {
   //   type: String
-  // },
-  // date: {
-  //   type: String
-  // },
+  // },  
   // time: {
   //   type: String
-  // },
-  // location: Object,
-  // geometry: PointSchema,
+  // }，
   // description: {
   //   type: String
   // },
-  // tags: [{
-  //   type: String
-  // }],
+  date: {
+    type: String
+  },
+  location: Object,
+  geometry: PointSchema,
+  tags: [{
+    type: String
+  }],
   createBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'

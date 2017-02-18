@@ -24,7 +24,7 @@ class CourseAdminThirdPage extends Component{
     } 
 
 
-    componentOnMount(){
+    componentWillMount(){
         window.scrollTo(0,0);
     }
 

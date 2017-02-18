@@ -23,7 +23,7 @@ class CourseAdminSecondPage extends Component{
         }
     } 
 
-    componentOnMount(){
+    componentWillMount(){
         window.scrollTo(0,0);
     }
 
@@ -124,6 +124,16 @@ class CourseAdminSecondPage extends Component{
                     </div>
                 </div>
                 <div className="form-wrapper">
+                    <label>Tags*</label>
+                    <div className="form-group">
+                        <Field 
+                            name="tags"
+                            component={this.renderMultiselect.bind(this)}
+                            data={tagList}
+                        />
+                    </div>
+                </div>                
+                <div className="form-wrapper">
                     <label>Brief Overview of the Course(For marketing purpose)*</label>
                     <h6><em>At least six sentences ;  about 100- 200 words .</em></h6>
                     <div className="form-group">
@@ -135,6 +145,19 @@ class CourseAdminSecondPage extends Component{
                             rows="6"
                             className="yeah-input"
                             placeholder="Brief Overview"
+                            
+                        />
+                    </div>
+                </div>
+                <div className="form-wrapper">
+                    <label>Starting Date*</label>
+                    <div className="form-group">
+                        <Field 
+                            type="date" 
+                            name="date" 
+                            component="input" 
+                            className="yeah-input"
+                            placeholder="Course date"
                             
                         />
                     </div>
@@ -160,6 +183,18 @@ class CourseAdminSecondPage extends Component{
                             component={this.renderWeekList}
                             data={hourList}
                             className="yeah-input"
+                            
+                        />
+                    </div>
+                </div>
+                <div className="form-wrapper">
+                    <label>Location*</label>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="location" 
+                            component={GoogleMapSearch} 
+                            placeholder="Course location"
                             
                         />
                     </div>
