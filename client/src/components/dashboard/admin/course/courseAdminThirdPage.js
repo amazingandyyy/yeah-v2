@@ -34,7 +34,7 @@ class CourseAdminThirdPage extends Component{
         //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        // this.props.createCourseResource(data);
+        this.props.createCourseResource(data);
     }
 
     renderMultiselect ({input, data}) {
