@@ -48,7 +48,25 @@ const Schema = new mongoose.Schema({
   createAt: {
     type: Number,
     default: Date.now()
-  }
+  },
+  participant:[{
+    userId: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    },
+    checkedIn: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    checkedInAt: {
+      type: Number
+    },
+    signedUpAt: {
+      type: Number,
+      default: Date.now()
+    }
+  }]
 });
 
 export default mongoose.model('Course', Schema);
