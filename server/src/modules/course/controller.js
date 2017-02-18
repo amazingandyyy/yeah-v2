@@ -74,9 +74,9 @@ export default {
     checkinOneforOneCourse: function(req, res, next){
         Course.findOneAndUpdate(req.params.id, req.body)
         .then((course) => {
-            const userId = req.params.userId;
-            course.participants.push(userId);
-            return course.save();
+            // const userId = req.params.userId;
+            // course.participants.push(userId);
+            // return course.save();
         })
         .then(() => {
             res.send();
