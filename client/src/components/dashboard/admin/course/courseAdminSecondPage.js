@@ -23,6 +23,10 @@ class CourseAdminSecondPage extends Component{
         }
     } 
 
+    componentOnMount(){
+        window.scrollTo(0,0);
+    }
+
     handleFormSubmit(data) {
         // Getting data object
         console.log('data: ', data);
@@ -101,7 +105,7 @@ class CourseAdminSecondPage extends Component{
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
 
-            <form onSubmit = {this.props.handleSubmit(this.handleFormSubmit.bind(this))}>
+            <form onSubmit = {this.props.handleSubmit}>
                 <div className="form-title-bg">Create A Training Program</div>
                 <br />
                 <div className="form-subtitle-bg">About The Course</div>
@@ -115,13 +119,13 @@ class CourseAdminSecondPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Course title"
-                            required
+                            
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
                     <label>Brief Overview of the Course(For marketing purpose)*</label>
-                    <h6><em>At least six sentences ;  about 100- 200 words required.</em></h6>
+                    <h6><em>At least six sentences ;  about 100- 200 words .</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -131,7 +135,7 @@ class CourseAdminSecondPage extends Component{
                             rows="6"
                             className="yeah-input"
                             placeholder="Brief Overview"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -143,7 +147,7 @@ class CourseAdminSecondPage extends Component{
                             component={this.renderWeekList}
                             data={hourList}
                             className="yeah-input"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -156,13 +160,13 @@ class CourseAdminSecondPage extends Component{
                             component={this.renderWeekList}
                             data={hourList}
                             className="yeah-input"
-                            required
+                            
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Required Textbooks or Readers*</label>
-                    <h6><em>Each class should have required readings. Each week, instructor should at least 5 hours of reading before the class meeting. Please provide a link to the pdf version of textbook or ways to obtain the textbook, if applicable.</em></h6>
+                    <label> Textbooks or Readers*</label>
+                    <h6><em>Each class should have  readings. Each week, instructor should at least 5 hours of reading before the class meeting. Please provide a link to the pdf version of textbook or ways to obtain the textbook, if applicable.</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -170,7 +174,7 @@ class CourseAdminSecondPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Brief Overview"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -183,7 +187,7 @@ class CourseAdminSecondPage extends Component{
                             component={this.renderSelectList}
                             data={[ {option: 'Yes, I already sent it.'}, {option: 'Not yet, but I will send it soon.'}]}
                             className="yeah-input"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -209,7 +213,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="1st Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div>                
@@ -226,7 +230,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="2nd Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div>     
@@ -243,7 +247,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="3rd Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div>
@@ -260,7 +264,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="4th Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div> 
@@ -277,7 +281,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="5th Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div>   
@@ -294,7 +298,7 @@ class CourseAdminSecondPage extends Component{
                             rows="5"
                             className="yeah-input"
                             placeholder="6th Week Highlights"
-                            required
+                            
                         />
                     </div>
                 </div>  
@@ -327,7 +331,7 @@ export default connect(null, actions)(CourseAdminSecondPage);
 //                             component="input" 
 //                             className="yeah-input"
 //                             placeholder="Course date"
-//                             required
+//                             
 //                         />
 //                     </div>
 //                 </div>
@@ -340,7 +344,7 @@ export default connect(null, actions)(CourseAdminSecondPage);
 //                             name="location" 
 //                             component={GoogleMapSearch} 
 //                             placeholder="Course location"
-//                             required
+//                             
 //                         />
 //                     </div>
 //                 </div>
