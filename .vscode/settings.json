@@ -6,7 +6,7 @@
         "yarn.lock": true,
         ".elasticbeanstalk": true,
         "design.sketch": true,
-        ".babelrc": true,
+        ".babelrc": false,
         "node_modules": false,
         "npm-debug.log": false,
         "**/dist/**.js.map": true,
