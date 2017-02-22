@@ -8,9 +8,6 @@ const Schema = new mongoose.Schema({
   //   type: String, 
   //   required: [true, 'Title is required']
   // },
-  // instructor: {
-  //   type: String
-  // },  
   // time: {
   //   type: String
   // }，
@@ -21,6 +18,7 @@ const Schema = new mongoose.Schema({
     type: String
   },
   location: Object,
+  locationDetails: String,
   geometry: PointSchema,
   tags: [{
     type: String
@@ -76,27 +74,18 @@ const Schema = new mongoose.Schema({
     firstName:{
       type: String
     },
-    heighlight1:{
-      type: String
-    },
-    heighlight2:{
-      type: String
-    },
-    heighlight3:{
-      type: String
-    },
-    heighlight4:{
-      type: String
-    },
-    heighlight5:{
-      type: String
-    },
-    heighlight6:{
-      type: String
-    },
+    heighlightTitle:[{
+      type:String
+    }],
+    heighlightDescription:[{
+      type:String      
+    }],
     hoursPerWeek:{
       type: String      
     },
+    instructor: {
+    type: String
+    },  
     lastName:{
       type: String      
     },
@@ -107,7 +96,7 @@ const Schema = new mongoose.Schema({
       type: String
     },
     phoneNumber:{
-      type: String      
+      type: Number      
     },
     preRequisites:{
       type: String      
@@ -115,31 +104,19 @@ const Schema = new mongoose.Schema({
     schoolAffiliation:{
       type: String      
     },
-    syllabus:{
-      type: String      
+    isSyllabusSent:{
+      type: Boolean      
     },
-    takeaway1:{
-      type: String      
-    },
-    takeaway2:{
-      type: String      
-    },
-    takeaway3:{
-      type: String      
-    },
-    takeaway4:{
-      type: String      
-    },
-    takeaway5:{
-      type: String      
-    },
+    takeaways:[{
+      type:String
+    }],
     textbook:{
       type: String      
     },
-    title:{
+    courseTitle:{
       type: String      
     },
-    weeks:{
+    howManyWeeks:{
       type: String      
     }
 });

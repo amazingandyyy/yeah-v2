@@ -66,7 +66,7 @@ class CourseAdminSecondPage extends Component{
         );
     }
 
-    renderWeekList({ input, data, ...rest }){
+    renderNumList({ input, data, ...rest }){
         let hourList = _.map(data, 'hour');
         return (
             <span style={{width: '100%'}}>
@@ -101,7 +101,9 @@ class CourseAdminSecondPage extends Component{
         momentLocalizer(moment);
 
         const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math'];
-        const hourList = [ {hour:'1'}, {hour:'2'}, {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'} ]
+        const hourList = [ {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'} ];
+        const weekList = [ {hour:'2'}, {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'},{hour:'7'}, {hour:'8'} ];
+        
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
 
@@ -115,11 +117,11 @@ class CourseAdminSecondPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="title" 
+                            name="coursetitle" 
                             component="input" 
                             className="yeah-input"
                             placeholder="Course title"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -130,6 +132,7 @@ class CourseAdminSecondPage extends Component{
                             name="tags"
                             component={this.renderMultiselect.bind(this)}
                             data={tagList}
+                            required
                         />
                     </div>
                 </div>                
@@ -145,7 +148,8 @@ class CourseAdminSecondPage extends Component{
                             rows="6"
                             className="yeah-input"
                             placeholder="Brief Overview"
-                            
+                            maxLength="600" minLength="200"
+                            required
                         />
                     </div>
                 </div>
@@ -158,7 +162,7 @@ class CourseAdminSecondPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Course date"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -167,10 +171,10 @@ class CourseAdminSecondPage extends Component{
                     <div className="form-group">
                         <Field 
                             name="hoursPerWeek" 
-                            component={this.renderWeekList}
+                            component={this.renderNumList}
                             data={hourList}
                             className="yeah-input"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -179,11 +183,11 @@ class CourseAdminSecondPage extends Component{
                     <label>For How many weeks(How many courses)*</label>
                     <div className="form-group">
                         <Field 
-                            name="weeks" 
-                            component={this.renderWeekList}
-                            data={hourList}
+                            name="howManyWeeks" 
+                            component={this.renderNumList}
+                            data={weekList}
                             className="yeah-input"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -195,7 +199,19 @@ class CourseAdminSecondPage extends Component{
                             name="location" 
                             component={GoogleMapSearch} 
                             placeholder="Course location"
-                            
+                            required
+                        />
+                    </div>
+                </div>
+                <div className="form-wrapper">
+                    <label>Location Details*</label>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="locationDetails" 
+                            component="input" 
+                            placeholder="Exp. Classroom 320"
+                            className="yeah-input"
                         />
                     </div>
                 </div>
@@ -209,20 +225,25 @@ class CourseAdminSecondPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Brief Overview"
-                            
+                            required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
                     <label>Academic Schedule(Syllabus)*</label>
-                    <h6>Please bring together a detail>demic schedule that covers each and every week of the class meetings. Please refer to any college syllabus for the format. (One example could be found in the following link. <a href="http://www.haas.berkeley.edu/Undergrad/courses/Syllabi/UGBA103_BA130/2014-fall-103-livdan.pdf">http://www.haas.berkeley.edu/Undergrad/courses/Syllabi/UGBA103_BA130/2014-fall-103-livdan.pdf</a>) Note：Each class meeting should have AT LEAST 5 hours of pre-class readings; Pre-class quiz (to check if students accomplish readings); Class Content (ppt/ note); Post-class quiz (to check how much students understand from the lecture); homework (5 hours of workload minimum); Each class should also have a final exam on the last day of instruction. (Please seperate topic, readings due before the class, homework assigned on the day of lecture, case, quiz and exam.) Please send an EDITABLE copy (word or google doc format) to yeaheducation@gmail.com</h6>                    
+                    <ul>
+                        <li>Please bring together a detail>demic schedule that covers each and every week of the class meetings.</li> 
+                        <li>Please refer to any college syllabus for the format. (One example could be found in the following link. <a href="http://www.haas.berkeley.edu/Undergrad/courses/Syllabi/UGBA103_BA130/2014-fall-103-livdan.pdf" style={{color:'#5BD5F7'}}>http://www.haas.berkeley.edu/Undergrad/courses/Syllabi/UGBA103_BA130/2014-fall-103-livdan.pdf</a></li>  
+                        <li>Note：Each class meeting should have AT LEAST 5 hours of pre-class readings; Pre-class quiz (to check if students accomplish readings); Class Content (ppt/ note); Post-class quiz (to check how much students understand from the lecture); homework (5 hours of workload minimum); Each class should also have a final exam on the last day of instruction. (Please seperate topic, readings due before the class, homework assigned on the day of lecture, case, quiz and exam.) </li>
+                        <li>Please send an EDITABLE copy (word or google doc format) to  <a href="mailto:yeaheducation@gmail.com" style={{color:'#5BD5F7'}}>yeaheducation@gmail.com</a></li>
+                    </ul>                    
                     <div className="form-group">
                         <Field 
                             name="syllabus" 
                             component={this.renderSelectList}
                             data={[ {option: 'Yes, I already sent it.'}, {option: 'Not yet, but I will send it soon.'}]}
                             className="yeah-input"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -238,108 +259,182 @@ class CourseAdminSecondPage extends Component{
                 
                 <div className="form-wrapper">
                     <label>1st Week Highlights (Focus on Class Content)*</label>
-                    <h6><em>1 Title + 50 words</em></h6>
+                    <h6><em>Title</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="heighlight1" 
+                            name="heighlightTitle1" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="1st Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription1" 
                             component="textarea" 
                             cols="40" 
                             rows="5"
                             className="yeah-input"
                             placeholder="1st Week Highlights"
-                            
+                            maxLength="500" minLength="150"
+                            required
                         />
                     </div>
                 </div>                
 
                 <div className="form-wrapper">
-                    <label>2nd Week Highlights*</label>
-                    <h6><em>1 Title + 50 words Explanation/Details</em></h6>
+                    <label>2nd Week Highlights (Focus on Class Content)*</label>
+                    <h6><em>Title</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="heighlight2" 
+                            name="heighlightTitle2" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="2nd Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription2" 
                             component="textarea" 
                             cols="40" 
                             rows="5"
                             className="yeah-input"
                             placeholder="2nd Week Highlights"
-                            
-                        />
-                    </div>
-                </div>     
-
-                <div className="form-wrapper">
-                    <label>3rd Week Highlights*</label>
-                    <h6><em>1 Title + 50 words Explanation/Details</em></h6>
-                    <div className="form-group">
-                        <Field 
-                            type="type" 
-                            name="heighlight3" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="5"
-                            className="yeah-input"
-                            placeholder="3rd Week Highlights"
-                            
+                            maxLength="500" minLength="150"
+                            required
                         />
                     </div>
                 </div>
 
                 <div className="form-wrapper">
-                    <label>4th Week Highlights*</label>
-                    <h6><em>1 Title + 50 words Explanation/Details</em></h6>
+                    <label>3rd Week Highlights (Focus on Class Content)*</label>
+                    <h6><em>Title</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="heighlight4" 
+                            name="heighlightTitle3" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="3rd Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription3" 
+                            component="textarea" 
+                            cols="40" 
+                            rows="5"
+                            className="yeah-input"
+                            placeholder="3rd Week Highlights"
+                            maxLength="500" minLength="150"
+                            required
+                        />
+                    </div>
+                </div>
+
+                <div className="form-wrapper">
+                    <label>4th Week Highlights (Focus on Class Content)*</label>
+                    <h6><em>Title</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightTitle4" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="4th Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription4" 
                             component="textarea" 
                             cols="40" 
                             rows="5"
                             className="yeah-input"
                             placeholder="4th Week Highlights"
-                            
+                            maxLength="500" minLength="150"
+                            required
                         />
                     </div>
-                </div> 
+                </div>
 
                 <div className="form-wrapper">
-                    <label>5th Week Highlights*</label>
-                    <h6><em>1 Title + 50 words Explanation/Details</em></h6>
+                    <label>5th Week Highlights (Focus on Class Content)*</label>
+                    <h6><em>Title</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="heighlight5" 
+                            name="heighlightTitle5" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="5th Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription5" 
                             component="textarea" 
                             cols="40" 
                             rows="5"
                             className="yeah-input"
                             placeholder="5th Week Highlights"
-                            
+                            maxLength="500" minLength="150"
+                            required
                         />
                     </div>
-                </div>   
+                </div>
+
 
                 <div className="form-wrapper">
-                    <label>6th Week Highlights*</label>
-                    <h6><em>1 Title + 50 words Explanation/Details</em></h6>
+                    <label>6th Week Highlights (Focus on Class Content)*</label>
+                    <h6><em>Title</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="heighlight6" 
+                            name="heighlightTitle6" 
+                            component="input"
+                            className="yeah-input"
+                            placeholder="6th Week Highlights"
+                            required
+                        />
+                    </div>
+                    <h6><em>Description (About 50 words)</em></h6>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="heighlightDescription6" 
                             component="textarea" 
                             cols="40" 
                             rows="5"
                             className="yeah-input"
                             placeholder="6th Week Highlights"
-                            
+                            maxLength="500" minLength="150"
+                            required
                         />
                     </div>
                 </div>  
 
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
+                    <button type="button" onClick={this.props.previousPage}  className="flex-item btn btn-primary" >Previous</button>
                     <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Next</button>
                 </div>                
             </form>

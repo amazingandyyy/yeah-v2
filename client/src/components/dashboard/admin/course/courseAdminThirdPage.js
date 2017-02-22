@@ -29,12 +29,79 @@ class CourseAdminThirdPage extends Component{
     }
 
     handleFormSubmit(data) {
-        // Getting data object
-        console.log('data: ', data);
+        // Formatting the Object
+
+        const instructor = `${data.firstName} ${data.lastName}`;
+
+        const takeaways = [];
+        takeaways.push(data.takeaway1);
+        takeaways.push(data.takeaway2);
+        takeaways.push(data.takeaway3);
+        takeaways.push(data.takeaway4);
+        takeaways.push(data.takeaway5);        
+        
+        delete data.takeaway1;
+        delete data.takeaway2;
+        delete data.takeaway3;
+        delete data.takeaway4;
+        delete data.takeaway5;
+        
+        const heighlightTitle = [];  
+        heighlightTitle.push(data.heighlightTitle1);
+        heighlightTitle.push(data.heighlightTitle2);
+        heighlightTitle.push(data.heighlightTitle3);
+        heighlightTitle.push(data.heighlightTitle4);
+        heighlightTitle.push(data.heighlightTitle5);  
+        heighlightTitle.push(data.heighlightTitle6);  
+        
+
+        delete data.heighlightTitle1;
+        delete data.heighlightTitle2;
+        delete data.heighlightTitle3;
+        delete data.heighlightTitle4;
+        delete data.heighlightTitle5;
+        delete data.heighlightTitle6;
+        
+        const heighlightDescription = [];
+
+        heighlightDescription.push(data.heighlightDescription1);
+        heighlightDescription.push(data.heighlightDescription2);
+        heighlightDescription.push(data.heighlightDescription3);
+        heighlightDescription.push(data.heighlightDescription4);
+        heighlightDescription.push(data.heighlightDescription5);
+        heighlightDescription.push(data.heighlightDescription6);        
+        
+        delete data.heighlightDescription1;
+        delete data.heighlightDescription2;
+        delete data.heighlightDescription3;
+        delete data.heighlightDescription4;
+        delete data.heighlightDescription5;
+        delete data.heighlightDescription6;
+
+        let isSyllabusSent;
+
+        if(data.syllabus === 'Yes, I already sent it.'){
+            isSyllabusSent = true;
+        }else{
+            isSyllabusSent = false;
+        }
+
+        delete data.syllabus;
+        // Check result
+        const result = {
+            ...data,
+            instructor,
+            takeaways,
+            heighlightTitle,
+            heighlightDescription,
+            isSyllabusSent
+        }
+
+        console.log('result: ', result);
         //show the time
         // console.log('Specific Date: ', data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
         // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        this.props.createCourseResource(data);
+        this.props.createCourseResource(result);
     }
 
     renderMultiselect ({input, data}) {
@@ -123,9 +190,7 @@ class CourseAdminThirdPage extends Component{
                         <Field 
                             type="type" 
                             name="takeaway1" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="3"
+                            component="input" 
                             className="yeah-input"
                             placeholder="1st takeaway"
                             required
@@ -140,9 +205,7 @@ class CourseAdminThirdPage extends Component{
                         <Field 
                             type="type" 
                             name="takeaway2" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="3"
+                            component="input" 
                             className="yeah-input"
                             placeholder="2nd takeaway"
                             required
@@ -157,9 +220,7 @@ class CourseAdminThirdPage extends Component{
                         <Field 
                             type="type" 
                             name="takeaway3" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="3"
+                            component="input" 
                             className="yeah-input"
                             placeholder="3rd takeaway"
                             required
@@ -174,9 +235,7 @@ class CourseAdminThirdPage extends Component{
                         <Field 
                             type="type" 
                             name="takeaway4" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="3"
+                            component="input" 
                             className="yeah-input"
                             placeholder="4th takeaway"
                             required
@@ -191,9 +250,7 @@ class CourseAdminThirdPage extends Component{
                         <Field 
                             type="type" 
                             name="takeaway5" 
-                            component="textarea" 
-                            cols="40" 
-                            rows="3"
+                            component="input" 
                             className="yeah-input"
                             placeholder="5th takeaway"
                             required
@@ -220,6 +277,7 @@ class CourseAdminThirdPage extends Component{
 
                 <div className="flex-container btn-container">
                     <button type="button" disabled={ submitting } className="flex-item btn btn-default" onClick={reset}>Cancel</button>
+                    <button type="button" onClick={this.props.previousPage}  className="flex-item btn btn-primary" >Previous</button>
                     <button type="submit" disabled={ !dirty } className="flex-item btn btn-primary">Create</button>
                 </div>                
             </form>

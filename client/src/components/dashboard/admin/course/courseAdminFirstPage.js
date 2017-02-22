@@ -80,7 +80,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Your Email Address"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -93,7 +93,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="First Name"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -106,7 +106,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Last Name"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -119,7 +119,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Phone Number"
-                            
+                            required
                         />
                     </div>
                 </div>
@@ -132,7 +132,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Current/ Past School Affiliation"
-                            
+                            required                            
                         />
                     </div>
                 </div>
@@ -145,6 +145,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="Current / Past Company Affiliation (including intern) & Position"
+                            required
                             
                         />
                     </div>
@@ -158,6 +159,7 @@ class CourseAdminFirstPage extends Component{
                             component="input" 
                             className="yeah-input"
                             placeholder="LinkedIn"
+                            required
                             
                         />
                     </div>
