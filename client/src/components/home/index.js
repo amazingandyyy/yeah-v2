@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../header';
 import Introduction from './introduction';
+import Facts from './facts';
 import Statistics from './statistics';
 import Space from './space';
 import LProgram from './longProgram';
@@ -15,6 +16,10 @@ export default class Home extends Component {
         <div className="bg"></div>
         <Introduction />
         <Space height="50"/>
+        <hr />
+        <Facts />
+        <hr />
+        <Statistics />
         <hr />
         <LProgram />
         <hr />
