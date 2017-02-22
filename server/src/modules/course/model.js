@@ -4,24 +4,22 @@ import PointSchema from '../schemas/point';
 
 // Define the model
 const Schema = new mongoose.Schema({
-  title: {
-    type: String, 
-    required: [true, 'Title is required']
-  },
-  instructor: {
-    type: String
-  },
+  // title: {
+  //   type: String, 
+  //   required: [true, 'Title is required']
+  // },
+  // time: {
+  //   type: String
+  // }，
+  // description: {
+  //   type: String
+  // },
   date: {
     type: String
   },
-  time: {
-    type: String
-  },
   location: Object,
+  locationDetails: String,
   geometry: PointSchema,
-  description: {
-    type: String
-  },
   tags: [{
     type: String
   }],
@@ -66,7 +64,61 @@ const Schema = new mongoose.Schema({
       type: Number,
       default: Date.now()
     }
-  }]
+  }],
+    email:{
+      type: String
+    },
+    companyAffiliation:{
+      type: String
+    },
+    firstName:{
+      type: String
+    },
+    heighlightTitle:[{
+      type:String
+    }],
+    heighlightDescription:[{
+      type:String      
+    }],
+    hoursPerWeek:{
+      type: String      
+    },
+    instructor: {
+    type: String
+    },  
+    lastName:{
+      type: String      
+    },
+    linkedIn:{
+      type: String
+    },
+    overview:{
+      type: String
+    },
+    phoneNumber:{
+      type: Number      
+    },
+    preRequisites:{
+      type: String      
+    },
+    schoolAffiliation:{
+      type: String      
+    },
+    isSyllabusSent:{
+      type: Boolean      
+    },
+    takeaways:[{
+      type:String
+    }],
+    textbook:{
+      type: String      
+    },
+    title:{
+      type: String      
+    },
+    howManyWeeks:{
+      type: String      
+    }
 });
 
 export default mongoose.model('Course', Schema);
