@@ -117,7 +117,7 @@ class CourseAdminSecondPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="coursetitle" 
+                            name="title" 
                             component="input" 
                             className="yeah-input"
                             placeholder="Course title"

@@ -113,7 +113,7 @@ const Schema = new mongoose.Schema({
     textbook:{
       type: String      
     },
-    courseTitle:{
+    title:{
       type: String      
     },
     howManyWeeks:{
