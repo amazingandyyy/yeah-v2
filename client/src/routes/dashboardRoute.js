@@ -17,7 +17,7 @@ import CourseAdmin from '../components/dashboard/admin/courseAdmin';
 import CourseOneAdmin from '../components/dashboard/admin/courseOneAdmin';
 import CourseDetail from '../components/course';
 import CourseDetailEdit from '../components/course/edit';
-
+// import CourseAdminAuccess from './components/...'
 import InternshipAdmin from '../components/dashboard/admin/internshipAdmin';
 import InternshipOneAdmin from '../components/dashboard/admin/internshipOneAdmin';
 import InternshipDetail from '../components/internship';
@@ -77,7 +77,12 @@ const DashboardRoute = {
         },{
           path: '/dashboard/admin/course',
           component: CourseAdmin
-        }, {
+        },
+        // {
+        //   path: '/dashboard/admin/course/success',
+        //   component: CourseAdminAuccess
+        // }
+        , {
           path: '/dashboard/admin/course/:id',
           component: CourseOneAdmin
         }, {
