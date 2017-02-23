@@ -7,6 +7,7 @@ import Space from './space';
 import LProgram from './longProgram';
 import SProgram from './shortProgram';
 import Stories from './stories';
+import Footer from '../footer';
 
 export default class Home extends Component {
   render() {
@@ -25,7 +26,7 @@ export default class Home extends Component {
         <hr />
         <SProgram />
         <Stories />
-        <Space height="500"/>
+        <Footer />
       </div>
     );
   }

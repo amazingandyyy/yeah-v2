@@ -65,60 +65,60 @@ const Schema = new mongoose.Schema({
       default: Date.now()
     }
   }],
-    email:{
-      type: String
-    },
-    companyAffiliation:{
-      type: String
-    },
-    firstName:{
-      type: String
-    },
-    heighlightTitle:[{
-      type:String
-    }],
-    heighlightDescription:[{
-      type:String      
-    }],
-    hoursPerWeek:{
-      type: String      
-    },
-    instructor: {
+  email:{
     type: String
-    },  
-    lastName:{
-      type: String      
-    },
-    linkedIn:{
-      type: String
-    },
-    overview:{
-      type: String
-    },
-    phoneNumber:{
-      type: Number      
-    },
-    preRequisites:{
-      type: String      
-    },
-    schoolAffiliation:{
-      type: String      
-    },
-    isSyllabusSent:{
-      type: Boolean      
-    },
-    takeaways:[{
-      type:String
-    }],
-    textbook:{
-      type: String      
-    },
-    title:{
-      type: String      
-    },
-    howManyWeeks:{
-      type: String      
-    }
+  },
+  companyAffiliation:{
+    type: String
+  },
+  firstName:{
+    type: String
+  },
+  heighlightTitle:[{
+    type:String
+  }],
+  heighlightDescription:[{
+    type:String      
+  }],
+  hoursPerWeek:{
+    type: String      
+  },
+  instructor: {
+  type: String
+  },  
+  lastName:{
+    type: String      
+  },
+  linkedIn:{
+    type: String
+  },
+  overview:{
+    type: String
+  },
+  phoneNumber:{
+    type: Number      
+  },
+  preRequisites:{
+    type: String      
+  },
+  schoolAffiliation:{
+    type: String      
+  },
+  isSyllabusSent:{
+    type: Boolean      
+  },
+  takeaways:[{
+    type:String
+  }],
+  textbook:{
+    type: String      
+  },
+  title:{
+    type: String      
+  },
+  howManyWeeks:{
+    type: String      
+  }
 });
 
 export default mongoose.model('Course', Schema);
