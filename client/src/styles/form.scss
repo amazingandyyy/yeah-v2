@@ -43,13 +43,16 @@ input, textarea, keygen, select, button {
     margin-top: -5px;
     label {
         margin: 10px 0px 5px 0px;
-        font-size: 1rem;
-        opacity: 0.9;
-        font-weight: 600;
-        letter-spacing: 1px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        font-weight: 400;
+        letter-spacing: 1.1px;
         text-transform: uppercase;
         user-select: none;
     }
+}
+.highlight-text {
+    color: $light-blue !important;
 }
 .form-group {
     display: flex;

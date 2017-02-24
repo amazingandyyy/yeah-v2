@@ -66,61 +66,56 @@ class CourseAdminFirstPage extends Component{
             <form
                 onSubmit={this.props.handleSubmit}
             >
-                <div className="form-title-bg">Create A Training Program</div>
+            <div className="form-subtitle-bg">Instructor Information</div>
                 <div className="form-wrapper">
-                    <label>Email*</label>
+                    <label>Instructor Email*</label>
                     <div className="form-group">
-                        <Field 
-                            type="email" 
-                            name="email" 
-                            component="input" 
-                            className="yeah-input"
-                            placeholder="Your Email Address"
-                            required
-                        />
+                    <Field 
+                        type="email" 
+                        name="email" 
+                        component="input" 
+                        className="yeah-input"
+                        placeholder="Instructor's Email Address"
+                        required
+                    />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>First Name*</label>
+                    <label>Instructor Full Name*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
                             name="firstName" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="First Name"
+                            placeholder="Instructor's First Name"
                             required
                         />
-                    </div>
-                </div>
-                <div className="form-wrapper">
-                    <label>Last Name*</label>
-                    <div className="form-group">
                         <Field 
                             type="type" 
                             name="lastName" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Last Name"
+                            placeholder="Instructor's Last Name"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Phone Number*</label>
+                    <label>Instructor Phone Number*</label>
                     <div className="form-group">
                         <Field
                             type="phone" 
                             name="phone" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Phone Number"
+                            placeholder="Instructor's Phone Number"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Current Position*</label>
+                    <label>Current Affiliation & Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -130,8 +125,6 @@ class CourseAdminFirstPage extends Component{
                             placeholder="UC Berkeley / KPMG / Google"
                             required                            
                         />
-                    </div>
-                    <div className="form-group">
                         <Field 
                             type="type" 
                             name="currentPosition" 
@@ -143,7 +136,7 @@ class CourseAdminFirstPage extends Component{
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Previous Company Position (including internship)*</label>
+                    <label>Previous Affiliation & Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -153,8 +146,6 @@ class CourseAdminFirstPage extends Component{
                             placeholder="KPMG / Google"
                             required                            
                         />
-                    </div>
-                    <div className="form-group">
                         <Field 
                             type="type" 
                             name="previousPosition" 
@@ -170,10 +161,10 @@ class CourseAdminFirstPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="linkedIn" 
+                            name="linkedinURL" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Your Full LinkedIn URL"
+                            placeholder="Instructor's LinkedIn URL"
                             required
                         />
                     </div>

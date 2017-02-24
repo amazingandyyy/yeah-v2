@@ -15,7 +15,7 @@ const instructorSchema = new mongoose.Schema({
     position: String
   },
   phone: String,
-  linkedIn: String
+  linkedinURL: String
 })
 const courseSchema = new mongoose.Schema({
   title: String,

@@ -11,6 +11,7 @@ import DropdownList from 'react-widgets/lib/DropdownList';
 import SelectList from 'react-widgets/lib/SelectList';
 import {reduxForm, Field} from 'redux-form';
 import GoogleMapSearch from '../../../widgets/googleMapSearch';
+import { syllabusStatusTrue } from './courseAdminSecondPage';
 
 class CourseAdminThirdPage extends Component {
     constructor(props) {
@@ -45,7 +46,7 @@ class CourseAdminThirdPage extends Component {
             locationNotes,
             textbook,
             preRequirement,
-            syllabus
+            syllabusStatus
         } = formData;
 
         const instructorData = {
@@ -61,7 +62,7 @@ class CourseAdminThirdPage extends Component {
                 position: currentPosition
             },
             phone,
-            linkedIn
+            linkedinURL
         }
         const courseData = {
             title,
@@ -73,7 +74,7 @@ class CourseAdminThirdPage extends Component {
             location,
             locationNotes,
             textbook,
-            syllabus: (syllabus === 'Yes, I already sent it.') ? true : false,
+            syllabus: (syllabusStatus === syllabusStatusTrue) ? true : false,
             preRequirement
         };
 
@@ -214,8 +215,6 @@ class CourseAdminThirdPage extends Component {
                 onSubmit={this
                 .props
                 .handleSubmit(this.handleFormSubmit.bind(this))}>
-                <div className="form-title-bg">Create A Training Program</div>
-                <br/>
                 <div className="form-subtitle-bg">Highlights and Benefits for students</div>
                 <p>Please kindly make sure the following information is accurate and
                     professional, as they will be used on our website and social media platforms.
@@ -233,8 +232,7 @@ class CourseAdminThirdPage extends Component {
                 <div className="form-wrapper">
                     <label>1st takeaway student will get after the class*</label>
                     <h6>
-                        <em>1-2 sentences; Example: Visualize and prepare data to improve efficacy of
-                            predictive models in finance related problems.</em>
+                        <em>1 sentence</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -250,9 +248,7 @@ class CourseAdminThirdPage extends Component {
                 <div className="form-wrapper">
                     <label>2nd takeaway student will get after the class*</label>
                     <h6>
-                        <em>1-2 sentences; Example: Be able to understand the nature, characteristics,
-                            historical trend and real world application of corporate bonds, ETF, securities,
-                            municipal bonds, mutual funds, hedge funds and other types of investment.</em>
+                        <em>1 sentence</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -268,10 +264,7 @@ class CourseAdminThirdPage extends Component {
                 <div className="form-wrapper">
                     <label>3rd takeaway student will get after the class*</label>
                     <h6>
-                        <em>1-2 sentences; Example: Be able to construct financial models to price and
-                            value swap, future, options and other financial derivatives. Understand the
-                            derivation of Black-Scholes Formula, Binomial Option Pricing Formula and their
-                            related applications.</em>
+                        <em>1 sentence</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -287,7 +280,7 @@ class CourseAdminThirdPage extends Component {
                 <div className="form-wrapper">
                     <label>4th takeaway student will get after the class*</label>
                     <h6>
-                        <em>One sentence</em>
+                        <em>1 sentence</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -303,7 +296,7 @@ class CourseAdminThirdPage extends Component {
                 <div className="form-wrapper">
                     <label>5th takeaway student will get after the class*</label>
                     <h6>
-                        <em>One sentence</em>
+                        <em>1 sentence</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -317,9 +310,11 @@ class CourseAdminThirdPage extends Component {
                 </div>
 
                 <div className="form-wrapper">
-                    <label>Who should take this course? List any pre-requisites if applicable.*</label>
+                    <label>
+                        Who is targets?
+                    </label>
                     <h6>
-                        <em>100 words recommended</em>
+                        <em>Who should student take this course? List any pre-requisites if applicable.(100 words)</em>
                     </h6>
                     <div className="form-group">
                         <Field
@@ -355,3 +350,14 @@ class CourseAdminThirdPage extends Component {
 CourseAdminThirdPage = reduxForm({form: 'createCourseResource', destroyOnUnmount: false, forceUnregisterOnUnmount: true})(CourseAdminThirdPage);
 
 export default connect(null, actions)(CourseAdminThirdPage);
+
+
+// Example: Visualize and prepare data to improve efficacy of
+// predictive models in finance related problems.
+// Be able to understand the nature, characteristics,
+// historical trend and real world application of corporate bonds, ETF, securities,
+// municipal bonds, mutual funds, hedge funds and other types of investment.
+// Example: Be able to construct financial models to price and
+// value swap, future, options and other financial derivatives. Understand the
+// derivation of Black-Scholes Formula, Binomial Option Pricing Formula and their
+// related applications.
