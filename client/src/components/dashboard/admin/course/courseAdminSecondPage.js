@@ -97,9 +97,9 @@ class CourseAdminSecondPage extends Component{
         // Localize the time
         momentLocalizer(moment);
 
-        const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math'];
-        const hourList = [ {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'} ];
-        const weekList = [ {hour:'2'}, {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'},{hour:'7'}, {hour:'8'} ];
+        const tagList =['Business','Computer Science','Enconomics','Chemistry','Physics','Phycology','English','Engineering', 'History','Music','Math', 'Art', 'Biology'];
+        const hourList = [ {hour:'3'}, {hour:'4'}, {hour:'5'} ];
+        const weekList = [ {hour:'2'}, {hour:'3'}, {hour:'4'}, {hour:'5'}, {hour:'6'} ];
         
         const { handleSubmit, dirty, submitting, reset } = this.props;
         return (
@@ -110,14 +110,14 @@ class CourseAdminSecondPage extends Component{
                 <div className="form-subtitle-bg">About The Course</div>
                 
                 <div className="form-wrapper">
-                    <label>Title*</label>
+                    <label>Course Title*</label>
                     <div className="form-group">
                         <Field 
-                            type="type" 
+                            type="type"
                             name="title" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Course title"
+                            placeholder="Full Course Title"
                             required
                         />
                     </div>
@@ -134,7 +134,7 @@ class CourseAdminSecondPage extends Component{
                     </div>
                 </div>                
                 <div className="form-wrapper">
-                    <label>Brief Overview of the Course(For marketing purpose)*</label>
+                    <label>Brief Overview of the Course(For marketing purpose, 200 words)*</label>
                     <h6><em>At least six sentences ;  about 100- 200 words .</em></h6>
                     <div className="form-group">
                         <Field 
@@ -144,7 +144,7 @@ class CourseAdminSecondPage extends Component{
                             cols="40" 
                             rows="6"
                             className="yeah-input"
-                            placeholder="Brief Overview"
+                            placeholder="Brief Overview (200 words)"
                             maxLength="600" minLength="200"
                             required
                         />
@@ -155,7 +155,7 @@ class CourseAdminSecondPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="date" 
-                            name="date" 
+                            name="startingDate" 
                             component="input" 
                             className="yeah-input"
                             placeholder="Course date"
@@ -180,7 +180,7 @@ class CourseAdminSecondPage extends Component{
                     <label>For How many weeks(How many courses)*</label>
                     <div className="form-group">
                         <Field 
-                            name="howManyWeeks" 
+                            name="totalWeeks" 
                             component={this.renderNumList}
                             data={weekList}
                             className="yeah-input"
@@ -201,20 +201,20 @@ class CourseAdminSecondPage extends Component{
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Location Details*</label>
+                    <label>Location Notes</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="locationDetails" 
+                            name="locationNotes" 
                             component="input" 
-                            placeholder="Exp. Classroom 320"
+                            placeholder="Exp. Classroom 320, go through the red door on the left side"
                             className="yeah-input"
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label> Textbooks or Readers*</label>
-                    <h6><em>Each class should have  readings. Each week, instructor should at least 5 hours of reading before the class meeting. Please provide a link to the pdf version of textbook or ways to obtain the textbook, if applicable.</em></h6>
+                    <label>Required Textbooks or Readers or Equipment*</label>
+                    <h6><em>Each class should have readings. Each week, instructor should at least 5 hours of reading before the class meeting. Please provide a link to the pdf version of textbook or ways to obtain the textbook, if applicable.</em></h6>
                     <div className="form-group">
                         <Field 
                             type="type" 
@@ -398,7 +398,6 @@ class CourseAdminSecondPage extends Component{
                         />
                     </div>
                 </div>
-
 
                 <div className="form-wrapper">
                     <label>6th Week Highlights (Focus on Class Content)*</label>

@@ -72,7 +72,7 @@ class CourseAdminFirstPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="email" 
-                            name="Email" 
+                            name="email" 
                             component="input" 
                             className="yeah-input"
                             placeholder="Your Email Address"
@@ -109,9 +109,9 @@ class CourseAdminFirstPage extends Component{
                 <div className="form-wrapper">
                     <label>Phone Number*</label>
                     <div className="form-group">
-                        <Field 
-                            type="number" 
-                            name="phoneNumber" 
+                        <Field
+                            type="phone" 
+                            name="phone" 
                             component="input" 
                             className="yeah-input"
                             placeholder="Phone Number"
@@ -120,29 +120,48 @@ class CourseAdminFirstPage extends Component{
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Current/ Past School Affiliation*</label>
+                    <label>Current Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="schoolAffiliation" 
+                            name="currentAffiliation" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Current/ Past School Affiliation"
+                            placeholder="UC Berkeley / KPMG / Google"
+                            required                            
+                        />
+                    </div>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="currentPosition" 
+                            component="input" 
+                            className="yeah-input"
+                            placeholder="Junior / Data Analyst / Software Engineer Internship"
                             required                            
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Current / Past Company Affiliation (including intern) & Position*</label>
+                    <label>Previous Company Position (including internship)*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="companyAffiliation" 
+                            name="previousAffiliation" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Current / Past Company Affiliation (including intern) & Position"
-                            required
-                            
+                            placeholder="KPMG / Google"
+                            required                            
+                        />
+                    </div>
+                    <div className="form-group">
+                        <Field 
+                            type="type" 
+                            name="previousPosition" 
+                            component="input" 
+                            className="yeah-input"
+                            placeholder="Data Analyst / Software Engineer Internship"
+                            required                            
                         />
                     </div>
                 </div>
@@ -154,9 +173,8 @@ class CourseAdminFirstPage extends Component{
                             name="linkedIn" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="LinkedIn"
+                            placeholder="Your Full LinkedIn URL"
                             required
-                            
                         />
                     </div>
                 </div>

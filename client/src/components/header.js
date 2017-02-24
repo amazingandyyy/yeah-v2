@@ -7,7 +7,6 @@ import $ from 'jquery';
 class Header extends Component {
     constructor(props){
         super(props);
-        console.log('props: ', props.className)
     }
     renderLinks(classNames){
         return (

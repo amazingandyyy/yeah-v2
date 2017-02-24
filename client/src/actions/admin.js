@@ -37,6 +37,7 @@ function createInternshipResource(data) {
 
 function createCourseResource(data) {
     return (dispatch) => {
+        console.log('dataaa: ', data)
         request
             .post(`/api/resource/course/create`, data)
             .then(res => {
@@ -45,7 +46,7 @@ function createCourseResource(data) {
                 dispatch({ type: 'SUCCESS' });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error.response);
             });
     }
 }
