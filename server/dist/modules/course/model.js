@@ -18,51 +18,45 @@ var _point2 = _interopRequireDefault(_point);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Define the model
-var Schema = new _mongoose2.default.Schema({
-  // title: {
-  //   type: String, 
-  //   required: [true, 'Title is required']
-  // },
-  // time: {
-  //   type: String
-  // }，
-  // description: {
-  //   type: String
-  // },
-  date: {
-    type: String
+var instructorSchema = new _mongoose2.default.Schema({
+  email: String,
+  prevousPosition: {
+    affiliation: String,
+    position: String
   },
+  firstName: String,
+  lastName: String,
+  currentPosition: {
+    affiliation: String,
+    position: String
+  },
+  phone: String,
+  linkedinURL: String
+});
+var courseSchema = new _mongoose2.default.Schema({
+  title: String,
+  tags: [String],
+  overview: String,
+  startingDate: String,
+  hoursPerWeek: String,
+  totalWeeks: String,
+  time: String,
   location: Object,
-  locationDetails: String,
+  locationNotes: String,
   geometry: _point2.default,
-  tags: [{
-    type: String
+  textbook: String,
+  syllabus: Boolean,
+  heighlight: [{
+    title: String,
+    description: String
   }],
-  createBy: {
-    type: _mongoose2.default.Schema.ObjectId,
-    ref: 'User'
-  },
-  stories: [{
-    participant: {
-      type: _mongoose2.default.Schema.ObjectId,
-      ref: 'User'
-    },
-    body: {
-      type: String
-    },
-    createAt: {
-      type: Number,
-      default: Date.now()
-    },
-    photos: [{
-      type: String
-    }]
+  takeaways: [{
+    title: String,
+    description: String
   }],
-  createAt: {
-    type: Number,
-    default: Date.now()
-  },
+  preRequirement: String
+});
+var statusSchema = new _mongoose2.default.Schema({
   participant: [{
     userId: {
       type: _mongoose2.default.Schema.ObjectId,
@@ -70,7 +64,6 @@ var Schema = new _mongoose2.default.Schema({
     },
     checkedIn: {
       type: Boolean,
-      required: true,
       default: false
     },
     checkedInAt: {
@@ -81,59 +74,23 @@ var Schema = new _mongoose2.default.Schema({
       default: Date.now()
     }
   }],
-  email: {
-    type: String
+  started: {
+    type: Boolean,
+    default: false
+  }
+});
+// Define the model
+var Schema = new _mongoose2.default.Schema({
+  course: courseSchema,
+  instructor: instructorSchema,
+  status: statusSchema,
+  createBy: {
+    type: _mongoose2.default.Schema.ObjectId,
+    ref: 'User'
   },
-  companyAffiliation: {
-    type: String
-  },
-  firstName: {
-    type: String
-  },
-  heighlightTitle: [{
-    type: String
-  }],
-  heighlightDescription: [{
-    type: String
-  }],
-  hoursPerWeek: {
-    type: String
-  },
-  instructor: {
-    type: String
-  },
-  lastName: {
-    type: String
-  },
-  linkedIn: {
-    type: String
-  },
-  overview: {
-    type: String
-  },
-  phoneNumber: {
-    type: Number
-  },
-  preRequisites: {
-    type: String
-  },
-  schoolAffiliation: {
-    type: String
-  },
-  isSyllabusSent: {
-    type: Boolean
-  },
-  takeaways: [{
-    type: String
-  }],
-  textbook: {
-    type: String
-  },
-  title: {
-    type: String
-  },
-  howManyWeeks: {
-    type: String
+  createAt: {
+    type: Number,
+    default: Date.now()
   }
 });
 
