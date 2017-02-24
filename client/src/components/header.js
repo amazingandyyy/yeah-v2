@@ -5,6 +5,10 @@ import { Link } from 'react-router';
 import $ from 'jquery';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+        console.log('props: ', props.className)
+    }
     renderLinks(classNames){
         return (
             <div className={`${classNames}`}>
@@ -32,7 +36,7 @@ class Header extends Component {
     render() {
         return (
             <div className="header-component">
-            <nav>
+            <nav className={this.props.className}>
                 <div className="yeah-container">
                 <div className="left-nav">
                     <Link to="/">

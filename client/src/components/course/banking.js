@@ -1,18 +1,28 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { Loader } from '../widgets';
-import { hashHistory } from 'react-router';
-import GoogleMapDetails from '../widgets/googleMapDetails';
+import {Loader} from '../widgets';
+import Header from '../header';
+import {Link} from 'react-router';
 
-class Banking extends Component{
+class Detail extends Component {
+    componentWillMount() {}
+
+    renderDetails() {
+        return (
+            <div className="details-component">
+                hihihi
+            </div>
+        )
+    }
     render() {
-        return(
-            <div className="content">
-                Banking
+        return (
+            <div>
+                <Header className="inverse"/>
+                <div className="content">
+                    {this.renderDetails()}
+                </div>
             </div>
         )
     }
 }
 
-export default Banking;
+export default Detail;
