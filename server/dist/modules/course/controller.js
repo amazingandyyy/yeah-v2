@@ -51,5 +51,28 @@ exports.default = {
         _model2.default.findByIdAndRemove(req.params.id).then(function () {
             res.send();
         }).catch(next);
+    },
+    updateOne: function updateOne(req, res, next) {
+        _model2.default.findByIdAndUpdate(req.params.id, req.body).then(function () {
+            res.send();
+        }).catch(next);
+    },
+    signupOneForOneCourse: function signupOneForOneCourse(req, res, next) {
+        _model2.default.findById(req.params.id, req.body).then(function (course) {
+            var userId = req.params.userId;
+            course.participants.push({ userId: userId });
+            return course.save();
+        }).then(function () {
+            res.send();
+        }).catch(next);
+    },
+    checkinOneforOneCourse: function checkinOneforOneCourse(req, res, next) {
+        _model2.default.findOneAndUpdate(req.params.id, req.body).then(function (course) {
+            // const userId = req.params.userId;
+            // course.participants.push(userId);
+            // return course.save();
+        }).then(function () {
+            res.send();
+        }).catch(next);
     }
 };

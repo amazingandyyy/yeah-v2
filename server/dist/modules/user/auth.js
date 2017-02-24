@@ -72,9 +72,12 @@ var signin = function signin(req, res, next) {
 
 var signinWithFacebook = function signinWithFacebook(req, res, next) {
     var FBData = req.body;
+    console.log('FBData: ', FBData);
     var facebookUserId = FBData.userID;
     var facebookToken = FBData.accessToken;
+    console.log('FBData.name:', FBData.name);
     var facebookUserName = FBData.name.split(' ');
+    console.log('facebookUserName :', facebookUserName);
     _model2.default.findOne({
         'facebook.userID': {
             '$in': facebookUserId
@@ -124,8 +127,8 @@ var signinWithFacebook = function signinWithFacebook(req, res, next) {
                     console.log('no user with this fb email then create a total new user');
                     var userData = {
                         name: {
-                            first: facebookUserName[0],
-                            last: facebookUserName[1]
+                            first: facebookUserName[0] || '',
+                            last: facebookUserName[1] || ''
                         },
                         avatar: FBData.picture.data.url,
                         email: {

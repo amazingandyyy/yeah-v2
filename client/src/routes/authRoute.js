@@ -50,17 +50,5 @@ const AuthRoute = {
         }
     ]
 }
-// const AuthRouter = (
-//     <Route path="/auth" component={Auth}>
-//         <IndexRoute component={Signin}/>
-//         <Route path="/auth/signin" component={Signin} />
-//         <Route path="/auth/signup" component={Signup}/>
-//         <Route path="/auth/signup/setpassword" component={SetPassword}/>
-//         <Route path="/auth/signout" component={Signout}/>
-//         <Route path="/auth/iforget" component={IForget}/>
-//         <Route path="/auth/iforget2" component={IForget2}/>
-//         <Route path="/auth/resetpassword/:token" component={ResetPassword}/>
-//     </Route>
-// )
 
 export default AuthRoute;

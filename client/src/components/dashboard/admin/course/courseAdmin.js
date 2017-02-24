@@ -43,9 +43,9 @@ class CourseAdmin extends Component{
         const { page } = this.state;
         return(        
             <div>
-                {page ===1 && <CourseAdminFirstPage onSubmit = {this.nextPage} />}   
+                {page ===1 && <CourseAdminFirstPage onSubmit={this.nextPage} />}   
                 {page ===2 && <CourseAdminSecondPage previousPage={this.previousPage} onSubmit={this.nextPage} />}    
-                {page ===3 && <CourseAdminThirdPage previousPage={this.previousPage} />}                    
+                {page ===3 && <CourseAdminThirdPage previousPage={this.previousPage} />}               
             </div>);
 
     }

@@ -17,10 +17,7 @@ class CourseAdminSecondPage extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            tags: [ {id: 1, text: "Apples"} ],
-            suggestions: ["Banana", "Mango", "Pear", "Apricot"]
-        }
+        this.state = { }
     } 
 
     componentWillMount(){

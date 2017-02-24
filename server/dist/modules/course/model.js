@@ -20,26 +20,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Define the model
 var Schema = new _mongoose2.default.Schema({
-  title: {
-    type: String,
-    required: [true, 'Title is required']
-  },
-  instructor: {
-    type: String
-  },
+  // title: {
+  //   type: String, 
+  //   required: [true, 'Title is required']
+  // },
+  // time: {
+  //   type: String
+  // }，
+  // description: {
+  //   type: String
+  // },
   date: {
     type: String
   },
-  time: {
-    type: String
-  },
-  location: {
-    type: Object
-  },
+  location: Object,
+  locationDetails: String,
   geometry: _point2.default,
-  description: {
-    type: String
-  },
   tags: [{
     type: String
   }],
@@ -66,6 +62,78 @@ var Schema = new _mongoose2.default.Schema({
   createAt: {
     type: Number,
     default: Date.now()
+  },
+  participant: [{
+    userId: {
+      type: _mongoose2.default.Schema.ObjectId,
+      ref: 'User'
+    },
+    checkedIn: {
+      type: Boolean,
+      required: true,
+      default: false
+    },
+    checkedInAt: {
+      type: Number
+    },
+    signedUpAt: {
+      type: Number,
+      default: Date.now()
+    }
+  }],
+  email: {
+    type: String
+  },
+  companyAffiliation: {
+    type: String
+  },
+  firstName: {
+    type: String
+  },
+  heighlightTitle: [{
+    type: String
+  }],
+  heighlightDescription: [{
+    type: String
+  }],
+  hoursPerWeek: {
+    type: String
+  },
+  instructor: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
+  linkedIn: {
+    type: String
+  },
+  overview: {
+    type: String
+  },
+  phoneNumber: {
+    type: Number
+  },
+  preRequisites: {
+    type: String
+  },
+  schoolAffiliation: {
+    type: String
+  },
+  isSyllabusSent: {
+    type: Boolean
+  },
+  takeaways: [{
+    type: String
+  }],
+  textbook: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  howManyWeeks: {
+    type: String
   }
 });
 

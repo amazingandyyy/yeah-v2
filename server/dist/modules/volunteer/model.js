@@ -20,7 +20,7 @@ var Schema = new _mongoose2.default.Schema({
     type: String,
     required: [true, 'Title is required']
   },
-  oranization: {
+  organization: {
     type: String
   },
   date: {
@@ -39,6 +39,9 @@ var Schema = new _mongoose2.default.Schema({
   tags: [{
     type: String
   }],
+  college: {
+    type: String
+  },
   createBy: {
     type: _mongoose2.default.Schema.ObjectId,
     ref: 'User',

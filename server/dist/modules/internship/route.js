@@ -25,5 +25,6 @@ router.post('/create', _middleware.loginRequired, _middleware.checkAdmin, _contr
 router.get('/fetchAll', _middleware.loginRequired, _controller2.default.fetchAll);
 router.get('/fetchOne/:id', _controller2.default.fetchOne);
 router.delete('/deleteOne/:id', _middleware.loginRequired, _middleware.checkAdmin, _controller2.default.deleteOne);
+router.post('/updateOne/:id', _middleware.loginRequired, _middleware.checkAdmin, _controller2.default.updateOne);
 
 exports.default = router;

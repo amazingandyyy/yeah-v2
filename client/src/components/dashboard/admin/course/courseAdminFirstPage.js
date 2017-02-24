@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions';
-// import 'react-widgets/lib/scss/react-widgets.scss';
+
 import '../../../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
@@ -10,15 +10,11 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import GoogleMapSearch from '../../../widgets/googleMapSearch';
 
-
 class CourseAdminFirstPage extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            tags: [ {id: 1, text: "Apples"} ],
-            suggestions: ["Banana", "Mango", "Pear", "Apricot"]
-        }
+        this.state = { }
     } 
 
     handleFormSubmit(data) {
