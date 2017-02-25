@@ -1,7 +1,7 @@
 .h-scrollable {
     background: none;
+    padding: 50px 50px;
     padding-left: 30px;
-    padding-right: 50px;
     border-right: 1px solid rgba($gray, 0);
     border-left: 1px solid rgba($gray, 0);
     height: 420px;
@@ -10,6 +10,10 @@
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    height: auto;
+    cursor: pointer;
+    align-items: center;
+
     &:hover {
         border-right: 1px solid $gray;
         border-left: 1px solid $gray;
@@ -18,4 +22,108 @@
         border-right: 1px solid rgba($gray, 0);
         border-left: 1px solid rgba($gray, 0);
     }   
+
+    &::-webkit-scrollbar {
+        height: 7px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: rgba(46,61,73,0.1);
+        border-radius: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 50px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $light-blue;
+        height: 10px !important;
+    }
+
+    .card {
+        &.comment{
+            overflow: none;
+            height: 500px;
+            width: 400px;
+            display: inline-block;
+            margin: 0px 15px;
+            min-width: 250px;
+            border: 0px solid rgba(0,0,0,0);
+            background: white;
+            border-radius: 0.175rem;
+            box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.15);
+            transition: all 0.1s ease-in-out;
+            position: relative;
+            text-align: left;
+            padding: 0px;
+            padding-top: 120px;
+            position: relative;
+            
+            &:hover {
+                box-shadow: 10px 15px 30px rgba(0,0,0,0.1);    
+                transition:  all 0.5s ease-out;
+            }
+            .header {
+                word-wrap: normal;
+                position: absolute;
+                top: 0px;
+                width: 100%;
+                right: 0px;
+                left: 0px;
+                height: 100px;
+                background: white;
+                padding-top: 25px;
+
+                .photo {
+                    background: #F0F0F0;
+                    border-radius: 100px;
+                    width: 60px;
+                    height: 60px;
+                    margin: auto;
+                    overflow: hidden;
+                    text-align: center;
+                    background-repeat: none;
+                    background-position: 50% 50%;            
+                    background-size: 100%;
+                }
+            }
+            .body {
+                overflow-y: scroll;
+                overflow-x: hidden;
+                position: absolute;
+                bottom: 0px;
+                width: 100%;
+                right: 0px;
+                left: 0px;
+                text-transform: capitalize;
+                white-space: normal;
+                word-wrap: break-word;
+                font-size: 1rem;
+                font-weight: 400;
+                padding: 32px 32px;
+                padding-top: 10px;
+                height: 8.25rem;
+                height: 80%;
+                background: white;
+
+                .name {
+                    font-weight: 900;
+                }
+
+                hr {
+                    margin: 15px 0px;
+                }
+
+                .acceptBy {
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+            }
+
+            .content {
+                text-align: justify;
+            }
+        }
+    }
 }

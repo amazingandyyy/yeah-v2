@@ -5,9 +5,12 @@
     margin: 0px;
     background: white;
     transition: all 0.1s ease-in-out;
+    ::selection,::-moz-selection {
+        background: rgba($light-blue, 0.1);
+        // color: white;
+    }
     .lead {
         padding-top: 5%;
-        max-width: 40rem;
         margin: auto;
         .program{
             letter-spacing: 0.125rem;
@@ -58,9 +61,51 @@
 
         }
         .introduction{
-            padding-top: 60px;
+            width: 100%;
+            padding: 60px 0px 80px;
             position: relative;
             background: #fafbfc;
+            .title {
+                margin: 20px;
+                text-transform: capitalize;
+            }
+            .section{
+                margin: auto;
+                max-width: 40rem;
+                padding: 40px 5px;
+            }
+            .avatar{
+                border-radius: 100px;
+                box-shadow: 0 0.3125em 1.25em 0 rgba(46,61,73,0.12);
+                width: 150px;
+                height: 150px;
+                margin: auto;
+                overflow: hidden;
+                margin-bottom: 15px;
+                img{
+                    height: 150px;
+                }
+            }
+            .name{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .syllabus {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .h-scrollable {
+            padding-top: 20px;
+        }
+        .title{
+            padding-left: 30px;
+            font-size: 2rem;
+            line-height: 2.25rem;
+            text-align: left;
+            text-transform: capitalize;
+            font-weight: 300;
+            color: #2e3d49;
         }
     }
 }

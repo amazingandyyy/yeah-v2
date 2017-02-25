@@ -35,7 +35,7 @@ class Detail extends Component {
         }
     }
 
-    renderDetails() {
+    renderLead() {
         const {details} = this.props;
         console.log('details: ', details);
         if (details) {
@@ -51,24 +51,71 @@ class Detail extends Component {
                             src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/videos/intro_video.mp4"
                             type="video/mp4"
                             autoPlay
-                            loop
-                        ></video>
+                            loop></video>
                     </div>
                     <div className="introduction">
-                        {course.overview}
+                        <div className="section">
+                            <div className="title">Valuable course content.</div>
+                            {course.overview}
+                        </div>
+                        <div className="section instructor">
+                            <div className="title">
+                                Lead by Professional instructor
+                            </div>
+                            <div className="avatar">
+                                <img src={instructor.imageURL}/>
+                            </div>
+                            <div className="name">
+                                {instructor.firstName}
+                                {instructor.lastName}
+                            </div>
+                            <div>{instructor.currentPosition.position}, {instructor.currentPosition.affiliation}</div>
+                            <div>{instructor.previousPosition.position}, {instructor.previousPosition.affiliation}</div>
+                        </div>
                     </div>
-
                 </div>
             )
         }
         return <Loader/>
+    }
+
+    renderSyllabus() {
+        const {details} = this.props;
+        console.log('details: ', details);
+        if (details) {
+            const {course, instructor} = details;
+            return (
+                <div className="syllabus" style={{'background': 'rgb(244, 244, 239)'}}>
+                    <div className="title">Weekly Syllabus</div>
+                    <div className="h-scrollable no-border" style={{'background': 'rgb(244, 244, 239)'}}>
+                        {this.renderSyllabusCards(course.heighlights)}
+                    </div>
+                </div>
+            )
+        }
+    }
+    renderSyllabusCards(heighlights) {
+        return heighlights.map(heighlight => {
+            return (
+                <div className="card comment" key={heighlight.title}>
+                    <div className="title">
+                        {heighlight.title}
+                    </div>
+                    <hr/>
+                    <div className="body">
+                        {heighlight.description}
+                    </div>
+                </div>
+            )
+        })
     }
     render() {
         return (
             <div>
                 <Header className="inverse"/>
                 <div className="details-component">
-                    {this.renderDetails()}
+                    {this.renderLead()}
+                    {this.renderSyllabus()}
                 </div>
             </div>
         )
