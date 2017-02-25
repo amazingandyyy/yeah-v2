@@ -121,13 +121,30 @@
         .slide-container{
             padding: 10px 10px;
             font-size: 1.4rem;
+            text-align: center;
+            img{
+                margin: auto;
+                -webkit-user-drag: none;
+                user-drag: none;
+                user-select: none;
+                -moz-user-select: none;
+                -webkit-user-drag: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                max-width: 900px;
+                width: 80%;
+                @media (max-width: 700px) {
+                    width: 100%;
+                }
+            }
         }
     }
 
     .section {
         text-align: center;
-        padding: 20px 0px;
-        margin: 80px 0px;
+        padding: 100px 0px;
+        margin: 0px 0px;
+
         .title-label{
             background: white;
             box-shadow: 4px 8px 30px 5px rgba(46,61,73,0.15);

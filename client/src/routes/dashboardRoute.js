@@ -31,7 +31,8 @@ import RequireAdmin from '../components/auth/adminGuard';
 const DashboardRoute = {
   path: '/dashboard',
   getComponent(location, cb) {
-    System.import ('../components/dashboard')
+    System
+      .import ('../components/dashboard')
       .then(module => {
         return loginGuard(module.default, cb);
       })
@@ -61,8 +62,11 @@ const DashboardRoute = {
     }, {
       path: '/dashboard/admin',
       getComponent(location, cb) {
-        System.import ('../components/dashboard/admin')
-          .then(module => cb(null, module.default))
+        System
+          .import ('../components/dashboard/admin')
+          .then(module => {
+            return loginGuard(module.default, cb);
+          })
       },
       indexRoute: {
         component: VolunteerAdmin
@@ -74,22 +78,16 @@ const DashboardRoute = {
         }, {
           path: '/dashboard/admin/volunteer/:id',
           component: VolunteerOneAdmin
-        },{
+        }, {
           path: '/dashboard/admin/course',
           component: CourseAdmin
-        },
-        // {
-        //   path: '/dashboard/admin/course/success',
-        //   component: CourseAdminAuccess
-        // }
-        , {
+        }, {
           path: '/dashboard/admin/course/:id',
           component: CourseOneAdmin
         }, {
           path: '/dashboard/admin/internship',
           component: InternshipAdmin
-        },
-        {
+        }, {
           path: '/dashboard/admin/internship/:id',
           component: InternshipOneAdmin
         }
@@ -100,26 +98,22 @@ const DashboardRoute = {
 
 export default DashboardRoute;
 
-
-// const DashboardRoute = (
-//     <Route path="/dashboard" component={RequireAuth(Dashboard)}>
-//         <IndexRoute component={Start}/>
-//         <Route path="/dashboard/start" component={Start}/>
-//         <Route path="/dashboard/assist" component={Assist}/>
-//         <Route path="/dashboard/ucinfo" component={UCInfomation}/>
-//         <Route path="/dashboard/setting" component={Setting}/>
-//         <Route path="/dashboard/explore" component={Explore}>
-//             <IndexRoute component={ExploreBrowser} />
-//             <Route path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
-//             <Route path="/dashboard/explore/internship/:id" component={ InternshipDetail } />
-//             <Route path="/dashboard/explore/course/:id" component={ CourseDetail } />
-//         </Route>
-//         <Route path="/dashboard/admin" component={RequireAdmin(Admin)}>
-//             <IndexRoute />
-//             <Route path="/dashboard/admin/volunteer" component={VolunteerAdmin}/>
-//             <Route path="/dashboard/admin/course" component={CourseAdmin}/>
-//             <Route path="/dashboard/admin/course/:id" component={CourseOneAdmin}/>
-//             <Route path="/dashboard/admin/internship" component={InternshipAdmin}/>
-//         </Route>
-//     </Route>
-// )
+// const DashboardRoute = (     <Route path="/dashboard"
+// component={RequireAuth(Dashboard)}>         <IndexRoute component={Start}/>
+//       <Route path="/dashboard/start" component={Start}/>         <Route
+// path="/dashboard/assist" component={Assist}/>         <Route
+// path="/dashboard/ucinfo" component={UCInfomation}/>         <Route
+// path="/dashboard/setting" component={Setting}/>         <Route
+// path="/dashboard/explore" component={Explore}>             <IndexRoute
+// component={ExploreBrowser} />             <Route
+// path="/dashboard/explore/volunteer/:id" component={ VolunteerDetail } />
+//        <Route path="/dashboard/explore/internship/:id" component={
+// InternshipDetail } />             <Route path="/dashboard/explore/course/:id"
+// component={ CourseDetail } />         </Route>         <Route
+// path="/dashboard/admin" component={RequireAdmin(Admin)}>
+// <IndexRoute />             <Route path="/dashboard/admin/volunteer"
+// component={VolunteerAdmin}/>             <Route
+// path="/dashboard/admin/course" component={CourseAdmin}/>             <Route
+// path="/dashboard/admin/course/:id" component={CourseOneAdmin}/>
+// <Route path="/dashboard/admin/internship" component={InternshipAdmin}/>
+//   </Route>     </Route> )

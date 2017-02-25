@@ -68,6 +68,11 @@ if (_config.settingIsGood) {
   // Execute express and setting up the server
   var app = (0, _express2.default)();
   app.use((0, _cors2.default)());
+  app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
   app.use((0, _morgan2.default)('dev'));
   app.use(_bodyParser2.default.json());
   app.use(_bodyParser2.default.urlencoded({ extended: false }));
@@ -76,13 +81,13 @@ if (_config.settingIsGood) {
   app.use('/api', _api2.default);
 
   // Run React front-end files(start from index.html)
-  // if (process.env.NODE_ENV == 'production') {
-  //   app.use(express.static('./client/dist'));
-  //   app.get('*', (req, res) => {
-  //     const indexPath = path.join(__dirname, '../../client/dist', 'index.html');
-  //     res.sendFile(indexPath);
-  //   })
-  // }
+  if (process.env.NODE_ENV == 'production') {
+    app.use(_express2.default.static('./client/dist'));
+    app.get('*', function (req, res) {
+      var indexPath = _path2.default.join(__dirname, '../../client/dist', 'index.html');
+      res.sendFile(indexPath);
+    });
+  }
   if (process.env.NODE_ENV !== 'production') {
     var webpackMiddleware = require('webpack-dev-middleware');
     var webpack = require('webpack');

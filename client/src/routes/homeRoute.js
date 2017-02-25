@@ -10,12 +10,4 @@ const HomeRoute = {
     indexRoute: { component: Home }
 }
 
-// const HomeRoute = (
-//         <Route path="/" component={App}>
-//             <IndexRoute component={Home}/>
-//         </Route>
-//     )
-
-
 export default HomeRoute;
-

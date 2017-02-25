@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../../../actions';
-// import 'react-widgets/lib/scss/react-widgets.scss';
+
 import '../../../../styles/react-widget/scss/react-widgets.scss';
 import Multiselect from 'react-widgets/lib/Multiselect';
 import moment from 'moment';
@@ -10,15 +10,11 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import { reduxForm, Field } from 'redux-form';
 import GoogleMapSearch from '../../../widgets/googleMapSearch';
 
-
 class CourseAdminFirstPage extends Component{
     constructor(props){
         super(props);
 
-        this.state = {
-            tags: [ {id: 1, text: "Apples"} ],
-            suggestions: ["Banana", "Mango", "Pear", "Apricot"]
-        }
+        this.state = { }
     } 
 
     handleFormSubmit(data) {
@@ -70,83 +66,93 @@ class CourseAdminFirstPage extends Component{
             <form
                 onSubmit={this.props.handleSubmit}
             >
-                <div className="form-title-bg">Create A Training Program</div>
+            <div className="form-subtitle-bg">Instructor Information</div>
                 <div className="form-wrapper">
-                    <label>Email*</label>
+                    <label>Instructor Email*</label>
                     <div className="form-group">
-                        <Field 
-                            type="email" 
-                            name="Email" 
-                            component="input" 
-                            className="yeah-input"
-                            placeholder="Your Email Address"
-                            required
-                        />
+                    <Field 
+                        type="email" 
+                        name="email" 
+                        component="input" 
+                        className="yeah-input"
+                        placeholder="Instructor's Email Address"
+                        required
+                    />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>First Name*</label>
+                    <label>Instructor Full Name*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
                             name="firstName" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="First Name"
+                            placeholder="Instructor's First Name"
                             required
                         />
-                    </div>
-                </div>
-                <div className="form-wrapper">
-                    <label>Last Name*</label>
-                    <div className="form-group">
                         <Field 
                             type="type" 
                             name="lastName" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Last Name"
+                            placeholder="Instructor's Last Name"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Phone Number*</label>
+                    <label>Instructor Phone Number*</label>
                     <div className="form-group">
-                        <Field 
-                            type="number" 
-                            name="phoneNumber" 
+                        <Field
+                            type="phone" 
+                            name="phone" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Phone Number"
+                            placeholder="Instructor's Phone Number"
                             required
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Current/ Past School Affiliation*</label>
+                    <label>Current Affiliation & Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="schoolAffiliation" 
+                            name="currentAffiliation" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Current/ Past School Affiliation"
+                            placeholder="UC Berkeley / KPMG / Google"
+                            required                            
+                        />
+                        <Field 
+                            type="type" 
+                            name="currentPosition" 
+                            component="input" 
+                            className="yeah-input"
+                            placeholder="Junior / Data Analyst / Software Engineer Internship"
                             required                            
                         />
                     </div>
                 </div>
                 <div className="form-wrapper">
-                    <label>Current / Past Company Affiliation (including intern) & Position*</label>
+                    <label>Previous Affiliation & Position*</label>
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="companyAffiliation" 
+                            name="previousAffiliation" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="Current / Past Company Affiliation (including intern) & Position"
-                            required
-                            
+                            placeholder="KPMG / Google"
+                            required                            
+                        />
+                        <Field 
+                            type="type" 
+                            name="previousPosition" 
+                            component="input" 
+                            className="yeah-input"
+                            placeholder="Data Analyst / Software Engineer Internship"
+                            required                            
                         />
                     </div>
                 </div>
@@ -155,12 +161,11 @@ class CourseAdminFirstPage extends Component{
                     <div className="form-group">
                         <Field 
                             type="type" 
-                            name="linkedIn" 
+                            name="linkedinURL" 
                             component="input" 
                             className="yeah-input"
-                            placeholder="LinkedIn"
+                            placeholder="Instructor's LinkedIn URL"
                             required
-                            
                         />
                     </div>
                 </div>

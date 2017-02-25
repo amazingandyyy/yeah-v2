@@ -14,8 +14,8 @@ class CourseAdmin extends Component{
         this.previousPage = this.previousPage.bind(this);
 
         this.state = {
-            tags: [ {id: 1, text: "Apples"} ],
-            suggestions: ["Banana", "Mango", "Pear", "Apricot"],
+            // tags: [ {id: 1, text: "Apples"} ],
+            // suggestions: ["Banana", "Mango", "Pear", "Apricot"],
             page: 1
         }
     }
@@ -43,9 +43,11 @@ class CourseAdmin extends Component{
         const { page } = this.state;
         return(        
             <div>
-                {page ===1 && <CourseAdminFirstPage onSubmit = {this.nextPage} />}   
+                <div className="form-title-bg">Create A Training Program <small>({page}/3)</small></div>
+                <hr />
+                {page ===1 && <CourseAdminFirstPage onSubmit={this.nextPage} />}   
                 {page ===2 && <CourseAdminSecondPage previousPage={this.previousPage} onSubmit={this.nextPage} />}    
-                {page ===3 && <CourseAdminThirdPage previousPage={this.previousPage} />}                    
+                {page ===3 && <CourseAdminThirdPage previousPage={this.previousPage} />}               
             </div>);
 
     }

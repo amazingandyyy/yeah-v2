@@ -3,29 +3,15 @@ import Course from './model';
 export default {
     createOne: function(req, res, next) {
         const createBy = req.user._id;
-        const title = req.body.title;
-        let data;
-        if(req.body.location){
-            const coordinates = [
-                req.body.location.location.lng,
-                req.body.location.location.lat    
-            ]
-            data = { 
-                createBy, 
-                ...req.body,
-                geometry: {
-                    coordinates
-                }
-            }
-        }else{
-            data = { 
-                createBy, 
-                ...req.body
-            }
-        }
+        let coordinates = null;
+        let data = {
+            ...req.body,
+            createBy
+        };
         Course.create(data)
-        .then((d) => {
-            res.send()
+        .then((savedData) => {
+            console.log('savedData: ', savedData);
+            res.send({success: true})  
         })
         .catch(next)
     },

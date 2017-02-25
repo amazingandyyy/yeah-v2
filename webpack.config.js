@@ -21,7 +21,9 @@ const VENDER_LIBS = [
   "axios"
 ]
 
-const ifProd = plugin =>  process.env.NODE_ENV ? plugin : null;
+const ifProd = plugin => process.env.NODE_ENV
+  ? plugin
+  : null;
 
 module.exports = {
   entry: {
@@ -39,41 +41,42 @@ module.exports = {
         use: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
-      }, { 
-        test: /\.scss$/, 
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: "style-loader",
-          loader: "css-loader!sass-loader",
-        })
-      },
-      { 
-        test: /\.css$/, 
+      }, {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({fallbackLoader: "style-loader", loader: "css-loader!sass-loader"})
+      }, {
+        test: /\.css$/,
         loader: 'style-loader!css-loader'
-      },
-      {
+      }, {
         test: /\.(png|gif|jpg|jpeg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000?',
-      },
-      { 
+        loader: 'url-loader?limit=10000?'
+      }, {
         test: /\.(woff|ttf|eot|svg)(\?[\s\S]+)?$/,
-        loader: 'file-loader?emitFile=false',
-      },
-      {
+        loader: 'file-loader?emitFile=false'
+      }, {
+        test: /\.csv$/,
+        loader: 'dsv-loader'
+      }, {
         test: /\.less$/,
         use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'style-loader', {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
           'less-loader'
         ]
-      },
-      {
+      }, {
         test: /\.mp4$/,
         loader: 'url?limit=10000&mimetype=video/mp4'
       }
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
+    new webpack
+      .optimize
+      .CommonsChunkPlugin({
         names: ['vendor', 'manifest']
       }),
     new HtmlWebpackPlugin({template: 'client/src/index.html'}),
@@ -81,11 +84,13 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       "global.GENTLY": false
     }),
-    new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
-    new ExtractTextPlugin('style.css'),
+    new webpack
+      .optimize
+      .UglifyJsPlugin({sourceMap: true}),
+    new ExtractTextPlugin('style.css')
   ],
   node: {
-    __dirname: true,
+    __dirname: true
   },
   devServer: {
     port: 8008

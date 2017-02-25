@@ -2,123 +2,77 @@ import mongoose from 'mongoose';
 import autopopulate from 'mongoose-autopopulate';
 import PointSchema from '../schemas/point';
 
+const instructorSchema = new mongoose.Schema({
+  email: String,
+  prevousPosition: {
+    affiliation: String,
+    position: String
+  },
+  firstName: String,
+  lastName: String,
+  currentPosition: {
+    affiliation: String,
+    position: String
+  },
+  phone: String,
+  linkedinURL: String
+})
+const courseSchema = new mongoose.Schema({
+  title: String,
+  tags: [String],
+  overview: String,
+  startingDate: String,
+  hoursPerWeek: Number,
+  totalWeeks: Number,
+  time: String,
+  location: Object,
+  locationNotes: String,
+  geometry: PointSchema,
+  textbook: String,
+  syllabus: Boolean,
+  heighlights: [{
+    title: String,
+    description: String
+  }],
+  takeaways: [String],
+  preRequirement: String
+})
+const statusSchema = new mongoose.Schema({
+  participant: [
+    {
+      userId: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
+      },
+      checkedIn: {
+        type: Boolean,
+        default: false
+      },
+      checkedInAt: Number,
+      signedUpAt: {
+        type: Number,
+        default: Date.now()
+      }
+    }
+  ],
+   started: {
+     type: Boolean,
+     default: false
+   }
+})
 // Define the model
 const Schema = new mongoose.Schema({
-  // title: {
-  //   type: String, 
-  //   required: [true, 'Title is required']
-  // },
-  // time: {
-  //   type: String
-  // }，
-  // description: {
-  //   type: String
-  // },
-  date: {
-    type: String
-  },
-  location: Object,
-  locationDetails: String,
-  geometry: PointSchema,
-  tags: [{
-    type: String
-  }],
+  course: courseSchema,
+  instructor: instructorSchema,
+  status: statusSchema,
   createBy: {
     type: mongoose.Schema.ObjectId,
     ref: 'User'
   },
-  stories: [{
-    participant: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
-    },
-    body: {
-      type: String
-    },
-    createAt: {
-      type: Number,
-      default: Date.now()
-    },
-    photos: [{
-      type: String
-    }]
-  }],
   createAt: {
     type: Number,
     default: Date.now()
-  },
-  participant:[{
-    userId: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User'
-    },
-    checkedIn: {
-      type: Boolean,
-      required: true,
-      default: false
-    },
-    checkedInAt: {
-      type: Number
-    },
-    signedUpAt: {
-      type: Number,
-      default: Date.now()
-    }
-  }],
-    email:{
-      type: String
-    },
-    companyAffiliation:{
-      type: String
-    },
-    firstName:{
-      type: String
-    },
-    heighlightTitle:[{
-      type:String
-    }],
-    heighlightDescription:[{
-      type:String      
-    }],
-    hoursPerWeek:{
-      type: String      
-    },
-    instructor: {
-    type: String
-    },  
-    lastName:{
-      type: String      
-    },
-    linkedIn:{
-      type: String
-    },
-    overview:{
-      type: String
-    },
-    phoneNumber:{
-      type: Number      
-    },
-    preRequisites:{
-      type: String      
-    },
-    schoolAffiliation:{
-      type: String      
-    },
-    isSyllabusSent:{
-      type: Boolean      
-    },
-    takeaways:[{
-      type:String
-    }],
-    textbook:{
-      type: String      
-    },
-    title:{
-      type: String      
-    },
-    howManyWeeks:{
-      type: String      
-    }
+  }
 });
 
 export default mongoose.model('Course', Schema);

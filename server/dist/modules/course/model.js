@@ -18,51 +18,76 @@ var _point2 = _interopRequireDefault(_point);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var instructorSchema = new _mongoose2.default.Schema({
+  email: String,
+  prevousPosition: {
+    affiliation: String,
+    position: String
+  },
+  firstName: String,
+  lastName: String,
+  currentPosition: {
+    affiliation: String,
+    position: String
+  },
+  phone: String,
+  linkedinURL: String
+});
+var courseSchema = new _mongoose2.default.Schema({
+  title: String,
+  tags: [String],
+  overview: String,
+  startingDate: String,
+  hoursPerWeek: String,
+  totalWeeks: String,
+  time: String,
+  location: Object,
+  locationNotes: String,
+  geometry: _point2.default,
+  textbook: String,
+  syllabus: Boolean,
+  heighlight: [{
+    title: String,
+    description: String
+  }],
+  takeaways: [{
+    title: String,
+    description: String
+  }],
+  preRequirement: String
+});
+var statusSchema = new _mongoose2.default.Schema({
+  participant: [{
+    userId: {
+      type: _mongoose2.default.Schema.ObjectId,
+      ref: 'User'
+    },
+    checkedIn: {
+      type: Boolean,
+      default: false
+    },
+    checkedInAt: {
+      type: Number
+    },
+    signedUpAt: {
+      type: Number,
+      default: Date.now()
+    }
+  }],
+  started: {
+    type: Boolean,
+    default: false
+  }
+});
 // Define the model
 var Schema = new _mongoose2.default.Schema({
-  title: {
-    type: String,
-    required: [true, 'Title is required']
-  },
-  instructor: {
-    type: String
-  },
-  date: {
-    type: String
-  },
-  time: {
-    type: String
-  },
-  location: {
-    type: Object
-  },
-  geometry: _point2.default,
-  description: {
-    type: String
-  },
-  tags: [{
-    type: String
-  }],
+  course: courseSchema,
+  instructor: instructorSchema,
+  status: statusSchema,
   createBy: {
     type: _mongoose2.default.Schema.ObjectId,
     ref: 'User'
   },
-  stories: [{
-    participant: {
-      type: _mongoose2.default.Schema.ObjectId,
-      ref: 'User'
-    },
-    body: {
-      type: String
-    },
-    createAt: {
-      type: Number,
-      default: Date.now()
-    },
-    photos: [{
-      type: String
-    }]
-  }],
   createAt: {
     type: Number,
     default: Date.now()

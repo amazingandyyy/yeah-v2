@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-          <div style={{paddingTop: '57px', paddingBottom: '50px'}}>
+          <div style={{paddingTop: '57px'}}>
           {this.props.children}
           </div>
       </div>

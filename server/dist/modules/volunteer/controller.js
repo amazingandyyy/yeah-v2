@@ -51,5 +51,10 @@ exports.default = {
         _model2.default.findByIdAndRemove(req.params.id).then(function () {
             res.send();
         }).catch(next);
+    },
+    updateOne: function updateOne(req, res, next) {
+        _model2.default.findByIdAndUpdate(req.params.id, req.body).then(function () {
+            res.send();
+        }).catch(next);
     }
 };

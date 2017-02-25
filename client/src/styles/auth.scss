@@ -1,8 +1,10 @@
 .auth-component {
     height: 100%;
+    min-height: 100vh;
     padding-top: 130px;
     padding-bottom: 80px;
     font-family: $sans;
+    background: #F4F4EF;
 
     .header {
         background: white;
@@ -15,7 +17,10 @@
         text-align: center;
         display: block;
         .logo {
-            margin: auto;
+            font-weight: 100;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-size: 1.3rem;
         }
     }
 
@@ -214,6 +219,8 @@ hr {
     }
     .auth-component {
         padding-top: 84px !important;
+        padding-bottom: 0px !important;
+        overflow-y: scroll;
         .auth-card {
             height: 100vh !important;
         }
