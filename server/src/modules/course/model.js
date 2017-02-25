@@ -22,22 +22,19 @@ const courseSchema = new mongoose.Schema({
   tags: [String],
   overview: String,
   startingDate: String,
-  hoursPerWeek: String,
-  totalWeeks: String,
+  hoursPerWeek: Number,
+  totalWeeks: Number,
   time: String,
   location: Object,
   locationNotes: String,
   geometry: PointSchema,
   textbook: String,
   syllabus: Boolean,
-  heighlight: [{
+  heighlights: [{
     title: String,
     description: String
   }],
-  takeaways: [{
-    title: String,
-    description: String
-  }],
+  takeaways: [String],
   preRequirement: String
 })
 const statusSchema = new mongoose.Schema({
@@ -51,9 +48,7 @@ const statusSchema = new mongoose.Schema({
         type: Boolean,
         default: false
       },
-      checkedInAt: {
-        type: Number
-      },
+      checkedInAt: Number,
       signedUpAt: {
         type: Number,
         default: Date.now()
@@ -77,7 +72,7 @@ const Schema = new mongoose.Schema({
   createAt: {
     type: Number,
     default: Date.now()
-  },
+  }
 });
 
 export default mongoose.model('Course', Schema);

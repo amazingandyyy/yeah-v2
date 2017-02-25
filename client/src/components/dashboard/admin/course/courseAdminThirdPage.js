@@ -46,8 +46,19 @@ class CourseAdminThirdPage extends Component {
             locationNotes,
             textbook,
             preRequirement,
-            syllabusStatus
+            syllabusStatus,
+            linkedinURL,
+            heighlightTitle1,heighlightDescription1,
+            heighlightTitle2,heighlightDescription2,
+            heighlightTitle3,heighlightDescription3,
+            heighlightTitle4,heighlightDescription4,
+            heighlightTitle5,heighlightDescription5,
+            heighlightTitle6,heighlightDescription6,
+            takeaway1,takeaway2,takeaway3,takeaway4,takeaway5,takeaway6
         } = formData;
+        const heighlightTitleList = [heighlightTitle1,heighlightTitle2,heighlightTitle3,heighlightTitle4,heighlightTitle5,heighlightTitle6];
+        const heighlightDescriptionList = [heighlightDescription1,heighlightDescription2,heighlightDescription3,heighlightDescription4,heighlightDescription5,heighlightDescription6];
+        const takeawayList = [takeaway1,takeaway2,takeaway3,takeaway4,takeaway5,takeaway6];
 
         const instructorData = {
             email,
@@ -64,31 +75,41 @@ class CourseAdminThirdPage extends Component {
             phone,
             linkedinURL
         }
-        const courseData = {
+        let courseData = {
             title,
             tags,
             overview,
             startingDate,
-            hoursPerWeek,
-            totalWeeks,
+            hoursPerWeek: Number(hoursPerWeek.split(' ')[0]),
+            totalWeeks: Number(totalWeeks.split(' ')[0]),
             location,
             locationNotes,
             textbook,
             syllabus: (syllabusStatus === syllabusStatusTrue) ? true : false,
-            preRequirement
+            preRequirement,
+            heighlights: [],
+            takeaways: []
         };
-
-        // Check result
-        const result = {
+        heighlightTitleList.forEach((data, index)=>{
+            if(data){
+                courseData.heighlights.push({
+                    title: data,
+                    description: heighlightDescriptionList[index]
+                })
+            }
+        })
+        takeawayList.forEach((data)=>{
+            if(data){
+                courseData.takeaways.push(data)
+            }
+        })
+        // Combine result
+        const candidateData = {
             course: courseData,
             instructor: instructorData
         }
-
-        console.log('result: ', result);
-        // show the time console.log('Specific Date: ',
-        // data.date.getMonth()+1,data.date.getDate(),data.date.getFullYear());
-        // console.log('Specific Time:', data.time.getHours(), data.time.getMinutes());
-        // this.props.createCourseResource(result);
+        console.log('candidateData: ', candidateData);
+        this.props.createCourseResource(candidateData);
     }
 
     renderMultiselect({input, data}) {
@@ -302,6 +323,22 @@ class CourseAdminThirdPage extends Component {
                         <Field
                             type="type"
                             name="takeaway5"
+                            component="input"
+                            className="yeah-input"
+                            placeholder="5th takeaway"
+                            required/>
+                    </div>
+                </div>
+
+                <div className="form-wrapper">
+                    <label>6th takeaway student will get after the class*</label>
+                    <h6>
+                        <em>1 sentence</em>
+                    </h6>
+                    <div className="form-group">
+                        <Field
+                            type="type"
+                            name="takeaway6"
                             component="input"
                             className="yeah-input"
                             placeholder="5th takeaway"
