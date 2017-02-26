@@ -1,0 +1,120 @@
+.ReactModalPortal, .ReactModal__Overlay, .ReactModal__Content{
+    z-index: 1001 !important;
+}
+
+.yeah-modal {
+    z-index: 1001 !important;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.4);
+    padding: 8% 0px;
+    transition: opacity .3s linear,top .3s ease-out;
+    div{
+        outline: none;
+    }
+    @media (max-width: 500px) {
+        padding: 0px 0px;
+    }
+    .wrapper {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        background: white;
+        padding: 40px;
+        width: 100%;
+        min-width: 300px;
+        max-width: 40rem;
+        margin: auto;
+        position: relative;
+        box-shadow: 2px 5px 30px -2px rgba(0,0,0,0.3);
+        border-radius: 0.375rem;
+        padding-top: 65px;
+        padding-bottom: 65px;
+        transition: .3s all ease-in-out;
+
+        @media (max-width: 500px) {
+            border-radius: 0rem;
+            transition: .3s all ease-in-out;
+            height: 100vh;
+        }
+
+        .close-button{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            text-indent: 4rem;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 10px 10px 0px 0px;
+            border-radius: 100px;
+            transition: .3s all ease-in-out;
+
+            &:hover{
+                transition: .4s all ease-in-out;
+                background: rgba(0,0,0,0.1);
+                opacity: 0.7;
+
+                &::before{
+                    transition: .3s all ease-in-out;
+                    transform: scale(0.8);
+                }
+            }
+
+            &:active{
+                transition: 0s all ease-in-out;
+                background: rgba(0,0,0,0.2);
+            }
+
+            &::before{
+                transition: .5s all ease-in-out;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0.25rem;
+                left: 0.25rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 100%;
+                background-position: center;
+                background-image: url('https://s3-us-west-1.amazonaws.com/yeah-assets/icons/cross-icon.svg');
+                background-size: 20px 20px;
+                background-repeat: no-repeat;                    
+            }
+        }
+
+        .body{
+            .sales{
+                text-align: center;
+                .wechat-icon{
+                    background: #2DC100;
+                    color: white;
+                    margin: auto;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 100px;
+                    line-height: 80px;
+                    text-align: center;
+                    font-size: 2.6rem;
+                    margin-bottom: 20px;
+                }
+                .action{
+                    font-size: 1.6rem;
+                    opacity: 0.6;
+                }
+                img{
+                    width: 200px;
+                    margin: auto;
+                    border-radius: 0.2rem;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
+import{ YeahModal,SalesModal } from '../modals';
 
 export default class LProgram extends Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          showSalesModal: false
+      }
+  }
+  openSalesModal(){
+      this.setState({
+          showSalesModal: true
+      })
+  }
   render() {
     return (
       <div className="section longProgram">
@@ -15,13 +27,14 @@ export default class LProgram extends Component {
             <br/>
             我们愿意与你从头开始； 陪伴，是最长情的告白
             <br/>            
-            <span className="action-button" style={{color: '#02b3e4'}}>加入孵化器 ></span>
+            <span onClick={this.openSalesModal.bind(this)} className="action-button" style={{color: '#02b3e4'}}>加入孵化器 ></span>
           </div>
           <div className="col-sm-12">
           </div>
         </div>
         </div>
         </div>
+        {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
       </div>
     );a
   }

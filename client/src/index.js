@@ -11,7 +11,7 @@ import RouteComponent from './routes';
 import './styles/style.scss';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-const store = createStoreWithMiddleware(reducers)
+export const store = createStoreWithMiddleware(reducers);
 const token = localStorage.getItem('yeah_token');
 const isAdmin = localStorage.getItem('isAdmin');
 
