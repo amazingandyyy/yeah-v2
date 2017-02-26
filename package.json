@@ -44,6 +44,7 @@
     "node-ses": "^2.0.2",
     "querystring": "^0.2.0",
     "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-animated-number": "^0.4.2",
     "react-autocomplete": "^1.4.0",
     "react-autocomplete-component": "^1.1.2",

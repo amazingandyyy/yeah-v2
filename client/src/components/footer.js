@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import {YeahModal, SalesModal} from './modals';
 
 class Footer extends Component {
     render() {
@@ -72,3 +73,10 @@ class Footer extends Component {
 }
 
 export default Footer;
+                // <ReactModal
+                //     isOpen={this.state.showSalesModal}
+                //     contentLabel="Minimal Modal Example"
+                //     parentSelector={() => document.getElementById('app')}
+                //     closeTimeoutMS={500}>
+                // <SalesModal />
+                // </ReactModal>
