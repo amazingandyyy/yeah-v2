@@ -9,15 +9,56 @@
 //     }
 // }
 .footer {
-    user-select: none;
-    padding: 10px 10px;
-    background: rgba($black, 0.8);
-    color: $white;
-    text-align: center;
-    font-size: 0.65em;
-    a {
-        color: inherit;
-        text-decoration: underline;
-        border-bottom: 1px dotted inherit;
+    padding: 50px 20px;
+    background: linear-gradient(to bottom right, #F7F7F7, #EAFBFF);
+    .container{
+         width: 100%;
+         max-width: 60rem;
+         margin: auto;
+
+         .services {
+             text-align: left;
+
+             .col-xs-12 {
+                margin-bottom: 20px;
+
+                ul {
+                    font-size: 0.9rem;
+                    font-weight: 300;
+                    list-style: none;
+                    padding-left: 0px;
+                    color: #525c65;
+
+                    li {
+                        padding: 6px 0px;
+                        transition: color 0.3s ease;
+                        a:hover{
+                            cursor: pointer;
+                            transition: color 0.3s ease;
+                            color: #24292d;
+                        }
+                        img.wechat-qrcode {
+                            width: 100%;
+                            max-width: 180px;
+                        }
+                    }
+                }
+
+                .title{
+                    text-transform: uppercase;
+                    font-weight: 400;
+                    color: #7d97ad;
+                    margin-bottom: 10px;
+                }
+             }
+         }
+
+         .claim{
+             color: #525c65;
+             font-size: 0.8rem;
+             font-weight: 300;
+             letter-spacing: 0.3px;
+             text-align: center;
+         }
     }
 }

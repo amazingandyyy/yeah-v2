@@ -4,7 +4,7 @@ import PointSchema from '../schemas/point';
 
 const instructorSchema = new mongoose.Schema({
   email: String,
-  prevousPosition: {
+  previousPosition: {
     affiliation: String,
     position: String
   },
@@ -15,7 +15,11 @@ const instructorSchema = new mongoose.Schema({
     position: String
   },
   phone: String,
-  linkedinURL: String
+  linkedinURL: String,
+  imageURL: {
+    type: String,
+    default: ''
+  }
 })
 const courseSchema = new mongoose.Schema({
   title: String,

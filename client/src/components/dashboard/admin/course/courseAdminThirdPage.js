@@ -62,7 +62,7 @@ class CourseAdminThirdPage extends Component {
 
         const instructorData = {
             email,
-            prevousPosition: {
+            previousPosition: {
                 affiliation: previousAffiliation,
                 position: previousPosition
             },
