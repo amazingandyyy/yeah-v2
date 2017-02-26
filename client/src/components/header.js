@@ -38,9 +38,9 @@ class Header extends Component {
             <nav className={this.props.className}>
                 <div className="yeah-container">
                 <div className="left-nav">
-                    <Link to="/">
+                    <a href="/">
                         <div className="logo">欧耶教育</div>
-                    </Link>
+                    </a>
                 </div>
                 {this.renderLinks("right-nav hidden-md-down")}
                 <div className="right-nav hidden-lg-up">
