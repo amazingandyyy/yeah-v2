@@ -6,7 +6,8 @@ import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 import {Link} from 'react-router';
 import Header from '../header';
-
+import moment from 'moment';
+import Footer from '../footer';
 class Detail extends Component {
     componentWillMount() {
         if (this.props.props) {
@@ -44,19 +45,58 @@ class Detail extends Component {
                 <div className="lead">
                     <div className="program">Career Training Program</div>
                     <h1 className="title">{course.title}</h1>
-                    <p>From zero to hero in 4 weeks.</p>
+                    <p>From zero to hero in {course.totalWeeks}&nbsp; weeks.</p>
                     <div className="video-wrapper">
                         <span className="outer"></span>
                         <video
                             src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/videos/intro_video.mp4"
                             type="video/mp4"
-                            autoPlay
+                            autoPlay="autoplay"
                             loop></video>
                     </div>
                     <div className="introduction">
                         <div className="section">
                             <div className="title">Valuable course content.</div>
                             {course.overview}
+                        </div>
+                        <div className="section wider">
+                            <div className="container-fluid">
+                               <div className="row">
+                                <div className="col-sm-4 point">
+                                    <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/courses.svg"/>
+                                    <div className="intro">
+                                        <div className="intro-title">
+                                            {course.totalWeeks}&nbsp;weeks
+                                        </div>
+                                        <div className="description">
+                                            Take fruitful lectures in Berkeley Campus and materials Online
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-4 point">
+                                    <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/projects.svg"/>
+                                    <div className="intro">
+                                        <div className="intro-title">
+                                            Private Channel
+                                        </div>
+                                        <div className="description">
+                                            Access to private channel for intership and career questions periodly
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-sm-4 point">
+                                    <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/certificate.svg"/>
+                                    <div className="intro">
+                                        <div className="intro-title">
+                                            Certificates
+                                        </div>
+                                        <div className="description">
+                                            Complete prgram to highlight your new skills on your resume and LinkedIn
+                                        </div>
+                                    </div>
+                                </div>
+                               </div> 
+                            </div>
                         </div>
                         <div className="section instructor">
                             <div className="title">
@@ -81,33 +121,59 @@ class Detail extends Component {
 
     renderSyllabus() {
         const {details} = this.props;
-        console.log('details: ', details);
+        // console.log('details: ', details);
         if (details) {
             const {course, instructor} = details;
             return (
-                <div className="syllabus" style={{'background': 'rgb(244, 244, 239)'}}>
-                    <div className="title">Weekly Syllabus</div>
-                    <div className="h-scrollable no-border" style={{'background': 'rgb(244, 244, 239)'}}>
-                        {this.renderSyllabusCards(course.heighlights)}
-                    </div>
+                <div className="syllabus">
+                        {this.renderSyllabusCards(course)}
                 </div>
             )
         }
     }
-    renderSyllabusCards(heighlights) {
-        return heighlights.map(heighlight => {
+    renderSyllabusCards({heighlights, startingDate, hoursPerWeek}) {
+        let startingDateMoment = moment(startingDate);
+        return heighlights.map((heighlight, index) => {
+            const date = startingDateMoment.add(index, 'weeks').format('dddd, MMMM Do, YYYY');
             return (
-                <div className="card comment" key={heighlight.title}>
+                <div className="syllabus-card" key={index}>
+                    <div className="index-tag">
+                        Class {index+1}
+                    </div>
                     <div className="title">
                         {heighlight.title}
                     </div>
+                    <div className="date">
+                        <i className="fa fa-calendar" aria-hidden="true"></i>{date}
+                    </div>
                     <hr/>
-                    <div className="body">
+                    <div className="description">
                         {heighlight.description}
+                    </div>
+                    <br/>
+                    <div className="info">
+                        <i className="fa fa-newspaper-o" aria-hidden="true"></i>Material Preview: {hoursPerWeek/2} hours
+                    </div>
+                    <div className="info">
+                        <i className="fa fa-university" aria-hidden="true"></i>Berkeley Campus Lecture: {hoursPerWeek} hours
+                    </div>
+                    <div className="info">
+                        <i className="fa fa-cubes" aria-hidden="true"></i>Homework/Project: {hoursPerWeek/2} hours
                     </div>
                 </div>
             )
         })
+    }
+    renderTakeaways(){
+        const {details} = this.props;
+        if (details) {
+            const {course} = details;
+            return (
+                <div className="takeaways">
+                   
+                </div>
+            )
+        }
     }
     render() {
         return (
@@ -116,7 +182,9 @@ class Detail extends Component {
                 <div className="details-component">
                     {this.renderLead()}
                     {this.renderSyllabus()}
+                    {this.renderTakeaways()}
                 </div>
+                <Footer />
             </div>
         )
     }

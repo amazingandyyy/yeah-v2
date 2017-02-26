@@ -73,6 +73,12 @@
                 margin: auto;
                 max-width: 40rem;
                 padding: 40px 5px;
+                 @media (max-width: 600px) {
+                    padding: 20px 5px;
+                }
+                &.wider {
+                    max-width: 55rem;
+                }
             }
             .avatar{
                 border-radius: 100px;
@@ -90,22 +96,127 @@
                 font-size: 1.5rem;
             }
         }
+        .point{
+            padding: 20px 0px;
+            text-align: left;
+            @media (max-width: 576px) {
+                padding: 20px 30px;
+            }
+
+            .img {
+                float: left;
+                width: 20%;
+            }
+
+            .intro {
+                padding: 0px 10px;
+                float: right;
+                width: 80%;
+                color: black;
+                .intro-title {
+                    margin-top: -5px;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                }
+                .description{
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.4rem;
+                    opacity: 0.5;
+                }
+            }
+        }
     }
 
     .syllabus {
+        background: rgb(244, 244, 239);
+        // background: white;
+        padding: 0px;
         padding-top: 50px;
         padding-bottom: 50px;
-        .h-scrollable {
-            padding-top: 20px;
-        }
-        .title{
-            padding-left: 30px;
-            font-size: 2rem;
-            line-height: 2.25rem;
+        .syllabus-card{
+            position: relative;
             text-align: left;
-            text-transform: capitalize;
-            font-weight: 300;
-            color: #2e3d49;
+            padding: 50px 50px;
+            padding-top: 80px;
+            // border: 2px solid rgba(0,0,0,0.1);
+            background: white;
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.1);
+            transition: .2s all ease;
+            user-select: none;
+            cursor: auto;
+
+            @media (max-width: 500px) {
+                padding: 60px 30px;
+                box-shadow: none;
+            }
+
+            &:hover{
+                transition: .2s all ease;
+                box-shadow: 6px 7.5px 20px -3px rgba(46, 61, 73, 0.1);
+            }
+            .index-tag{
+                text-transform: uppercase;
+                width: auto;
+                padding: 8px 15px 8px 40px;
+                background: $gold;
+                color: white;
+                position: absolute;
+                margin: auto;
+                text-align: center;
+                top:25px;
+                left: 0px;
+                right: auto;
+                z-index: 50;
+                font-weight: 600;
+                border-bottom-right-radius: 0px;
+                font-weight: 900;
+                letter-spacing: 0.5px;
+                box-shadow: 4px 0px 0px 0px rgba(0,0,0,0.1);
+            }
+            .title {
+                margin-top: 20px;
+                font-size: 1.7rem;
+                margin-bottom: 20px;
+                font-weight: 900;
+            }
+            .date{
+                color: $gold;
+                margin: 10px 0px;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            hr{
+                margin: 15px 0px;
+            }
+            .description{
+                font-weight: 400;
+                color: black;
+                font-size: 1.1rem;
+                line-height: 2rem;
+                // text-align: justify;
+            }
+            .info{
+                text-transform: capitalize;
+                font-size: 1.1rem;
+                font-weight: 400;
+                padding: 7.5px 0px;
+                opacity: 0.8;
+            }
+            i{
+                font-weight: 100;
+                width: 30px;
+                padding-right: 20px;
+            }
         }
+    }
+
+    .takeaways{
+        padding: 50px 10px;
+        margin: auto;
+        background: white;
     }
 }

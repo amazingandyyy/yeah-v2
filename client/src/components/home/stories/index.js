@@ -9,17 +9,16 @@ export default class SProgram extends Component {
         return commentData.map(student=>{
             return (
                 <div className="card comment" key={student.name}>
-                <div className="header">
-                    <div className="photo" style={{backgroundImage: `url(${student.photo})` }}></div>
-                </div>
+                <div className="university">转入{student.university}</div>
                 <div className="body">
+                    <div className="photo" style={{backgroundImage: `url(${student.photo})` }}></div>
                     <div className="name">{student.name}</div>
-                    <div className="service">{student.service}</div>
+                    <div className="major">{student.major}&nbsp;专业</div>
                     <hr />
                     <div className="content">...{student.content}...</div>
-                    <div className="acceptBy">同时录取&nbsp;{student.acceptBy}</div>
-                    <div className="university">最终入学&nbsp;{student.university}</div>
-                    <div className="university">{student.major}&nbsp;专业</div>
+                    <hr/>
+                    <div className="service">参加项目：{student.service}</div>
+                    <div className="acceptBy">同时录取：&nbsp;{student.acceptBy}</div>
                 </div>
                 </div>
             )
