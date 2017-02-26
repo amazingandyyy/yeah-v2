@@ -41,7 +41,7 @@ function createCourseResource(data) {
         request
             .post(`/api/resource/course/create`, data)
             .then(res => {
-                hashHistory.put('/dashboard/admin/course/success');
+                hashHistory.push('/dashboard/admin/coursesuccess');
                 dispatch({ type: CREATE_COURSE_CHANCE })
                 dispatch({ type: 'SUCCESS' });
             })
