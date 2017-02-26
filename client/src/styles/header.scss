@@ -146,6 +146,9 @@
             div {
                 color: #525c65;
             }
+            &.fixed {
+                box-shadow: none !important;
+            }
         }
         &.inverse {
             transition: .1s all ease-in-out;
@@ -154,6 +157,10 @@
             div {
                 color: #525c65;
             }
+        }
+
+        &.fixed {
+            position: absolute;
         }
     }
 }

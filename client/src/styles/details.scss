@@ -1,6 +1,6 @@
 .details-component {
     text-align: center;
-    padding: 70px 0px;
+    padding: 70px 0px 0px;
     width: 100%;
     margin: 0px;
     background: white;
@@ -215,8 +215,42 @@
     }
 
     .takeaways{
-        padding: 50px 10px;
+        padding: 70px 10px;
         margin: auto;
         background: white;
+        text-align: justify;
+        margin: auto;
+        max-width: 40rem;
+        color: #525c65;
+        .title{
+            text-align: center;
+            margin: 0.73em 0;
+            font-weight: 300;
+            color: #2e3d49;
+            font-size: 2.5rem;
+            line-height: 3rem;
+        }
+
+        ol.check{
+            padding: 0px;
+            list-style-type: none;
+            li {
+                padding-left: 30px;
+                position: relative;
+                margin: 20px;
+                &::before{
+                    background: #15c26b url('https://s3-us-west-1.amazonaws.com/yeah-assets/icons/check-icon.svg') no-repeat center;
+                    content: "";
+                    left: 0;
+                    top: 0.1875rem;
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    position: absolute;
+                    background-size: 60%;
+                    border-radius: 1.25rem;
+                }
+            }
+        }
+            
     }
 }

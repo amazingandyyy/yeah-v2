@@ -8,6 +8,7 @@ import {Link} from 'react-router';
 import Header from '../header';
 import moment from 'moment';
 import Footer from '../footer';
+
 class Detail extends Component {
     componentWillMount() {
         if (this.props.props) {
@@ -170,15 +171,27 @@ class Detail extends Component {
             const {course} = details;
             return (
                 <div className="takeaways">
-                   
+                <h1 className="title">What you will get from this class.</h1>
+                <ol className="check">
+                   {this.renderTakeawayCardss(course.takeaways)}
+                </ol>
                 </div>
             )
         }
     }
+    renderTakeawayCardss(takeaways) {
+        return takeaways.map((takeaway, index) => {
+            return (
+                <li className="takeaway" key={index}>
+                    {takeaway}
+                </li>
+            )
+        })
+    }
     render() {
         return (
             <div>
-                <Header className="inverse"/>
+                <Header className="fixed inverse"/>
                 <div className="details-component">
                     {this.renderLead()}
                     {this.renderSyllabus()}
