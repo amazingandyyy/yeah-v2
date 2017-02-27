@@ -1,36 +1,28 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import * as actions from '../../actions';
+
 import {Loader} from '../widgets';
 import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
+
 import {Link} from 'react-router';
 import Header from '../header';
 import moment from 'moment';
 import Footer from '../footer';
 
 class Detail extends Component {
-    componentWillMount() {
-        if (this.props.props) {
-            this.props = this.props.props;
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            details: props.data
         }
-        const pathname = this.props.location.pathname;
-        const Id = pathname
-            .split('/')
-            .pop();
-        this
-            .props
-            .resetOneCourseChance();
-        this
-            .props
-            .fetchOneCourseChance(Id);
     }
 
     renderMap() {
-        const {details} = this.props;
+        const {details} = this.state;
 
         if (details) {
-            console.log('detail.location', details.location);
+            // console.log('detail.location', details.location);
             return <GoogleMapDetails geocoding={details.location.location}/>
         } else {
             return <Loader/>
@@ -38,8 +30,7 @@ class Detail extends Component {
     }
 
     renderLead() {
-        const {details} = this.props;
-        console.log('details: ', details);
+        const {details} = this.state;
         if (details) {
             const {course, instructor} = details;
             return (
@@ -125,7 +116,7 @@ class Detail extends Component {
     }
 
     renderSyllabus() {
-        const {details} = this.props;
+        const {details} = this.state;
         // console.log('details: ', details);
         if (details) {
             const {course, instructor} = details;
@@ -170,7 +161,7 @@ class Detail extends Component {
         })
     }
     renderTakeaways(){
-        const {details} = this.props;
+        const {details} = this.state;
         if (details) {
             const {course} = details;
             return (
@@ -194,19 +185,13 @@ class Detail extends Component {
     }
     render() {
         return (
-            <div>
-                <Header className="fixed inverse"/>
-                <div className="details-component">
-                    {this.renderLead()}
-                    {this.renderSyllabus()}
-                    {this.renderTakeaways()}
-                </div>
-                <Footer />
+            <div className="details-component">
+                {this.renderLead()}
+                {this.renderSyllabus()}
+                {this.renderTakeaways()}
             </div>
         )
     }
 }
 
-export default connect(({course, auth}) => {
-    return {details: course.event, isAdmin: auth.isAdmin}
-}, actions)(Detail);
+export default Detail;

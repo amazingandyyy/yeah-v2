@@ -20,7 +20,7 @@ export default class Introduction extends Component {
           <div className="col-md-12 col-xl-4">
             
               <div className="headline-card">
-              <Link to='/course/58b0e6fd74e18ef81a8cb12d'>
+              <Link to='/course/banking'>
                 <div className="header" style={{backgroundColor: `rgb(2,179,228)`}}>
                   <div>3/5</div>
                 </div>
@@ -31,7 +31,7 @@ export default class Introduction extends Component {
               </div>
 
             <div className="headline-card">
-            <Link to='/course/58b0e6fd74e18ef81a8cb12d'>
+            <Link to='/course/banking'>
             <div className="header" style={{backgroundColor: `rgb(2,204,186)`}}>
                 <div>3/12</div>
               </div>
@@ -42,7 +42,7 @@ export default class Introduction extends Component {
             </div>
 
             <div className="headline-card">
-            <Link to='/course/58b0e6fd74e18ef81a8cb12d'>
+            <Link to='/course/banking'>
               <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
                 <div>3/26</div>
               </div>

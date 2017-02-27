@@ -27,7 +27,7 @@ const CourseRoute = {
           path: '/course/:id',
           getComponent(location, cb) {
             System
-              .import ('../components/course/detail')
+              .import ('../components/course/general')
               .then(module => cb(null, module.default))
           }
         }

@@ -3,7 +3,7 @@ import commentData from './data';
 
 export default class SProgram extends Component {
     componentWillMount(){
-        console.log('commentData: ', commentData)
+        // console.log('commentData: ', commentData)
     }
     renderCard(){
         return commentData.map(student=>{

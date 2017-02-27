@@ -53,3 +53,10 @@ adminController.addAdminByEmail('imdavidf@gmail.com');
 
 import volunteerController from '../modules/volunteer/controller';
 // volunteerController.deleteAll();
+
+// import courseModel from '../modules/course/model';
+// import {bankingCourse} from './data';
+
+// Course.create(bankingCourse).then((savedData) => {
+//     console.log('Add Banking course', savedData);
+// })
