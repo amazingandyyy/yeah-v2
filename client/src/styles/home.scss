@@ -1,6 +1,6 @@
 .yeah-home{
     .bg{
-        transition: all .5s ease;
+        transition: all .3s ease;
         z-index: -2;
         pointer-events: none;
         position: absolute;
@@ -11,22 +11,14 @@
         background: linear-gradient(150deg,#03CCBA,#AA7FCD);
         width: 100%;
         transform: skewY(-10deg) translateY(-200px);
-        height: 100%;
-        @media (min-width: 600px) {
-            transform: skewY(-10deg) translateY(-200px);
-            height: 120%;
-        }
-        @media (min-width: 930px) {
-            transform: skewY(-10deg) translateY(-200px);
-            height: 95%;
-        }
+        height: 1000px;
         @media (min-width: 1200px) {
             transform: skewY(-13deg) translateY(-200px);
-            height: 65%;
+            height: 600px;
         }
         @media (min-width: 1500px) {
             transform: skewY(-10deg) translateY(-400px);
-            height: 90%;
+            height: 800px;
         }
     }
 
@@ -50,7 +42,7 @@
                 height: 10.1rem;
                 margin: 20px 0px;
                 box-shadow: 12px 15px 20px 0px rgba(46,61,73,0.37);
-                transition: .5s all ease;
+                transition: .2s all ease;
                 position: relative;
                 cursor: pointer;
 
