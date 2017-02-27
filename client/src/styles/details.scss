@@ -21,11 +21,11 @@
             line-height: 1.5rem;
             margin-bottom: 1.5rem;
         }
-        .title{
+        h1.title{
             margin: 0.67em 0;
-            font-weight: 300;
+            font-weight: 900;
             color: #2e3d49;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             line-height: 3rem;
         }
         p{
@@ -60,15 +60,19 @@
             }
 
         }
+        .subtitle{
+            margin: 0.67em 0;
+            font-weight: 300;
+            color: #2e3d49;
+            font-size: 2.4rem;
+            line-height: 3rem;
+            text-align: center;
+        }
         .introduction{
             width: 100%;
             padding: 60px 0px 80px;
             position: relative;
             background: #fafbfc;
-            .title {
-                margin: 20px;
-                text-transform: capitalize;
-            }
             .section{
                 margin: auto;
                 max-width: 40rem;
@@ -177,12 +181,6 @@
                 letter-spacing: 0.5px;
                 box-shadow: 4px 0px 0px 0px rgba(0,0,0,0.1);
             }
-            .title {
-                margin-top: 20px;
-                font-size: 1.7rem;
-                margin-bottom: 20px;
-                font-weight: 900;
-            }
             .date{
                 color: $gold;
                 margin: 10px 0px;
@@ -211,6 +209,15 @@
                 width: 30px;
                 padding-right: 20px;
             }
+            .title{
+                text-align: left;
+                margin: 0.73em 0;
+                margin-top: 10px;
+                font-weight: 600;
+                color: #2e3d49;
+                font-size: 2rem;
+                line-height: 2.8rem;
+            }
         }
     }
 
@@ -222,13 +229,14 @@
         margin: auto;
         max-width: 40rem;
         color: #525c65;
-        .title{
-            text-align: center;
-            margin: 0.73em 0;
+
+        .subtitle{
+            margin: 0.67em 0;
             font-weight: 300;
             color: #2e3d49;
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             line-height: 3rem;
+            text-align: center;
         }
 
         ol.check{

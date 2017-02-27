@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-import {Loader} from '../widgets';
+import {Loader} from '../../widgets';
 import {hashHistory} from 'react-router';
-import GoogleMapDetails from '../widgets/googleMapDetails';
+import GoogleMapDetails from '../../widgets/googleMapDetails';
 
 import {Link} from 'react-router';
-import Header from '../header';
+import Header from '../../header';
 import moment from 'moment';
-import Footer from '../footer';
+import Footer from '../../footer';
 
 class Detail extends Component {
     constructor(props) {
@@ -188,7 +188,6 @@ class Detail extends Component {
         return (
             <div className="details-component">
                 {this.renderLead()}
-                {this.renderSyllabus()}
                 {this.renderTakeaways()}
             </div>
         )
