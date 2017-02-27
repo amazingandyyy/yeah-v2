@@ -117,7 +117,11 @@ class Detail extends Component {
                 </div>
             )
         }
-        return <Loader/>
+        return (
+            <div style={{padding: '100px'}}>
+                <Loader/>
+            </div>
+        )
     }
 
     renderSyllabus() {

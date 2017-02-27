@@ -36,7 +36,7 @@ export default class Introduction extends Component {
                 <div>3/12</div>
               </div>
               <div className="body">
-                Invest Banking 投行入门
+                Investment Banking 投行入门
               </div>
             </Link>
             </div>

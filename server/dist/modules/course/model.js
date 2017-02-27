@@ -20,7 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var instructorSchema = new _mongoose2.default.Schema({
   email: String,
-  prevousPosition: {
+  previousPosition: {
     affiliation: String,
     position: String
   },
@@ -31,29 +31,30 @@ var instructorSchema = new _mongoose2.default.Schema({
     position: String
   },
   phone: String,
-  linkedinURL: String
+  linkedinURL: String,
+  imageURL: {
+    type: String,
+    default: ''
+  }
 });
 var courseSchema = new _mongoose2.default.Schema({
   title: String,
   tags: [String],
   overview: String,
   startingDate: String,
-  hoursPerWeek: String,
-  totalWeeks: String,
+  hoursPerWeek: Number,
+  totalWeeks: Number,
   time: String,
   location: Object,
   locationNotes: String,
   geometry: _point2.default,
   textbook: String,
   syllabus: Boolean,
-  heighlight: [{
+  heighlights: [{
     title: String,
     description: String
   }],
-  takeaways: [{
-    title: String,
-    description: String
-  }],
+  takeaways: [String],
   preRequirement: String
 });
 var statusSchema = new _mongoose2.default.Schema({
@@ -66,9 +67,7 @@ var statusSchema = new _mongoose2.default.Schema({
       type: Boolean,
       default: false
     },
-    checkedInAt: {
-      type: Number
-    },
+    checkedInAt: Number,
     signedUpAt: {
       type: Number,
       default: Date.now()
