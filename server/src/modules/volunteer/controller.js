@@ -52,6 +52,13 @@ export default {
         })
         .catch(next)
     },
+    deleteAll: () => {
+        Volunteer.remove({})
+        .then(() => {
+            console.log('Volunteers are all gone.')
+        })
+        .catch()
+    },
     updateOne: function(req, res, next){
         Volunteer.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {

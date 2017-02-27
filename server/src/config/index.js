@@ -49,4 +49,7 @@ adminController.removeAdmin();
 adminController.addAdminByEmail('amazingandyyy@gmail.com');
 adminController.addAdminByEmail('kevintian.us@gmail.com');
 adminController.addAdminByEmail('imdavidf@gmail.com');
-adminController.removeAdminByEmail('amazingandyyy2@gmail.com');
+// adminController.removeAdminByEmail('amazingandyyy2@gmail.com');
+
+import volunteerController from '../modules/volunteer/controller';
+// volunteerController.deleteAll();

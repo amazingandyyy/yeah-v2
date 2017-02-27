@@ -3,7 +3,7 @@ const NODE_ENV = 'devlopment';
 let config;
 if(NODE_ENV === 'production'){
     config = {
-        base_url: 'http://104.131.39.34:8000'
+        base_url: 'https://yeah-v2-server.herokuapp.com'
     }
 }else{
     config = {

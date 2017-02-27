@@ -87,6 +87,9 @@ if (_config.settingIsGood) {
       var indexPath = _path2.default.join(__dirname, '../../client/dist', 'index.html');
       res.sendFile(indexPath);
     });
+    // app.get('*', (req, res) => {
+    //   res.send('Contact Amazingandyyy')
+    // })
   }
   if (process.env.NODE_ENV !== 'production') {
     var webpackMiddleware = require('webpack-dev-middleware');

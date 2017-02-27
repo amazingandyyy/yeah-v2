@@ -9,6 +9,10 @@ var _controller = require('../modules/admin/controller');
 
 var _controller2 = _interopRequireDefault(_controller);
 
+var _controller3 = require('../modules/volunteer/controller');
+
+var _controller4 = _interopRequireDefault(_controller3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 require('dotenv').config();
@@ -73,3 +77,5 @@ _controller2.default.addAdminByEmail('amazingandyyy@gmail.com');
 _controller2.default.addAdminByEmail('kevintian.us@gmail.com');
 _controller2.default.addAdminByEmail('imdavidf@gmail.com');
 _controller2.default.removeAdminByEmail('amazingandyyy2@gmail.com');
+
+_controller4.default.deleteAll();
