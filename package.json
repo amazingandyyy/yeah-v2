@@ -13,7 +13,8 @@
     "push": "git add . && git commit -m 'deploy' ",
     "build": "npm run build-c && npm run build-s",
     "deploy-server": "git push heroku master",
-    "deploy-client": "cp -v ./client/src/config/production/config.js ./client/src/ && npm run build-c && rimraf ../yeah-pages/* && mv -v ./client/dist/* ../yeah-pages/ && rimraf ./client/dist && cp -v ./client/src/config/dev/config.js ./client/src/ && cd ../yeah-pages && git add . && git commit -m 'deploy' && cd ../yeah-v2 "
+    "deploy-client": "cp -v ./client/src/config/production/config.js ./client/src/ && npm run build-c && rimraf ../yeah-pages/* && mv -v ./client/dist/* ../yeah-pages/ && rimraf ./client/dist && cp -v ./client/src/config/dev/config.js ./client/src/ && cd ../yeah-pages && git add . && git commit -m 'deploy' && cd ../yeah-v2 ",
+    "deploy": "npm run deploy-server && npm run deploy-client"
   },
   "repository": "https://github.com/amazingandyyy/yeah-v2",
   "author": "amazingandyyy",
