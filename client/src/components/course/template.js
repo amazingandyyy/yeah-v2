@@ -106,8 +106,10 @@ class Detail extends Component {
                                 <img src={instructor.imageURL}/>
                             </div>
                             <div className="name">
-                                {instructor.firstName}
-                                {instructor.lastName}
+                                <a className="underline" href={instructor.linkedinURL} target="_blank">
+                                    {instructor.firstName}
+                                    {instructor.lastName}
+                                </a>
                             </div>
                             <div>{instructor.currentPosition.position}, {instructor.currentPosition.affiliation}</div>
                             <div>{instructor.previousPosition.position}, {instructor.previousPosition.affiliation}</div>
