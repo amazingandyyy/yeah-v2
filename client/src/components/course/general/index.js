@@ -30,7 +30,7 @@ class Template extends Component {
     render() {
         return (
             <div>
-                <Header className="fixed inverse"/>
+                <Header className="inverse"/>
                 <CourseTemplate data={this.props.details}/>
                 <Footer />
             </div>
