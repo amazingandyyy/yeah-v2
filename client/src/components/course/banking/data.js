@@ -142,7 +142,7 @@ export default {
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
             "affiliation" : "UC Berkeley",
-            "position" : "Junior"
+            "position" : "Senior"
         },
         "previousPosition" : {
             "affiliation" : "Qatalyst Partners",

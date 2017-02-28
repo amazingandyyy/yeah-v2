@@ -101,6 +101,10 @@
             }
             .name{
                 font-size: 1.5rem;
+
+                .underline{
+                    border-bottom: 4px solid rgba($light-blue, 0.7);
+                }
             }
         }
         .point{

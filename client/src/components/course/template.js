@@ -192,7 +192,7 @@ class Detail extends Component {
             )
         })
     }
-    renderTakeActions(){
+    renderEnrollNow(){
         const { details } = this.state;
         if (details) {
             const { course } = details;
@@ -203,15 +203,15 @@ class Detail extends Component {
                         {course.title}
                     </div>
                     <div className="action_button" onClick={this.openSalesModal.bind(this)}>
-                        Take this course Now
+                        Enroll Now
                     </div>
                     <div className="description">
                         {course.hoursPerWeek} hours X {course.totalWeeks} weeks @<span>UC Berkeley</span>
                         <br/>
                         Get certification and internship after completing course.
                     </div>
-
                 </div>
+                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
                 </div>
             )
         }
@@ -222,8 +222,7 @@ class Detail extends Component {
                 {this.renderLead()}
                 {this.renderSyllabus()}
                 {this.renderTakeaways()}
-                {this.renderTakeActions()}
-                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
+                {this.renderEnrollNow()}
             </div>
         )
     }

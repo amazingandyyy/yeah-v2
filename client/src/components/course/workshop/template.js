@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Loader} from '../../widgets';
 import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../../widgets/googleMapDetails';
+import{ YeahModal,SalesModal } from '../../widgets/modals';
 
 import {Link} from 'react-router';
 import Header from '../../header';
@@ -14,8 +15,15 @@ class Detail extends Component {
         super(props);
         
         this.state = {
-            details: props.data
+            details: props.data,
+            showSalesModal: false
         }
+    }
+        
+    openSalesModal(){
+        this.setState({
+            showSalesModal: true
+        })
     }
 
     renderMap() {
@@ -126,8 +134,10 @@ class Detail extends Component {
                             <img src={speaker.imageURL}/>
                         </div>
                         <div className="name">
-                            {speaker.firstName}
-                            {speaker.lastName}
+                            <a className="underline" href={speaker.linkedinURL} target="_blank">
+                                {speaker.firstName}
+                                {speaker.lastName}
+                            </a>
                         </div>
                         <div>{speaker.heighlightPosition.position}, {speaker.heighlightPosition.affiliation}</div>
                         <div>{speaker.industry} Expert</div>
@@ -194,13 +204,13 @@ class Detail extends Component {
                 <div className="takeaways">
                 <div className="subtitle">What you will get from this workshop</div>
                 <ol className="check">
-                   {this.renderTakeawayCardss(course.takeaways)}
+                   {this.renderTakeawayCards(course.takeaways)}
                 </ol>
                 </div>
             )
         }
     }
-    renderTakeawayCardss(takeaways) {
+    renderTakeawayCards(takeaways) {
         return takeaways.map((takeaway, index) => {
             return (
                 <li className="takeaway" key={index}>
@@ -209,11 +219,38 @@ class Detail extends Component {
             )
         })
     }
+    renderEnrollNow(){
+        const { details } = this.state;
+        if (details) {
+            const { course } = details;
+            return (
+                <div className="take_actions">
+                <div className="card">
+                    <div className="title">
+                        {course.title}
+                    </div>
+                    <a href="https://www.eventbrite.com/e/32317127398" target="_blank">
+                    <div className="action_button">
+                        Sign Up Now
+                    </div>
+                    </a>
+                    <div className="description">
+                        2 hours workshop @<span>Haas, UC Berkeley</span>
+                        <br/>
+                        Learn how to get intership and succeed in the undustry
+                    </div>
+                </div>
+                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
+                </div>
+            )
+        }
+    }
     render() {
         return (
             <div className="details-component">
                 {this.renderLead()}
                 {this.renderTakeaways()}
+                {this.renderEnrollNow()}
             </div>
         )
     }
