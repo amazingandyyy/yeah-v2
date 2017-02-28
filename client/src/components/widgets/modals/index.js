@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import { store } from '../../index';
+import { store } from '../../../index';
 import { Provider } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -25,7 +25,7 @@ class YeahModal extends Component {
 
     componentWillUpdate(){
         this.modalTarget = document.createElement('div');
-        this.modalTarget.className = 'yeah-modal animated fadeIn';
+        this.modalTarget.className = 'yeah-modal animated';
         document.body.appendChild(this.modalTarget);
         this._render()
     }
@@ -65,7 +65,7 @@ class SalesModal extends Component {
                     扫码/长按二维码，立刻与欧耶大使报名！
                 </div>
                 <br/>
-                <img className="animated tada" src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/jason-wechat.png"/>
+                <img className="animated bounceIn" style={{'width': '300px'}} src={require('./super_advisor.png')}/>
             </div>
         )
     }

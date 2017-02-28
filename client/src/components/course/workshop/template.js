@@ -37,7 +37,7 @@ class Detail extends Component {
                 <div className="lead">
                     <div className="program">Career Training Program</div>
                     <h1 className="title">{course.title}</h1>
-                    <p>From zero to hero in {course.totalWeeks}&nbsp; weeks.</p>
+                    <p>Learn from industry leaders.</p>
                     <div className="video-wrapper">
                         <span className="outer"></span>
                         <video
@@ -47,9 +47,26 @@ class Detail extends Component {
                             loop></video>
                     </div>
                     <div className="introduction">
-                        <div className="section">
-                            <div className="subtitle">Valuable course content.</div>
-                            {course.overview}
+                        <div className="section" style={{'textAlign': 'left'}}>
+                            <div className="subtitle">Enjoy a Fruitful Workshop</div>
+                            <div>马上就是转学季到来了，大家都会开始陆续收到offer。欧耶贤贤相信，交完申请等待offer的心情就如同高考完般放松。或许几周之后你们会有人狂喜，也会有人忧愁。但不管怎么样，那都是一个全新的开始。因为你马上就要面临全新的挑战——步入职场。</div>
+                            <br/>
+                            <div>很多转学生告诉我，都说转学后非常难找工作。因为一份好的毕业Offer通常来自你大三实习的Return offer，而大部分公司的实习秋招将在今年的八九月份（大三第一学期开学）结束。也就意味着大二结束的这个暑假就需要开始好好准备你的实习申请！  而转学生通常比大一大二的学生少一些资源，他们从大一就开始Networking ，参加各种info session。</div>
+                            <br/>
+                            <div>然而</div>
+                            <div>你是否有想过你想找一份什么样的工作？</div>
+                            <div>你是否了解每个行业所需要什么样的技能？</div>
+                            <div>你是否开始准备你的简历？</div>
+                            <br/>
+                            <div>如果还没有，敬请来到我们特别为回馈转学客户免费开办的，“转学衔接” 年度职场讲座，为你转学之后的路途提供一点点帮助。</div> 
+                        </div>
+                        <div className="section instructor wider">
+                            <div className="subtitle">
+                                Amazing speakers
+                            </div>
+                            <div className="row">
+                                {this.renderSpeackers()}
+                            </div>
                         </div>
                         <div className="section wider">
                             <div className="container-fluid">
@@ -58,10 +75,10 @@ class Detail extends Component {
                                     <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/courses.svg"/>
                                     <div className="intro">
                                         <div className="intro-title">
-                                            {course.totalWeeks}&nbsp;weeks
+                                            2&nbsp;hrs
                                         </div>
                                         <div className="description">
-                                            Take fruitful lectures in Berkeley Campus and materials Online
+                                            Enjoy 2 hours brilliant workshop and valuable discussion session
                                         </div>
                                     </div>
                                 </div>
@@ -80,29 +97,15 @@ class Detail extends Component {
                                     <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/certificate.svg"/>
                                     <div className="intro">
                                         <div className="intro-title">
-                                            Certificates
+                                            Resume
                                         </div>
                                         <div className="description">
-                                            Complete prgram to highlight your new skills on your resume and LinkedIn
+                                            Learn how take part in programs to power your resume and LinkedIn
                                         </div>
                                     </div>
                                 </div>
                                </div> 
                             </div>
-                        </div>
-                        <div className="section instructor">
-                            <div className="subtitle">
-                                Lead by Professional instructor
-                            </div>
-                            <div className="avatar">
-                                <img src={instructor.imageURL}/>
-                            </div>
-                            <div className="name">
-                                {instructor.firstName}
-                                {instructor.lastName}
-                            </div>
-                            <div>{instructor.currentPosition.position}, {instructor.currentPosition.affiliation}</div>
-                            <div>{instructor.previousPosition.position}, {instructor.previousPosition.affiliation}</div>
                         </div>
                     </div>
                 </div>
@@ -113,6 +116,28 @@ class Detail extends Component {
                 <Loader/>
             </div>
         )
+    }
+    renderSpeackers(){
+        if(this.state.details.speackers){
+            return this.state.details.speackers.map((speaker) => {
+                return (
+                    <div className="col-md-12" style={{'paddingBottom': '60px'}}>
+                        <div className="avatar">
+                            <img src={speaker.imageURL}/>
+                        </div>
+                        <div className="name">
+                            {speaker.firstName}
+                            {speaker.lastName}
+                        </div>
+                        <div>{speaker.heighlightPosition.position}, {speaker.heighlightPosition.affiliation}</div>
+                        <div>{speaker.industry} Expert</div>
+                    </div>
+                )
+            })
+        }else{
+            <div style={{padding: '100px'}}>
+            </div>
+        }
     }
 
     renderSyllabus() {
@@ -145,7 +170,7 @@ class Detail extends Component {
                     </div>
                     <hr/>
                     <div className="description">
-                        {heighlight.description}
+                        
                     </div>
                     <br/>
                     <div className="info">
@@ -167,7 +192,7 @@ class Detail extends Component {
             const {course} = details;
             return (
                 <div className="takeaways">
-                <div className="subtitle">What you will get from this class</div>
+                <div className="subtitle">What you will get from this workshop</div>
                 <ol className="check">
                    {this.renderTakeawayCardss(course.takeaways)}
                 </ol>

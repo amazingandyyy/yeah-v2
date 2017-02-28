@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-import {YeahModal, SalesModal} from './modals';
+import {YeahModal, SalesModal} from './widgets/modals';
 
 class Footer extends Component {
     render() {
@@ -57,7 +57,7 @@ class Footer extends Component {
                             </div>
                             <ul>
                                 <li>
-                                    <img className="wechat-qrcode" src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/yeah-wechat-qrcode-white-300.png"/>
+                                    <img className="wechat-qrcode" src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/qrcodes/super_advisor.png"/>
                                 </li>
                             </ul>
                         </div>

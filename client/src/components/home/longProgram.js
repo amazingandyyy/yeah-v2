@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import{ YeahModal,SalesModal } from '../modals';
+import{ YeahModal,SalesModal } from '../widgets/modals';
 
 export default class LProgram extends Component {
   constructor(props){

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Loader} from '../widgets';
 import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
+import{ YeahModal,SalesModal } from '../widgets/modals';
 
 import {Link} from 'react-router';
 import Header from '../header';
@@ -14,8 +15,15 @@ class Detail extends Component {
         super(props);
         
         this.state = {
-            details: props.data
+            details: props.data,
+            showSalesModal: false
         }
+    }
+        
+    openSalesModal(){
+        this.setState({
+            showSalesModal: true
+        })
     }
 
     renderMap() {
@@ -37,7 +45,7 @@ class Detail extends Component {
                 <div className="lead">
                     <div className="program">Career Training Program</div>
                     <h1 className="title">{course.title}</h1>
-                    <p>From zero to hero in {course.totalWeeks}&nbsp; weeks.</p>
+                    <p>From zero to hero in {course.totalWeeks}&nbsp;weeks.</p>
                     <div className="video-wrapper">
                         <span className="outer"></span>
                         <video
@@ -162,20 +170,20 @@ class Detail extends Component {
         })
     }
     renderTakeaways(){
-        const {details} = this.state;
+        const { details } = this.state;
         if (details) {
-            const {course} = details;
+            const { course } = details;
             return (
                 <div className="takeaways">
                 <div className="subtitle">What you will get from this class</div>
                 <ol className="check">
-                   {this.renderTakeawayCardss(course.takeaways)}
+                   {this.renderTakeawayCards(course.takeaways)}
                 </ol>
                 </div>
             )
         }
     }
-    renderTakeawayCardss(takeaways) {
+    renderTakeawayCards(takeaways) {
         return takeaways.map((takeaway, index) => {
             return (
                 <li className="takeaway" key={index}>
@@ -184,12 +192,38 @@ class Detail extends Component {
             )
         })
     }
+    renderTakeActions(){
+        const { details } = this.state;
+        if (details) {
+            const { course } = details;
+            return (
+                <div className="take_actions">
+                <div className="card">
+                    <div className="title">
+                        {course.title}
+                    </div>
+                    <div className="action_button" onClick={this.openSalesModal.bind(this)}>
+                        Take this course Now
+                    </div>
+                    <div className="description">
+                        {course.hoursPerWeek} hours X {course.totalWeeks} weeks @<span>UC Berkeley</span>
+                        <br/>
+                        Get certification and internship after completing course.
+                    </div>
+
+                </div>
+                </div>
+            )
+        }
+    }
     render() {
         return (
             <div className="details-component">
                 {this.renderLead()}
                 {this.renderSyllabus()}
                 {this.renderTakeaways()}
+                {this.renderTakeActions()}
+                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
             </div>
         )
     }

@@ -148,7 +148,7 @@ export default {
             "affiliation" : "Qatalyst Partners",
             "position" : "Summer Analyst"
         },
-        "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/RockyYip.jpg"
+        "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
     },
     "createBy" : "589284339973ecbedd83a033",
     "createAt" : 1487985735209.0,
