@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
 
-import {Loader} from '../widgets';
+import {Loader,Header,Footer} from '../widgets';
 import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 import{ YeahModal,SalesModal } from '../widgets/modals';
 
 import {Link} from 'react-router';
-import Header from '../header';
 import moment from 'moment';
-import Footer from '../footer';
 
 class Detail extends Component {
     constructor(props) {
@@ -100,7 +98,7 @@ class Detail extends Component {
                         </div>
                         <div className="section instructor">
                             <div className="subtitle">
-                                Lead by Professional instructor
+                                Led by Professional instructor
                             </div>
                             <div className="avatar">
                                 <img src={instructor.imageURL}/>

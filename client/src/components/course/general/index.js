@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
-import {Loader} from '../../widgets';
+import {Loader,Header,Footer} from '../../widgets';
 import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../../widgets/googleMapDetails';
 import {Link} from 'react-router';
-import Header from '../../header';
 import moment from 'moment';
-import Footer from '../../footer';
 import CourseTemplate from '../template';
 
 class Template extends Component {
@@ -30,7 +28,7 @@ class Template extends Component {
     render() {
         return (
             <div>
-                <Header className="inverse"/>
+                <Header className="fixed inverse"/>
                 <CourseTemplate data={this.props.details}/>
                 <Footer />
             </div>
