@@ -350,6 +350,9 @@
         max-width: 60rem;
         margin: auto;
         padding: 20px 10px;
+        @media (max-width: 700px) {
+            padding-top: 60px;
+        }
     }
     .resourseCard{
         background: white;
@@ -357,13 +360,54 @@
         margin: 15px 0px;
         border-radius: 0.175rem;
         box-shadow: 2px 5px 20px 0px rgba(46, 61, 73, 0.15);
+        position: relative;
+        padding-left: 60px;
+        transition: .2s all cubic-bezier(0.39, 0.575, 0.565, 1);
 
+        @media (max-width: 700px) {
+            padding-left: 30px;
+            padding-top: 60px;
+            margin-top: 60px;
+        }
         &:hover{
             box-shadow: 2px 10px 50px 5px rgba(46, 61, 73, 0.2);
             .date{
                 color: $light-blue;
             }
+            .decoration{
+                .point {
+                    transition: .1s all cubic-bezier(0.39, 0.575, 0.565, 1);
+                    transform: scale(1.2);
+                    @media (max-width: 700px) {
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
+
+        .decoration{
+            position: absolute;
+            top: 20%;
+            left: -40px;
+            @media (max-width: 700px) {
+                top: -40px;
+                left: 40%;
+            }
+
+            .point {
+                user-select: none;
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                border-radius: 100px;
+                color: white;
+                background: linear-gradient(to bottom right, #02b3e4, #02ccba);
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+        }
+
         .title{
             font-size: 2rem;
             line-height: 2rem;
@@ -395,5 +439,12 @@
         font-size: 1.2rem;
         font-weight: 900;
         margin: 50px auto;
+        transition: .5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+        opacity: 0.7;
+
+        &:hover{
+            transition: .5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+            transform: scale(1.2);
+        }
     }
 }

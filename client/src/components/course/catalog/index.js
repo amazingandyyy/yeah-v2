@@ -10,9 +10,14 @@ class Catalog extends Component{
             return CourseList.map(({_id, course})=>{
                 return (<Link to={'/course/'+_id} key={_id}>
                 <div className="resourseCard">
-                        <div className="title">{course.title}</div>
-                        <div className="date">{moment(course.startingDate).format('dddd, MMMM Do, YYYY')}</div>
-                        <div className="overview">{course.overview}</div>
+                    <div className="decoration">
+                        <div className="point">
+                            {moment(course.startingDate).format('MM/DD')}
+                        </div>
+                    </div>
+                    <div className="title">{course.title}</div>
+                    <div className="date">{moment(course.startingDate).format('dddd, MMMM Do, YYYY')}</div>
+                    <div className="overview">{course.overview}</div>
                 </div></Link>)
             })
         }else{
