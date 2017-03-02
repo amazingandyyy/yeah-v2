@@ -63,6 +63,9 @@
                     border-top-left-radius: 0.375rem;
                     border-bottom-left-radius: 0.375rem;
                     padding: 20px;
+                    @media (max-width: 1199px) {
+                        font-size: 2rem;
+                    }
                 }
                 .body {
                     position: absolute;

@@ -7,9 +7,8 @@ import DashboardRoute from './dashboardRoute';
 import CourseRoute from './courseRoute';
 import InternshipRoute from './internshipRoute';
 import VolunteerRoute from './volunteerRoute';
-import Course from '../components/course';
-import Banking from '../components/course/banking';
-import Start from '../components/dashboard/start';
+import AboutRoute from './aboutRoute';
+
 
 import loginGuard from '../components/auth/loginGuard';
 
@@ -17,7 +16,8 @@ const RouteComponent = [
     HomeRoute,
     AuthRoute,
     DashboardRoute,
-    CourseRoute
+    CourseRoute,
+    AboutRoute
 ]
 
 export default RouteComponent;

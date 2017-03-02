@@ -44,7 +44,7 @@ export default class Introduction extends Component {
             <div className="headline-card">
             <Link to='/course/webdev'>
               <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
-                <div>4/02</div>
+                <div>4/08</div>
               </div>
               <div className="body">
                 Web Development 网页开发入门

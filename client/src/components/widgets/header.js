@@ -23,7 +23,7 @@ class Header extends Component {
             <Link key='4' to="/">
                 <div>成功案例</div>
             </Link>
-            <Link key='5' to="/">
+            <Link key='5' to="/about">
                 <div>关于我们</div>
             </Link>
             <Link key='6' to="/dashboard">

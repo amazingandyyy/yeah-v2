@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { CourseList } from '../index';
-import { Header, Footer, Loader, Space } from '../../widgets';
+import { Header, Footer, Loader, Space, ComponentLeader } from '../../widgets';
 import { Link } from 'react-router';
 import moment from 'moment';
 
@@ -35,9 +35,7 @@ class Catalog extends Component{
         return(
             <div>
                 <Header className=""/>
-                <div className="component-leader">
-                    <div className="title">Course Catalog</div>
-                </div>
+                <ComponentLeader title="Course Catalog"/>  
                 <div className="component-content course-catalog">
                 <div className="section">
                     <div className="row">
