@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export default {
-    "_id" : "58b0e6fd74e18ef81a8cb12d",
+    "_id" : "banking",
     "course" : {
         "title" : "Introduction to Investment Banking",
         "overview" : "“Introduction to Investment Banking\" will cover an overview of the industry, preparation for interviews, and the types of technical concepts and analyses performed by professionals. Specific topics include accounting, financial statement analysis, valuation methodologies (comparable companies, precedent transactions, discounted cash flow, leveraged buyouts, financial instruments, capital structures, as well as M&A and IPO processes. In addition, students will get a chance to practice financial ",

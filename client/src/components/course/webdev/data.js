@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 export default {
-    "_id" : "58b0e6fd74e18ef81a8cb12d",
+    "_id" : "webdev",
     "course" : {
         "title" : "Introduction to Software Development",
         "overview" : "Our life cannot be seperated from websites and applications. It's without adoubt software development concepts are required for eveyone, including business people and potential software engineer. This class will be hold by Amazingandyyy who had been to over 20 Hackathons and won 9 of them in the past two years. The course will cover almost everything from mindset to technics you need to make your simple idea be a product. You will have the ability to build a website and share the link to your friend. After this course, you will learn and earn the confidence to make thing instead of just making dreams.",

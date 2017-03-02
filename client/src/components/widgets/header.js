@@ -18,7 +18,7 @@ class Header extends Component {
                 <div>申请冲刺</div>
             </Link>
             <Link key='3' to="/course/catalog">
-                <div>资源宝库</div>
+                <div>课程宝库</div>
             </Link>
             <Link key='4' to="/">
                 <div>成功案例</div>
@@ -27,7 +27,7 @@ class Header extends Component {
                 <div>关于我们</div>
             </Link>
             <Link key='6' to="/dashboard">
-                <span className="enter-button">进入专属系统</span>
+                <span className="enter-button">会员登入/注册</span>
             </Link>
             </div>
         )
@@ -60,6 +60,7 @@ class Header extends Component {
             const $d = $(document);
             $d.scroll(function() {
                 $('nav').toggleClass('white', $d.scrollTop() >= 30);
+                $('nav.fixed').removeClass('white', $d.scrollTop() >= 30);
             });
 
             $('.collapse-button').on('click', ()=>{

@@ -1,0 +1,21 @@
+.component-leader {
+    height: 250px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0px auto;
+    transform: rotate(0deg);
+    background: linear-gradient(20deg,#03CCBA,#AA7FCD);
+    .title {
+        line-height: 280px;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 900;
+    }
+}
+
+.component-content{
+    padding-top: 120px;
+}

@@ -337,8 +337,9 @@
     }
 }
 
-.course-catalog-component {
-    padding: 50px 10px;
+.component-content.course-catalog {
+    padding-left: 10px;
+    padding-right: 10px;
 
     .title{
         font-size: 2.5rem;
@@ -353,13 +354,21 @@
     .resourseCard{
         background: white;
         padding: 30px;
-        margin: 20px 0px;
-        border-radius: 0.375rem;
+        margin: 15px 0px;
+        border-radius: 0.175rem;
         box-shadow: 2px 5px 20px 0px rgba(46, 61, 73, 0.15);
 
+        &:hover{
+            box-shadow: 2px 10px 50px 5px rgba(46, 61, 73, 0.2);
+            .date{
+                color: $light-blue;
+            }
+        }
         .title{
             font-size: 2rem;
+            line-height: 2rem;
             font-weight: 900;
+            margin-bottom: 10px;
         }
 
         .date{
@@ -367,11 +376,24 @@
         }
 
         .overview{
-            padding-top: 20px;
+            padding-top: 15px;
             font-size: 0.95rem;
             opacity: 0.8;
             letter-spacing: 0.2px;
         }
+    }
 
+    .comingMore{
+        user-select: none;
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        border-radius: 200px;
+        color: white;
+        background: linear-gradient(to bottom right, #02b3e4, #02ccba);
+        font-size: 1.2rem;
+        font-weight: 900;
+        margin: 50px auto;
     }
 }
