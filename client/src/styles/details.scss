@@ -336,3 +336,42 @@
         }
     }
 }
+
+.course-catalog-component {
+    padding: 50px 10px;
+
+    .title{
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+
+    .section {
+        max-width: 60rem;
+        margin: auto;
+        padding: 20px 10px;
+    }
+    .resourseCard{
+        background: white;
+        padding: 30px;
+        margin: 20px 0px;
+        border-radius: 0.375rem;
+        box-shadow: 2px 5px 20px 0px rgba(46, 61, 73, 0.15);
+
+        .title{
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .date{
+            font-size: 1.3rem;
+        }
+
+        .overview{
+            padding-top: 20px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            letter-spacing: 0.2px;
+        }
+
+    }
+}

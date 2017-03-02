@@ -11,3 +11,11 @@ export default class App extends Component {
     );
   }
 }
+
+const CourseList = [
+  require('./workshop/data').default,
+  require('./banking/data').default,
+  require('./webdev/data').default
+]
+
+export { CourseList };

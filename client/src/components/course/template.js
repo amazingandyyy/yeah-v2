@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import {Loader,Header,Footer} from '../widgets';
-import {hashHistory} from 'react-router';
 import GoogleMapDetails from '../widgets/googleMapDetails';
 import{ YeahModal,SalesModal } from '../widgets/modals';
 

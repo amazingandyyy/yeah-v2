@@ -125,9 +125,9 @@ class Detail extends Component {
     }
     renderSpeackers(){
         if(this.state.details.speackers){
-            return this.state.details.speackers.map((speaker) => {
+            return this.state.details.speackers.map((speaker, index) => {
                 return (
-                    <div className="col-md-12" style={{'paddingBottom': '60px'}}>
+                    <div className="col-md-12" style={{'paddingBottom': '60px'}} key={index}>
                         <div className="avatar">
                             <img src={speaker.imageURL}/>
                         </div>

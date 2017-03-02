@@ -21,14 +21,16 @@ class Footer extends Component {
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-3">
                             <div className="title">
+                            <Link to="/course/catalog">
                                 职场培训 Program
+                            </Link>
                             </div>
                             <ul>
-                                <li><Link>Banking 课程</Link></li>
-                                <li><Link>Accounting 课程</Link></li>
-                                <li><Link>Consoulting 课程</Link></li>
-                                <li><Link>Web Development 课程</Link></li>
-                                <li><Link>Data Science 课程</Link></li>
+                                <li><Link to="/course/banking">Banking 课程</Link></li>
+                                <li><Link to="/course/banking">Accounting 课程</Link></li>
+                                <li><Link to="/course/banking">Consoulting 课程</Link></li>
+                                <li><Link to="/course/webdev">Web Development 课程</Link></li>
+                                <li><Link to="/course/webdev">Data Science 课程</Link></li>
                             </ul>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-3">
