@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 import { Link } from 'react-router';
 import $ from 'jquery';
 
@@ -17,7 +17,7 @@ class Header extends Component {
             <Link key='2' to="/">
                 <div>申请冲刺</div>
             </Link>
-            <Link key='3' to="/">
+            <Link key='3' to="/course/catalog">
                 <div>资源宝库</div>
             </Link>
             <Link key='4' to="/">
@@ -80,4 +80,4 @@ function mapStateToProps({auth}){
     }
 }
 
-export default connect(mapStateToProps, actions)(Header)
+export default connect(mapStateToProps, actions)(Header);

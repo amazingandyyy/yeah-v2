@@ -3,8 +3,11 @@ import {Route, IndexRoute} from 'react-router';
 
 import Course from '../components/course';
 import Catalog from '../components/course/catalog';
-import Banking from '../components/course/banking';
 import loginGuard from '../components/auth/loginGuard';
+
+import Banking from '../components/course/banking';
+import Webdev from '../components/course/webdev';
+import Workshop from '../components/course/workshop';
 
 const CourseRoute = {
   path: '/course',
@@ -24,10 +27,16 @@ const CourseRoute = {
           path: '/course/banking',
           component: Banking
         }, {
+          path: '/course/workshop',
+          component: Workshop
+        }, {
+          path: '/course/webdev',
+          component: Webdev
+        }, {
           path: '/course/:id',
           getComponent(location, cb) {
             System
-              .import ('../components/course/detail')
+              .import ('../components/course/general')
               .then(module => cb(null, module.default))
           }
         }

@@ -7,13 +7,13 @@ import GoogleMapDetails from '../../widgets/googleMapDetails';
 import {Link} from 'react-router';
 import moment from 'moment';
 import data from './data';
-import CourseTemplate from '../template';
+import CourseTemplate from './template';
 
 class Detail extends Component {
     render() {
         return (
             <div>
-                <Header className="fixed inverse"/>
+                <Header className="inverse"/>
                 <CourseTemplate data={data} />
                 <Footer />
             </div>

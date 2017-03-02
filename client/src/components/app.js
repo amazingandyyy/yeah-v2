@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Header from './header';
-import Footer from './footer';
+import {Header, Footer} from './widgets';
 import $ from 'jquery';
 import Drawer from './dashboard/drawer';
 

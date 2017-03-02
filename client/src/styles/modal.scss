@@ -12,12 +12,13 @@
     left: 0;
     right: 0;
     background: rgba(0,0,0,0.4);
-    padding: 8% 0px;
+    padding: 10vh 10px;
     transition: opacity .3s linear,top .3s ease-out;
+
     div{
         outline: none;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         padding: 0px 0px;
     }
     .wrapper {
@@ -36,7 +37,7 @@
         padding-bottom: 65px;
         transition: .3s all ease-in-out;
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             border-radius: 0rem;
             transition: .3s all ease-in-out;
             height: 100vh;

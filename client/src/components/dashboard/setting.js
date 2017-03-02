@@ -41,7 +41,6 @@ class Setting extends Component {
   onDrop(files) {
     this.props.uploadProfileAvatar(files);
   }
-
   renderCollegeInput ({input, ...rest}) {
       let collegeList = _.map(this.props.colleges, 'name');
       return (

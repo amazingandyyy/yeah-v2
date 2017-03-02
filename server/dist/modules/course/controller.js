@@ -15,24 +15,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     createOne: function createOne(req, res, next) {
         var createBy = req.user._id;
-        var title = req.body.title;
-        var data = void 0;
-        if (req.body.location) {
-            var coordinates = [req.body.location.location.lng, req.body.location.location.lat];
-            data = _extends({
-                createBy: createBy
-            }, req.body, {
-                geometry: {
-                    coordinates: coordinates
-                }
-            });
-        } else {
-            data = _extends({
-                createBy: createBy
-            }, req.body);
-        }
-        _model2.default.create(data).then(function (d) {
-            res.send();
+        var coordinates = null;
+        var data = _extends({}, req.body, {
+            createBy: createBy
+        });
+        _model2.default.create(data).then(function (savedData) {
+            console.log('savedData: ', savedData);
+            res.send({ success: true });
         }).catch(next);
     },
     fetchAll: function fetchAll(req, res, next) {

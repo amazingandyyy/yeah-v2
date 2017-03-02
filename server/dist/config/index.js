@@ -9,6 +9,10 @@ var _controller = require('../modules/admin/controller');
 
 var _controller2 = _interopRequireDefault(_controller);
 
+var _controller3 = require('../modules/volunteer/controller');
+
+var _controller4 = _interopRequireDefault(_controller3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 require('dotenv').config();
@@ -41,8 +45,8 @@ if (process.env.NODE_ENV == 'production') {
         mongo_log: 'Real one',
         aws_s3_bucket: 'yeah-assets',
         aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com',
-        aws_ses_sender: 'amazingandyyy@gmail.com',
-        redirect_url_base: 'https://amazingandyyy.github.io/yeah-pages',
+        aws_ses_sender: 'yeaheducation@gmail.com',
+        redirect_url_base: 'http://104.131.39.34:8000',
         unique_salt: process.env.UNIQUE_SALT,
         PORT: process.env.PORT
     };
@@ -56,7 +60,7 @@ if (process.env.NODE_ENV == 'production') {
         mongo_log: 'mongodb://localhost/yeah-v2-sandbox',
         aws_s3_bucket: 'yeah-assets-dev',
         aws_s3_url_base: 'https://s3-us-west-2.amazonaws.com',
-        aws_ses_sender: 'amazingandyyy@gmail.com',
+        aws_ses_sender: 'yeaheducation@gmail.com',
         redirect_url_base: 'http://localhost:8000',
         unique_salt: 'process.env.UNIQUE_SALT',
         PORT: process.env.PORT || 8000
@@ -73,3 +77,5 @@ _controller2.default.addAdminByEmail('amazingandyyy@gmail.com');
 _controller2.default.addAdminByEmail('kevintian.us@gmail.com');
 _controller2.default.addAdminByEmail('imdavidf@gmail.com');
 _controller2.default.removeAdminByEmail('amazingandyyy2@gmail.com');
+
+_controller4.default.deleteAll();

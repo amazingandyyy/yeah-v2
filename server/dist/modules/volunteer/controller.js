@@ -52,6 +52,11 @@ exports.default = {
             res.send();
         }).catch(next);
     },
+    deleteAll: function deleteAll() {
+        _model2.default.remove({}).then(function () {
+            console.log('Volunteers are all gone.');
+        }).catch();
+    },
     updateOne: function updateOne(req, res, next) {
         _model2.default.findByIdAndUpdate(req.params.id, req.body).then(function () {
             res.send();

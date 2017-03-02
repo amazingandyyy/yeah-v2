@@ -2,7 +2,6 @@ import express from 'express';
 import controller from './controller';
 import auth from './auth';
 import { loginRequired, readFile } from '../../middleware';
-import multer from 'multer';
 
 const router = express.Router();
 // public request

@@ -14,7 +14,7 @@ class Detail extends Component {
         return (
             <div>
                 <Header className="fixed inverse"/>
-                <CourseTemplate data={data} />
+                    <CourseTemplate data={data} />
                 <Footer />
             </div>
         )

@@ -13,5 +13,4 @@ const Schema = new mongoose.Schema({
         }
     });
 
-
 export default mongoose.model('Admin', Schema);

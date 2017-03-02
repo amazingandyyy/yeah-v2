@@ -1,0 +1,5 @@
+const bankingCourse = {
+
+}
+
+export {bankingCourse};
