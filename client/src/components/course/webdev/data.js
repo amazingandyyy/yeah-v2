@@ -4,7 +4,7 @@ export default {
     "_id" : "webdev",
     "course" : {
         "title" : "Introduction to Software Development",
-        "overview" : "Our life cannot be seperated from websites and applications. It's without adoubt software development concepts are required for eveyone, including business people and potential software engineer. This class will be hold by Amazingandyyy who had been to over 20 Hackathons and won 9 of them in the past two years. The course will cover almost everything from mindset to technics you need to make your simple idea be a product. You will have the ability to build a website and share the link to your friend. After this course, you will learn and earn the confidence to make thing instead of just making dreams.",
+        "overview" : "Our life cannot be separated from websites and applications. It's without any doubt that software development skills are essential for everyone, whether you are a business person or a potential software engineer. This class will be administrated by Andy, an amazing software developer who has swept 9 Hackathons across the US in a mere 2 years. The course starts from scratch and covers just about everything that you need to become a successful developer, from mindset to technical skills. In a span of a month, this course will translate your simple ideas into a feasible and scalable application. By the end of the course, you will have the ability to build up a website and share with your friends and families. More importantly, you will learn and earn the confidence to build up innovative products and change the world.",
         "startingDate" : "2017-04-02",
         "hoursPerWeek" : 5,
         "totalWeeks" : 6,
@@ -156,11 +156,11 @@ export default {
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
             "affiliation" : "UC Berkeley",
-            "position" : "Junior"
+            "position" : "Cognitive Science"
         },
         "previousPosition" : {
-            "affiliation" : "Yeah Education Group",
-            "position" : "Chief Technology Officer"
+            "affiliation" : "Multiple Open Source projects",
+            "position" : "Contributor"
         },
         "imageURL" : "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56c3c6979d2f9bd08&s=4004"
     },

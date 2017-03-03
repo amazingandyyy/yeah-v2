@@ -142,11 +142,11 @@ export default {
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
             "affiliation" : "UC Berkeley",
-            "position" : "Senior"
+            "position" : "Haas School of Business"
         },
         "previousPosition" : {
             "affiliation" : "Qatalyst Partners",
-            "position" : "Summer Analyst"
+            "position" : "Analyst"
         },
         "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
     },
