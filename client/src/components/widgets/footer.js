@@ -38,11 +38,11 @@ class Footer extends Component {
                                 关于公司
                             </div>
                             <ul>
-                                <li><Link>团队</Link></li>
-                                <li><Link>新闻中心</Link></li>
-                                <li><Link>联络合作</Link></li>
-                                <li><Link>加入我们</Link></li>
-                                <li><Link>开发者专区</Link></li>
+                                <li><Link to="/about">团队</Link></li>
+                                <li><Link to="/about">新闻中心</Link></li>
+                                <li><Link to="/about">联络合作</Link></li>
+                                <li><Link to="/about">加入我们</Link></li>
+                                <li><Link to="/about">开发者专区</Link></li>
                             </ul>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-3">
@@ -51,7 +51,6 @@ class Footer extends Component {
                             </div>
                             <ul>
                                 <li><a href="https://www.facebook.com/yeaheducation/" target="_blank">脸书专页</a></li>
-                                <li><Link>官方微博</Link></li>
                             </ul>
                             <div className="title">
                                 微信账号

@@ -49,7 +49,7 @@ class About extends Component{
             <div className="take_actions">
             <div className="card">
                 <div className="title">
-                    Join Our team
+                    Contact / Join Our team
                 </div>
                 <a href="mailto:yeaheducation@gmail.com?Subject=Join%20the%20Yeah%20Rocket" target="_top">
                     <div className="action_button">
