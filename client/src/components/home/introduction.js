@@ -31,9 +31,20 @@ export default class Introduction extends Component {
               </div>
 
             <div className="headline-card">
+            <Link to='/course/consulting'>
+              <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
+                <div>3/12</div>
+              </div>
+              <div className="body">
+                Consulting 咨询入门
+              </div>
+            </Link>
+            </div>
+
+            <div className="headline-card">
             <Link to='/course/banking'>
             <div className="header" style={{backgroundColor: `rgb(2,204,186)`}}>
-                <div>3/12</div>
+                <div>3/19</div>
               </div>
               <div className="body">
                 Investment Banking 投行入门
@@ -41,16 +52,6 @@ export default class Introduction extends Component {
             </Link>
             </div>
 
-            <div className="headline-card">
-            <Link to='/course/webdev'>
-              <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
-                <div>4/08</div>
-              </div>
-              <div className="body">
-                Web Development 网页开发入门
-              </div>
-            </Link>
-            </div>
 
           </div>
         </div>
@@ -59,3 +60,13 @@ export default class Introduction extends Component {
     );
   }
 }
+            // <div className="headline-card">
+            // <Link to='/course/webdev'>
+            //   <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
+            //     <div>4/08</div>
+            //   </div>
+            //   <div className="body">
+            //     Web Development 网页开发入门
+            //   </div>
+            // </Link>
+            // </div>

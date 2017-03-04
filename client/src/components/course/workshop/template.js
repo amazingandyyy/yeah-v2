@@ -127,18 +127,20 @@ class Detail extends Component {
         if(this.state.details.speackers){
             return this.state.details.speackers.map((speaker, index) => {
                 return (
-                    <div className="col-md-12" style={{'paddingBottom': '60px'}} key={index}>
+                    <div className="profile" key={index}>
                         <div className="avatar">
                             <img src={speaker.imageURL}/>
                         </div>
                         <div className="name">
                             <a className="underline" href={speaker.linkedinURL} target="_blank">
-                                {speaker.firstName}
-                                {speaker.lastName}
+                                {speaker.firstName} {speaker.lastName}
                             </a>
                         </div>
                         <div>{speaker.heighlightPosition.position}, {speaker.heighlightPosition.affiliation}</div>
-                        <div>{speaker.industry} Expert</div>
+                        <div><b>{speaker.industry} Expert</b></div>
+                        <div className="bio">
+                            {speaker.bio}
+                        </div>
                     </div>
                 )
             })

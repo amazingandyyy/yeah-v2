@@ -37,7 +37,7 @@ class Detail extends Component {
     renderLead() {
         const {details} = this.state;
         if (details) {
-            const {course, instructor} = details;
+            const {course, instructors} = details;
             return (
                 <div className="lead">
                     <div className="program">Career Training Program</div>
@@ -99,17 +99,7 @@ class Detail extends Component {
                             <div className="subtitle">
                                 Led by Professional instructor
                             </div>
-                            <div className="avatar">
-                                <img src={instructor.imageURL}/>
-                            </div>
-                            <div className="name">
-                                <a className="underline" href={instructor.linkedinURL} target="_blank">
-                                    {instructor.firstName}
-                                    {instructor.lastName}
-                                </a>
-                            </div>
-                            <div>{instructor.currentPosition.position}, {instructor.currentPosition.affiliation}</div>
-                            <div>{instructor.previousPosition.position}, {instructor.previousPosition.affiliation}</div>
+                            {this.renderInstructor(instructors)}
                         </div>
                     </div>
                 </div>
@@ -120,6 +110,31 @@ class Detail extends Component {
                 <Loader/>
             </div>
         )
+    }
+
+    renderInstructor(instructors){
+        if(instructors){
+            return instructors.map((instructor, index)=>{
+                return (
+                    <div className="profile" key={index}>
+                        <div className="avatar">
+                            <img src={instructor.imageURL}/>
+                        </div>
+                        <div className="name">
+                            <a className="underline" href={instructor.linkedinURL} target="_blank">
+                                {instructor.firstName} {instructor.lastName}
+                            </a>
+                        </div>
+                        <div>{instructor.currentPosition.position}, {instructor.currentPosition.affiliation}</div>
+                        <div>{instructor.previousPosition.position}, {instructor.previousPosition.affiliation}</div>
+                        <div className="bio">
+                            {instructor.bio}
+                        </div>
+                    </div>
+                )
+            })
+        }
+
     }
 
     renderSyllabus() {
@@ -142,7 +157,7 @@ class Detail extends Component {
             return (
                 <div className="syllabus-card" key={heighlight.title}>
                     <div className="index-tag">
-                        Class {index+1}
+                        Week {index+1}
                     </div>
                     <div className="title">
                         {heighlight.title}
@@ -155,15 +170,18 @@ class Detail extends Component {
                         {heighlight.description}
                     </div>
                     <br/>
-                    <div className="info">
-                        <i className="fa fa-newspaper-o" aria-hidden="true"></i>Material Preview: {hoursPerWeek/2} hours
-                    </div>
-                    <div className="info">
-                        <i className="fa fa-university" aria-hidden="true"></i>Berkeley Campus Lecture: {hoursPerWeek} hours
-                    </div>
-                    <div className="info">
-                        <i className="fa fa-cubes" aria-hidden="true"></i>Homework/Project: {hoursPerWeek/2} hours
-                    </div>
+                    {!heighlight.hideItems && 
+                    <div>
+                        <div className="info">
+                            <i className="fa fa-newspaper-o" aria-hidden="true"></i>Material Preview: {hoursPerWeek/2} hours
+                        </div>
+                        <div className="info">
+                            <i className="fa fa-university" aria-hidden="true"></i>Berkeley Campus Lecture: {hoursPerWeek} hours
+                        </div>
+                        <div className="info">
+                            <i className="fa fa-cubes" aria-hidden="true"></i>Homework/Project: {hoursPerWeek/2} hours
+                        </div>
+                    </div>}
                 </div>
             )
         })

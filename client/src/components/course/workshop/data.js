@@ -91,7 +91,7 @@ export default {
         ],
         "heighlights": [
             {
-                "title": "Introduction & Browser & HTML structure",
+                "title": "bio & Browser & HTML structure",
                 "description": "You will learn topic about why do we learn HTML/CSS/JS, Web structure and Browse" +
                         "r and learn the most basic concept of building a website.",
                 "projects": [
@@ -152,19 +152,21 @@ export default {
                 "affiliation": "Qatalyst Partners",
                 "position": "Summer Analyst"
             },
+            "bio": "Rocky was born in Hong Kong, raised in China and Canada, and is currently a senior studying Business Administration. Professionally, he worked with three different startups before exploring investment banking, and he interned at MergerTech and GCA Global prior to joining Qatalyst Partners, a firm that specializes in technology mergers and acquisitions. On UC Berkeley campus, he is actively involved with the business fraternity Alpha Kappa Psi, most recently serving as its President. He has competed and placed in case competitions such as Morgan Stanley Investment Banking, Deloitte Consulting, and he represented the Haas School of Business in Singapore as a member of its external competition team. Outside of the business community, Rocky has helped start the music non-profit Forte Academy and teaches clarinet to underprivileged children. In his free time, Rocky loves to watch basketball games, learn cooking, and enjoy the relaxing last moments of college with his friends.",
             "industry": "Consulting and Investment Banking",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
         }, {
-            "email": "amazingandyyy@gmail.com",
-            "firstName": "Penny",
+            "email": "",
+            "firstName": "Michael",
             "lastName": "Peng",
-            "linkedinURL": "https://www.linkedin.com/in/penny-l-peng-093633ba/",
+            "linkedinURL": "https://www.linkedin.com/in/",
             "heighlightPosition": {
-                "affiliation": "KPMG",
-                "position": "Tax Service Associate"
+                "affiliation": "...",
+                "position": "..."
             },
+            "bio": "",
             "industry": "Accounting",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/penny_peng.jpg"
+            "imageURL": ""
         }, {
             "email": "badreddine@berkeley.edu",
             "firstName": "Badreddine",
@@ -174,11 +176,12 @@ export default {
                 "affiliation": "高盛",
                 "position": "Investment Banking Analyst"
             },
+            "bio": "",
             "industry": "Investment Banking",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/badreddine_assiou" +
                     "a.jpg"
         }, {
-            "email": "badreddine@berkeley.edu",
+            "email": "",
             "firstName": "Mitchell",
             "lastName": "Quon",
             "linkedinURL": "https://www.linkedin.com/in/mitchellquon/",
@@ -186,10 +189,11 @@ export default {
                 "affiliation": "Deloitte Consulting",
                 "position": "Technology Analyst"
             },
+            "bio": "",
             "industry": "Consulting",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/mitchell_quon.jpg"
         }, {
-            "email": "badreddine@berkeley.edu",
+            "email": "",
             "firstName": "Peter",
             "lastName": "Lai",
             "linkedinURL": "https://www.linkedin.com/in/peterlai01/",
@@ -197,6 +201,7 @@ export default {
                 "affiliation": "Altman Vilandrie",
                 "position": "Summer Analyst"
             },
+            "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",
             "industry": "Consulting",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/peter_lai.jpg"
         }

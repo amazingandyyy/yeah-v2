@@ -5,7 +5,7 @@ export default {
     "course" : {
         "title" : "Introduction to Software Development",
         "overview" : "Our life cannot be separated from websites and applications. It's without any doubt that software development skills are essential for everyone, whether you are a business person or a potential software engineer. This class will be administrated by Andy, an amazing software developer who has swept 9 Hackathons across the US in a mere 2 years. The course starts from scratch and covers just about everything that you need to become a successful developer, from mindset to technical skills. In a span of a month, this course will translate your simple ideas into a feasible and scalable application. By the end of the course, you will have the ability to build up a website and share with your friends and families. More importantly, you will learn and earn the confidence to build up innovative products and change the world.",
-        "startingDate" : "2017-04-02",
+        "startingDate" : "2017-04-08",
         "hoursPerWeek" : 5,
         "totalWeeks" : 6,
         "location" : {
@@ -147,11 +147,12 @@ export default {
             "Computer Science"
         ]
     },
-    "instructor" : {
+    "instructors" : [{
         "email" : "amazingandyyy@gmail.com",
         "firstName" : "Andy",
         "lastName" : "Chen",
         "phone" : "4084313552",
+        "bio": "",
         "linkedinURL" : "https://www.linkedin.com/in/amazingandyyy",
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
@@ -163,7 +164,7 @@ export default {
             "position" : "Contributor"
         },
         "imageURL" : "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56c3c6979d2f9bd08&s=4004"
-    },
+    }],
     "createBy" : "589284339973ecbedd83a033",
     "createAt" : 1487985735209.0,
     "__v" : 0

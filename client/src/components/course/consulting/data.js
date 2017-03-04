@@ -3,8 +3,8 @@ import moment from 'moment';
 export default {
     "_id" : "banking",
     "course" : {
-        "title" : "Introduction to Investment Banking",
-        "overview" : "“Introduction to Investment Banking\" will cover an overview of the industry, preparation for interviews, and the types of technical concepts and analyses performed by professionals. Specific topics include accounting, financial statement analysis, valuation methodologies (comparable companies, precedent transactions, discounted cash flow, leveraged buyouts, financial instruments, capital structures, as well as M&A and IPO processes. In addition, students will get a chance to practice financial ",
+        "title" : "Introduction to Consulting",
+        "overview" : "During the workshop, you will have the opportunity to learn about PowerPoint tools, tips and frameworks to make effective slide designs and decks. You will also learn the fundamentals of a financial model and get the chance to build your own. These will help prepare you for future case competitions.",
         "startingDate" : "2017-03-19",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
