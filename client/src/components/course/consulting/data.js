@@ -127,8 +127,8 @@ export default {
                 "hideItems": true
             },
             {
-                "title" : "Investment Banking Workshop",
-                "description" : "Go over different financial services firms, what investment bankers do, the different types of investment banks, coverage vs. product groups, timeline of typical deals, a pitch deck, the recruiting process, typical analyst profile, resume samples, typical interview questions, and preparation resources.",
+                "title" : "How to Create PPT and Build Financial Models",
+                "description" : "Build and design professional powerpoint slides and learn how to build right financial models.",
                 "_id" : "58b0e6fd74e18ef81a8cb131"
             }
         ],
