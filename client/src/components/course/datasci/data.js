@@ -4,7 +4,7 @@ export default {
     "_id" : "datasci",
     "course" : {
         "title" : "Introduction to Data Science",
-        "overview" : "Our life cannot be separated from websites and applications. It's without any doubt that software development skills are essential for everyone, whether you are a business person or a potential software engineer. This class will be administrated by Andy, an amazing software developer who has swept 9 Hackathons across the US in a mere 2 years. The course starts from scratch and covers just about everything that you need to become a successful developer, from mindset to technical skills. In a span of a month, this course will translate your simple ideas into a feasible and scalable application. By the end of the course, you will have the ability to build up a website and share with your friends and families. More importantly, you will learn and earn the confidence to build up innovative products and change the world.",
+        "overview" : "Welcome to Yeah Education’s Introduction to Data Science course! Data Science is one of the hottest buzzwords to come out of the tech industry and certainly a versatile skill to have. Data Scientists go into data analyst, business analyst, product analyst, quantitative finance, financial engineering, software engineering, machine learning, AI, actuary, and biostatistician job positions and much more. At its core, data science is a mix of computer science and statistics – leveraging the power of programming with the theory of how data should behave. This course will be giving you a high-level introduction to how to analyze data from a data scientist perspective. The course is designed to be thorough but practical – everything you will learn is used in industry in one way or another.",
         "startingDate" : "2017-04-02",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
@@ -93,77 +93,61 @@ export default {
             "placeId" : "ChIJcQMtojp8hYARg3TZouAOzFE",
             "label" : "Haas School of Business, Piedmont Avenue, Berkeley, CA, United States"
         },
-        "textbook" : "A macbook or any laptop that can connected to the internet.",
+        "textbook" : "An Introduction to Statistical Learning by Gareth James et al. \n Online text can be found here: \n http://www3.canisius.edu/~yany/python/Python4DataAnalysis.pdf \n http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf",
         "syllabus" : false,
-        "preRequirement" : "TBA",
+        "preRequirement" : "Students who are interested in building careers related to data science should take this course. Given that the course will cover statistics theory, some knowledge of linear algebra and basic probability is required. Some exposure to programming already is highly encouraged, but the first course session will cover most of the basics. Finally, anyone who has a strong curiosity in data analysis and modeling is highly welcome to take the course.",
         "_id" : "58b0e6fd74e18ef81a8cb12f",
         "takeaways" : [ 
-            "Understand how brower works.", 
-            "Know how to write codes that computer can understand and make things work", 
-            "Have confidence to signup and go to a Hackathon.", 
-            "Have no hesitate to jump in and make a dinning-time idea to be real and funstional website.", 
-            "Have the ability to Google for resoruce and make yourself advance afterall.", 
-            "Have the ability to build your own portfolio and make money from buidding website for others."
+            "Gain the ability to read, clean, and interpret data comfortably in Python.", 
+            "Understand key data science concepts that are essential to know before any interview.", 
+            "Gain proficiency with NumPy, Pandas, Matplotlib, and Sklearn libraries.", 
+            "Develop a solid computer science and statistics background to pursue advanced data analysis and machine learning techniques.", 
+            "Gain exposure to a variety of data science problems and how to deal with them."
         ],
         "heighlights" : [ 
             {
-                "title" : "Introduction & Browser & HTML structure",
-                "description" : "You will learn topic about why do we learn HTML/CSS/JS, Web structure and Browser and learn the most basic concept of building a website.",
-                "projects": ["Manipulate Facebook/DVC website", "Build a Hello Me website"],
+                "title" : "Introduction to python programming",
+                "description" : "This lecture will focus on setting python up on your computer, basic programming concepts, and an introduction to NumPy",
                 "_id" : "58b0e6fd74e18ef81a8cb133"
             }, 
             {
-                "title" : "RWD and Styling for Web content, Git/Github",
-                "description" : "You will learn how to make beautiful and colorful webtie with CSS. \nI will teach you the basics of color, font, size and position, margin, Padding, box and button. Moreover, you will learn how to make dynamics styles.",
-                "projects": ["Restyle Facebook/DVC website", "Style the hello me website"],
+                "title" : "Data Manipulation",
+                "description" : "This lecture will focus on the Pandas and Matplotlib libraries and how you can read, manipulate, and visualize data.",
                 "_id" : "58b0e6fd74e18ef81a8cb132"
             },
             {
-                "title" : "Bootstrap and jQuery",
-                "description" : "You will learn how to use other people's CSS framework and learn to use the most-widely-used CSS framework called Bootstrap. Then I will teach you write your first Javascript language with Javascript Framwork called jQuery to make your website alive and palyable.",
-                "projects": ["Apply RWD to the Hello Me website", "Use jQuery to make Hello Me website more fun"],
+                "title" : "Linear regression",
+                "description" : "This lecture will focus on linear regression theory, how to interpret it, and how to run it in Python.",
                 "_id" : "58b0e6fd74e18ef81a8cb131"
             }, 
             {
-                "title" : "Play with Object and json file, HTTP request",
-                "description" : "Learn the concept of more than String in Javascript. We will learn Array and Object and JSON file. And learn how to access to web content via HTTP request.",
-                "projects": ["Build a Resume with json file", "Build a weather App with HTTP request"],
-                "_id" : "58b0e6fd74e18ef81a8cb130"
-            }, 
-            {
-                "title" : "Git/Github and Deployment",
-                "description" : "Make your website visiable by other people and learn to share your story and works. Learn to build more website as you go and learn what is confidence to your next step.",
-                "projects": ["Build second HTTP web app"],
-                "_id" : "58b0e6fd74e18ef81a8cb130"
-            }, 
-            {
-                "title" : "Final Project Day",
-                "description" : "4 hrs of building and 1:1 interview 1 hr of demo and 30 mins honor certifications",
-                "projects": ["Build third HTTP web app"],
+                "title" : "Review",
+                "description" : "This lecture will focus on review of past three weeks material with practice examples before the final exam.",
                 "_id" : "58b0e6fd74e18ef81a8cb130"
             }
         ],
         "tags" : [ 
-            "Computer Science"
+            "Computer Science",
+            "Data Science"
         ]
     },
     "instructors" : [{
-        "email" : "amazingandyyy@gmail.com",
-        "firstName" : "Andy",
+        "email" : "jerryc@berkeley.edu",
+        "firstName" : "Jerry",
         "lastName" : "Chen",
-        "phone" : "4084313552",
+        "phone" : "9164254698",
         "bio": "",
-        "linkedinURL" : "https://www.linkedin.com/in/amazingandyyy",
+        "linkedinURL" : "https://www.linkedin.com/in/jerry-chen-a9a8367b/",
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
             "affiliation" : "UC Berkeley",
-            "position" : "Cognitive Science"
+            "position" : "Computer Science"
         },
         "previousPosition" : {
-            "affiliation" : "Multiple Open Source projects",
-            "position" : "Contributor"
+            "affiliation" : "Centro, Data Scientist and Upstart",
+            "position" : "Product Analyst"
         },
-        "imageURL" : "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56c3c6979d2f9bd08&s=4004"
+        "imageURL" : "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56c3c6979d2f9bd08&s=40041"
     }],
     "createBy" : "589284339973ecbedd83a033",
     "createAt" : 1487985735209.0,
