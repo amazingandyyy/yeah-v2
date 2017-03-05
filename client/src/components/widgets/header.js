@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Link } from 'react-router';
 import $ from 'jquery';
-
+// <Link key='6' to="/dashboard">
+//     <span className="enter-button">学员登入/注册</span>
+// </Link>
 class Header extends Component {
     constructor(props){
         super(props);
@@ -25,9 +27,6 @@ class Header extends Component {
             </Link>
             <Link key='5' to="/about">
                 <div>关于我们</div>
-            </Link>
-            <Link key='6' to="/dashboard">
-                <span className="enter-button">会员登入/注册</span>
             </Link>
             </div>
         )

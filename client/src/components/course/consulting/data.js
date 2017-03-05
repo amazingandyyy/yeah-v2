@@ -5,7 +5,7 @@ export default {
     "course" : {
         "title" : "Business Framework Analysis and Application",
         "overview" : "In this introductory course, students will be exposed to different business frameworks that are utilized in conducting various analyses in the business world. During the session, students will gain hands-on experience with applying the business frameworks in a practical context. Students can be expected to learn and develop critical thinking skills as well as work on their written and verbal communication abilities in a professional context. Some of the activities that will be conducted during the session will include reading and discussing business cases and sharing thoughts on contemporary business issues.",
-        "startingDate" : "2017-03-19",
+        "startingDate" : "2017-03-12",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
         "location" : {
@@ -118,12 +118,17 @@ export default {
             {
                 "title" : "Consulting 101",
                 "description" : "Understand the basics of consulting by learning more about the career path, the industry and specific industries that consultants work in. You will also learn about the recruiting process as well as an in-depth deep dive into the consulting case interview process. The overview of consulting will include topics such as what consultants do, the different types of consulting, how case interviews are conducted and the types of resources that can be utilized to prepare for a career in consulting. This class will teach you what to expect in the consulting industry and what the best practices are for successfully starting a career in consulting.",
+                "_id" : "58b0e6fd74e18ef81a8cb131"
+            },
+            {
+                "title" : "Course Skipped: go to PBL Competition",
+                "description" : "The PBL National Awards Program recognizes and rewards excellence in a broad range of business and career-related areas. At the State Leadership Conferences, students compete in events testing their business knowledge and skills. Top state winners are then eligible to compete for national awards at the National Leadership Conference each summer. More details on the website: http://www.fbla-pbl.org/pbl/competitive-events/",
                 "_id" : "58b0e6fd74e18ef81a8cb131",
                 "hideItems": true
             },
             {
                 "title" : "Investment Banking Workshop",
-                "description" : "(refer to Rocky Yip)",
+                "description" : "Go over different financial services firms, what investment bankers do, the different types of investment banks, coverage vs. product groups, timeline of typical deals, a pitch deck, the recruiting process, typical analyst profile, resume samples, typical interview questions, and preparation resources.",
                 "_id" : "58b0e6fd74e18ef81a8cb131"
             }
         ],
@@ -137,7 +142,7 @@ export default {
         "email" : "mrquon@berkeley.edu",
         "firstName" : "Mitchell",
         "lastName" : "Quon",
-        "bio": "",
+        "bio": "Mitchell is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in the Bay Area his entire life, Mitchell has been exposed to various cultures and communities, and because of that, he has always wanted to learn and explore while solving challenging problems around him. During his time at UC Berkeley, Mitchell has taken on various leadership roles, ranging from being the Chief Operations Officer of the Cal Alumni Student Association to a Consulting Project Manager for a student-run consulting group. Today, Mitchell currently serves as the Executive Vice President of the Haas Business School Association, which is the undergraduate student government of the Haas community. Upon graduation, Mitchell will be joining Deloitte Consulting in the San Francisco office, working on projects in technology and digital strategy.",
         "phone" : "5102051842",
         "linkedinURL" : "https://www.linkedin.com/in/mitchellquon",
         "_id" : "58b0e6fd74e18ef81a8cb12e",
@@ -151,7 +156,7 @@ export default {
         },
         "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/mitchell_quon.jpg"
     },{
-        "email" : "",
+        "email" : "peterlai@berkeley.edu",
         "firstName" : "Peter",
         "lastName" : "Lai",
         "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",

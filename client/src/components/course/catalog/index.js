@@ -7,11 +7,12 @@ import moment from 'moment';
 class Catalog extends Component{
     renderCourses(){
         if(CourseList){
-            return CourseList.map(({_id, course})=>{
-                return (<Link to={'/course/'+_id} key={_id}>
+            return CourseList.map(({_id, course}, index)=>{
+                return (<Link to={'/course/'+_id} key={index}>
                 <div className="resourseCard">
                     <div className="decoration">
                         <div className="point">
+                            <siv className="start">start at</siv>
                             {moment(course.startingDate).format('MM/DD')}
                         </div>
                     </div>

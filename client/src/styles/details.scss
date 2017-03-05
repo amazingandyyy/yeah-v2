@@ -412,16 +412,21 @@
             }
 
             .point {
+                padding-top: 17px;
                 user-select: none;
                 width: 80px;
                 height: 80px;
-                line-height: 80px;
+                line-height: 20px;
                 text-align: center;
                 border-radius: 100px;
                 color: white;
                 background: linear-gradient(to bottom right, #02b3e4, #02ccba);
                 font-size: 1.2rem;
                 font-weight: 600;
+
+                .start{
+                    font-size: 0.7rem;
+                }
             }
         }
 

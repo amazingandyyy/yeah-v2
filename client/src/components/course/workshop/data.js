@@ -177,7 +177,7 @@ export default {
                 "affiliation": "Deloitte Consulting",
                 "position": "Technology Analyst"
             },
-            "bio": "",
+            "bio": "Mitchell is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in the Bay Area his entire life, Mitchell has been exposed to various cultures and communities, and because of that, he has always wanted to learn and explore while solving challenging problems around him. During his time at UC Berkeley, Mitchell has taken on various leadership roles, ranging from being the Chief Operations Officer of the Cal Alumni Student Association to a Consulting Project Manager for a student-run consulting group. Today, Mitchell currently serves as the Executive Vice President of the Haas Business School Association, which is the undergraduate student government of the Haas community. Upon graduation, Mitchell will be joining Deloitte Consulting in the San Francisco office, working on projects in technology and digital strategy.",
             "industry": "Consulting",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/mitchell_quon.jpg"
         }, {
@@ -192,6 +192,18 @@ export default {
             "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",
             "industry": "Consulting",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/peter_lai.jpg"
+        }, {
+            "email": "aseang8@berkeley.edu",
+            "firstName": "Amanda",
+            "lastName": "Seang",
+            "linkedinURL": "https://www.linkedin.com/in/amandaseang/",
+            "heighlightPosition": {
+                "affiliation": "KPMG",
+                "position": "Federal Tax (Lead Tax Services)"
+            },
+            "bio": "Amanda Seang recently completed her summer 2016 internship at KPMG, one of the Big Four accounting firms, after turning down offers from PwC and EY. Being the L.A. native that she is, Amanda will continue her accounting career at KPMG Los Angeles as a Federal Tax (Lead Tax Services) Associate in the fall. During her internship, Amanda was exposed to the various facets of tax accounting and developed a particularly strong understanding of partnership entities. Amanda is currently a graduating senior in the Haas School of Business’s Undergraduate Program. While at Haas, Amanda has excelled in every accounting course she has taken, including introductory, intermediate, and advanced financial accounting as well as ethics in accounting. Before discovering her true passion for accounting, Amanda held previous finance and marketing positions with companies like New York Life Insurance Company and Oak Capital Group, Inc. At New York Life, Amanda worked with the managing partner’s HR team to develop material and content for agent training on topics that included estate planning. At Oak Capital Group, she refined the company’s marketing efforts by analyzing ROI of past marketing campaigns.",
+            "industry": "Tax Service",
+            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/amanda_seang.jpg"
         }
     ],
     "createBy" : "589284339973ecbedd83a033",

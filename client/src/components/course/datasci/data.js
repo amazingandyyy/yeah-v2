@@ -136,7 +136,7 @@ export default {
         "firstName" : "Jerry",
         "lastName" : "Chen",
         "phone" : "9164254698",
-        "bio": "",
+        "bio": "Jerry is a Product Analyst at Upstart, a peer-to-peer lending startup that uses data science to beat bank interest rates. Prior to that, he interned at Centro—a digital advertising firm headquartered in Chicago —as a Data Scientist on the Data Science team. Jerry also completed a spring internship with Global Key Advisors as a Quantitative Analyst for their investing platform. Global Key Advisors is a global asset management firm in San Francisco that focuses on data and research driven investing strategies. Jerry is a graduating senior at the University of California, Berkeley majoring in Statistics. Outside of school activities, Jerry competes on an international data science and machine learning platform, Kaggle, and has won a bronze medal in an AirBnB new users booking competition. Jerry has also consistently placed first in multiple machine learning competitions hosted by Berkeley’s machine learning courses. ",
         "linkedinURL" : "https://www.linkedin.com/in/jerry-chen-a9a8367b/",
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {
@@ -147,7 +147,7 @@ export default {
             "affiliation" : "Centro, Data Scientist and Upstart",
             "position" : "Product Analyst"
         },
-        "imageURL" : "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56c3c6979d2f9bd08&s=40041"
+        "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/jerry_chen.jpg"
     }],
     "createBy" : "589284339973ecbedd83a033",
     "createAt" : 1487985735209.0,

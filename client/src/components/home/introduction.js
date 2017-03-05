@@ -25,7 +25,7 @@ export default class Introduction extends Component {
                   <div>3/5</div>
                 </div>
                 <div className="body">
-                  Career Workshop 公益讲座
+                  Career Workshop 职场讲座
                 </div>
               </Link>
               </div>
