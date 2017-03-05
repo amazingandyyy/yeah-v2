@@ -8,6 +8,7 @@ import Banking from '../components/course/banking';
 import Webdev from '../components/course/webdev';
 import Workshop from '../components/course/workshop';
 import Consulting from '../components/course/consulting';
+import Datasci from '../components/course/datasci';
 
 const CourseRoute = {
   path: '/course',
@@ -32,6 +33,9 @@ const CourseRoute = {
         }, {
           path: '/course/webdev',
           component: Webdev
+        },{
+          path: '/course/datasci',
+          component: Datasci
         }, {
           path: '/course/consulting',
           component: Consulting

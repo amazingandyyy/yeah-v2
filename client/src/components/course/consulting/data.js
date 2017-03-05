@@ -1,10 +1,10 @@
 import moment from 'moment';
 
 export default {
-    "_id" : "banking",
+    "_id" : "consulting",
     "course" : {
-        "title" : "Introduction to Consulting",
-        "overview" : "During the workshop, you will have the opportunity to learn about PowerPoint tools, tips and frameworks to make effective slide designs and decks. You will also learn the fundamentals of a financial model and get the chance to build your own. These will help prepare you for future case competitions.",
+        "title" : "Business Framework Analysis and Application",
+        "overview" : "In this introductory course, students will be exposed to different business frameworks that are utilized in conducting various analyses in the business world. During the session, students will gain hands-on experience with applying the business frameworks in a practical context. Students can be expected to learn and develop critical thinking skills as well as work on their written and verbal communication abilities in a professional context. Some of the activities that will be conducted during the session will include reading and discussing business cases and sharing thoughts on contemporary business issues.",
         "startingDate" : "2017-03-19",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
@@ -93,53 +93,81 @@ export default {
             "placeId" : "ChIJcQMtojp8hYARg3TZouAOzFE",
             "label" : "Haas School of Business, Piedmont Avenue, Berkeley, CA, United States"
         },
-        "textbook" : "Rosenbaum:\nhttp://cec.shfc.edu.cn/download/ff9afd43-a63a-4c1e-b8f3-9566c0c62053.pdf\n\nM&I: \nhttps://breakingintowallstreet.com/biws/pdf_files/IBD-Questions-Answers.pdf",
-        "syllabus" : false,
-        "preRequirement" : "Students of all majors and backgrounds with an interest in learning more about finance and investment banking are welcome to take this class. It is recommended, but not necessary, to have financial accounting and excel knowledge. ",
+        "textbook" : "https://onedrive.live.com/?cid=5020F87AF2B26EB2&id=5020F87AF2B26EB2%214290&parId=5020F87AF2B26EB2%214283&o=OneUp and http://www.streetofwalls.com/finance-training-courses/consulting-case-study-training/consulting-case-study-101-frameworks/ and https://www.caseinterview.com/case_interview_frameworks.pdf",
+        "syllabus" : true,
+        "preRequirement" : "Students who are interested in the field of consulting and gaining practical business skills to succeed in their future careers. No pre-requisites are required.",
         "_id" : "58b0e6fd74e18ef81a8cb12f",
         "takeaways" : [ 
-            "Understand what investment bankers do, how to prepare for the recruiting process, and do well on interviews.", 
-            "Understand the three different financial statements, how they link, how to analyze real-life statements, and what enterprise/equity values are.", 
-            "Perform basic comparable companies, precedent transactions, and discounted cash flow analyses.", 
-            "Use excel to build basic operating models, understand financial instruments, the leveraged buyout process, and the workings behind an M&A deal.", 
-            "Confidence", 
-            "Complete concepts and workflow"
+            "Effectively breakdown complex business problems through the application of analytical frameworks.", 
+            "Professionally communicate important findings to unlock key insights and deliver compelling recommendations.", 
+            "Gain a better understanding of the consulting industry.", 
+            "Become prepared for the consulting recruitment process and case interviews.", 
+            "Step outside of your comfort zone by gaining exposure to a professional services industry."
         ],
         "heighlights" : [ 
             {
-                "title" : "Investment Banking Overview, Recruiting Process, Resume, and Career Tips ",
-                "description" : "In the first week, we will go over different financial services firms, what investment bankers do, the different types of investment banks, coverage vs. product groups, timeline of typical deals, a pitch deck, the recruiting process, typical analyst profile, resume samples, typical interview questions, and preparation resources.",
+                "title" : "Introduction to Business Frameworks",
+                "description" : "Learn key business frameworks to breakdown and conduct analyses in a variety of industries and business problems that will allow you to pinpoint problems and identify opportunities for growth. Some of the frameworks that will be highlighted include Porter's Five Forces, the 3 C's Framework, the profitability framework and SWOT analysis. These frameworks will teach you how to approach problems related to market entry, process improvement, business operations and product development.",
                 "_id" : "58b0e6fd74e18ef81a8cb133"
             }, 
             {
-                "title" : "Accounting, Financial Statements Overview, Financial Statements Analysis, Equity and Enterprise Value ",
-                "description" : "In the second week, we will go over the why accounting is important; the income statement, balance sheet, and cash flow statement; how the statements link; how to interpret financial statements and ratios; what is enterprise value vs. equity value; and the treasury stock method.",
+                "title" : "Application of Business Frameworks",
+                "description" : "Practice conducting analyses through practical case examples from a wide variety of business issues and communicate your findings in the form of a professional presentation. Practice cases will include cases related to business ethics and business sustainability and will feature sample cases from resources such as Case in Point, Master the Case and Harvard Business School. These cases will teach you how to approach real-world business problems utilizing business frameworks and how to solve these problems in a structured way.",
                 "_id" : "58b0e6fd74e18ef81a8cb132"
             },
             {
-                "title" : "Course Skipped: go to PBL Competition",
-                "description" : "The PBL National Awards Program recognizes and rewards excellence in a broad range of business and career-related areas. At the State Leadership Conferences, students compete in events testing their business knowledge and skills. Top state winners are then eligible to compete for national awards at the National Leadership Conference each summer. More details on the website: http://www.fbla-pbl.org/pbl/competitive-events/",
+                "title" : "Consulting 101",
+                "description" : "Understand the basics of consulting by learning more about the career path, the industry and specific industries that consultants work in. You will also learn about the recruiting process as well as an in-depth deep dive into the consulting case interview process. The overview of consulting will include topics such as what consultants do, the different types of consulting, how case interviews are conducted and the types of resources that can be utilized to prepare for a career in consulting. This class will teach you what to expect in the consulting industry and what the best practices are for successfully starting a career in consulting.",
                 "_id" : "58b0e6fd74e18ef81a8cb131",
                 "hideItems": true
             },
             {
-                "title" : "Comparable Companies, Precedent Transactions, and Discounted Cash Flow",
-                "description" : "In the third week, we will go over what comparable companies are; how to select and put comparable companies into buckets; how to “spread” them on excel; what comparable companies look like in a pitch deck; what precedent transactions are; what a DCF is; time value of money; how to calculate free cash flow, weighted average cost of capital, and terminal value; and we will do a mini-DCF on excel.",
+                "title" : "Investment Banking Workshop",
+                "description" : "(refer to Rocky Yip)",
                 "_id" : "58b0e6fd74e18ef81a8cb131"
-            }, 
-            {
-                "title" : "Intro to Financial Modeling, Financial Instruments, Leveraged Buyouts (LBO, and M&A",
-                "description" : "In the third week, we will go over a basic operating model on excel and different balance sheet ratios; what are different types of financial instruments; what is an LBO, why do private equity firms exist, and case studies of LBO transactions; we will finish by walking through an M&A deal with the LinkedIn / Microsoft case study and the final exam.",
-                "_id" : "58b0e6fd74e18ef81a8cb130"
             }
         ],
         "tags" : [ 
-            "Math", 
             "Business", 
-            "Enconomics"
+            "Enconomics",
+            "Consulting"
         ]
     },
     "instructors" : [{
+        "email" : "mrquon@berkeley.edu",
+        "firstName" : "Mitchell",
+        "lastName" : "Quon",
+        "bio": "",
+        "phone" : "5102051842",
+        "linkedinURL" : "https://www.linkedin.com/in/mitchellquon",
+        "_id" : "58b0e6fd74e18ef81a8cb12e",
+        "currentPosition" : {
+            "affiliation" : "UC Berkeley",
+            "position" : "Haas School of Business"
+        },
+        "previousPosition" : {
+            "affiliation" : "Deloitte Consulting",
+            "position" : "Business Technology Analyst"
+        },
+        "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/mitchell_quon.jpg"
+    },{
+        "email" : "",
+        "firstName" : "Peter",
+        "lastName" : "Lai",
+        "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",
+        "phone" : "5108611603",
+        "linkedinURL" : "https://www.linkedin.com/in/peterlai01",
+        "_id" : "58b0e6fd74e18ef81a8cb12e",
+        "currentPosition" : {
+            "affiliation" : "UC Berkeley",
+            "position" : "Haas School of Business"
+        },
+        "previousPosition" : {
+            "affiliation" : "Accenture",
+            "position" : "Strategy Analyst"
+        },
+        "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/peter_lai.jpg"
+    },{
         "email" : "rocky.yk.yip@gmail.com",
         "firstName" : "Rocky",
         "lastName" : "Yip",
@@ -156,7 +184,8 @@ export default {
             "position" : "Analyst"
         },
         "imageURL" : "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
-    }],
+    }
+    ],
     "createBy" : "589284339973ecbedd83a033",
     "createAt" : 1487985735209.0,
     "__v" : 0

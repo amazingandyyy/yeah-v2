@@ -156,18 +156,6 @@ export default {
             "industry": "Consulting and Investment Banking",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
         }, {
-            "email": "",
-            "firstName": "Michael",
-            "lastName": "Peng",
-            "linkedinURL": "https://www.linkedin.com/in/",
-            "heighlightPosition": {
-                "affiliation": "...",
-                "position": "..."
-            },
-            "bio": "",
-            "industry": "Accounting",
-            "imageURL": ""
-        }, {
             "email": "badreddine@berkeley.edu",
             "firstName": "Badreddine",
             "lastName": "Assioua",
@@ -176,7 +164,7 @@ export default {
                 "affiliation": "高盛",
                 "position": "Investment Banking Analyst"
             },
-            "bio": "",
+            "bio": "Badreddine is an incoming Investment Banking Analyst at Goldman Sachs. Prior to that, he interned at Ascent Private Capital Management—a wealth management firm headquartered in San Francisco with $9bn of assets under administration—as a Research Analyst on the investments team. Badreddine also completed a summer internship with Capital Merger Group (CMG) as an Investment Banking Analyst in the mergers and acquisitions group. CMG is a boutique investment bank in Los Angeles that primarily focuses on middle-market mergers and acquisitions, financing and financial restructuring. Badreddine is a graduating senior at the University of California, Berkeley – Haas School of Business. He is majoring in Business Administration and minoring in Theater & Performance Studies. Outside of school activities, Badreddine is involved in managing a value-oriented, long/short equity portfolio for friends and family. He also enjoys reading and watching live, on-stage performances.",
             "industry": "Investment Banking",
             "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/badreddine_assiou" +
                     "a.jpg"
@@ -198,8 +186,8 @@ export default {
             "lastName": "Lai",
             "linkedinURL": "https://www.linkedin.com/in/peterlai01/",
             "heighlightPosition": {
-                "affiliation": "Altman Vilandrie",
-                "position": "Summer Analyst"
+                "affiliation": "Accenture",
+                "position": "Strategy Analyst"
             },
             "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",
             "industry": "Consulting",
