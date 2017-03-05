@@ -18,13 +18,13 @@ export default class Facts extends Component {
       <div className="statistics-component">
           <Slider {...settings}>
               <div className="slide-container">
-                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/fact1.svg" />
+                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/webcontent/fact1.png" />
               </div>
               <div className="slide-container">
-                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/fact2.svg" />
+                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/webcontent/fact2.png" />
               </div>
               <div className="slide-container">
-                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/fact3.svg" />
+                  <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/medias/webcontent/fact3.png" />
               </div>
           </Slider>
       </div>
