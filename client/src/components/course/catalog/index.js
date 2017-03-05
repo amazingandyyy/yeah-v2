@@ -12,7 +12,7 @@ class Catalog extends Component{
                 <div className="resourseCard">
                     <div className="decoration">
                         <div className="point">
-                            <siv className="start">start at</siv>
+                            <div className="start">start at</div>
                             {moment(course.startingDate).format('MM/DD')}
                         </div>
                     </div>
