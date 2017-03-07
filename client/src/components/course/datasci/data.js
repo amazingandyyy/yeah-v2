@@ -5,7 +5,7 @@ export default {
     "course" : {
         "title" : "Introduction to Data Science",
         "overview" : "Welcome to Yeah Education’s Introduction to Data Science course! Data Science is one of the hottest buzzwords to come out of the tech industry and certainly a versatile skill to have. Data Scientists go into data analyst, business analyst, product analyst, quantitative finance, financial engineering, software engineering, machine learning, AI, actuary, and biostatistician job positions and much more. At its core, data science is a mix of computer science and statistics – leveraging the power of programming with the theory of how data should behave. This course will be giving you a high-level introduction to how to analyze data from a data scientist perspective. The course is designed to be thorough but practical – everything you will learn is used in industry in one way or another.",
-        "startingDate" : "2017-04-02",
+        "startingDate" : "2017-04-08",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
         "location" : {
