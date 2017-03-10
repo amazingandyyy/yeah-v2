@@ -295,11 +295,11 @@
         canvas{
             position: absolute;
             top: 0px;
-            right: auto;
-            left: auto;
+            right: 0px;
+            left: 0px;
             margin: auto;
             max-height: 600px;
-            width: auto;
+            width: 100%;
             overflow: hidden;
         }
         &.scholarship{

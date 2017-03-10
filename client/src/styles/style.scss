@@ -10,6 +10,7 @@ body {
     background: rgba(0,0,0,0.005);
     box-sizing: border-box;
     font-family: $sans;
+    overflow-x: hidden;
 
     &.drawer-closed {
         .drawer-component {

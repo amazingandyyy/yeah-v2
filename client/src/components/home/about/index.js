@@ -4,6 +4,7 @@ import { Header, Footer, Loader, Space, ComponentLeader } from '../../widgets';
 import { Link } from 'react-router';
 import moment from 'moment';
 import {Introduction, teamMembers } from './data';
+import Particles from 'react-particles-js';
 
 class About extends Component{
     renderTeam(){

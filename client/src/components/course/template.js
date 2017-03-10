@@ -255,9 +255,9 @@ class Detail extends Component {
                         Apply Now
                     </div>
                     <div className="description">
-                        {course.hoursPerWeek} hours X {course.totalWeeks} weeks @<span>UC Berkeley</span>
+                        limited to 10 scholarship*
                         <br/>
-                        limited to 10 scholarship, winner list will be released March 17 on the website
+                        winner list will be released March 17 on the website
                     </div>
                 </div>
                 
