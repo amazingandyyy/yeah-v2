@@ -8,6 +8,10 @@
     margin: 0px auto;
     transform: rotate(0deg);
     background: linear-gradient(20deg,#03CCBA,#AA7FCD);
+
+    canvas{
+        position: absolute;    
+    }
     .title {
         line-height: 280px;
         color: white;

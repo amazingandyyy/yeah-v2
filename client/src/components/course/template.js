@@ -6,6 +6,7 @@ import{ YeahModal,SalesModal } from '../widgets/modals';
 
 import {Link} from 'react-router';
 import moment from 'moment';
+import Particles from 'react-particles-js';
 
 class Detail extends Component {
     constructor(props) {
@@ -215,6 +216,7 @@ class Detail extends Component {
             const { course } = details;
             return (
                 <div className="take_actions">
+                <Particles/>
                 <div className="card">
                     <div className="title">
                         {course.title}
@@ -228,7 +230,37 @@ class Detail extends Component {
                         Get certification and internship after completing course.
                     </div>
                 </div>
-                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
+                </div>
+            )
+        }
+    }
+    renderScholarship(){
+        const { details } = this.state;
+        if (details) {
+            const { course } = details;
+            return (
+                <div className="take_actions scholarship">
+                <Particles/>
+                <div className="card">
+                    <div className="title">
+                        University Student Scholarship
+                    </div>
+                    <div className="points">
+                        <div><i className="fa fa-graduation-cap"></i>Current Student Only</div>
+                        <div><i className="fa fa-cubes"></i>Tuition Fully Covered</div>
+                        <div><i className="fa fa-magic"></i>No Extra Fee</div>
+                        <div><i className="fa fa-university"></i>Prefessional Training Course</div>
+                    </div>
+                    <div className="action_button" onClick={this.openSalesModal.bind(this)}>
+                        Apply Now
+                    </div>
+                    <div className="description">
+                        {course.hoursPerWeek} hours X {course.totalWeeks} weeks @<span>UC Berkeley</span>
+                        <br/>
+                        limited to 10 scholarship, winner list will be released March 17 on the website
+                    </div>
+                </div>
+                
                 </div>
             )
         }
@@ -240,6 +272,8 @@ class Detail extends Component {
                 {this.renderSyllabus()}
                 {this.renderTakeaways()}
                 {this.renderEnrollNow()}
+                {this.renderScholarship()}
+                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
             </div>
         )
     }
