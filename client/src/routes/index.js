@@ -6,8 +6,8 @@ import AuthRoute from './authRoute';
 import DashboardRoute from './dashboardRoute';
 import CourseRoute from './courseRoute';
 import AboutRoute from './aboutRoute';
-import IncubatorRoute from './incubatorRoute';
-import AcceleratorRoute from './acceleratorRoute';
+// import IncubatorRoute from './incubatorRoute';
+// import AcceleratorRoute from './acceleratorRoute';
 
 const RouteComponent = [
     HomeRoute,
@@ -15,8 +15,6 @@ const RouteComponent = [
     DashboardRoute,
     CourseRoute,
     AboutRoute,
-    IncubatorRoute,
-    AcceleratorRoute
 ]
 
 export default RouteComponent;

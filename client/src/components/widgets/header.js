@@ -47,7 +47,7 @@ class Header extends Component {
                     <span className="enter-button collapse-button">
                         <i className="fa fa-bars"></i>
                         <i className="fa fa-times"></i>
-                        &nbsp;&nbsp;目录
+                        &nbsp;&nbsp;Menu
                     </span>
                 {this.renderLinks("fullscreen-nav")}
                 </div>
