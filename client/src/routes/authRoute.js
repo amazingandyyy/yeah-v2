@@ -16,7 +16,7 @@ import RequireAdmin from '../components/auth/adminGuard';
 const AuthRoute = {
     path: '/auth',
     getComponent(location, cb) {
-        System.import ('../components/auth')
+        System.import('../components/auth')
         .then(module => cb(null, module.default))
     },
     indexRoute: {
