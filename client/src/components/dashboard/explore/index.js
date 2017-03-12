@@ -3,6 +3,9 @@ import PageTransition from 'react-router-page-transition';
 import { RouteTransition } from 'react-router-transition';
 
 export default class Explore extends Component {
+  componentWillMount() {
+    // console.log(<PageTransition></PageTransition>)
+  }
   render() {
     return (
       <div className="display-component explore">
@@ -11,3 +14,9 @@ export default class Explore extends Component {
     );
   }
 }
+// <RouteTransition
+//   pathname={this.props.location.pathname}
+//   atEnter={{ opacity: 0, transition: 0.01 }}
+//   atLeave={{ opacity: 0, transition: 0.01 }}
+//   atActive={{ opacity: 1, transition: 0.01 }}
+// >
