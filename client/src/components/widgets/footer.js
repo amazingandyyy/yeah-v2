@@ -13,9 +13,9 @@ class Footer extends Component {
                                 Consultant
                             </div>
                             <ul>
-                                <li><Link>College Incubator</Link></li>
-                                <li><Link>Application Accelerator</Link></li>
-                                <li><Link>Private University</Link></li>
+                                <li><Link to="/incubator">College Incubator</Link></li>
+                                <li><Link to="/accelerator">Application Accelerator</Link></li>
+                                <li><Link to="/accelerator">Private University</Link></li>
                             </ul>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-3">
@@ -38,8 +38,8 @@ class Footer extends Component {
                             </div>
                             <ul>
                                 <li><Link to="/about">Team</Link></li>
-                                <li><Link to="/about">News</Link></li>
-                                <li><Link to="/about">Contact</Link></li>
+                                <li><Link to="/news">News</Link></li>
+                                <li><Link to="/about">Contacts</Link></li>
                                 <li><Link to="/about">Career</Link></li>
                                 <li><Link to="/about">Developer</Link></li>
                             </ul>

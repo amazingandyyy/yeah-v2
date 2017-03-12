@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
-import Volunteer from './volunteer';
-import Course from './course';
-import Internship from './internship'
+import Catalog from '../../course/catalog/content';
+
 class TemplateComponent extends Component{
     render() {
         return(<span>
                 <div className="header">Explore</div>
                 <div className="content">
-                    <Volunteer />
-                    <Course />
-                    <Internship />
+                    <Catalog/>
                 </div>
             </span>)
     }
 }
 
 export default TemplateComponent;
+
+// <Volunteer />
+// <Course />
+// <Internship />

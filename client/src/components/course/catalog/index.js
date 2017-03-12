@@ -6,9 +6,7 @@ class Catalog extends Component{
     render() {
         return(
             <div>
-                <Header className=""/>
                 <Content />
-                <Footer />
             </div>
         )
     }

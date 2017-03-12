@@ -10,9 +10,6 @@ import SetPassword from '../components/auth/setPassword';
 import IForget from '../components/auth/iForget';
 import IForget2 from '../components/auth/iForget2';
 
-import RequireAuth from '../components/auth/loginGuard';
-import RequireAdmin from '../components/auth/adminGuard';
-
 const AuthRoute = {
     path: '/auth',
     getComponent(location, cb) {

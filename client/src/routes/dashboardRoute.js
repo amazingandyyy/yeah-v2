@@ -3,8 +3,8 @@ import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-rout
 
 import Start from '../components/dashboard/start';
 import Setting from '../components/dashboard/setting';
-import Explore from '../components/dashboard/explore';
-import ExploreBrowser from '../components/dashboard/explore/browser';
+import Courses from '../components/dashboard/courses';
+import ExploreCatalog from '../components/dashboard/courses/catalog';
 
 import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
 import VolunteerOneAdmin from '../components/dashboard/admin/volunteerOneAdmin';
@@ -21,8 +21,7 @@ import InternshipDetail from '../components/internship';
 import Assist from '../components/dashboard/assist';
 import UCInfomation from '../components/dashboard/ucinfo';
 
-import loginGuard from '../components/auth/loginGuard';
-import RequireAdmin from '../components/auth/adminGuard';
+import {loginGuard} from './wrappers';
 
 const DashboardRoute = {
   path: '/dashboard',
@@ -50,10 +49,16 @@ const DashboardRoute = {
       path: '/dashboard/setting',
       component: Setting
     }, {
-      path: '/dashboard/explore',
-      component: Explore,
+      path: '/dashboard/courses',
+      getComponent(location, cb) {
+        System
+          .import ('../components/dashboard/courses')
+          .then(module => {
+            return loginGuard(module.default, cb);
+          })
+      },
       indexRoute: {
-        component: ExploreBrowser
+        component: ExploreCatalog
       }
     }, {
       path: '/dashboard/admin',

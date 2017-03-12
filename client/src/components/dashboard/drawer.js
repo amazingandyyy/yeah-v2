@@ -36,10 +36,10 @@ class Drawer extends Component {
             <span className="title">Home</span>
           </div>
         </Link>
-        <Link to="/dashboard/explore" activeClassName="active">
+        <Link to="/dashboard/courses" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="catalog"/></span>
-            <span className="title">Explore</span>
+            <span className="title">Courses</span>
           </div>
         </Link>
         <Link to="/dashboard/assist" activeClassName="active">

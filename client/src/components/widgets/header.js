@@ -27,7 +27,8 @@ class Header extends Component {
                 <div>About</div>
             </Link>
             <Link key='6' to="/dashboard">
-                <span className="enter-button">Member Login</span>
+                {this.props.authenticated && <span className="enter-button">Dashboard</span>}
+                {!this.props.authenticated && <span className="enter-button">Join Members</span>}
             </Link>
             </div>
         )

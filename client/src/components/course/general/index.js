@@ -28,9 +28,7 @@ class Template extends Component {
     render() {
         return (
             <div>
-                <Header className="fixed inverse"/>
                 <CourseTemplate data={this.props.details}/>
-                <Footer />
             </div>
         )
     }

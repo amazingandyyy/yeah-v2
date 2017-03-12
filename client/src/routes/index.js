@@ -8,15 +8,17 @@ import CourseRoute from './courseRoute';
 import AboutRoute from './aboutRoute';
 import IncubatorRoute from './incubatorRoute';
 import AcceleratorRoute from './acceleratorRoute';
+import NewsRoute from './newsRoute';
 
 const RouteComponent = [
     HomeRoute,
     AuthRoute,
     DashboardRoute,
-    CourseRoute,
+    CourseRoute(),
     AboutRoute,
     IncubatorRoute,
-    AcceleratorRoute
+    AcceleratorRoute,
+    NewsRoute
 ]
 
 export default RouteComponent;
