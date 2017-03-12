@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Header} from './index';
+import Header from './header';
 
 export default class Auth extends Component {
   render() {

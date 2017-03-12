@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Link from 'react-router';
 import{ YeahModal,SalesModal } from '../widgets/modals';
 
 export default class LProgram extends Component {
@@ -19,7 +20,7 @@ export default class LProgram extends Component {
         <div className="container-fluid" style={{maxWidth: '1000px'}}>
         <div className="row">
         <div className="col-sm-12">
-          <div className="title-label" style={{color: '#02b3e4'}}>旗舰孵化器项目</div>
+          <Link to="/incubator"><div className="title-label" style={{color: '#02b3e4'}}>旗舰孵化器项目</div></Link>
           <div className="description">
             欧耶首创，两年服务
             <br/>
