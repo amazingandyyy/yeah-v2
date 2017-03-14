@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-
-import {Loader,Header,Footer} from '../../widgets';
-import {hashHistory} from 'react-router';
-import GoogleMapDetails from '../../widgets/googleMapDetails';
-import{ YeahModal,SalesModal } from '../../widgets/modals';
-
 import {Link} from 'react-router';
 import moment from 'moment';
+
+import {Loader} from '../../../widgets';
+import GoogleMapDetails from '../../../widgets/googleMapDetails';
+import{ YeahModal,SalesModal } from '../../../widgets/modals';
 
 class Detail extends Component {
     constructor(props) {

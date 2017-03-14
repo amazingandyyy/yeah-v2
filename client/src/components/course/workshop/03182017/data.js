@@ -1,16 +1,16 @@
 import moment from 'moment';
 
 export default {
-    "_id" : "workshop",
+    "_id" : "workshop03182017",
     "course" : {
-        "title": "Career Workshop",
+        "title": "Technology Workshop",
         "overview": "马上就是转学季到来了，大家都会开始陆续收到offer。或许几周之后你们会有人狂喜，也会有人忧愁。但" +
                 "不管怎么样，那都是一个全新的开始。因为你马上就要面临全新的挑战——步入职场。 \n很多转学生告诉我，都说转学后非常难找工作。因为一份好的毕业Offer通常来自你" +
                 "大三实习的Return offer，而部分公司的实习秋招将在今年的八九月份（大三第一学期开学）结束。也就意味着大二结束的这个暑假就需要开始好好准备你的实习申请！" +
                 "  而转学生通常比大一大二的学生少一些资源，他们从大一就开始Networking ，参加各种info session。\n然而\n你是否有想过你想找一份什么样的" +
                 "工作？\n你是否了解每个行业所需要什么样的技能？\n你是否开始准备你的简历？\n如果还没有，敬请来到我们特别为回馈转学客户免费开办的，“转学衔接” 年度职场讲座" +
                 "，为你转学之后的路途提供一点点帮助。",
-        "startingDate": "2017-03-05",
+        "startingDate": "2017-03-18",
         "hoursPerWeek": 2,
         "totalWeeks": 1,
         "location": {

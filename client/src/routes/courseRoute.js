@@ -4,12 +4,6 @@ import {Route, IndexRoute} from 'react-router';
 import Catalog from '../components/course/catalog';
 import { publicWrapper } from './wrappers';
 
-import Banking from '../components/course/banking';
-import Webdev from '../components/course/webdev';
-import Workshop from '../components/course/workshop';
-import Consulting from '../components/course/consulting';
-import Datasci from '../components/course/datasci';
-
 const CourseRoute = () => {
   return {
     path: '/course',
@@ -41,10 +35,20 @@ const CourseRoute = () => {
                 })
             }
           }, {
-            path: '/course/workshop',
+            path: '/course/workshop03052017',
             getComponent(location, cb) {
               System
-                .import ('../components/course/workshop')
+                .import ('../components/course/workshop/03052017')
+                .then(module => {
+                  return cb(null, publicWrapper(module.default, 'inverse'))
+                })
+            }
+          },
+           {
+            path: '/course/workshop03182017',
+            getComponent(location, cb) {
+              System
+                .import ('../components/course/workshop/03182017')
                 .then(module => {
                   return cb(null, publicWrapper(module.default, 'inverse'))
                 })

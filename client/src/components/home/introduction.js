@@ -20,34 +20,34 @@ export default class Introduction extends Component {
           <div className="col-md-12 col-xl-4">
             
               <div className="headline-card">
-              <Link to='/course/workshop'>
+              <Link to='/course/workshop03182017'>
                 <div className="header" style={{backgroundColor: `rgb(2,179,228)`}}>
-                  <div>3/5</div>
+                  <div>3/18</div>
                 </div>
                 <div className="body">
-                  Career Workshop 职场讲座
+                  CS/Tech Workshop 讲座
                 </div>
               </Link>
               </div>
 
             <div className="headline-card">
-            <Link to='/course/consulting'>
+            <Link to='/course/datasci'>
               <div className="header" style={{backgroundColor: `rgb(169,81,237)`}}>
-                <div>3/12</div>
+                <div>4/08</div>
               </div>
               <div className="body">
-                Consulting 咨询入门
+                Data Science 资料科学课
               </div>
             </Link>
             </div>
 
             <div className="headline-card">
-            <Link to='/course/banking'>
+            <Link to='/course/webdev'>
             <div className="header" style={{backgroundColor: `rgb(2,204,186)`}}>
-                <div>3/19</div>
+                <div>4/08</div>
               </div>
               <div className="body">
-                Investment Banking 投行入门
+                Web Development 网页开发课
               </div>
             </Link>
             </div>
