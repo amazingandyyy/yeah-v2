@@ -37,14 +37,14 @@ const teamMembers = [
         "position": "Director of Professional Development",
         "introduction":"",
         "linkedinURL": "https://www.linkedin.com/in/hanksze/"
-    },
-    {
-        "name": "Siying",
-        "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/team/siying.jpg",
-        "position": "Director of Marketing",
-        "introduction":"",
-        "linkedinURL": "https://www.linkedin.com/in/mariwu/"
-    },   
+    }
+    // {
+    //     "name": "Siying",
+    //     "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/team/siying.jpg",
+    //     "position": "Director of Marketing",
+    //     "introduction":"",
+    //     "linkedinURL": "https://www.linkedin.com/in/mariwu/"
+    // },   
 ]
 
 
