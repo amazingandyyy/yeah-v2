@@ -7,7 +7,7 @@ import moment from 'moment';
 class Catalog extends Component{
     renderCourses(){
         if(CourseList){
-            return CourseList.map(({_id, course}, index)=>{
+            return CourseList.reverse().map(({_id, course}, index)=>{
                 return (<Link to={'/course/'+_id} key={index}>
                 <div className="resourseCard">
                     <div className="decoration">
