@@ -48,7 +48,7 @@ const CourseRoute = () => {
             path: '/course/workshop03262017',
             getComponent(location, cb) {
               System
-                .import ('../components/course/workshop/03182017')
+                .import ('../components/course/workshop/03262017')
                 .then(module => {
                   return cb(null, publicWrapper(module.default, 'inverse'))
                 })

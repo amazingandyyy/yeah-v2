@@ -5,7 +5,7 @@ export default {
     "course" : {
         "title" : "Introduction to Investment Banking",
         "overview" : "\“Introduction to Investment Banking\" will cover an overview of the industry, preparation for interviews, and the types of technical concepts and analyses performed by professionals. Specific topics include accounting, financial statement analysis, valuation methodologies (comparable companies, precedent transactions, discounted cash flow, leveraged buyouts), financial instruments, capital structures, as well as M&A and IPO processes. In addition, students will get a chance to practice financial modeling using excel spreadsheets. The class will include real-life case studies and news articles. It is open to students from all majors and backgrounds, and it aims to improve the preparation of students for positions in finance and investment banking.",
-        "startingDate" : "2017-03-19",
+        "startingDate" : "2017-04-09",
         "hoursPerWeek" : 3,
         "totalWeeks" : 4,
         "location" : {

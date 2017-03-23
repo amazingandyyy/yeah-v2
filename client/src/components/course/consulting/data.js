@@ -116,9 +116,10 @@ export default {
                 "_id" : "58b0e6fd74e18ef81a8cb132"
             },
             {
-                "title" : "Consulting 101",
-                "description" : "Understand the basics of consulting by learning more about the career path, the industry and specific industries that consultants work in. You will also learn about the recruiting process as well as an in-depth deep dive into the consulting case interview process. The overview of consulting will include topics such as what consultants do, the different types of consulting, how case interviews are conducted and the types of resources that can be utilized to prepare for a career in consulting. This class will teach you what to expect in the consulting industry and what the best practices are for successfully starting a career in consulting.",
-                "_id" : "58b0e6fd74e18ef81a8cb131"
+                "title" : "Consulting 101 & PBL Competition Mock Competition",
+                "description" : "Understand the basics of consulting by learning more about the career path, the industry and specific industries that consultants work in. You will also learn about the recruiting process as well as an in-depth deep dive into the consulting case interview process. The overview of consulting will include topics such as what consultants do, the different types of consulting, how case interviews are conducted and the types of resources that can be utilized to prepare for a career in consulting. This class will teach you what to expect in the consulting industry and what the best practices are for successfully starting a career in consulting and have a mock Competition for PBL competition.",
+                "_id" : "58b0e6fd74e18ef81a8cb131",
+                "hideItems": true
             },
             {
                 "title" : "Course Skipped: go to PBL Competition",

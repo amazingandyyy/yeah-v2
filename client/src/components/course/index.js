@@ -15,7 +15,7 @@ export default class App extends Component {
 const CourseList = [
   require('./workshop/03052017/data').default,
   require('./consulting/data').default,
-  require('./workshop/03182017/data').default,
+  require('./workshop/03262017/data').default,
   require('./banking/data').default,
   require('./datasci/data').default,
   require('./webdev/data').default
