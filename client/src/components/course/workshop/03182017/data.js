@@ -1,15 +1,14 @@
 import moment from 'moment';
 
 export default {
-    "_id" : "workshop03182017",
+    "_id" : "workshop03262017",
     "course" : {
         "title": "Technology Workshop",
-        "overview": "马上就是转学季到来了，大家都会开始陆续收到offer。或许几周之后你们会有人狂喜，也会有人忧愁。但" +
-                "不管怎么样，那都是一个全新的开始。因为你马上就要面临全新的挑战——步入职场。 \n很多转学生告诉我，都说转学后非常难找工作。因为一份好的毕业Offer通常来自你" +
-                "大三实习的Return offer，而部分公司的实习秋招将在今年的八九月份（大三第一学期开学）结束。也就意味着大二结束的这个暑假就需要开始好好准备你的实习申请！" +
-                "  而转学生通常比大一大二的学生少一些资源，他们从大一就开始Networking ，参加各种info session。\n然而\n你是否有想过你想找一份什么样的" +
-                "工作？\n你是否了解每个行业所需要什么样的技能？\n你是否开始准备你的简历？\n如果还没有，敬请来到我们特别为回馈转学客户免费开办的，“转学衔接” 年度职场讲座" +
-                "，为你转学之后的路途提供一点点帮助。",
+        "overview": "马上就是转学季到来了，大家都会开始陆续收到offer。或许几周之后你们会有人狂喜，也会有人忧愁。但不管怎么样，那都是一个全新的开始。因为你马上就要面临全新的挑战" +
+                "——步入职场。 \n很多转学生告诉我，都说转学后非常难找工作。因为一份好的毕业Offer通常来自你大三实习的Return offer，而部分公司的实习秋招将在今" +
+                "年的八九月份（大三第一学期开学）结束。也就意味着大二结束的这个暑假就需要开始好好准备你的实习申请！  而转学生通常比大一大二的学生少一些资源，他们从大一就开始N" +
+                "etworking ，参加各种info session。\n然而\n你是否有想过你想找一份什么样的工作？\n你是否了解每个行业所需要什么样的技能？\n你是否开始" +
+                "准备你的简历？\n如果还没有，敬请来到我们特别为回馈转学客户免费开办的，“转学衔接” 年度职场讲座，为你转学之后的路途提供一点点帮助。",
         "startingDate": "2017-03-18",
         "hoursPerWeek": 2,
         "totalWeeks": 1,
@@ -83,11 +82,7 @@ export default {
         },
         "_id": "58b0e6fd74e18ef81a8cb12f",
         "takeaways": [
-            "Learn professional career in consulting",
-            "Learn what Accounting does in the industry world",
-            "Learn how to dive into Investment Banking",
-            "Learn more about how to get an internship",
-            "Learn how to take career training program to optimize your ability",
+            "Learn professional career in consulting", "Learn what Accounting does in the industry world", "Learn how to dive into Investment Banking", "Learn more about how to get an internship", "Learn how to take career training program to optimize your ability"
         ],
         "heighlights": [
             {
@@ -142,68 +137,64 @@ export default {
         ],
         "tags": ["Workshop"]
     },
-    "speackers" : [
+    "speackers" : [{
+            "email": "amazingandyyy@gmail.com",
+            "firstName": "Andy",
+            "lastName": "Chen",
+            "phone": "4084313552",
+            "bio": `Andy自學平面設計、互動設計、專精程式開發多年，闖遍舊金山灣駭客松、
+                開發者大會及創業聚會，他深信編程只是工具，是他完成夢想的一方法，
+                追求專業的編程外，他更不斷思考品牌、產品、使用者體驗、商業模式等等
+                全方位的價值。
+
+                「把自己逼到牆角，墊起腳尖才能看更高」，對自己的要求近乎苛求的Andy
+                常常說，這世界上沒有比「從想法到產品，從產品到讓使用者愛上」更動人的
+                事了。打造優雅、極致、專業的產品是Andy一路一來的初心。
+                編程占他生活的60%，一天沒編程，遍全身不舒服，編程起來往往六親不認、
+                廢寢忘食，但他卻依然忘我並無斷追求，挑戰自己。`,
+            "linkedinURL": "https://www.linkedin.com/in/amazingandyyy",
+            "_id": "58b0e6fd74e18ef81a8cb12e",
+            "currentPosition": {
+                "affiliation": "UC Berkeley",
+                "position": "Cognitive Science"
+            },
+            "heighlightPosition": {
+                "affiliation": "Multiple Hackathons",
+                "position": "Champion"
+            },
+            "industry": "Software Development",
+            "imageURL": "https://avatars0.githubusercontent.com/u/7886068?v=3&u=251be4bf60175498417a32e56" +
+                    "c3c6979d2f9bd08&s=4004"
+        },
         {
-            "email": "rocky.yk.yip@gmail.com",
-            "firstName": "Rocky",
-            "lastName": "Yip",
-            "linkedinURL": "https://www.linkedin.com/in/rockyykyip/",
-            "heighlightPosition": {
-                "affiliation": "Qatalyst Partners",
-                "position": "Summer Analyst"
+            "email": "jerryc@berkeley.edu",
+            "firstName": "Jerry",
+            "lastName": "Chen",
+            "phone": "9164254698",
+            "bio": "Jerry is a Product Analyst at Upstart, a peer-to-peer lending startup that uses " +
+                    "data science to beat bank interest rates. Prior to that, he interned at Centro—a" +
+                    " digital advertising firm headquartered in Chicago —as a Data Scientist on the D" +
+                    "ata Science team. Jerry also completed a spring internship with Global Key Advis" +
+                    "ors as a Quantitative Analyst for their investing platform. Global Key Advisors " +
+                    "is a global asset management firm in San Francisco that focuses on data and rese" +
+                    "arch driven investing strategies. Jerry is a graduating senior at the University" +
+                    " of California, Berkeley majoring in Statistics. Outside of school activities, J" +
+                    "erry competes on an international data science and machine learning platform, Ka" +
+                    "ggle, and has won a bronze medal in an AirBnB new users booking competition. Jer" +
+                    "ry has also consistently placed first in multiple machine learning competitions " +
+                    "hosted by Berkeley’s machine learning courses. ",
+            "linkedinURL": "https://www.linkedin.com/in/jerry-chen-a9a8367b/",
+            "_id": "58b0e6fd74e18ef81a8cb12e",
+            "currentPosition": {
+                "affiliation": "UC Berkeley",
+                "position": "Computer Science"
             },
-            "bio": "Rocky was born in Hong Kong, raised in China and Canada, and is currently a senior studying Business Administration. Professionally, he worked with three different startups before exploring investment banking, and he interned at MergerTech and GCA Global prior to joining Qatalyst Partners, a firm that specializes in technology mergers and acquisitions. On UC Berkeley campus, he is actively involved with the business fraternity Alpha Kappa Psi, most recently serving as its President. He has competed and placed in case competitions such as Morgan Stanley Investment Banking, Deloitte Consulting, and he represented the Haas School of Business in Singapore as a member of its external competition team. Outside of the business community, Rocky has helped start the music non-profit Forte Academy and teaches clarinet to underprivileged children. In his free time, Rocky loves to watch basketball games, learn cooking, and enjoy the relaxing last moments of college with his friends.",
-            "industry": "Consulting and Investment Banking",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/instructors/rocky_yip.jpg"
-        }, {
-            "email": "badreddine@berkeley.edu",
-            "firstName": "Badreddine",
-            "lastName": "Assioua",
-            "linkedinURL": "https://www.linkedin.com/in/badreddine-assioua/",
+            "industry": "Data Science",
             "heighlightPosition": {
-                "affiliation": "高盛",
-                "position": "Investment Banking Analyst"
+                "affiliation": "Centro, Data Scientist and Upstart",
+                "position": "Product Analyst"
             },
-            "bio": "Badreddine is an incoming Investment Banking Analyst at Goldman Sachs. Prior to that, he interned at Ascent Private Capital Management—a wealth management firm headquartered in San Francisco with $9bn of assets under administration—as a Research Analyst on the investments team. Badreddine also completed a summer internship with Capital Merger Group (CMG) as an Investment Banking Analyst in the mergers and acquisitions group. CMG is a boutique investment bank in Los Angeles that primarily focuses on middle-market mergers and acquisitions, financing and financial restructuring. Badreddine is a graduating senior at the University of California, Berkeley – Haas School of Business. He is majoring in Business Administration and minoring in Theater & Performance Studies. Outside of school activities, Badreddine is involved in managing a value-oriented, long/short equity portfolio for friends and family. He also enjoys reading and watching live, on-stage performances.",
-            "industry": "Investment Banking",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/badreddine_assiou" +
-                    "a.jpg"
-        }, {
-            "email": "",
-            "firstName": "Mitchell",
-            "lastName": "Quon",
-            "linkedinURL": "https://www.linkedin.com/in/mitchellquon/",
-            "heighlightPosition": {
-                "affiliation": "Deloitte Consulting",
-                "position": "Technology Analyst"
-            },
-            "bio": "Mitchell is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in the Bay Area his entire life, Mitchell has been exposed to various cultures and communities, and because of that, he has always wanted to learn and explore while solving challenging problems around him. During his time at UC Berkeley, Mitchell has taken on various leadership roles, ranging from being the Chief Operations Officer of the Cal Alumni Student Association to a Consulting Project Manager for a student-run consulting group. Today, Mitchell currently serves as the Executive Vice President of the Haas Business School Association, which is the undergraduate student government of the Haas community. Upon graduation, Mitchell will be joining Deloitte Consulting in the San Francisco office, working on projects in technology and digital strategy.",
-            "industry": "Consulting",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/mitchell_quon.jpg"
-        }, {
-            "email": "",
-            "firstName": "Peter",
-            "lastName": "Lai",
-            "linkedinURL": "https://www.linkedin.com/in/peterlai01/",
-            "heighlightPosition": {
-                "affiliation": "Accenture",
-                "position": "Strategy Analyst"
-            },
-            "bio": "Peter is currently a 4th year student at the UC Berkeley studying Business Administration at the Walter A. Haas School of Business. Having grown up in Taiwan, he chose to pursue his education in the states to better expose himself to a more diverse peoples, experiences, and opportunities. In his time at college, Peter has been heavily involved in the business community, from serving as the President of the largest business organization on campus to the current VP of Corporate Relations of the Haas Business School Association. In these activities, he has also had extensive experience working with various companies, such as Goldman Sachs, Accenture, Deloitte, etc, by providing logistical support for their goals on campus. For full time, Peter will be working at Accenture Strategy in the San Francisco office, with projects focused on retail strategy.",
-            "industry": "Consulting",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/peter_lai.jpg"
-        }, {
-            "email": "aseang8@berkeley.edu",
-            "firstName": "Amanda",
-            "lastName": "Seang",
-            "linkedinURL": "https://www.linkedin.com/in/amandaseang/",
-            "heighlightPosition": {
-                "affiliation": "KPMG",
-                "position": "Federal Tax (Lead Tax Services)"
-            },
-            "bio": "Amanda Seang recently completed her summer 2016 internship at KPMG, one of the Big Four accounting firms, after turning down offers from PwC and EY. Being the L.A. native that she is, Amanda will continue her accounting career at KPMG Los Angeles as a Federal Tax (Lead Tax Services) Associate in the fall. During her internship, Amanda was exposed to the various facets of tax accounting and developed a particularly strong understanding of partnership entities. Amanda is currently a graduating senior in the Haas School of Business’s Undergraduate Program. While at Haas, Amanda has excelled in every accounting course she has taken, including introductory, intermediate, and advanced financial accounting as well as ethics in accounting. Before discovering her true passion for accounting, Amanda held previous finance and marketing positions with companies like New York Life Insurance Company and Oak Capital Group, Inc. At New York Life, Amanda worked with the managing partner’s HR team to develop material and content for agent training on topics that included estate planning. At Oak Capital Group, she refined the company’s marketing efforts by analyzing ROI of past marketing campaigns.",
-            "industry": "Tax Service",
-            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/amanda_seang.jpg"
+            "imageURL": "https://s3-us-west-1.amazonaws.com/yeah-assets/medias/speakers/jerry_chen.jpg"
         }
     ],
     "createBy" : "589284339973ecbedd83a033",

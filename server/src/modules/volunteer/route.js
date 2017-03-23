@@ -9,9 +9,9 @@ router.post('/create', loginRequired, checkAdmin, controller.createOne);
 
 // public request
 router.get('/fetchAll', loginRequired, controller.fetchAll);
+router.get('/fetchAllFromG', controller.fetchAllFromG);
 router.get('/fetchOne/:id', controller.fetchOne);
 router.delete('/deleteOne/:id', loginRequired, checkAdmin, controller.deleteOne);
 router.post('/updateOne/:id', loginRequired, checkAdmin, controller.updateOne);
-
 
 export default router;

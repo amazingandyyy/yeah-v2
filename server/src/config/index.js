@@ -1,5 +1,5 @@
 require('dotenv').config();
-import google_config from './googleOAuth';
+
 let settingIsGood = true;
 if(!process.env.JWT_SECRET){settingIsGood = false; console.log('no process.env.JWT_SECRET')}
 if(!process.env.MONGODB_URI){settingIsGood = false; console.log('no process.env.MONGODB_URI')}
@@ -22,7 +22,9 @@ if (process.env.NODE_ENV == 'production') {
         redirect_url_base: 'https://yeah-v2-server.herokuapp.com',
         unique_salt: process.env.UNIQUE_SALT,
         PORT: process.env.PORT,
-        g: google_config,
+        g: {
+            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET
+        }
     }
 } else {
     // development configuration
@@ -38,7 +40,9 @@ if (process.env.NODE_ENV == 'production') {
         redirect_url_base: 'http://localhost:8000',
         unique_salt: 'process.env.UNIQUE_SALT',
         PORT: process.env.PORT || 8000,
-        g: google_config,
+        g: {
+            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET
+        }
     }
 }
 

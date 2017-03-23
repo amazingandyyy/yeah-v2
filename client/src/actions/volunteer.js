@@ -39,7 +39,7 @@ function deleteOneVolunteerChance(id) {
             .delete(`/api/resource/volunteer/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")
-                dispatch({type: DELETE_ONE_VOLUNTEER_CHANCE, payload: directBack });
+                dispatch({type: DELETE_ONE_VOLUNTEER_CHANCE, payload: 'directBack' });
             })
             .catch(error => {
                 console.log(error.response.data);
@@ -73,21 +73,17 @@ function updateOneVolunteer(id,data){
             });
     }
 }
-import google from 'googleapis';
-const sheets = google.sheets('v4');
 
 function fetchAllVolunteerChancesFromGoogle(){
     return function (dispatch) {
-        const spreadsheetId = "11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0";
-        const sheetId = "909922863"
-        // request
-        //     .get(`/api/resource/volunteer/fetchAll`)
-        //     .then(res => {
-        //         dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
-        //     })
-        //     .catch(error => {
-        //         console.log(error.response.data);
-        //     });
+        request
+            .get(`/api/resource/volunteer/fetchAllFromG`)
+            .then(res => {
+                dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
+            })
+            .catch(error => {
+                console.log(error.response.data);
+            });
     }
 }
 
