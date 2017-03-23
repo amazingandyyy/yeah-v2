@@ -73,6 +73,23 @@ function updateOneVolunteer(id,data){
             });
     }
 }
+import google from 'googleapis';
+const sheets = google.sheets('v4');
+
+function fetchAllVolunteerChancesFromGoogle(){
+    return function (dispatch) {
+        const spreadsheetId = "11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0";
+        const sheetId = "909922863"
+        // request
+        //     .get(`/api/resource/volunteer/fetchAll`)
+        //     .then(res => {
+        //         dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
+        //     })
+        //     .catch(error => {
+        //         console.log(error.response.data);
+        //     });
+    }
+}
 
 
 export {

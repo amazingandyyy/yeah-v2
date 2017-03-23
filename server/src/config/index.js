@@ -1,6 +1,6 @@
 require('dotenv').config();
+import google_config from './googleOAuth';
 let settingIsGood = true;
-
 if(!process.env.JWT_SECRET){settingIsGood = false; console.log('no process.env.JWT_SECRET')}
 if(!process.env.MONGODB_URI){settingIsGood = false; console.log('no process.env.MONGODB_URI')}
 if(!process.env.AWS_ACCESS_KEY_ID){settingIsGood = false; console.log('no process.env.AWS_ACCESS_KEY_ID')}
@@ -19,9 +19,10 @@ if (process.env.NODE_ENV == 'production') {
         aws_s3_bucket: 'yeah-assets',
         aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com',
         aws_ses_sender: 'yeaheducation@gmail.com',
-        redirect_url_base: 'http://104.131.39.34:8000',
+        redirect_url_base: 'https://yeah-v2-server.herokuapp.com',
         unique_salt: process.env.UNIQUE_SALT,
-        PORT: process.env.PORT
+        PORT: process.env.PORT,
+        g: google_config,
     }
 } else {
     // development configuration
@@ -36,7 +37,8 @@ if (process.env.NODE_ENV == 'production') {
         aws_ses_sender: 'yeaheducation@gmail.com',
         redirect_url_base: 'http://localhost:8000',
         unique_salt: 'process.env.UNIQUE_SALT',
-        PORT: process.env.PORT || 8000
+        PORT: process.env.PORT || 8000,
+        g: google_config,
     }
 }
 

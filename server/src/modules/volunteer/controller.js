@@ -37,6 +37,11 @@ export default {
         })
         .catch(next)
     },
+    fetchAllFromG: function(req, res, next) {
+        const spreadsheetId = "11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0";
+        const sheetId = "909922863";
+        
+    },
     fetchOne: function(req, res, next) {
         Volunteer.findById(req.params.id)
         .then(data => {
