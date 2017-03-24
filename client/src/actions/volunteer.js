@@ -7,19 +7,6 @@ import {
  } from './types';
 import { hashHistory } from 'react-router';
 
-function fetchAllVolunteerChances() {
-    return function (dispatch) {
-        request
-            .get(`/api/resource/volunteer/fetchAll`)
-            .then(res => {
-                dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
-            })
-            .catch(error => {
-                console.log(error.response.data);
-            });
-    }
-}
-
 function fetchOneVolunteerChance(id) {
     return function (dispatch) {
         request
@@ -74,7 +61,7 @@ function updateOneVolunteer(id,data){
     }
 }
 
-function fetchAllVolunteerChancesFromGoogle(){
+function fetchAllVolunteer(){
     return function (dispatch) {
         request
             .get(`/api/resource/volunteer/fetchAllFromG`)
@@ -87,12 +74,6 @@ function fetchAllVolunteerChancesFromGoogle(){
     }
 }
 
-
 export {
-    fetchAllVolunteerChances,
-    fetchOneVolunteerChance,
-    deleteOneVolunteerChance,
-    deleteOneVolunteerGoback,
-    resetOneVolunteerChance,
-    updateOneVolunteer
+    fetchAllVolunteer
 }

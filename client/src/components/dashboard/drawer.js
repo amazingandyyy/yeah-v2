@@ -27,7 +27,10 @@ class Drawer extends Component {
       </span>
         <Link to="/">
           <div className="item" id="header">
-            <span className="title">YEAH</span>
+            <span className="title">YEAH
+            {!this.props.isAdmin && <small> student</small>}
+            {this.props.isAdmin && <small> admin</small>}
+            </span>
           </div>
         </Link>
         <Link to="/dashboard/start" activeClassName="active">
@@ -42,10 +45,16 @@ class Drawer extends Component {
             <span className="title">Courses</span>
           </div>
         </Link>
+        <Link to="/dashboard/volunteers" activeClassName="active">
+          <div className="item">
+            <span className="icon"><Icon name="catalog"/></span>
+            <span className="title">Volunteers</span>
+          </div>
+        </Link>
         <Link to="/dashboard/assist" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="catalog"/></span>
-            <span className="title">Assist</span>
+            <span className="title">Major Requirement</span>
           </div>
         </Link>
         <Link to="/dashboard/ucinfo" onClick={()=>{location.reload()}} activeClassName="active">
@@ -56,7 +65,6 @@ class Drawer extends Component {
         </Link>
 
         <div className="bottom">
-        {this.renderAdmin()}
           <Link to="/dashboard/setting" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="setting"/></span>

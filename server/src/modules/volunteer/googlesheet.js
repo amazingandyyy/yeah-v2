@@ -23,7 +23,7 @@ function getData(req, res, next){
         request(google_sheet_headers)
     });
     function request(header){
-        axios.get("https://sheets.googleapis.com/v4/spreadsheets/11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0/values/A1:W26?majorDimension=ROWS", {
+        axios.get("https://sheets.googleapis.com/v4/spreadsheets/11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0/values/A2:W30?majorDimension=ROWS", {
                 headers: {
                     "Authorization": header
                 }
@@ -55,8 +55,8 @@ function cleanData(sheetData){
             ],
             prerequisites: event[14],
             applyMethod: event[15],
-            majors: event[16].split(','),
-            interests: event[17].split(','),
+            majors: event[16].replace(/s+/g, '').split(/,?\s+/),
+            interests: event[17].split(/,?\s+/),
             postedBy: {
                 name: event[18],
                 email: event[19]

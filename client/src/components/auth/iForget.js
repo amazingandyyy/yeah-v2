@@ -54,6 +54,7 @@ class IForget extends Component {
                 className="col-xs">
                 <div className="form-group">
                     <Field
+                        autoFocus
                         type='email'
                         name="email"
                         component="input"
@@ -63,7 +64,7 @@ class IForget extends Component {
                         />
                 </div>
                 {this.renderAlert()}
-                <button type="submit" className="btn btn-primary">Send Me Email</button>
+                <button type="submit" className="btn btn-primary">Send Me Recover Email</button>
             </form>
             <div>
             <hr />
@@ -86,7 +87,11 @@ class IForget extends Component {
     render() {
         // console.log('this.props;: ', this.props);
         return (
-            <div className="auth-card notab">
+            <div className="auth-card">
+                <div className="tab">
+                    <Link className="panel left" to="/auth/signup">Sign up</Link>
+                    <Link className="panel right" to="/auth/signin">Sign in</Link>
+                </div>
                 <div className="formSection">
                     {this.renderContent()}
                 </div>

@@ -7,9 +7,9 @@ import {
     EMAIL_SENT,
     SIGNUP_WITH_DATA,
     RESET,
-    FAIL_TO_VERIFY_TOKEN,
     SUCCESS_TO_VERIFY_TOKEN,
-    SUCCEED_TO_RESET_PASSWORD
+    SUCCEED_TO_RESET_PASSWORD,
+    RESET_ERROR
 } from './types';
 import { browserHistory, hashHistory } from 'react-router';
 
@@ -31,7 +31,7 @@ function signUserIn({email, password}) {
             })
             .catch(error => {
                 console.log(error);
-                dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
+                dispatch({type: AUTH_ERROR, payload: 'Wrong password and email combination'})
             });
     }
 }
@@ -93,7 +93,7 @@ function signUserUp(userObj) {
             })
             .catch(error => {
                 console.log(error);
-                dispatch({type: AUTH_ERROR, payload: 'Failed to Sign up, please try again.'})
+                dispatch({type: AUTH_ERROR, payload: 'Email is in used. Login or click forget password.'})
             });
     }
 }
@@ -138,6 +138,12 @@ function resetPassword(data) {
     }
 }
 
+function resetError(){
+    return function (dispatch) {
+        dispatch({type: RESET_ERROR})
+    }
+}
+
 export {
     signUserIn,
     signUserUp,
@@ -146,5 +152,6 @@ export {
     sendEmailToResetPassword,
     authReset,
     verifyToken,
-    resetPassword
+    resetPassword,
+    resetError
 };

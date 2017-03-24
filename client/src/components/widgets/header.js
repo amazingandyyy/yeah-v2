@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Link } from 'react-router';
 import $ from 'jquery';
-// <Link key='6' to="/dashboard">
-//     {this.props.authenticated && <span className="enter-button">Dashboard</span>}
-//     {!this.props.authenticated && <span className="enter-button">Join Members</span>}
-// </Link>
+
 class Header extends Component {
     constructor(props){
         super(props);
@@ -21,13 +18,17 @@ class Header extends Component {
                 <div>Accelerator</div>
             </Link>
             <Link key='3' to="/course/catalog">
-                <div>Resources</div>
+                <div>Courses</div>
             </Link>
             <Link key='4' to="/news">
                 <div>News</div>
             </Link>
             <Link key='5' to="/about">
                 <div>About</div>
+            </Link>
+            <Link key='6' to="/dashboard">
+                {this.props.authenticated && <span className="enter-button">Dashboard</span>}
+                {!this.props.authenticated && <span className="enter-button">Join Members</span>}
             </Link>
             </div>
         )

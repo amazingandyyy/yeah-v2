@@ -9,7 +9,8 @@ import {
     SUCCESS_TO_VERIFY_TOKEN,
     FAIL_TO_VERIFY_TOKEN,
     SUCCEED_TO_RESET_PASSWORD,
-    SIGNUP_WITH_DATA
+    SIGNUP_WITH_DATA,
+    RESET_ERROR
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -45,6 +46,8 @@ export default function(state=INITIAL_STATE, action) {
             return { ...state, status: SIGNUP_WITH_DATA, userData: action.payload}
         case RESET: 
             return { ...INITIAL_STATE }
+        case RESET_ERROR: 
+            return { error: '' }
     }
     return state;
 }

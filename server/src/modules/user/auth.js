@@ -69,16 +69,15 @@ const signinWithFacebook = (req, res, next) => {
             if(!existingUser.avatar){
                 existingUser.avatar = FBData.picture.data.url;
             }
-            existingUser.save().then(() => {
-                AdminController
-                .checkAdminById(existingUser._id)
-                .then(admin => {
-                    if (admin) {
-                        return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
-                    }
-                    res.send({success: true, token: generateToken(existingUser), isAdmin: false})
-                })
-            }).catch(next);
+            existingUser.save()
+            .then(() => AdminController.checkAdminById(existingUser._id))
+            .then(admin => {
+                if (admin) {
+                    return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
+                }
+                res.send({success: true, token: generateToken(existingUser), isAdmin: false})
+            })
+            .catch(next);
         }
         if (!existingUser) {
             console.log('no user with this fb id');

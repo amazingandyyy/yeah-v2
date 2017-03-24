@@ -4,7 +4,7 @@ import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-rout
 import Start from '../components/dashboard/start';
 import Setting from '../components/dashboard/setting';
 import Courses from '../components/dashboard/courses';
-import ExploreCatalog from '../components/dashboard/courses/catalog';
+import ExploreCoursesCatalog from '../components/dashboard/courses/catalog';
 
 import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
 import VolunteerOneAdmin from '../components/dashboard/admin/volunteerOneAdmin';
@@ -58,8 +58,19 @@ const DashboardRoute = {
           })
       },
       indexRoute: {
-        component: ExploreCatalog
+        component: ExploreCoursesCatalog
       }
+    }, {
+      path: '/dashboard/volunteers',
+      getComponent(location, cb) {
+        System
+          .import ('../components/dashboard/volunteers')
+          .then(module => {
+            return loginGuard(module.default, cb);
+          })
+      },
+      // indexRoute: {
+      // }
     }, {
       path: '/dashboard/admin',
       getComponent(location, cb) {

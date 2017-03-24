@@ -18,8 +18,8 @@ class AssistForm extends Component{
             loadedAgreement: false
         }
     }
-    componentWillReceiveProps(nextProps){
-        // console.log(nextProps)
+    componentWillMount(){
+        this.props.resetAssist();
     }
     componentWillMount() {
         this.props.resetAssist();

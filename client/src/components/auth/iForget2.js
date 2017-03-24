@@ -55,6 +55,7 @@ class IForget2 extends Component {
                 className="col-xs">
                 <div className="form-group">
                     <Field
+                        autoFocus
                         type='email'
                         name="email"
                         component="input"
@@ -64,7 +65,7 @@ class IForget2 extends Component {
                         />
                 </div>
                 {this.renderAlert()}
-                <button type="submit" className="btn btn-primary">Send Me Email Again</button>
+                <button type="submit" className="btn btn-primary">Send Me Recover Email Again</button>
             </form>
             <div>
             </div>

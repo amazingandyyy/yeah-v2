@@ -6,7 +6,6 @@ import { ASSIST_GET_COLLEGES,
          ASSIST_GET_AGREEMENT,
          ASSIST_RESET_AGREEMENT
 } from './types';
-import superagent from 'superagent';
 
 const getCollegesList = () => {
     return function (dispatch) {

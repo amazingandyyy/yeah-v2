@@ -30,6 +30,7 @@ class IForget extends Component {
                         className="col-xs">
                         <div className="form-group">
                             <Field
+                                autoFocus
                                 type= 'email'
                                 name="email"
                                 component="input"

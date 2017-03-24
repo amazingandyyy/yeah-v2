@@ -48,6 +48,7 @@ class Signup extends Component {
                     className="col-xs">
                     <div className="form-group">
                         <Field
+                            autoFocus
                             name="firstName"
                             type='text'
                             component="input"

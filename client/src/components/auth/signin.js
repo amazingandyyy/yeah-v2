@@ -22,6 +22,7 @@ class Signin extends Component {
         }
     }
     handleFormSubmit(data) {
+        this.props.resetError()
         this.props.signUserIn(data);
     }
     render() {
@@ -41,6 +42,7 @@ class Signin extends Component {
                         className="col-xs">
                         <div className="form-group">
                             <Field
+                                autoFocus
                                 type= 'email'
                                 name="email"
                                 component="input"
