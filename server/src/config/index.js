@@ -23,7 +23,8 @@ if (process.env.NODE_ENV == 'production') {
         unique_salt: process.env.UNIQUE_SALT,
         PORT: process.env.PORT,
         g: {
-            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET
+            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET,
+            google_sheet_headers: process.env.GOOGLE_SHEET_HEADERS
         }
     }
 } else {
@@ -41,7 +42,8 @@ if (process.env.NODE_ENV == 'production') {
         unique_salt: 'process.env.UNIQUE_SALT',
         PORT: process.env.PORT || 8000,
         g: {
-            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET
+            google_sheet_client_secret: process.env.GOOGLE_SHEET_CLIENT_SECRET,
+            google_sheet_headers: process.env.GOOGLE_SHEET_HEADERS
         }
     }
 }

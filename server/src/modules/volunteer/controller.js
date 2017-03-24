@@ -1,7 +1,6 @@
 import Volunteer from './model';
-
 import config from '../../config'
-import Spreadsheet from 'edit-google-spreadsheet';
+import axios from 'axios';
 
 export default {
     createOne : function (req, res, next) {
@@ -38,25 +37,6 @@ export default {
                 res.send(data)
             })
             .catch(next)
-    },
-    fetchAllFromG : function (req, res, next) {
-        Spreadsheet.load({
-            debug: true, 
-            spreadsheetId: '11TIiGGDQLRW1-aivLQCyOB_E7xHHxnshXsksbw4_LD0', 
-            worksheetId: '909922863',
-
-            oauth2: {
-                client_id: "119308312064-8554n6atpn81rcfh058jrpd082ubb76s.apps.googleusercontent.com",
-                client_secret: config.g.google_sheet_client_secret,
-                refresh_token: "1/3ycgTRDmaP91i_Ae7HM_m__zck3yw5b77_FhcVAGIV8"
-            }
-        }, (err, spreadsheet) => {
-            //use speadsheet!
-            console.log(err, spreadsheet)
-            if(err || !spreadsheet) return next(err)
-            return res.send(spreadsheet)
-        });
-
     },
     fetchOne : function (req, res, next) {
         Volunteer

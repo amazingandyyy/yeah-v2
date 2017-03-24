@@ -1,6 +1,6 @@
 {
   "name": "yeah-v2",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Official Repo of Yeah Education Group",
   "main": "index.js",
   "scripts": {
@@ -79,6 +79,7 @@
     "redux-form": "^6.3.2",
     "redux-thunk": "^2.1.0",
     "slick-carousel": "^1.6.0",
+    "stringy": "^0.1.0",
     "superagent": "^3.3.2"
   },
   "devDependencies": {
