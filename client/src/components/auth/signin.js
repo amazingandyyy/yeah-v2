@@ -35,7 +35,7 @@ class Signin extends Component {
                     <Link className="panel right active" to="/auth/signin">Sign in</Link>
                 </div>
                 <div className="formSection">
-                    <div className="title">Sign Into Yeah Account</div>
+                    <div className="title">Sign Into YEAH Account</div>
                     <div className="discriptionTxt">Your YEAH account is your portal to all things YEAH: your resources, resume, career training courses, volunteer resources, and more!</div>
                     <form
                         onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}

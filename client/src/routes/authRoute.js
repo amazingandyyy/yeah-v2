@@ -6,7 +6,6 @@ import Signin from '../components/auth/signin';
 import Signup from '../components/auth/signup';
 import Signout from '../components/auth/signout'
 import SetPassword from '../components/auth/setPassword';
-// import ResetPassword from '../components/auth/resetPassword';
 import IForget from '../components/auth/iForget';
 import IForget2 from '../components/auth/iForget2';
 

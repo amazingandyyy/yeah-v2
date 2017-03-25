@@ -20,9 +20,10 @@ const signup = (req, res, next) => {
         .catch(next);
 }
 
-const signin = (req, res, next) => {
+const signinWithEmail = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    console.log('password', password)
     if (!email || !password) {
         return next()
     }
@@ -34,6 +35,7 @@ const signin = (req, res, next) => {
     })
         .select('+password')
         .then(existingUser => {
+            console.log(existingUser)
             bcrypt.compare(password, existingUser.password, (err, good) => {
                 if (err || !good) {
                     return next()
@@ -53,34 +55,35 @@ const signin = (req, res, next) => {
 
 const signinWithFacebook = (req, res, next) => {
     const FBData = req.body;
-    console.log('FBData: ', FBData)
+    // console.log('FBData: ', FBData)
     const facebookUserId = FBData.userID;
     const facebookToken = FBData.accessToken;
-    console.log('FBData.name:', FBData.name)
+    // console.log('FBData.name:', FBData.name)
     const facebookUserName = FBData.name.split(' ');
-    console.log('facebookUserName :', facebookUserName)
+    // console.log('facebookUserName :', facebookUserName)
     User.findOne({
         'facebook.userID': {
             '$in': facebookUserId
         }
     }).then(existingUser => {
         if (existingUser) {
-            console.log('has user with this fb id');
+            console.log('there is user with this fb id', existingUser);
             if(!existingUser.avatar){
                 existingUser.avatar = FBData.picture.data.url;
             }
             existingUser.save()
-            .then(() => AdminController.checkAdminById(existingUser._id))
-            .then(admin => {
-                if (admin) {
-                    return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
-                }
-                res.send({success: true, token: generateToken(existingUser), isAdmin: false})
-            })
-            .catch(next);
+            .then(() => {
+                AdminController.checkAdminById(existingUser._id)
+                .then(admin => {
+                    if (admin) {
+                        return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
+                    }
+                    res.send({success: true, token: generateToken(existingUser), isAdmin: false})
+                }).catch(next);
+            }).catch(next);
         }
         if (!existingUser) {
-            console.log('no user with this fb id');
+            // console.log('no user with this fb id');
             // find User by email
             User
             .findOne({
@@ -90,7 +93,7 @@ const signinWithFacebook = (req, res, next) => {
             })
             .then(dbUser => {
                 if(dbUser){
-                    console.log('has user with this fb email');
+                    // console.log('has user with this fb email');
                     dbUser.facebook = {
                         userID: facebookUserId,
                         accessToken: facebookToken
@@ -106,11 +109,11 @@ const signinWithFacebook = (req, res, next) => {
                                 return res.send({success: true, token: generateToken(dbUser), isAdmin: true})
                             }
                             res.send({success: true, token: generateToken(dbUser), isAdmin: false})
-                        })
+                        }).catch(next);
                     }).catch(next);
                 }
                 if(!dbUser){
-                    console.log('no user with this fb email then create a total new user');
+                    // console.log('no user with this fb email then create a total new user');
                     const userData = {
                         name: {
                             first: facebookUserName[0] || '',
@@ -226,7 +229,7 @@ const resetPassword = (req, res, next) => {
 }
 
 export default {
-    signin,
+    signinWithEmail,
     signup,
     signinWithFacebook,
     sendEmailToResetPassword,

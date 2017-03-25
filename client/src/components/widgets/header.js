@@ -27,8 +27,8 @@ class Header extends Component {
                 <div>About</div>
             </Link>
             <Link key='6' to="/dashboard">
-                {this.props.authenticated && <span className="enter-button">Dashboard</span>}
-                {!this.props.authenticated && <span className="enter-button">Join Members</span>}
+                {this.props.authenticated && <span className="enter-button">欧耶学员专区</span>}
+                {!this.props.authenticated && <span className="enter-button">学员登入/注册</span>}
             </Link>
             </div>
         )

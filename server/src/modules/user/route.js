@@ -6,7 +6,7 @@ import { loginRequired, readFile } from '../../middleware';
 const router = express.Router();
 // public request
 router.post('/signup', auth.signup);
-router.post('/signin/email', auth.signin);
+router.post('/signin/email', auth.signinWithEmail);
 router.post('/signin/fb', auth.signinWithFacebook);
 
 router.post('/helper/sendEmailToResetPassword/:email', auth.sendEmailToResetPassword);

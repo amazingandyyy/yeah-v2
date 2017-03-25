@@ -15,7 +15,7 @@ import {
 
 const INITIAL_STATE = {
     error: '',
-    authenticated: null,
+    authenticated: false,
     status: null,
     isAdmin: null,
     status: '',

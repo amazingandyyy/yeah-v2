@@ -64,7 +64,7 @@ function updateOneVolunteer(id,data){
 function fetchAllVolunteer(){
     return function (dispatch) {
         request
-            .get(`/api/resource/volunteer/fetchAllFromG`)
+            .get(`/api/resource/volunteer/fetchAll`)
             .then(res => {
                 dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
             })

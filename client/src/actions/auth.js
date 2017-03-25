@@ -60,7 +60,7 @@ function signUserInWithFacebook(FbTreasure){
             })
             .catch(error => {
                 console.log(error);
-                dispatch({type: AUTH_ERROR, payload: 'Bad Login Info'})
+                dispatch({type: AUTH_ERROR, payload: 'Fail to Login with Facebook.'})
             });
     }
 }

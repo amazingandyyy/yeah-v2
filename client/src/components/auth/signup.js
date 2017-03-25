@@ -41,7 +41,7 @@ class Signup extends Component {
                 <Link className="panel right" to="/auth/signin">Sign in</Link>
             </div>
             <div className="formSection">
-                <div className="title">Create Your YEAH Account</div>
+                <div className="title">{this.props.title}</div>
                 <div className="discriptionTxt">Your YEAH account is your portal to all things YEAH: your resources, resume, career training courses, volunteer resources, and more!</div>
                 <form
                     onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
@@ -80,6 +80,7 @@ class Signup extends Component {
                             className="yeah-input "
                             placeholder="Passwrod*"
                             required
+                            autoFocus={this.props.passAutoFocus}
                         />
                         <Field
                             type='password'
@@ -132,12 +133,15 @@ function mapStateToProps({auth}) {
                 lastName: userData.name.last,
                 email: userData.email.data,
                 FBData: userData.facebook
-            }
-            
+            },
+            title: 'Setup Your password to complete signuping with Facebook',
+            passAutoFocus: true
         }
     }else{
         return {
-            errorMsg: auth.error
+            errorMsg: auth.error,
+            title: 'Create Your YEAH Account',
+            passAutoFocus: false
         }
     }
 }

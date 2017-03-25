@@ -5,7 +5,7 @@ export default class App extends Component {
     return (
       <div>
           <div style={{paddingTop: '57px'}}>
-          {this.props.children}
+            {this.props.children}
           </div>
       </div>
     );
