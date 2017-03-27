@@ -69,8 +69,27 @@ const DashboardRoute = {
             return loginGuard(module.default, cb);
           })
       },
-      // indexRoute: {
-      // }
+      indexRoute: {
+        getComponent(location, cb) {
+          System
+            .import ('../components/dashboard/volunteers/catalog.js')
+            .then(module => {
+              return loginGuard(module.default, cb);
+            })
+        }
+      },
+      childRoutes: [
+        {
+          path: '/dashboard/volunteers/:id',
+          getComponent(location, cb) {
+          System
+              .import ('../components/dashboard/volunteers/single.js')
+              .then(module => {
+                return loginGuard(module.default, cb);
+              })
+          }
+        }
+      ]
     }, {
       path: '/dashboard/admin',
       getComponent(location, cb) {

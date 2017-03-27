@@ -167,6 +167,64 @@
                     height: 8.25rem;
                 }
             }
+
+            &.volunteer {
+                .volunteer-item{
+                    transition: .1s all ease-in-out;
+                    background: white;
+                    margin-bottom: 0px;
+                    border-radius: 0rem;
+                    padding: 20px;
+                    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+                    cursor: pointer;
+                    &:hover {
+                        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+                        margin-bottom: 5px;
+                    }
+                    .event-title{
+                        font-size: 1.4rem;
+                        font-weight: 900;
+                    }
+                    .organization {
+                        font-size: 0.9rem;
+                        opacity: 1;
+                        .span{
+                            opacity: 0.7;
+                        }
+                        a:hover{
+                            text-decoration: underline;
+                        }
+                    }
+                    .information{
+                        display: flex;
+                        flex-direction: row;
+                        .info {
+                            width: 50%;
+                            align-items: stretch;
+                            @media (max-width: 500px) {
+                               width: 100%;
+                            }
+                            
+                            .left{
+                                float: left;
+                                min-height: 50px;
+                                width: 50px;
+                                font-size: 1.5rem;
+                                text-align: center;
+                                line-height: 50px;
+                                margin: 10px 10px 10px 0px;
+                                border-radius: 100px;
+                                color: $gold;
+                            }
+                            .right{
+                                margin: 10px;
+                                min-height: 50px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
         }
     }
 

@@ -15,7 +15,7 @@ export default class Home extends Component {
         <Header />
         <div className="bg"></div>
         <Introduction />
-        <Space height="50"/>
+        <Space h="50"/>
         <hr />
         <Facts />
         <hr />

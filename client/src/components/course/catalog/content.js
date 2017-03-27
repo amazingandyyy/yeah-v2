@@ -48,7 +48,7 @@ class Catalog extends Component{
                     </div>
                     <div className="col-sm-1 col-md-2">
                     </div>
-                    <Space height="50"/>
+                    <Space h="50"/>
                 </div>
                 </div>
             </div>

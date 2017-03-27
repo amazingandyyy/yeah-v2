@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 
-export default (props) => {
-    const styles ={
-        height: `${props.height}` 
-    };
+const Space = (props) => {
     return (
-      <div style={styles}>
-      </div>
+      <div style={{height: `${props.h}px`}} />
     );
 }
+
+export default Space;

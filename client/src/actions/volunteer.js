@@ -7,11 +7,12 @@ import {
  } from './types';
 import { hashHistory } from 'react-router';
 
-function fetchOneVolunteerChance(id) {
+function fetchOneVolunteer(id) {
     return function (dispatch) {
         request
             .get(`/api/resource/volunteer/fetchOne/${id}`)
             .then(res => {
+                console.log('One volunteer event', res.data)
                 dispatch({type: FETCH_ONE_VOLUNTEER_CHANCE, payload: res.data})
             })
             .catch(error => {
@@ -35,14 +36,13 @@ function deleteOneVolunteerChance(id) {
 }
 
 function deleteOneVolunteerGoback(){
-
     return function (dispatch) {
         console.log('clearing the data');
         dispatch( { type: DELETE_ONE_VOLUNTEER_GOBACK } );
     }
 }
 
-function resetOneVolunteerChance(id,data){
+function resetOneVolunteer(id,data){
     return function(dispatch){
             dispatch( { type: DELETE_ONE_VOLUNTEER_GOBACK } );
     }
@@ -69,11 +69,13 @@ function fetchAllVolunteer(){
                 dispatch({type: FETCH_ALL_VOLUNTEER_CHANCES, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
 
 export {
-    fetchAllVolunteer
+    fetchAllVolunteer,
+    fetchOneVolunteer,
+    resetOneVolunteer
 }
