@@ -68,19 +68,6 @@ class Signin extends Component {
                         </div>
                     </form>
                 <div>
-                <hr />
-                <div className="small-text">or sign in with one of these services</div>
-                <div className="auth-fb-wrapper">
-                    <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/fb-login.svg" className="fb-icon" />
-                    <div className="content">Facebook</div>
-                    <FacebookLogin
-                        appId="237873150002610"
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        cssClass="auth-fb-button"
-                        callback={this.props.signUserInWithFacebook} 
-                    />
-                </div>
                 </div>
                 </div>
             </div>
@@ -99,3 +86,18 @@ Signin = reduxForm({
 Signin = connect(mapStateToProps, actions)(Signin);
 
 export default Signin;
+
+
+//  <hr />
+// <div className="small-text">or sign in with one of these services</div>
+// <div className="auth-fb-wrapper">
+//     <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/fb-login.svg" className="fb-icon" />
+//     <div className="content">Facebook</div>
+//     <FacebookLogin
+//         appId="237873150002610"
+//         autoLoad={false}
+//         fields="name,email,picture"
+//         cssClass="auth-fb-button"
+//         callback={this.props.signUserInWithFacebook} 
+//     />
+// </div>

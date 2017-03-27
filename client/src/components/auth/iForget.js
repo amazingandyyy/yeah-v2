@@ -67,19 +67,6 @@ class IForget extends Component {
                 <button type="submit" className="btn btn-primary">Send Me Recover Email</button>
             </form>
             <div>
-            <hr />
-            <div className="small-text">or try to sign in with one of these services</div>
-            <div className="auth-fb-wrapper">
-                <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/fb-login.svg" className="fb-icon" />
-                <div className="content">Facebook</div>
-                <FacebookLogin
-                    appId="237873150002610"
-                    autoLoad={false}
-                    fields="name,email,picture"
-                    cssClass="auth-fb-button"
-                    callback={this.props.signUserUpWithFacebook} 
-                />
-            </div>
             </div>
             </span>
         )
@@ -113,3 +100,18 @@ IForget = reduxForm({
 IForget = connect(mapStateToProps, actions)(IForget);
 
 export default IForget;
+
+
+// <hr />
+// <div className="small-text">or try to sign in with one of these services</div>
+// <div className="auth-fb-wrapper">
+//     <img src="https://s3-us-west-1.amazonaws.com/yeah-assets/icons/fb-login.svg" className="fb-icon" />
+//     <div className="content">Facebook</div>
+//     <FacebookLogin
+//         appId="237873150002610"
+//         autoLoad={false}
+//         fields="name,email,picture"
+//         cssClass="auth-fb-button"
+//         callback={this.props.signUserUpWithFacebook} 
+//     />
+// </div>

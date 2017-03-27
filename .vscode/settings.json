@@ -15,7 +15,8 @@
         "Dockerfile": true,
         "yarn-error.log": true,
         ".env": false,
-        ".DS_STORE": true
+        ".DS_STORE": true,
+        ".git": false
     }
 ,
 "vsicons.presets.angular": false

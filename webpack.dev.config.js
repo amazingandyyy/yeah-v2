@@ -80,9 +80,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       "global.GENTLY": false
     }),
-    new webpack
-      .optimize
-      .UglifyJsPlugin({sourceMap: true}),
     new ExtractTextPlugin('style.css')
   ],
   node: {
