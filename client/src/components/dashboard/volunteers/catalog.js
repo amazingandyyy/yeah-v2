@@ -32,7 +32,7 @@ class Catalog extends Component{
             <span className="position">{event.position}</span> {event.title && ` at `+event.title}
           </div>
           <div className="organization">
-            <span>with </span>
+            <span>hosted by </span>
            <a href={event.organization.url} target="_blank">{event.organization.name}</a>
           </div>
             <div className="information">

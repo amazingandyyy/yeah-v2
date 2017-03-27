@@ -16,7 +16,7 @@ function fetchOneVolunteer(id) {
                 dispatch({type: FETCH_ONE_VOLUNTEER_CHANCE, payload: res.data})
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -30,7 +30,7 @@ function deleteOneVolunteerChance(id) {
                 dispatch({type: DELETE_ONE_VOLUNTEER_CHANCE, payload: 'directBack' });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }

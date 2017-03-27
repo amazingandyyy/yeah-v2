@@ -75,8 +75,10 @@ function cleanData(sheetData){
             time: event[2],
             location: {
                 address: event[3],
-                long: event[23],
-                lat: event[22]
+                coord: {
+                    lng: event[23],
+                    lat: event[22]
+                }
             },
             organization: {
                 name: event[4],
@@ -87,7 +89,7 @@ function cleanData(sheetData){
             takeaways: [
                 event[8], event[9], event[10], event[11], event[12]||null
             ],
-            prerequisites: event[14],
+            prerequisite: event[14],
             applyMethod: event[15],
             majors: event[16].replace(/s+/g, '').split(/,?\s+/),
             interests: event[17].split(/,?\s+/),

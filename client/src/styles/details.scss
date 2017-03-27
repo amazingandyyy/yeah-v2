@@ -302,6 +302,32 @@
             width: 100%;
             overflow: hidden;
         }
+        .points{
+            padding-top: 20px;
+            max-width: 400px;
+            margin: auto;
+            
+            div{
+                font-size: 1.3rem;
+                font-weight: 300;
+                text-align: left;
+                padding-bottom: 5px;
+                text-transform: lowercase;
+                i{
+                    display: inline-block;
+                    opacity: 0.7;
+                    width: 20px;
+                    font-size: 1rem;
+                    margin-right: 8px;
+                    color: $light-blue;
+                }
+                &:hover{
+                    i{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
         &.scholarship{
             background-image: linear-gradient(to bottom right, lighten($gold, 20%), darken($gold, 10%));
             

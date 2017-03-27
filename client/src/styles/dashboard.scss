@@ -36,14 +36,19 @@
                 }
             }
             .rightBtn {
-                text-align: right;
                 float: right;
+                text-align: right;
                 cursor: pointer;
                 i {
                     margin-right: 6px;
                 }
                 &:active {
                     opacity: 0.4;
+                }
+
+                &.useless{
+                    opacity: 0;
+                    cursor: auto;
                 }
             }
         }
@@ -72,19 +77,19 @@
         &.explore {
             .section {
                  position: relative;
-                .title {
-                    color: #2e3d49;
-                    font-size: 0.8em;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    font-weight: 600;
-                    padding-top: 10px;
-                    padding-left: 35px;
-                    margin-bottom: 15px;
-                    &.first {
-                        padding-top: 60px;
-                    }
-                }
+                // .title {
+                //     color: #2e3d49;
+                //     font-size: 0.8em;
+                //     text-transform: uppercase;
+                //     letter-spacing: 1px;
+                //     font-weight: 600;
+                //     padding-top: 10px;
+                //     padding-left: 35px;
+                //     margin-bottom: 15px;
+                //     &.first {
+                //         padding-top: 60px;
+                //     }
+                // }
                 .blur {
                     background: rgba(255,255,255,1);
                     filter: blur(6px);
@@ -174,7 +179,7 @@
                     background: white;
                     margin-bottom: 0px;
                     border-radius: 0rem;
-                    padding: 20px;
+                    padding: 30px;
                     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
                     cursor: pointer;
                     &:hover {
@@ -182,7 +187,7 @@
                         margin-bottom: 5px;
                     }
                     .event-title{
-                        font-size: 1.4rem;
+                        font-size: 1.6rem;
                         font-weight: 900;
                     }
                     .organization {

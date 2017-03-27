@@ -16,7 +16,7 @@ function createVolunteerResource(data) {
                 dispatch({ type: 'SUCCESS' });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }
@@ -30,7 +30,7 @@ function createInternshipResource(data) {
                 dispatch({ type: 'SUCCESS' });
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
             });
     }
 }

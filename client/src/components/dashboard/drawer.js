@@ -57,13 +57,7 @@ class Drawer extends Component {
             <span className="title">Major Requirement</span>
           </div>
         </Link>
-        <Link to="/dashboard/ucinfo" onClick={()=>{location.reload()}} activeClassName="active">
-          <div className="item">
-            <span className="icon"><Icon name="catalog"/></span>
-            <span className="title">UC Stats</span>
-          </div>
-        </Link>
-
+        
         <div className="bottom">
           <Link to="/dashboard/setting" activeClassName="active">
             <div className="item">
@@ -90,3 +84,10 @@ function mapStateToProps({auth}){
 }
 
 export default connect(mapStateToProps)(Drawer);
+
+// <Link to="/dashboard/ucinfo" onClick={()=>{location.reload()}} activeClassName="active">
+//     <div className="item">
+//       <span className="icon"><Icon name="catalog"/></span>
+//       <span className="title">UC Stats</span>
+//     </div>
+//   </Link>
