@@ -1,6 +1,4 @@
-import moment from 'moment';
-
-export default {
+{
     "_id" : "webdev",
     "course" : {
         "title" : "Introduction to Software Development",
@@ -135,13 +133,7 @@ export default {
                 "description" : "Make your website visiable by other people and learn to share your story and works. Learn to build more website as you go and learn what is confidence to your next step.",
                 "projects": ["Build second HTTP web app"],
                 "_id" : "58b0e6fd74e18ef81a8cb130"
-            }, 
-            // {
-            //     "title" : "Final Project Day",
-            //     "description" : "4 hrs of building and 1:1 interview 1 hr of demo and 30 mins honor certifications",
-            //     "projects": ["Build third HTTP web app"],
-            //     "_id" : "58b0e6fd74e18ef81a8cb130"
-            // }
+            }
         ],
         "tags" : [ 
             "Computer Science"
@@ -152,16 +144,7 @@ export default {
         "firstName" : "Andy",
         "lastName" : "Chen",
         "phone" : "4084313552",
-        "bio": `Andy自學平面設計、互動設計、專精程式開發多年，闖遍舊金山灣駭客松、
-                開發者大會及創業聚會，他深信編程只是工具，是他完成夢想的一方法，
-                追求專業的編程外，他更不斷思考品牌、產品、使用者體驗、商業模式等等
-                全方位的價值。
-
-                「把自己逼到牆角，墊起腳尖才能看更高」，對自己的要求近乎苛求的Andy
-                常常說，這世界上沒有比「從想法到產品，從產品到讓使用者愛上」更動人的
-                事了。打造優雅、極致、專業的產品是Andy一路一來的初心。
-                編程占他生活的60%，一天沒編程，遍全身不舒服，編程起來往往六親不認、
-                廢寢忘食，但他卻依然忘我並無斷追求，挑戰自己。`,
+        "bio": "Andy自學平面設計、互動設計、專精程式開發多年，闖遍舊金山灣駭客松、開發者大會及創業聚會，他深信編程只是工具，是他完成夢想的一方法，追求專業的編程外，他更不斷思考品牌、產品、使用者體驗、商業模式等等全方位的價值。「把自己逼到牆角，墊起腳尖才能看更高」，對自己的要求近乎苛求的Andy常常說，這世界上沒有比「從想法到產品，從產品到讓使用者愛上」更動人的事了。打造優雅、極致、專業的產品是Andy一路一來的初心。編程占他生活的60%，一天沒編程，遍全身不舒服，編程起來往往六親不認、廢寢忘食，但他卻依然忘我並無斷追求，挑戰自己。",
         "linkedinURL" : "https://www.linkedin.com/in/amazingandyyy",
         "_id" : "58b0e6fd74e18ef81a8cb12e",
         "currentPosition" : {

@@ -1,35 +1,8 @@
 import Volunteer from './model';
 import config from '../../config'
 import axios from 'axios';
-
+import { fetchAllFromG } from './googlesheet';
 export default {
-    createOne : function (req, res, next) {
-        const createBy = req.user._id;
-        const title = req.body.title;
-        let data;
-        if (req.body.location) {
-            const coordinates = [req.body.location.location.lng, req.body.location.location.lat]
-            data = {
-                createBy,
-                ...req.body,
-                geometry: {
-                    coordinates
-                }
-            }
-        } else {
-            data = {
-                createBy,
-                ...req.body
-            }
-        }
-
-        Volunteer
-            .create(data)
-            .then((d) => {
-                res.send()
-            })
-            .catch(next)
-    },
     fetchAll : function (req, res, next) {
         Volunteer
             .find({})
@@ -70,5 +43,6 @@ export default {
                 res.send();
             })
             .catch(next);
-    }
+    },
+    fetchAllFromG: fetchAllFromG
 };

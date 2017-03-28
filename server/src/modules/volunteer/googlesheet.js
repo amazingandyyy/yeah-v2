@@ -2,7 +2,7 @@ import Spreadsheet from 'edit-google-spreadsheet';
 
 import config from '../../config'
 import axios from 'axios';
-
+import Volunteer from './model';
 let google_sheet_headers;
 
 function fetchAllFromG(req, res, next){
@@ -28,9 +28,17 @@ function fetchAllFromG(req, res, next){
                 }
             }).then(response=>{
                 let sheetData = response.data.values;
-                return res.send(cleanData(sheetData))
+                // return res.send(cleanData(sheetData))
+                saveToMongo(cleanData(sheetData));
         }).catch(next)
     }
+}
+function saveToMongo(data){
+    console.log(data.length)
+    Volunteer.create(data, (err, data)=>{
+        if(err){return console.log(err)
+        }else{ console.log('ok')}
+    })
 }
 function fetchOneFromG(req, res, next){
     const id = Number(req.params.id);
@@ -68,7 +76,7 @@ function cleanData(sheetData){
     })
     function eventGenerater(event, index){
         return {
-            _id: index,
+            id: index,
             createAt: event[0],
             position: event[1],
             title: event[21],

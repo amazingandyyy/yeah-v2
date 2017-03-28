@@ -5,13 +5,12 @@ import {fetchAllFromG, fetchOneFromG} from './googlesheet';
 const router = express.Router();
 
 // authorization required
-router.post('/create', loginRequired, checkAdmin, controller.createOne);
+// router.post('/create', loginRequired, checkAdmin, controller.createOne);
 
 // public request
-// router.get('/fetchAll', loginRequired, controller.fetchAll);
-router.get('/fetchAll', loginRequired, fetchAllFromG);
-router.get('/fetchOne/:id', loginRequired, fetchOneFromG);
-router.delete('/deleteOne/:id', loginRequired, checkAdmin, controller.deleteOne);
-router.post('/updateOne/:id', loginRequired, checkAdmin, controller.updateOne);
+router.get('/fetchAll', loginRequired, controller.fetchAll);
+router.get('/fetchOne/:id', loginRequired, controller.fetchOne);
+// router.delete('/deleteOne/:id', loginRequired, checkAdmin, controller.deleteOne);
+// router.post('/updateOne/:id', loginRequired, checkAdmin, controller.updateOne);
 
 export default router;

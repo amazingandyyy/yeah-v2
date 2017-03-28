@@ -13,7 +13,7 @@ class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            details: props.data[0],
+            details: props.data,
             showVolunteerModal: false
         }
     }

@@ -13,16 +13,16 @@ class Single extends Component {
     }
     componentWillMount() {
         this.props.resetOneVolunteer()
-        let parems = Number(this.props.location.pathname.split('/').reverse()[0]);
-        let id = (parems - 33) / 45;
-        this.props.fetchOneVolunteer(id);
+        let parems = this.props.location.pathname.split('/').reverse()[0];
+        this.props.fetchOneVolunteer(parems);
     }
     renderVolunteer() {
-        console.log(this.props.event)
         if (this.props.event) {
             return <VolunteerTemplate data={this.props.event}/>
         }
-        return <Loader/>
+        return (<div style={{padding: '100px'}}>
+                <Loader/>
+            </div>)
     }
     goBack() {
         hashHistory.goBack()

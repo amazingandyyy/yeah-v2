@@ -12,7 +12,7 @@ function fetchOneVolunteer(id) {
         request
             .get(`/api/resource/volunteer/fetchOne/${id}`)
             .then(res => {
-                console.log('One volunteer event', res.data)
+                // console.log('One volunteer event', res.data)
                 dispatch({type: FETCH_ONE_VOLUNTEER_CHANCE, payload: res.data})
             })
             .catch(error => {

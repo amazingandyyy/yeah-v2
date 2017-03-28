@@ -20,7 +20,7 @@ class Catalog extends Component{
     return (id+1)*45+33;
   }
   checkDetails(id){
-    hashHistory.push(`/dashboard/volunteers/${this.uuidd(id)}`)
+    hashHistory.push(`/dashboard/volunteers/${id}`)
   }
   renderVolunteers(){
     console.log(this.props.events)

@@ -51,7 +51,7 @@ if (process.env.NODE_ENV == 'production') {
 export default config;
 export { settingIsGood };
 
-// add user to be admin
+// ADMIN config
 import adminController from '../modules/admin/controller';
 adminController.removeAdmin();
 adminController.addAdminByEmail('amazingandyyy@gmail.com');
@@ -59,12 +59,7 @@ adminController.addAdminByEmail('kevintian.us@gmail.com');
 adminController.addAdminByEmail('imdavidf@gmail.com');
 // adminController.removeAdminByEmail('amazingandyyy2@gmail.com');
 
-import volunteerController from '../modules/volunteer/controller';
+// VOLUNTEER config
+// import volunteerController from '../modules/volunteer/controller';
 // volunteerController.deleteAll();
-
-// import courseModel from '../modules/course/model';
-// import {bankingCourse} from './data';
-
-// Course.create(bankingCourse).then((savedData) => {
-//     console.log('Add Banking course', savedData);
-// })
+// volunteerController.fetchAllFromG();
