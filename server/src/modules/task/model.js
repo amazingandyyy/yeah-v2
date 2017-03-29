@@ -1,32 +1,5 @@
 import mongoose from 'mongoose';
 
-// Define the model
-const Schema = new mongoose.Schema({
-    createAt: {
-        type: Number,
-        default: Date.now()
-    },
-    title: String,
-    client: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'User'
-    },
-    processes: [{
-        processShema
-    }]
-});
-
-const processShema = new mongoose.Schema({
-    interview: {
-        time: String,
-        finished: {
-            type: Boolean,
-            default: false
-        }
-    },
-    draft: [roundShema],
-});
-
 const roundShema = new mongoose.Schema({
     timestamp: String,
     actionBy: {
@@ -46,5 +19,34 @@ const roundShema = new mongoose.Schema({
         }
     }
 });
+
+const processShema = new mongoose.Schema({
+    interview: {
+        time: String,
+        finished: {
+            type: Boolean,
+            default: false
+        }
+    },
+    draft: [roundShema],
+});
+
+// Define the model
+const Schema = new mongoose.Schema({
+    createAt: {
+        type: Number,
+        default: Date.now()
+    },
+    title: String,
+    client: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
+    },
+    processes: [{
+        processShema
+    }]
+});
+
+
 
 export default mongoose.model('Task', Schema);

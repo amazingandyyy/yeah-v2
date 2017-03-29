@@ -11,7 +11,9 @@ export default {
     },
     fetchAllOfOne : function (req, res, next) {
         Task
-            .find({client: req.user._id})
+            .find({
+                client: req.user._id
+            })
             .then(data => {
                 res.send(data)
             })
