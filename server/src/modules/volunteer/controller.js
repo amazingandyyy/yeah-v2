@@ -1,7 +1,6 @@
 import Volunteer from './model';
-import config from '../../config'
-import axios from 'axios';
 import { fetchAllFromG } from './googlesheet';
+
 export default {
     fetchAll : function (req, res, next) {
         Volunteer

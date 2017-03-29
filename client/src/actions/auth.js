@@ -27,7 +27,7 @@ function signUserIn({email, password}) {
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('yeah_token', res.data.token);
                 request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
-                hashHistory.push('/dashboard');
+                hashHistory.push('/dashboard/start');
             })
             .catch(error => {
                 console.log(error);
@@ -55,7 +55,7 @@ function signUserInWithFacebook(FbTreasure){
                     localStorage.setItem('isAdmin', res.data.isAdmin);
                     localStorage.setItem('yeah_token', res.data.token);
                     request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
-                    hashHistory.push('/dashboard');
+                    hashHistory.push('/dashboard/start');
                 }
             })
             .catch(error => {
@@ -89,7 +89,7 @@ function signUserUp(userObj) {
                 localStorage.setItem('isAdmin', res.data.isAdmin);
                 localStorage.setItem('yeah_token', res.data.token);
                 request.defaults.headers.common['Authorization'] = localStorage.getItem('yeah_token');
-                hashHistory.push('/dashboard');
+                hashHistory.push('/dashboard/start');
             })
             .catch(error => {
                 console.log(error);

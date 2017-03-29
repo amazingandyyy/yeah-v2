@@ -36,7 +36,13 @@ class Drawer extends Component {
         <Link to="/dashboard/start" activeClassName="active">
           <div className="item">
             <span className="icon"><Icon name="home"/></span>
-            <span className="title">Home</span>
+            <span className="title">Profile</span>
+          </div>
+        </Link>
+        <Link to="/dashboard/app" activeClassName="active">
+          <div className="item">
+            <span className="icon"><Icon name="catalog"/></span>
+            <span className="title">Application</span>
           </div>
         </Link>
         <Link to="/dashboard/courses" activeClassName="active">

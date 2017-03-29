@@ -43,6 +43,15 @@ const DashboardRoute = {
       path: '/dashboard/assist',
       component: Assist
     }, {
+      path: '/dashboard/app',
+      getComponent(location, cb) {
+        System
+          .import ('../components/dashboard/application')
+          .then(module => {
+            return loginGuard(module.default, cb);
+          })
+      },
+    }, {
       path: '/dashboard/ucinfo',
       component: UCInfomation
     }, {

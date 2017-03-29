@@ -5,8 +5,22 @@ import { Link } from 'react-router';
 import moment from 'moment';
 import {Introduction, teamMembers } from './data';
 import Particles from 'react-particles-js';
+import{ YeahModal,SalesModal } from '../../widgets/modals';
 
 class Accelerator extends Component{
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            showSalesModal: false
+        }
+    }
+        
+    openSalesModal(){
+        this.setState({
+            showSalesModal: true
+        })
+    }
     renderTeam(){
         return (
             <div className="section team">
@@ -36,7 +50,7 @@ class Accelerator extends Component{
     renderIntroduction(){
         return (
             <div className="section introduction">
-                <div className="title">What is Yeah?</div>
+                <div className="title">What is Yeah Accelerator?</div>
                 <hr/>
                 <div className="description">
                     {Introduction}
@@ -45,22 +59,20 @@ class Accelerator extends Component{
         )
     }
 
-    renderContactUs(){
+    renderEnrollNow(){
         return (
             <div className="take_actions">
             <div className="card">
                 <div className="title">
-                    Contact / Join Our team
+                    Apply / Join Accelerator Program
                 </div>
-                <a href="mailto:yeaheducation@gmail.com?Subject=Join%20the%20Yeah%20Rocket" target="_top">
-                    <div className="action_button">
-                        Contact via Email
-                    </div>
-                </a>
+                <div className="action_button" onClick={this.openSalesModal.bind(this)}>
+                    Apply Now
+                </div>
                 <div className="description">
-                    amazing team @<span>UC Berkeley</span>
+                    professional team @<span>UC Berkeley</span>
                     <br/>
-                    We are <span className="underline">hiring *web developer, *designer and *market expert&internship</span>
+                    Annually limited to <span className="underline">50 college students</span>
                 </div>
             </div>
             </div>
@@ -73,10 +85,10 @@ class Accelerator extends Component{
                 <ComponentLeader title="Accelerator" />
                 <div className="about-component">
                     {this.renderIntroduction()}
-                    {this.renderTeam()}
                 </div>
-                {this.renderContactUs()}
+                {this.renderEnrollNow()}
                 <Footer />
+                {this.state.showSalesModal && <YeahModal><SalesModal /></YeahModal>}
             </div>
         )
     }
