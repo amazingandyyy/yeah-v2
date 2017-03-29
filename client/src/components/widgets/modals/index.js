@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { store } from '../../../index';
 import { Provider } from 'react-redux';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class YeahModal extends Component {
     constructor(props){

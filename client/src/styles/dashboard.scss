@@ -231,8 +231,23 @@
                 }
             }
         }
+
+        &.application {
+            .container>.title{
+                padding-top: 20px;
+                font-size: 2rem;
+                font-weight: 900;
+
+                hr {
+                    margin: 10px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
     }
 
+    
     .admin-component {
         .nav-link {
             opacity: 0.5;

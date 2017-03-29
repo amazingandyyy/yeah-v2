@@ -4943,6 +4943,14 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react, react@^15.1.0, react@^15.3.2, react@^15.4.1:
+  version "15.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+  dependencies:
+    fbjs "^0.8.4"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+
 react-addons-css-transition-group:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-addons-css-transition-group/-/react-addons-css-transition-group-15.4.2.tgz#b7828834dfa14229fe07750e331e8a8cb6fb7745"
@@ -5012,7 +5020,7 @@ react-dnd@^2.0.2:
     invariant "^2.1.0"
     lodash "^4.2.0"
 
-react-dom@^15.1.0, react-dom@^15.3.2, react-dom@^15.4.1:
+react-dom, react-dom@^15.1.0, react-dom@^15.3.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
   dependencies:
@@ -5192,14 +5200,6 @@ react-widgets:
   optionalDependencies:
     deconstruct-number-format "0.0.1"
     format-number-with-string "0.0.2"
-
-react@^15.1.0, react@^15.3.2, react@^15.4.1:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
-  dependencies:
-    fbjs "^0.8.4"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

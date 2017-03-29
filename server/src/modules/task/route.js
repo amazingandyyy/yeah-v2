@@ -7,6 +7,7 @@ import { loginRequired, checkAdmin } from '../../middleware';
 
 // Admin behavior
 router.get('/fetchAll', loginRequired, checkAdmin, controller.fetchAll);
+router.post('/createOne', loginRequired, checkAdmin, controller.createOne);
 
 // Student/Admin behavior
 router.get('/fetchOne/:id', loginRequired, controller.fetchOne);

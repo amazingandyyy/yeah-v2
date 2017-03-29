@@ -35,5 +35,13 @@ export default {
                 res.send(data);
             })
             .catch(next);
+    },
+    createOne : function (req, res, next) {
+        const newData = req.body;
+        Task.create(newData)
+            .then((data) => {
+                res.send(data);
+            })
+            .catch(next);
     }
 };

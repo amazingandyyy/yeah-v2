@@ -36,8 +36,8 @@ function fetchAllFromG(req, res, next){
 function saveToMongo(data){
     console.log(data.length)
     Volunteer.create(data, (err, data)=>{
-        if(err){return console.log(err)
-        }else{ console.log('ok')}
+        if(err){ return console.log(err)
+        }else{ console.log('add a row of new volunteer events from googlesheet') }
     })
 }
 function fetchOneFromG(req, res, next){

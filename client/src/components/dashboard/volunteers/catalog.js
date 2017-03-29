@@ -23,7 +23,7 @@ class Catalog extends Component{
     hashHistory.push(`/dashboard/volunteers/${id}`)
   }
   renderVolunteers(){
-    console.log(this.props.events)
+    // console.log(this.props.events)
     if(this.props.events){
       return this.props.events.map((event) => {
         return (

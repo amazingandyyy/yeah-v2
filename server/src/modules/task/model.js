@@ -37,7 +37,12 @@ const Schema = new mongoose.Schema({
         type: Number,
         default: Date.now()
     },
+    uuid: String,
     title: String,
+    createBy: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User'
+    },
     client: {
         type: mongoose.Schema.ObjectId,
         ref: 'User'
