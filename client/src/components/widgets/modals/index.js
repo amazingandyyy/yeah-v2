@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { store } from '../../../index';
 import { Provider } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
 
 class YeahModal extends Component {
     constructor(props){
@@ -59,7 +60,7 @@ class SalesModal extends Component {
     render(){
         return (
             <div className="sales">
-                <div className="wechat-icon animated wobble"><i className="fa fa-weixin" aria-hidden="true"></i></div>
+                <div className="title-icon wechat animated wobble"><i className="fa fa-weixin" aria-hidden="true"></i></div>
                 <div className="action">
                     扫码/长按二维码，立刻与欧耶大使报名！
                 </div>

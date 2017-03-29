@@ -7,7 +7,7 @@ import Particles from 'react-particles-js';
 import {Loader,Header,Footer} from '../../widgets';
 import GoogleMapDetails from '../../widgets/googleMapDetails';
 import{ YeahModal,SalesModal } from '../../widgets/modals';
-
+import SignUpModal from '../../widgets/modals/signupForm';
 
 class Detail extends Component {
     constructor(props) {
@@ -189,13 +189,13 @@ class Detail extends Component {
                         {details.title || details.position}
                     </div>
                     <div className="points">
-                        <div><i className="fa fa-users"></i>Limited position</div>
+                        <div><i className="fa fa-users"></i>Limited positions</div>
                         <div><i className="fa fa-calendar-check-o"></i>Volunteer time is {details.time}</div>
                         <div><i className="fa fa-location-arrow"></i>{details.location.address}</div>
                         <div><i className="fa fa-certificate"></i>Certification guarantee</div>
                     </div>
                     <div className="action_button" onClick={this.attemptRegister.bind(this)}>
-                        Register Now
+                        Sign Up Now
                     </div>
                     <div className="description">
                         {details.applyMethod}
@@ -213,7 +213,7 @@ class Detail extends Component {
                 {this.renderPreq()}
                 {this.renderTakeaways()}
                 {this.renderRegisterNow()}
-                {this.state.showVolunteerModal && <YeahModal><SalesModal /></YeahModal>}
+                {this.state.showVolunteerModal && <YeahModal><SignUpModal /></YeahModal>}
             </div>)
     }
 }

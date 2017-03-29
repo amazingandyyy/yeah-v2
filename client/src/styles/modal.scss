@@ -12,6 +12,7 @@
     left: 0;
     right: 0;
     background: rgba(0,0,0,0.4);
+    // background: linear-gradient(to top left, #02b3e4, #02ccba);
     padding: 10vh 10px;
     transition: opacity .3s linear,top .3s ease-out;
 
@@ -28,7 +29,8 @@
         padding: 40px;
         width: 100%;
         min-width: 300px;
-        max-width: 40rem;
+        max-width: 45rem;
+        max-height: 100%;
         margin: auto;
         position: relative;
         box-shadow: 2px 5px 30px -2px rgba(0,0,0,0.3);
@@ -92,11 +94,22 @@
         }
 
         .body{
+            .btn-container{
+                button {
+                    float: right;
+                }
+            }
             .sales{
                 text-align: center;
-                .wechat-icon{
-                    background: #2DC100;
-                    color: white;
+                img{
+                    width: 200px;
+                    margin: auto;
+                    border-radius: 0.2rem;
+                }
+            }
+
+            .signup, .sales{
+                .title-icon{
                     margin: auto;
                     width: 80px;
                     height: 80px;
@@ -105,15 +118,21 @@
                     text-align: center;
                     font-size: 2.6rem;
                     margin-bottom: 20px;
+
+                    &.wechat{
+                        background: #2DC100;
+                        color: white;
+                    }
+                    &.signup{
+                        background: linear-gradient(to top left, #02b3e4, #02ccba);;
+                        color: white;
+                    }
                 }
                 .action{
+                    text-transform: capitalize;
+                    text-align: center;
                     font-size: 1.6rem;
                     opacity: 0.6;
-                }
-                img{
-                    width: 200px;
-                    margin: auto;
-                    border-radius: 0.2rem;
                 }
             }
         }
