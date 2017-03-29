@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../../actions';
 
-export default class Application extends Component {
+class Application extends Component {
   render() {
     return (
       <div className="display-component">
-        <div className="header">Application</div>
+        <div className="header">Applications</div>
         <div className="content">
         <div className="container">
           Applications
@@ -14,3 +16,9 @@ export default class Application extends Component {
     );
   }
 }
+
+function mapStateToProps({ application }){
+    return { application }
+}
+
+export default connect(mapStateToProps, actions)(Application)

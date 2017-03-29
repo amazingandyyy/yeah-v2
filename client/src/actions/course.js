@@ -6,11 +6,12 @@ import {
     DELETE_ONE_COURSE_GOBACK
  } from './types';
 import { hashHistory } from 'react-router';
+const base_url = '/api/resource/course';
 
 function fetchAllCourseChances() {
     return function (dispatch) {
         request
-            .get(`/api/resource/course/fetchAll`)
+            .get(`${base_url}/fetchAll`)
             .then(res => {
                 dispatch({type: FETCH_ALL_COURSE_CHANCES, payload: res.data})
             })
@@ -23,7 +24,7 @@ function fetchAllCourseChances() {
 function fetchOneCourseChance(id) {
     return function (dispatch) {
         request
-            .get(`/api/resource/course/fetchOne/${id}`)
+            .get(`${base_url}/fetchOne/${id}`)
             .then(res => {
                 dispatch({type: FETCH_ONE_COURSE_CHANCE, payload: res.data})
             })
@@ -36,7 +37,7 @@ function fetchOneCourseChance(id) {
 function deleteOneCourseChance(id) {
     return function (dispatch) {
         request
-            .delete(`/api/resource/course/deleteOne/${id}`)
+            .delete(`${base_url}/deleteOne/${id}`)
             .then(res => {
                 hashHistory.push("/dashboard/explore")
                 dispatch({type: DELETE_ONE_COURSE_CHANCE, payload: directBack });
@@ -58,7 +59,7 @@ function deleteOneCourseGoback(){
 function updateOneCourse(id,data){
     return function(dispatch){
         request
-            .post(`/api/resource/course/updateOne/${id}`, data)
+            .post(`${base_url}/updateOne/${id}`, data)
             .then(res => {
                 hashHistory.push(`/course/${id}`)
             })

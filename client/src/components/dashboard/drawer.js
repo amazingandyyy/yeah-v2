@@ -57,12 +57,6 @@ class Drawer extends Component {
             <span className="title">Volunteers</span>
           </div>
         </Link>
-        <Link to="/dashboard/assist" activeClassName="active">
-          <div className="item">
-            <span className="icon"><Icon name="catalog"/></span>
-            <span className="title">Major Requirement</span>
-          </div>
-        </Link>
         
         <div className="bottom">
           <Link to="/dashboard/setting" activeClassName="active">
@@ -97,3 +91,10 @@ export default connect(mapStateToProps)(Drawer);
 //       <span className="title">UC Stats</span>
 //     </div>
 //   </Link>
+
+// <Link to="/dashboard/assist" activeClassName="active">
+//   <div className="item">
+//     <span className="icon"><Icon name="catalog"/></span>
+//     <span className="title">Major Requirement</span>
+//   </div>
+// </Link>

@@ -6,6 +6,7 @@ import volunteer from './volunteer_reducer';
 import internship from './INTERNSHIP_reducer';
 import course from './course_reducer';
 import assist from './assist_reducer';
+import application from './application_reducer';
 const rootReducer = combineReducers({
   form,
   auth,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   volunteer,
   internship,
   course,
-  assist
+  assist,
+  application
 });
 
 export default rootReducer;

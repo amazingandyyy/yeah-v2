@@ -9,7 +9,6 @@ import Multiselect from 'react-widgets/lib/Multiselect';
 import $ from 'jquery';
 import renderHTML from 'react-render-html';
 
-
 class AssistForm extends Component{
     constructor(props){
         super(props)

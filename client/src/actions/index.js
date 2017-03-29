@@ -7,3 +7,4 @@ export * from './volunteer';
 export * from './internship';
 export * from './course';
 export * from './assist';
+export * from './application.js';

@@ -11,7 +11,7 @@ import {
     SUCCEED_TO_RESET_PASSWORD,
     RESET_ERROR
 } from './types';
-import { browserHistory, hashHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 function signUserIn({email, password}) {
     return function (dispatch) {
