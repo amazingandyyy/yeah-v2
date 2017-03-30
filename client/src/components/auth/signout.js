@@ -15,14 +15,19 @@ class Signout extends Component {
     }
 
     componentDidMount() {
-        setInterval(()=>{
-            var newCount = this.state.currentCount - 1;
-            if(newCount > 0) {
-                this.setState({ currentCount: newCount });
-            } else {
-                window.location = '/'
-            }
-        }, 1000)
+        var intervalId = setInterval(this.timer.bind(this), 1000);
+        this.setState({intervalId: intervalId});
+    }
+    componentWillUnmount() {
+        clearInterval(this.state.intervalId);
+    }
+    timer(){
+        var newCount = this.state.currentCount - 1;
+        if(newCount >= 0) {
+            this.setState({ currentCount: newCount });
+        } else {
+            window.location = '/'
+        }
     }
     render() {
         return (

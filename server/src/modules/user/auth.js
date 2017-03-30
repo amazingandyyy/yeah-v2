@@ -7,13 +7,20 @@ import SES from 'node-ses';
 import config from '../../config';
 import jwt from 'jwt-simple';
 import moment from 'moment';
-
+function generateYeahID(name){
+    return `y17${name.replace(/[\W_]+/g," ").toLowerCase()}${Math.floor(Math.random()*1000+1)}`
+}
 const signup = (req, res, next) => {
     if (!req.body.email || !req.body.password) {
         return next()
     };
+    
+    const userData = {
+        ...req.body,
+        yeahID: generateYeahID(req.body.name.first)
+    }
     User
-        .create(req.body)
+        .create(userData)
         .then(savedUser => {
             res.send({success: true, token: generateToken(savedUser)})
         })
@@ -39,6 +46,18 @@ const signinWithEmail = (req, res, next) => {
             bcrypt.compare(password, existingUser.password, (err, good) => {
                 if (err || !good) {
                     return next()
+                }
+                if(!existingUser.yeahID){
+                    existingUser.findByIdAndUpdate(existingUser._id, {yeahID: generateYeahID(existingUser.name.first)})
+                    .then(() => {
+                        AdminController.checkAdminById(existingUser._id)
+                        .then(admin => {
+                            if (admin) {
+                                return res.send({success: true, token: generateToken(existingUser), isAdmin: true})
+                            }
+                           return res.send({success: true, token: generateToken(existingUser), isAdmin: false})
+                        }).catch(next);
+                    }).catch(next);
                 }
                 AdminController
                     .checkAdminById(existingUser._id)

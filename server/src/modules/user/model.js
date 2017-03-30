@@ -4,6 +4,10 @@ import autopopulate from 'mongoose-autopopulate';
 
 // Define the model
 const Schema = new mongoose.Schema({
+  yeahID: {
+    type: String,
+    unique: true
+  },
   name: {
     first: {
       type: String,

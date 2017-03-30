@@ -78,6 +78,7 @@ class Setting extends Component {
         <div className="content">
           <div className="container">
             <div className="card">
+            <small>yeahID: <span>{this.props.profile.yeahID}</span></small>
               <form
                 onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}
                 className="col-xs">
