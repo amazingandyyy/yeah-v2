@@ -59,6 +59,13 @@ class Drawer extends Component {
         </Link>
         
         <div className="bottom">
+          <Link to="/dashboard/admin" activeClassName="active">
+            <div className="item">
+              <span className="icon"><Icon name="setting"/></span>
+              <span className="title">Admin</span>
+            </div>
+          </Link>
+
           <Link to="/dashboard/setting" activeClassName="active">
             <div className="item">
               <span className="icon"><Icon name="setting"/></span>

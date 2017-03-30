@@ -76,9 +76,12 @@ const Schema = new mongoose.Schema({
     },
     code: String
   },
-  major: [{
+  major: {
     type: String
-  }],
+  },
+  yearOfSchool: {
+    type: String
+  },
   graduateAt: String,
   university: [{
       type: String

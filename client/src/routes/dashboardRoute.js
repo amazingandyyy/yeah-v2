@@ -1,23 +1,21 @@
 import React, {Component} from 'react';
-import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import Start from '../components/dashboard/start';
 import Setting from '../components/dashboard/setting';
-import Courses from '../components/dashboard/courses';
+
 import ExploreCoursesCatalog from '../components/dashboard/courses/catalog';
 
 import VolunteerAdmin from '../components/dashboard/admin/volunteerAdmin';
 import VolunteerOneAdmin from '../components/dashboard/admin/volunteerOneAdmin';
-import VolunteerDetail from '../components/volunteer';
 
 import CourseAdmin from '../components/dashboard/admin/course/courseAdmin';
 import CourseOneAdmin from '../components/dashboard/admin/courseOneAdmin';
-import CourseDetail from '../components/course';
 import CourseAdminSuccess from '../components/dashboard/admin/course/courseAdminSuccess';
 
 import InternshipAdmin from '../components/dashboard/admin/internshipAdmin';
 import InternshipOneAdmin from '../components/dashboard/admin/internshipOneAdmin';
-import InternshipDetail from '../components/internship';
+
 import Assist from '../components/dashboard/assist';
 import UCInfomation from '../components/dashboard/ucinfo';
 
@@ -108,9 +106,9 @@ const DashboardRoute = {
             return loginGuard(module.default, cb);
           })
       },
-      indexRoute: {
-        component: VolunteerAdmin
-      },
+      // indexRoute: {
+      //   component: VolunteerAdmin
+      // },
       childRoutes: [
         {
           path: '/dashboard/admin/volunteer',

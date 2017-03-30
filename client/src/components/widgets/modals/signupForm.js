@@ -45,7 +45,7 @@ class SignUpModal extends Component {
         const {handleSubmit, submitting, reset, dirty} = this.props;
         return (
             <div className="signup">
-                <div className="title-icon signup animated wobble"><i className="fa fa-check" aria-hidden="true"></i></div>
+                <div className="title-icon signup animated pulse"><i className="fa fa-check" aria-hidden="true"></i></div>
                 <div className="action">
                     Please Complete signup form
                 </div>

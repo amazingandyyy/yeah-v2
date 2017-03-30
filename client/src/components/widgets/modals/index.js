@@ -36,7 +36,7 @@ class YeahModal extends Component {
 
     _render(){
         ReactDOM.render(<Provider store={store}>
-        <div className="wrapper animated bounceIn">
+        <div className="wrapper animated slideInDown">
             <div className="close-button" onClick={this.handleCloseModal.bind(this)}>
             </div>
             <div className="body">
