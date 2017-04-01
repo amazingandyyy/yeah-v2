@@ -60,6 +60,6 @@ adminController.addAdminByEmail('imdavidf@gmail.com');
 // adminController.removeAdminByEmail('amazingandyyy2@gmail.com');
 
 // VOLUNTEER config
-// import volunteerController from '../modules/volunteer/controller';
-// volunteerController.deleteAll();
-// volunteerController.fetchAllFromG();
+import volunteerController from '../modules/volunteer/controller';
+volunteerController.deleteAll();
+volunteerController.fetchAllFromG();
