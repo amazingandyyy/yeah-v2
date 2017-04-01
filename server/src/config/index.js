@@ -19,7 +19,7 @@ if (process.env.NODE_ENV == 'production') {
         aws_s3_bucket: 'yeah-assets',
         aws_s3_url_base: 'https://s3-us-west-1.amazonaws.com',
         aws_ses_sender: 'yeaheducation@gmail.com',
-        redirect_url_base: 'https://yeah-v2-server.herokuapp.com',
+        redirect_url_base: 'https://yeaheducationgroup.github.io',
         unique_salt: process.env.UNIQUE_SALT,
         PORT: process.env.PORT,
         g: {
