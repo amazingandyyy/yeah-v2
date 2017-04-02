@@ -38,6 +38,7 @@ class SignUpModal extends Component {
       },
       college
     }
+    
     console.log('sign up info', data)
     // this.props.updateUserProfile(userData)
   }
